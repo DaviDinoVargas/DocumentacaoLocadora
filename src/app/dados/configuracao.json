@@ -1,0 +1,420 @@
+{
+  "variaveis": [
+    {
+      "nome": "ANTISPOOF_DIR",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "ANTISPOOF_ENABLED",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "ANTISPOOF_THRESHOLD",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "CAMERA_EMPRESA_ID",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "CAMERA_IDLE_TIMEOUT_S",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/service.py"
+      ]
+    },
+    {
+      "nome": "CAMERA_MAX_PROBE",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/router.py"
+      ]
+    },
+    {
+      "nome": "CAMERA_SERVER",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "CROPS_DIR",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "CROPS_RETENTION_HOURS",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "DOTNET_API_URL",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "DOTNET_API_VERIFY_SSL",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "FACE_COSINE_THRESHOLD",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "FACE_MODEL_DIR",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "HOST",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py",
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "MIN_CONF",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "MIN_PLATE_AREA",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "ML_ENV",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "ML_INTERNAL_TOKEN",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py"
+      ]
+    },
+    {
+      "nome": "OCR_LANG",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "PORT",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "SAVE_CROPS",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "TESSERACT_CMD",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "YOLO_MODEL",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "YOLO_MODEL_SHA256",
+      "componentes": [
+        "Serviço de ML"
+      ],
+      "arquivos": [
+        "MachineLeaning/yolo_tesseract/config.py"
+      ]
+    },
+    {
+      "nome": "CORS_ALLOWED_ORIGINS",
+      "componentes": [
+        "Serviço de ML",
+        "Web API"
+      ],
+      "arquivos": [
+        "MachineLeaning/shared/settings.py",
+        "Server/web-api/Config/Http/CorsConfig.cs"
+      ]
+    },
+    {
+      "nome": "ANTISPOOF_REQUIRED",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/FacialAuthClient.cs"
+      ]
+    },
+    {
+      "nome": "ASPNETCORE_ENVIRONMENT",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/DependencyInjection.cs",
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/FacialAuthClient.cs",
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/SegredoInternoDoMl.cs",
+        "Server/LocadoraDeVeiculos.Infraestrutura.Orm/orm/ModuloAutenticacao/CifradorFacial.cs"
+      ]
+    },
+    {
+      "nome": "FACE_ENCRYPTION_KEYS",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Infraestrutura.Orm/orm/ModuloAutenticacao/CifradorFacial.cs"
+      ]
+    },
+    {
+      "nome": "FRONTEND_URL",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/RecuperacaoDeSenha.cs"
+      ]
+    },
+    {
+      "nome": "JWT_AUDIENCE_DOMAIN",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/JwtProvider.cs",
+        "Server/LocadoraDeVeiculos.Infraestrutura.Orm/jwt/Services/AccessTokenProvider.cs",
+        "Server/web-api/Config/Identify/IdentifyConfig.cs"
+      ]
+    },
+    {
+      "nome": "JWT_GENERATION_KEY",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/JwtProvider.cs",
+        "Server/LocadoraDeVeiculos.Infraestrutura.Orm/jwt/Services/AccessTokenProvider.cs",
+        "Server/web-api/Config/Identify/IdentifyConfig.cs"
+      ]
+    },
+    {
+      "nome": "LUCKYPENNY_LICENSE_KEY",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/DependencyInjection.cs"
+      ]
+    },
+    {
+      "nome": "MAX_REQUEST_BODY_BYTES",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/web-api/Config/Http/SegurancaHttpConfig.cs"
+      ]
+    },
+    {
+      "nome": "MlApi:BaseUrl",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/DependencyInjection.cs"
+      ]
+    },
+    {
+      "nome": "MlApi:InternalToken",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/SegredoInternoDoMl.cs"
+      ]
+    },
+    {
+      "nome": "RATE_LIMIT_PER_MINUTE",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/web-api/Config/Http/SegurancaHttpConfig.cs"
+      ]
+    },
+    {
+      "nome": "REGISTRATION_LIMIT_PER_HOUR",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/web-api/Config/Http/SegurancaHttpConfig.cs"
+      ]
+    },
+    {
+      "nome": "SMTP_FROM",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/EnvioDeEmail.cs"
+      ]
+    },
+    {
+      "nome": "SMTP_HOST",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/DependencyInjection.cs",
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/EnvioDeEmail.cs"
+      ]
+    },
+    {
+      "nome": "SMTP_PASSWORD",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/EnvioDeEmail.cs"
+      ]
+    },
+    {
+      "nome": "SMTP_PORT",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/EnvioDeEmail.cs"
+      ]
+    },
+    {
+      "nome": "SMTP_SSL",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/EnvioDeEmail.cs"
+      ]
+    },
+    {
+      "nome": "SMTP_USER",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/EnvioDeEmail.cs"
+      ]
+    },
+    {
+      "nome": "SQL_CONNECTION_STRING",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/LocadoraDeVeiculos.Infraestrutura.Orm/orm/DependencyInjection.cs"
+      ]
+    },
+    {
+      "nome": "TRUSTED_PROXIES",
+      "componentes": [
+        "Web API"
+      ],
+      "arquivos": [
+        "Server/web-api/Config/Http/SegurancaHttpConfig.cs"
+      ]
+    }
+  ]
+}

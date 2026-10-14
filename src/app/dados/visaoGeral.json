@@ -1,0 +1,153 @@
+{
+  "tamanhos": {
+    "backend": 15108,
+    "frontend": 10829,
+    "ml": 2434,
+    "testes": 11697,
+    "ataques": 1761
+  },
+  "docs": [
+    {
+      "arquivo": "POLITICA_DE_PRIVACIDADE_BIOMETRIA.md",
+      "linhas": 48
+    },
+    {
+      "arquivo": "RECUPERACAO_DE_SENHA_POR_EMAIL.md",
+      "linhas": 31
+    },
+    {
+      "arquivo": "S33_EMBEDDING_FACIAL.md",
+      "linhas": 49
+    },
+    {
+      "arquivo": "S3_PROVA_DE_VIDA.md",
+      "linhas": 51
+    }
+  ],
+  "capitulos": [
+    {
+      "arquivo": "cap01-introducao.tex",
+      "titulo": "Introdução",
+      "secoes": [
+        "Contexto e objetivo",
+        "Escopo",
+        "Convenções usadas",
+        "Mapa do documento"
+      ],
+      "linhas": 48
+    },
+    {
+      "arquivo": "cap02-arquitetura.tex",
+      "titulo": "Arquitetura geral",
+      "secoes": [
+        "Componentes",
+        "Portas e ambientes",
+        "Decisões de arquitetura",
+        "Fluxo de uma requisição autenticada"
+      ],
+      "linhas": 84
+    },
+    {
+      "arquivo": "cap03-negocio.tex",
+      "titulo": "Módulos e regras de negócio",
+      "secoes": [
+        "Módulos",
+        "Regras que o servidor impõe",
+        "Matriz de papéis"
+      ],
+      "linhas": 57
+    },
+    {
+      "arquivo": "cap04-backend.tex",
+      "titulo": "Back-end (.NET 8)",
+      "secoes": [
+        "Camadas",
+        "Padrões em uso",
+        "Renovação de sessão",
+        "Persistência",
+        "Testes do back-end"
+      ],
+      "linhas": 50
+    },
+    {
+      "arquivo": "cap05-frontend.tex",
+      "titulo": "Front-end e design system",
+      "secoes": [
+        "Stack",
+        "Tokens de design",
+        "Princípios de experiência de uso",
+        "Blocos compartilhados",
+        "Desempenho do pacote",
+        "Acessibilidade já embutida",
+        "Observações de qualidade do código"
+      ],
+      "linhas": 76
+    },
+    {
+      "arquivo": "cap06-ml.tex",
+      "titulo": "Aprendizado de máquina",
+      "secoes": [
+        "Leitura de placas (YOLO + OCR)",
+        "Reconhecimento facial",
+        "Assistente",
+        "Controle de acesso do serviço",
+        "Câmera no Windows",
+        "Testes"
+      ],
+      "linhas": 69
+    },
+    {
+      "arquivo": "cap07-seguranca.tex",
+      "titulo": "Segurança",
+      "secoes": [
+        "Método e limites da revisão",
+        "Superfície de ataque e atores",
+        "Controles que já protegem",
+        "Achados priorizados",
+        "Dados faciais e LGPD",
+        "Mapeamento aproximado com o OWASP Top 10 (2021)",
+        "Plano de correção"
+      ],
+      "linhas": 215
+    },
+    {
+      "arquivo": "cap08-qualidade.tex",
+      "titulo": "Estratégia de testes",
+      "secoes": [
+        "Fundamentos",
+        "Situação atual",
+        "Lacunas conhecidas",
+        "Como executar"
+      ],
+      "linhas": 81
+    },
+    {
+      "arquivo": "cap09-metricas.tex",
+      "titulo": "Plano de métricas e medição",
+      "secoes": [
+        "Quadro-resumo",
+        "Acessibilidade automática com axe-core",
+        "Lighthouse CI e Web Vitals",
+        "Latência da API",
+        "Tempo de leitura de placa (ML)",
+        "Testes ponta a ponta com Playwright",
+        "Usabilidade",
+        "Segurança como métrica"
+      ],
+      "linhas": 367
+    },
+    {
+      "arquivo": "cap10-roadmap.tex",
+      "titulo": "Plano de execução, riscos e trabalhos futuros",
+      "secoes": [
+        "Ordem sugerida",
+        "Pendências de processo",
+        "Riscos",
+        "Limitações",
+        "Trabalhos futuros"
+      ],
+      "linhas": 55
+    }
+  ],
+  "totalTestes": 842
+}

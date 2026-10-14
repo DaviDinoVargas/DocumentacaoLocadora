@@ -1,0 +1,2020 @@
+{
+  "rodada": {
+    "pasta": "2026-10-13_202959_bfa2156",
+    "commit": "bfa2156",
+    "total": 157,
+    "info": {
+      "data": "2026-10-13T20:29:59",
+      "commit": "bfa2156",
+      "modo": "tudo",
+      "python": "3.11.9"
+    },
+    "carga": [
+      {
+        "cenario": "GET /api/clientes",
+        "concorrencia": 10,
+        "requisicoes": 15737,
+        "rps": 1573,
+        "p50": 6.1,
+        "p95": 8,
+        "p99": 12.9,
+        "max": 88.9,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "GET /api/clientes",
+        "concorrencia": 50,
+        "requisicoes": 31343,
+        "rps": 3130.5,
+        "p50": 14.7,
+        "p95": 22.5,
+        "p99": 46.4,
+        "max": 351.5,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "GET /api/clientes",
+        "concorrencia": 100,
+        "requisicoes": 31991,
+        "rps": 3190.8,
+        "p50": 28.6,
+        "p95": 48.5,
+        "p99": 92.1,
+        "max": 469.7,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "GET /api/dashboard/resumo",
+        "concorrencia": 10,
+        "requisicoes": 8814,
+        "rps": 881,
+        "p50": 11,
+        "p95": 13.3,
+        "p99": 15.5,
+        "max": 114.1,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "GET /api/dashboard/resumo",
+        "concorrencia": 50,
+        "requisicoes": 10924,
+        "rps": 1089.6,
+        "p50": 45.4,
+        "p95": 51.8,
+        "p99": 55.1,
+        "max": 62.1,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "GET /api/dashboard/resumo",
+        "concorrencia": 100,
+        "requisicoes": 11230,
+        "rps": 1116.2,
+        "p50": 88.3,
+        "p95": 102.8,
+        "p99": 112.5,
+        "max": 127.2,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "GET /api/automoveis",
+        "concorrencia": 10,
+        "requisicoes": 32320,
+        "rps": 3231.3,
+        "p50": 3,
+        "p95": 4.1,
+        "p99": 5.4,
+        "max": 28.2,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "GET /api/automoveis",
+        "concorrencia": 50,
+        "requisicoes": 37714,
+        "rps": 3767.1,
+        "p50": 12.5,
+        "p95": 22.9,
+        "p99": 29.4,
+        "max": 55.1,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "GET /api/automoveis",
+        "concorrencia": 100,
+        "requisicoes": 37237,
+        "rps": 3715.5,
+        "p50": 24.5,
+        "p95": 47.3,
+        "p99": 62.1,
+        "max": 106.2,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "POST /api/auth/autenticar",
+        "concorrencia": 5,
+        "requisicoes": 245,
+        "rps": 24.2,
+        "p50": 167.2,
+        "p95": 400.7,
+        "p99": 717.8,
+        "max": 724,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "POST /api/auth/autenticar",
+        "concorrencia": 20,
+        "requisicoes": 624,
+        "rps": 61,
+        "p50": 306.1,
+        "p95": 438.2,
+        "p99": 512,
+        "max": 527.8,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "POST /api/auth/autenticar (senha errada)",
+        "concorrencia": 20,
+        "requisicoes": 324,
+        "rps": 31.1,
+        "p50": 620.5,
+        "p95": 828.6,
+        "p99": 998.5,
+        "max": 1077.9,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      }
+    ],
+    "aprovadas": 154,
+    "reprovadas": 0,
+    "informativas": 3,
+    "porCategoria": [
+      {
+        "categoria": "Autenticação",
+        "total": 24,
+        "aprovadas": 23,
+        "reprovadas": 0,
+        "informativas": 1
+      },
+      {
+        "categoria": "Autorização",
+        "total": 26,
+        "aprovadas": 26,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
+        "categoria": "Entradas",
+        "total": 14,
+        "aprovadas": 14,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
+        "categoria": "Configuração",
+        "total": 18,
+        "aprovadas": 17,
+        "reprovadas": 0,
+        "informativas": 1
+      },
+      {
+        "categoria": "ML",
+        "total": 18,
+        "aprovadas": 18,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
+        "categoria": "Conta e privacidade",
+        "total": 24,
+        "aprovadas": 24,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
+        "categoria": "Robustez e abuso",
+        "total": 19,
+        "aprovadas": 19,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
+        "categoria": "Regras de negócio",
+        "total": 7,
+        "aprovadas": 7,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
+        "categoria": "Carga",
+        "total": 5,
+        "aprovadas": 4,
+        "reprovadas": 0,
+        "informativas": 1
+      },
+      {
+        "categoria": "Logs",
+        "total": 2,
+        "aprovadas": 2,
+        "reprovadas": 0,
+        "informativas": 0
+      }
+    ],
+    "porSeveridade": [
+      {
+        "severidade": "alta",
+        "total": 74
+      },
+      {
+        "severidade": "media",
+        "total": 67
+      },
+      {
+        "severidade": "baixa",
+        "total": 16
+      }
+    ],
+    "verificacoes": [
+      {
+        "id": "A01",
+        "categoria": "Autenticação",
+        "titulo": "Rota protegida sem token é recusada",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A02",
+        "categoria": "Autenticação",
+        "titulo": "JWT com payload alterado (assinatura antiga) é recusado",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A03",
+        "categoria": "Autenticação",
+        "titulo": "JWT com alg=none é recusado",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A04",
+        "categoria": "Autenticação",
+        "titulo": "JWT assinado com outra chave é recusado",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A05",
+        "categoria": "Autenticação",
+        "titulo": "Escalada de papel com assinatura falsa é recusada",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A06a",
+        "categoria": "Autenticação",
+        "titulo": "Logout com cookie e cabeçalho do cliente funciona",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A06b",
+        "categoria": "Autenticação",
+        "titulo": "Refresh token não rotaciona depois do logout",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A06c",
+        "categoria": "Autenticação",
+        "titulo": "Access token deixa de valer depois do logout",
+        "severidade": "media",
+        "ref": "S26/S29",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A07a",
+        "categoria": "Autenticação",
+        "titulo": "Rotação normal do refresh token funciona",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A07b",
+        "categoria": "Autenticação",
+        "titulo": "Reuso do refresh token antigo é recusado",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A07c",
+        "categoria": "Autenticação",
+        "titulo": "Detectado o reuso, a sessão inteira é derrubada (o token novo também deixa de valer)",
+        "severidade": "media",
+        "ref": "S29",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A08a",
+        "categoria": "Autenticação",
+        "titulo": "Senha errada devolve 400/401 (nunca 500)",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A08b",
+        "categoria": "Autenticação",
+        "titulo": "10 falhas (de vários IPs) bloqueiam a conta: a senha CERTA é recusada em seguida",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A09",
+        "categoria": "Autenticação",
+        "titulo": "Conta bloqueada responde igual a senha errada (não revela que o e-mail existe)",
+        "severidade": "media",
+        "ref": "S28/S20",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A10",
+        "categoria": "Autenticação",
+        "titulo": "Tempo de login igual para e-mail existente e inexistente (sem enumeração por tempo)",
+        "severidade": "media",
+        "ref": "S20",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A11",
+        "categoria": "Autenticação",
+        "titulo": "Cadastro de e-mail já existente não revela que ele existe (nem por status nem por mensagem)",
+        "severidade": "media",
+        "ref": "S20/S6",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A12",
+        "categoria": "Autenticação",
+        "titulo": "Login: o 11º pedido do mesmo IP no minuto recebe 429",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A13",
+        "categoria": "Autenticação",
+        "titulo": "Cadastro: o 6º pedido do mesmo IP na hora recebe 429",
+        "severidade": "media",
+        "ref": "S6",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A14",
+        "categoria": "Autenticação",
+        "titulo": "Limite global: depois de ~300 pedidos/min do mesmo usuário vem 429 (rota de negócio)",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A15",
+        "categoria": "Autenticação",
+        "titulo": "Atacante de um IP só não tranca o dono para fora da conta",
+        "severidade": "media",
+        "ref": "S28",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A15b",
+        "categoria": "Autenticação",
+        "titulo": "O IP que errou demais é barrado até com a senha certa (limite por conta e IP)",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A16",
+        "categoria": "Autenticação",
+        "titulo": "Conta recém-cadastrada entra sem confirmar o e-mail (depende de e-mail transacional)",
+        "severidade": "media",
+        "ref": "S6",
+        "resultado": "Informativa"
+      },
+      {
+        "id": "A17",
+        "categoria": "Autenticação",
+        "titulo": "Rotação simultânea do mesmo refresh token: no máximo uma tem sucesso",
+        "severidade": "media",
+        "ref": "S29",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "A18",
+        "categoria": "Autenticação",
+        "titulo": "Trocar o final do endereço IPv6 a cada pedido não escapa do limite de login",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B00",
+        "categoria": "Autorização",
+        "titulo": "Empresa cria um funcionário",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B01",
+        "categoria": "Autorização",
+        "titulo": "Anônimo recebe 401 em todas as rotas de negócio",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B02",
+        "categoria": "Autorização",
+        "titulo": "Funcionário recebe 403 nas rotas só da Empresa",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B03",
+        "categoria": "Autorização",
+        "titulo": "Funcionário não cria recursos reservados à Empresa",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B04a",
+        "categoria": "Autorização",
+        "titulo": "Funcionário não cria taxas de serviço (preço é decisão da gerência)",
+        "severidade": "media",
+        "ref": "S32",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B04b",
+        "categoria": "Autorização",
+        "titulo": "Funcionário não edita nem exclui taxas de serviço",
+        "severidade": "media",
+        "ref": "S32",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B04c",
+        "categoria": "Autorização",
+        "titulo": "Funcionário continua LENDO as taxas (precisa delas para montar o aluguel)",
+        "severidade": "media",
+        "ref": "S32",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B10",
+        "categoria": "Autorização",
+        "titulo": "Empresa A cria grupo, cliente e parceiro de teste",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B11",
+        "categoria": "Autorização",
+        "titulo": "Empresa B não lê, altera nem exclui recursos da A por ID (IDOR)",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B12",
+        "categoria": "Autorização",
+        "titulo": "As listagens da Empresa B não contêm nada da A",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B13",
+        "categoria": "Autorização",
+        "titulo": "Depois dos ataques da B, o cliente da A continua intacto",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B14",
+        "categoria": "Autorização",
+        "titulo": "Campo empresaId no corpo é ignorado (mass assignment): o registro não vai para outra empresa",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B15",
+        "categoria": "Autorização",
+        "titulo": "Funcionário da A enxerga os dados da A",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B16",
+        "categoria": "Autorização",
+        "titulo": "Funcionário da A não enxerga dados da B",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B20",
+        "categoria": "Autorização",
+        "titulo": "A auditoria da A registra a criação do grupo",
+        "severidade": "media",
+        "ref": "S14",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B21",
+        "categoria": "Autorização",
+        "titulo": "A auditoria da B não contém nada da A",
+        "severidade": "alta",
+        "ref": "S14",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B22",
+        "categoria": "Autorização",
+        "titulo": "A auditoria não guarda valores (nome do grupo/cliente) nem dados pessoais",
+        "severidade": "media",
+        "ref": "S14",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B23",
+        "categoria": "Autorização",
+        "titulo": "Login e falha de login aparecem na trilha de auditoria da empresa",
+        "severidade": "media",
+        "ref": "S14",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B24",
+        "categoria": "Autorização",
+        "titulo": "Os eventos de login da A não aparecem na trilha da B",
+        "severidade": "alta",
+        "ref": "S14",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B30",
+        "categoria": "Autorização",
+        "titulo": "Empresa desliga o funcionário",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B31",
+        "categoria": "Autorização",
+        "titulo": "O access token do funcionário desligado deixa de valer na hora",
+        "severidade": "alta",
+        "ref": "S26",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B32",
+        "categoria": "Autorização",
+        "titulo": "Funcionário desligado não consegue entrar, com 4xx (nunca 500)",
+        "severidade": "alta",
+        "ref": "S26",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B33",
+        "categoria": "Autorização",
+        "titulo": "Login facial do desligado também responde 4xx",
+        "severidade": "media",
+        "ref": "S26",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B40",
+        "categoria": "Autorização",
+        "titulo": "Existe troca de senha autenticada (senha atual + nova)",
+        "severidade": "alta",
+        "ref": "S27",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B41",
+        "categoria": "Autorização",
+        "titulo": "Depois da troca a senha antiga falha e a nova funciona",
+        "severidade": "alta",
+        "ref": "S27",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "B42",
+        "categoria": "Autorização",
+        "titulo": "Depois da troca, o access token antigo é revogado",
+        "severidade": "media",
+        "ref": "S27",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C01",
+        "categoria": "Entradas",
+        "titulo": "Payloads de SQL injection não causam 500, vazamento de erro nem login",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C02",
+        "categoria": "Entradas",
+        "titulo": "Injeção por tempo (WAITFOR) não atrasa a resposta",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C03a",
+        "categoria": "Entradas",
+        "titulo": "XSS: a API devolve JSON (nunca HTML) com nosniff",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C03b",
+        "categoria": "Entradas",
+        "titulo": "XSS: o texto armazenado volta com \"<\" escapado no JSON (\\u003C)",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C04",
+        "categoria": "Entradas",
+        "titulo": "Corpo de 3 MB é recusado (limite de 2 MB)",
+        "severidade": "media",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C05a",
+        "categoria": "Entradas",
+        "titulo": "JSON malformado devolve 400 sem stack trace",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C05b",
+        "categoria": "Entradas",
+        "titulo": "Tipos errados devolvem 4xx sem stack trace",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C05c",
+        "categoria": "Entradas",
+        "titulo": "Campos nulos devolvem 4xx (nunca 500)",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C06",
+        "categoria": "Entradas",
+        "titulo": "Content-Type inesperado devolve 4xx (415)",
+        "severidade": "baixa",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C07",
+        "categoria": "Entradas",
+        "titulo": "Método TRACE não é aceito",
+        "severidade": "baixa",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C10",
+        "categoria": "Entradas",
+        "titulo": "CPF com dígito verificador inválido é recusado pelo servidor",
+        "severidade": "media",
+        "ref": "S13",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C11a",
+        "categoria": "Entradas",
+        "titulo": "Foto do veículo com esquema perigoso (javascript:, file:, http:, data:text/html) é recusada",
+        "severidade": "media",
+        "ref": "S31",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C11b",
+        "categoria": "Entradas",
+        "titulo": "Foto https legítima continua aceita (a funcionalidade não quebrou)",
+        "severidade": "baixa",
+        "ref": "S31",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C12",
+        "categoria": "Entradas",
+        "titulo": "Foto gigante (1,5 MB) é recusada",
+        "severidade": "baixa",
+        "ref": "S31",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D01",
+        "categoria": "Configuração",
+        "titulo": "Respostas da API trazem os cabeçalhos de segurança",
+        "severidade": "media",
+        "ref": "S8",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D02",
+        "categoria": "Configuração",
+        "titulo": "Sem X-Powered-By e sem versão no cabeçalho Server",
+        "severidade": "baixa",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D03a",
+        "categoria": "Configuração",
+        "titulo": "CORS: origem não listada não recebe Allow-Origin",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D03b",
+        "categoria": "Configuração",
+        "titulo": "CORS: a origem do Angular é aceita e não vira \"*\"",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D04",
+        "categoria": "Configuração",
+        "titulo": "Rotacionar com o cookie, mas sem X-Locadora-Client, é recusado",
+        "severidade": "alta",
+        "ref": "S15",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D05",
+        "categoria": "Configuração",
+        "titulo": "Erros 404/400 não mostram stack trace nem tipos internos",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D06",
+        "categoria": "Configuração",
+        "titulo": "Swagger em Development (esperado; fecha fora dele)",
+        "severidade": "baixa",
+        "ref": "S5",
+        "resultado": "Informativa"
+      },
+      {
+        "id": "D07",
+        "categoria": "Configuração",
+        "titulo": "No código, o Swagger só é habilitado em Development",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D10",
+        "categoria": "Configuração",
+        "titulo": "ML: ambiente ausente conta como PRODUÇÃO (falha fechada)",
+        "severidade": "media",
+        "ref": "S25",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D11",
+        "categoria": "Configuração",
+        "titulo": "ML: escuta só em 127.0.0.1 por padrão",
+        "severidade": "media",
+        "ref": "S25",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D12",
+        "categoria": "Configuração",
+        "titulo": "ML: reload automático só em desenvolvimento",
+        "severidade": "baixa",
+        "ref": "S25",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D15",
+        "categoria": "Configuração",
+        "titulo": "Não existe biometria em claro no disco (faces.json migrado para o banco cifrado e apagado)",
+        "severidade": "media",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D13",
+        "categoria": "Configuração",
+        "titulo": "Sem pacotes referenciados e nunca usados (Hangfire, NewRelic)",
+        "severidade": "baixa",
+        "ref": "S30",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D16",
+        "categoria": "Configuração",
+        "titulo": "Prova de vida: pesos conferidos por SHA-256 e carregados com weights_only=True",
+        "severidade": "alta",
+        "ref": "S3",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D16b",
+        "categoria": "Configuração",
+        "titulo": "Prova de vida: download só de commit fixo, por HTTPS, com hash esperado no código",
+        "severidade": "media",
+        "ref": "S3",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D17",
+        "categoria": "Configuração",
+        "titulo": "ML: a prova de vida vem LIGADA por padrão (falha fechada)",
+        "severidade": "alta",
+        "ref": "S3",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D18",
+        "categoria": "Configuração",
+        "titulo": "Reconhecimento facial por embedding: modelo conferido por SHA-256/tamanho e o roteador não usa mais a geometria de landmarks",
+        "severidade": "alta",
+        "ref": "S33",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "D14",
+        "categoria": "Configuração",
+        "titulo": "Sem código morto que usa IgnoreQueryFilters (RoleSeeder)",
+        "severidade": "baixa",
+        "ref": "S30",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E01a",
+        "categoria": "ML",
+        "titulo": "/face/* sem token interno recebe 401",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E01b",
+        "categoria": "ML",
+        "titulo": "/face/* com o token PADRÃO PÚBLICO do repositório recebe 401",
+        "severidade": "alta",
+        "ref": "S2",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E01c",
+        "categoria": "ML",
+        "titulo": "Com o token certo o endpoint responde (400 por imagem inválida, não 401/500)",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E01d",
+        "categoria": "ML",
+        "titulo": "Imagem acima de 4 milhões de caracteres é recusada (422)",
+        "severidade": "media",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E01e",
+        "categoria": "ML",
+        "titulo": "Rotas antigas que guardavam dados (enroll/verify) não existem mais",
+        "severidade": "media",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E02a",
+        "categoria": "ML",
+        "titulo": "Câmeras sem JWT recebem 401",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E02b",
+        "categoria": "ML",
+        "titulo": "Stream com ticket inventado é recusado",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E03a",
+        "categoria": "ML",
+        "titulo": "ML aceita a empresa dona das câmeras (controle: o fluxo legítimo funciona)",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E03b",
+        "categoria": "ML",
+        "titulo": "Uma empresa que NÃO é dona das câmeras não vê as placas detectadas",
+        "severidade": "alta",
+        "ref": "S24",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E03c",
+        "categoria": "ML",
+        "titulo": "Uma empresa que NÃO é dona das câmeras não liga o monitoramento",
+        "severidade": "alta",
+        "ref": "S24",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E03d",
+        "categoria": "ML",
+        "titulo": "Uma empresa que NÃO é dona das câmeras não obtém ticket de vídeo",
+        "severidade": "alta",
+        "ref": "S24",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E05",
+        "categoria": "ML",
+        "titulo": "Rajada de ações nas câmeras (ticket, liga, desliga) é limitada por usuário",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E05b",
+        "categoria": "ML",
+        "titulo": "O limite das ações não bloqueia a leitura (o polling do navegador continua)",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E04a",
+        "categoria": "ML",
+        "titulo": "Em produção /docs, /openapi.json e /redoc não existem",
+        "severidade": "media",
+        "ref": "S12",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E04b",
+        "categoria": "ML",
+        "titulo": "Em produção /health anônimo não detalha versões nem câmeras",
+        "severidade": "baixa",
+        "ref": "S12",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E04c",
+        "categoria": "ML",
+        "titulo": "/chat exige login (não responde anônimo)",
+        "severidade": "baixa",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E04d",
+        "categoria": "ML",
+        "titulo": "Mensagem de chat acima de 2000 caracteres é recusada",
+        "severidade": "baixa",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "E04e",
+        "categoria": "ML",
+        "titulo": "O ML limita rajadas de /chat (algum 429 em 80 pedidos seguidos)",
+        "severidade": "baixa",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F01",
+        "categoria": "Conta e privacidade",
+        "titulo": "O termo de consentimento tem versão e texto e só é servido a quem está logado",
+        "severidade": "media",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F02",
+        "categoria": "Conta e privacidade",
+        "titulo": "Cadastrar o rosto sem aceitar a versão atual do termo é recusado (nem chega ao ML)",
+        "severidade": "alta",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F03",
+        "categoria": "Conta e privacidade",
+        "titulo": "Segundo fator, troca de senha e encerrar conta não existem para anônimos",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F04",
+        "categoria": "Conta e privacidade",
+        "titulo": "\"Esqueci minha senha\" responde igual para e-mail com e sem conta",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F05",
+        "categoria": "Conta e privacidade",
+        "titulo": "Redefinir com token inventado falha igual para e-mail com e sem conta",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F05b",
+        "categoria": "Conta e privacidade",
+        "titulo": "A senha da conta continua a mesma depois do ataque de redefinição",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F10",
+        "categoria": "Conta e privacidade",
+        "titulo": "Iniciar o 2FA devolve a chave do aplicativo",
+        "severidade": "media",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F11",
+        "categoria": "Conta e privacidade",
+        "titulo": "Ativar o 2FA com código errado é recusado e não liga o 2FA",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F11b",
+        "categoria": "Conta e privacidade",
+        "titulo": "Enquanto o 2FA não foi confirmado, o login segue só com a senha",
+        "severidade": "media",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F12",
+        "categoria": "Conta e privacidade",
+        "titulo": "Ativar com o código certo devolve 10 códigos de recuperação",
+        "severidade": "media",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F13",
+        "categoria": "Conta e privacidade",
+        "titulo": "Com o 2FA ativo, senha certa sem código é 428 (pede o código) e não entrega token",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F14",
+        "categoria": "Conta e privacidade",
+        "titulo": "Senha certa com código errado falha com a mesma mensagem genérica de senha errada",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F15",
+        "categoria": "Conta e privacidade",
+        "titulo": "Senha e código do aplicativo juntos entram",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F15b",
+        "categoria": "Conta e privacidade",
+        "titulo": "Código certo com senha errada não entra (o segundo fator não substitui a senha)",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F16",
+        "categoria": "Conta e privacidade",
+        "titulo": "Código de recuperação entra uma vez só",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F17",
+        "categoria": "Conta e privacidade",
+        "titulo": "Login facial de conta com 2FA não vira atalho que dispensa o código",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F20",
+        "categoria": "Conta e privacidade",
+        "titulo": "Funcionário não encerra a conta da empresa",
+        "severidade": "alta",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F21",
+        "categoria": "Conta e privacidade",
+        "titulo": "Encerrar a conta com a senha errada é recusado e a conta continua ativa",
+        "severidade": "alta",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F22",
+        "categoria": "Conta e privacidade",
+        "titulo": "Token sem a senha não encerra a conta",
+        "severidade": "alta",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F23",
+        "categoria": "Conta e privacidade",
+        "titulo": "Encerrar a conta com a senha certa funciona",
+        "severidade": "alta",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F24",
+        "categoria": "Conta e privacidade",
+        "titulo": "Conta encerrada não entra mais e o token antigo deixa de valer",
+        "severidade": "alta",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F25",
+        "categoria": "Conta e privacidade",
+        "titulo": "Os funcionários da empresa encerrada também não entram",
+        "severidade": "alta",
+        "ref": "S1",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F30",
+        "categoria": "Conta e privacidade",
+        "titulo": "A ativação do 2FA aparece na trilha da empresa",
+        "severidade": "media",
+        "ref": "S14",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F31",
+        "categoria": "Conta e privacidade",
+        "titulo": "A trilha nunca guarda a chave do 2FA, códigos de recuperação nem senhas",
+        "severidade": "alta",
+        "ref": "S14",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G01",
+        "categoria": "Robustez e abuso",
+        "titulo": "JWT assinado com a chave certa, mas com emissor/audiência/validade/sessão inválidos, é recusado",
+        "severidade": "alta",
+        "ref": "S17/S19",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G02",
+        "categoria": "Robustez e abuso",
+        "titulo": "Respostas da API não expõem hash de senha, carimbo de segurança, hash de token nem chave do 2FA",
+        "severidade": "alta",
+        "ref": "S11",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G03",
+        "categoria": "Robustez e abuso",
+        "titulo": "TRACE não é atendido (sem eco da requisição)",
+        "severidade": "baixa",
+        "ref": "S8",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G04",
+        "categoria": "Robustez e abuso",
+        "titulo": "IDs e parâmetros estranhos (traversal, SQL, unicode, enormes, negativos) nunca causam 5xx nem derrubam a API",
+        "severidade": "alta",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G05",
+        "categoria": "Robustez e abuso",
+        "titulo": "Pedir um limite gigante na auditoria não devolve tudo nem demora (teto)",
+        "severidade": "media",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G06",
+        "categoria": "Robustez e abuso",
+        "titulo": "Senha de 180 mil caracteres e e-mail de 20 mil são recusados com 4xx e sem demora",
+        "severidade": "media",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G07",
+        "categoria": "Robustez e abuso",
+        "titulo": "Cadastro com o e-mail em MAIÚSCULAS responde igual ao duplicado exato (sem criar segunda conta nem revelar)",
+        "severidade": "media",
+        "ref": "S20",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G08",
+        "categoria": "Robustez e abuso",
+        "titulo": "Depois de 5 códigos 2FA errados de um IP, esse IP é barrado até com o código certo; o dono, de outro IP, entra",
+        "severidade": "alta",
+        "ref": "S18/S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G09",
+        "categoria": "Robustez e abuso",
+        "titulo": "O mesmo código do aplicativo não vale duas vezes (RFC 6238, seção 5.2)",
+        "severidade": "media",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G10",
+        "categoria": "Robustez e abuso",
+        "titulo": "Corrida: o mesmo código de recuperação usado por 6 requisições simultâneas entra no máximo uma vez",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G11",
+        "categoria": "Robustez e abuso",
+        "titulo": "E-mail com quebra de linha não consegue forjar linhas no log da API",
+        "severidade": "media",
+        "ref": "S11",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G12",
+        "categoria": "Robustez e abuso",
+        "titulo": "CORS só libera a origem exata configurada (null, sufixo, prefixo e usuário@ são recusados)",
+        "severidade": "media",
+        "ref": "S8",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G13",
+        "categoria": "Robustez e abuso",
+        "titulo": "Campos extras no cadastro (cargo, empresaId, roles, isAdmin) são ignorados: a conta nasce Empresa do próprio tenant",
+        "severidade": "alta",
+        "ref": "S15",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G14",
+        "categoria": "Robustez e abuso",
+        "titulo": "JSON com 100 mil colchetes, XML, formulário e cabeçalho de 40 KB são recusados com 4xx; a API segue de pé",
+        "severidade": "media",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G15",
+        "categoria": "Robustez e abuso",
+        "titulo": "Token de uma conta não redefine outra; token adulterado e senha fraca são recusados; a conta alvo segue intacta",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G16",
+        "categoria": "Robustez e abuso",
+        "titulo": "Corrida: o mesmo token de redefinição usado 6 vezes ao mesmo tempo funciona no máximo uma vez",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G17",
+        "categoria": "Robustez e abuso",
+        "titulo": "Depois da redefinição a senha antiga falha e o access token antigo deixa de valer",
+        "severidade": "alta",
+        "ref": "S18/S27",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G18",
+        "categoria": "Robustez e abuso",
+        "titulo": "Cabeçalhos Host/X-Forwarded-Host/Origin forjados não mudam o endereço do link de redefinição",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "G19",
+        "categoria": "Robustez e abuso",
+        "titulo": "\"Esqueci minha senha\" demora o mesmo para e-mail com e sem conta (sem enumeração por tempo)",
+        "severidade": "media",
+        "ref": "S20",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "H01",
+        "categoria": "Regras de negócio",
+        "titulo": "Corrida: 10 pedidos simultâneos para o MESMO carro e período criam no máximo um aluguel (sem reserva dupla)",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "H01b",
+        "categoria": "Regras de negócio",
+        "titulo": "Depois da corrida, o carro não tem dois aluguéis sobrepostos no banco",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "H02",
+        "categoria": "Regras de negócio",
+        "titulo": "Aluguel não aceita carro, cliente ou condutor de outra empresa (nem 500)",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "H03",
+        "categoria": "Regras de negócio",
+        "titulo": "Períodos absurdos (volta antes de sair, no passado, 50 anos) e taxa de serviço inexistente são recusados com 4xx",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "H04",
+        "categoria": "Regras de negócio",
+        "titulo": "Valor previsto enviado pelo cliente (R$ 0,01) é ignorado: o servidor calcula o preço",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "H05",
+        "categoria": "Regras de negócio",
+        "titulo": "Cupom com limite de 1 uso, usado por 6 alugueis ao mesmo tempo, vale para no máximo um",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "H06",
+        "categoria": "Regras de negócio",
+        "titulo": "Iniciar o mesmo aluguel 6 vezes ao mesmo tempo funciona no máximo uma vez; nenhuma transição responde 5xx",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L01",
+        "categoria": "Carga",
+        "titulo": "Nenhum erro 5xx sob carga em nenhum cenário",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L02",
+        "categoria": "Carga",
+        "titulo": "Nenhuma conexão derrubada sob carga",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L03",
+        "categoria": "Carga",
+        "titulo": "p95 das leituras até 50 usuários simultâneos abaixo de 1000 ms",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L04",
+        "categoria": "Carga",
+        "titulo": "p95 do login abaixo de 3000 ms (hash caro de propósito)",
+        "severidade": "baixa",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L05",
+        "categoria": "Carga",
+        "titulo": "Memória do processo da API ao fim da carga (MB)",
+        "severidade": "baixa",
+        "ref": "",
+        "resultado": "Informativa"
+      },
+      {
+        "id": "F01",
+        "categoria": "Logs",
+        "titulo": "Nenhuma senha ou token usado nos testes aparece nos logs da API/ML",
+        "severidade": "alta",
+        "ref": "S22/S11",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "F02",
+        "categoria": "Logs",
+        "titulo": "E-mails em avisos de login aparecem mascarados",
+        "severidade": "media",
+        "ref": "S11",
+        "resultado": "Aprovada"
+      }
+    ],
+    "evolucao": [
+      {
+        "rodada": "2026-10-13_150018_5f54812",
+        "commit": "5f54812",
+        "aprovadas": 49,
+        "reprovadas": 18,
+        "total": 68
+      },
+      {
+        "rodada": "2026-10-13_150209_5f54812",
+        "commit": "5f54812",
+        "aprovadas": 59,
+        "reprovadas": 23,
+        "total": 83
+      },
+      {
+        "rodada": "2026-10-13_150244_5f54812",
+        "commit": "5f54812",
+        "aprovadas": 2,
+        "reprovadas": 0,
+        "total": 2
+      },
+      {
+        "rodada": "2026-10-13_150453_5f54812",
+        "commit": "5f54812",
+        "aprovadas": 5,
+        "reprovadas": 1,
+        "total": 7
+      },
+      {
+        "rodada": "2026-10-13_150812_2ec83b8",
+        "commit": "2ec83b8",
+        "aprovadas": 65,
+        "reprovadas": 21,
+        "total": 88
+      },
+      {
+        "rodada": "2026-10-13_152305_03919c1",
+        "commit": "03919c1",
+        "aprovadas": 88,
+        "reprovadas": 0,
+        "total": 91
+      },
+      {
+        "rodada": "2026-10-13_152822_1171847",
+        "commit": "1171847",
+        "aprovadas": 88,
+        "reprovadas": 1,
+        "total": 93
+      },
+      {
+        "rodada": "2026-10-13_152932_646d840",
+        "commit": "646d840",
+        "aprovadas": 92,
+        "reprovadas": 1,
+        "total": 98
+      },
+      {
+        "rodada": "2026-10-13_175730_571b19e",
+        "commit": "571b19e",
+        "aprovadas": 122,
+        "reprovadas": 2,
+        "total": 127
+      },
+      {
+        "rodada": "2026-10-13_180052_571b19e",
+        "commit": "571b19e",
+        "aprovadas": 120,
+        "reprovadas": 0,
+        "total": 122
+      },
+      {
+        "rodada": "2026-10-13_180229_a3a5e2c",
+        "commit": "a3a5e2c",
+        "aprovadas": 124,
+        "reprovadas": 0,
+        "total": 127
+      },
+      {
+        "rodada": "2026-10-13_190046_d63bd55",
+        "commit": "d63bd55",
+        "aprovadas": 123,
+        "reprovadas": 0,
+        "total": 125
+      },
+      {
+        "rodada": "2026-10-13_190337_d63bd55",
+        "commit": "d63bd55",
+        "aprovadas": 127,
+        "reprovadas": 0,
+        "total": 130
+      },
+      {
+        "rodada": "2026-10-13_190924_d63bd55",
+        "commit": "d63bd55",
+        "aprovadas": 121,
+        "reprovadas": 3,
+        "total": 127
+      },
+      {
+        "rodada": "2026-10-13_191712_d63bd55",
+        "commit": "d63bd55",
+        "aprovadas": 146,
+        "reprovadas": 0,
+        "total": 149
+      },
+      {
+        "rodada": "2026-10-13_192226_1e333bd",
+        "commit": "1e333bd",
+        "aprovadas": 126,
+        "reprovadas": 4,
+        "total": 133
+      },
+      {
+        "rodada": "2026-10-13_192554_1e333bd",
+        "commit": "1e333bd",
+        "aprovadas": 150,
+        "reprovadas": 2,
+        "total": 156
+      },
+      {
+        "rodada": "2026-10-13_193054_1e333bd",
+        "commit": "1e333bd",
+        "aprovadas": 130,
+        "reprovadas": 0,
+        "total": 134
+      },
+      {
+        "rodada": "2026-10-13_193142_1e333bd",
+        "commit": "1e333bd",
+        "aprovadas": 130,
+        "reprovadas": 0,
+        "total": 134
+      },
+      {
+        "rodada": "2026-10-13_193228_1e333bd",
+        "commit": "1e333bd",
+        "aprovadas": 131,
+        "reprovadas": 0,
+        "total": 134
+      },
+      {
+        "rodada": "2026-10-13_193324_c5d534d",
+        "commit": "c5d534d",
+        "aprovadas": 152,
+        "reprovadas": 1,
+        "total": 156
+      },
+      {
+        "rodada": "2026-10-13_193651_c5d534d",
+        "commit": "c5d534d",
+        "aprovadas": 153,
+        "reprovadas": 0,
+        "total": 156
+      },
+      {
+        "rodada": "2026-10-13_202959_bfa2156",
+        "commit": "bfa2156",
+        "aprovadas": 154,
+        "reprovadas": 0,
+        "total": 157
+      }
+    ]
+  },
+  "lfw": {
+    "metodo": "SFace (OpenCV Zoo) + alinhamento por 5 pontos do MediaPipe, cosseno",
+    "paresMedidos": 5999,
+    "acuracia": 0.9833,
+    "desvio": 0.0057,
+    "eer": {
+      "limiar": 0.265,
+      "FAR": 0.02668,
+      "FRR": 0.02533
+    },
+    "limiares": [
+      {
+        "rotulo": "FAR 1 %",
+        "limiar": 0.3,
+        "FAR": 0.01,
+        "FRR": 0.02667
+      },
+      {
+        "rotulo": "FAR 0,1 %",
+        "limiar": 0.355,
+        "FAR": 0.001,
+        "FRR": 0.03033
+      },
+      {
+        "rotulo": "FAR 0,01 %",
+        "limiar": 0.38,
+        "FAR": 0,
+        "FRR": 0.03167
+      },
+      {
+        "rotulo": "Recomendado (0,363)",
+        "limiar": 0.363,
+        "FAR": 0.00067,
+        "FRR": 0.03067
+      }
+    ],
+    "cossenoIguais": 0.6702,
+    "cossenoDiferentes": 0.0946,
+    "anterior": {
+      "FRR": 0.9417,
+      "FAR": 0.0183,
+      "EER_aprox": 0.43
+    },
+    "curva": [
+      {
+        "limiar": -0.2,
+        "FAR": 1,
+        "FRR": 0
+      },
+      {
+        "limiar": -0.18,
+        "FAR": 0.99933,
+        "FRR": 0
+      },
+      {
+        "limiar": -0.16,
+        "FAR": 0.999,
+        "FRR": 0
+      },
+      {
+        "limiar": -0.14,
+        "FAR": 0.99567,
+        "FRR": 0
+      },
+      {
+        "limiar": -0.12,
+        "FAR": 0.99166,
+        "FRR": 0
+      },
+      {
+        "limiar": -0.1,
+        "FAR": 0.98499,
+        "FRR": 0.00033
+      },
+      {
+        "limiar": -0.08,
+        "FAR": 0.97533,
+        "FRR": 0.00033
+      },
+      {
+        "limiar": -0.06,
+        "FAR": 0.95865,
+        "FRR": 0.001
+      },
+      {
+        "limiar": -0.04,
+        "FAR": 0.93464,
+        "FRR": 0.00133
+      },
+      {
+        "limiar": -0.02,
+        "FAR": 0.90497,
+        "FRR": 0.00167
+      },
+      {
+        "limiar": 0,
+        "FAR": 0.86229,
+        "FRR": 0.00233
+      },
+      {
+        "limiar": 0.02,
+        "FAR": 0.80227,
+        "FRR": 0.003
+      },
+      {
+        "limiar": 0.04,
+        "FAR": 0.72658,
+        "FRR": 0.00533
+      },
+      {
+        "limiar": 0.06,
+        "FAR": 0.64522,
+        "FRR": 0.008
+      },
+      {
+        "limiar": 0.08,
+        "FAR": 0.55852,
+        "FRR": 0.00967
+      },
+      {
+        "limiar": 0.1,
+        "FAR": 0.46849,
+        "FRR": 0.01233
+      },
+      {
+        "limiar": 0.12,
+        "FAR": 0.38246,
+        "FRR": 0.016
+      },
+      {
+        "limiar": 0.14,
+        "FAR": 0.3071,
+        "FRR": 0.01833
+      },
+      {
+        "limiar": 0.16,
+        "FAR": 0.23575,
+        "FRR": 0.01933
+      },
+      {
+        "limiar": 0.18,
+        "FAR": 0.17239,
+        "FRR": 0.02067
+      },
+      {
+        "limiar": 0.2,
+        "FAR": 0.12237,
+        "FRR": 0.02167
+      },
+      {
+        "limiar": 0.22,
+        "FAR": 0.08169,
+        "FRR": 0.02267
+      },
+      {
+        "limiar": 0.24,
+        "FAR": 0.04602,
+        "FRR": 0.024
+      },
+      {
+        "limiar": 0.26,
+        "FAR": 0.03034,
+        "FRR": 0.025
+      },
+      {
+        "limiar": 0.28,
+        "FAR": 0.01834,
+        "FRR": 0.026
+      },
+      {
+        "limiar": 0.3,
+        "FAR": 0.01,
+        "FRR": 0.02667
+      },
+      {
+        "limiar": 0.32,
+        "FAR": 0.00534,
+        "FRR": 0.02733
+      },
+      {
+        "limiar": 0.34,
+        "FAR": 0.00233,
+        "FRR": 0.02933
+      },
+      {
+        "limiar": 0.36,
+        "FAR": 0.001,
+        "FRR": 0.03067
+      },
+      {
+        "limiar": 0.38,
+        "FAR": 0,
+        "FRR": 0.03167
+      },
+      {
+        "limiar": 0.4,
+        "FAR": 0,
+        "FRR": 0.03467
+      },
+      {
+        "limiar": 0.42,
+        "FAR": 0,
+        "FRR": 0.03967
+      },
+      {
+        "limiar": 0.44,
+        "FAR": 0,
+        "FRR": 0.04533
+      },
+      {
+        "limiar": 0.46,
+        "FAR": 0,
+        "FRR": 0.05167
+      },
+      {
+        "limiar": 0.48,
+        "FAR": 0,
+        "FRR": 0.06133
+      },
+      {
+        "limiar": 0.5,
+        "FAR": 0,
+        "FRR": 0.07433
+      },
+      {
+        "limiar": 0.52,
+        "FAR": 0,
+        "FRR": 0.08867
+      },
+      {
+        "limiar": 0.54,
+        "FAR": 0,
+        "FRR": 0.11333
+      },
+      {
+        "limiar": 0.56,
+        "FAR": 0,
+        "FRR": 0.13633
+      },
+      {
+        "limiar": 0.58,
+        "FAR": 0,
+        "FRR": 0.167
+      },
+      {
+        "limiar": 0.6,
+        "FAR": 0,
+        "FRR": 0.21067
+      },
+      {
+        "limiar": 0.62,
+        "FAR": 0,
+        "FRR": 0.264
+      },
+      {
+        "limiar": 0.64,
+        "FAR": 0,
+        "FRR": 0.325
+      },
+      {
+        "limiar": 0.66,
+        "FAR": 0,
+        "FRR": 0.38967
+      },
+      {
+        "limiar": 0.68,
+        "FAR": 0,
+        "FRR": 0.46567
+      },
+      {
+        "limiar": 0.7,
+        "FAR": 0,
+        "FRR": 0.54533
+      },
+      {
+        "limiar": 0.72,
+        "FAR": 0,
+        "FRR": 0.61833
+      },
+      {
+        "limiar": 0.74,
+        "FAR": 0,
+        "FRR": 0.69633
+      },
+      {
+        "limiar": 0.76,
+        "FAR": 0,
+        "FRR": 0.76867
+      },
+      {
+        "limiar": 0.78,
+        "FAR": 0,
+        "FRR": 0.83133
+      },
+      {
+        "limiar": 0.8,
+        "FAR": 0,
+        "FRR": 0.87667
+      },
+      {
+        "limiar": 0.82,
+        "FAR": 0,
+        "FRR": 0.91367
+      },
+      {
+        "limiar": 0.84,
+        "FAR": 0,
+        "FRR": 0.94433
+      },
+      {
+        "limiar": 0.86,
+        "FAR": 0,
+        "FRR": 0.97067
+      },
+      {
+        "limiar": 0.88,
+        "FAR": 0,
+        "FRR": 0.98567
+      },
+      {
+        "limiar": 0.9,
+        "FAR": 0,
+        "FRR": 0.992
+      },
+      {
+        "limiar": 0.92,
+        "FAR": 0,
+        "FRR": 0.99567
+      },
+      {
+        "limiar": 0.94,
+        "FAR": 0,
+        "FRR": 0.999
+      },
+      {
+        "limiar": 0.96,
+        "FAR": 0,
+        "FRR": 0.99967
+      },
+      {
+        "limiar": 0.98,
+        "FAR": 0,
+        "FRR": 1
+      }
+    ],
+    "provaDeVida": {
+      "imagens": 7701,
+      "recusadasLimiar05": 0.0684,
+      "mediaPontuacao": 0.8985
+    }
+  }
+}

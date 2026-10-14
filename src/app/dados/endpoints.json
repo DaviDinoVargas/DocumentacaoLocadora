@@ -1,0 +1,981 @@
+{
+  "dotnet": [
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "POST",
+      "rota": "/api/alugueis",
+      "acao": "Cadastrar",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "POST",
+      "rota": "/api/alugueis/simular",
+      "acao": "Simular",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "PUT",
+      "rota": "/api/alugueis/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "POST",
+      "rota": "/api/alugueis/{id:guid}/iniciar",
+      "acao": "Iniciar",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "POST",
+      "rota": "/api/alugueis/{id:guid}/cancelar",
+      "acao": "Cancelar",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "DELETE",
+      "rota": "/api/alugueis/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "GET",
+      "rota": "/api/alugueis",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "GET",
+      "rota": "/api/alugueis/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "GET",
+      "rota": "/api/alugueis/status/{status}",
+      "acao": "SelecionarPorStatus",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Aluguel",
+      "modulo": "Aluguel",
+      "metodo": "GET",
+      "rota": "/api/alugueis/em-aberto",
+      "acao": "SelecionarEmAberto",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Auditoria",
+      "modulo": "Auditoria",
+      "metodo": "GET",
+      "rota": "/api/auditoria",
+      "acao": "Listar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/registrar",
+      "acao": "Registrar",
+      "papel": "Público",
+      "limite": "registro (5/h/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/autenticar",
+      "acao": "Autenticar",
+      "papel": "Público",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/entrar-facial",
+      "acao": "EntrarFacial",
+      "papel": "Público",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/rosto",
+      "acao": "CadastrarRosto",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "GET",
+      "rota": "/api/auth/rosto/consentimento",
+      "acao": "ObterTermoDeConsentimento",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "GET",
+      "rota": "/api/auth/rosto",
+      "acao": "ObterStatusRosto",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/rosto/verificar",
+      "acao": "VerificarRosto",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "DELETE",
+      "rota": "/api/auth/rosto",
+      "acao": "RemoverRosto",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/alterar-senha",
+      "acao": "AlterarSenha",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/esqueci-senha",
+      "acao": "EsqueciSenha",
+      "papel": "Público",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/redefinir-senha",
+      "acao": "RedefinirSenha",
+      "papel": "Público",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "GET",
+      "rota": "/api/auth/2fa",
+      "acao": "StatusDoisFatores",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/2fa/iniciar",
+      "acao": "IniciarDoisFatores",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/2fa/ativar",
+      "acao": "AtivarDoisFatores",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/2fa/desativar",
+      "acao": "DesativarDoisFatores",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/encerrar-conta",
+      "acao": "EncerrarConta",
+      "papel": "Empresa",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "GET",
+      "rota": "/api/auth/sessao",
+      "acao": "ObterSessao",
+      "papel": "Autenticado",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/rotacionar",
+      "acao": "Rotacionar",
+      "papel": "Público",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Auth",
+      "modulo": "Autenticação",
+      "metodo": "POST",
+      "rota": "/api/auth/sair",
+      "acao": "Sair",
+      "papel": "Público",
+      "limite": "auth (10/min/IP)"
+    },
+    {
+      "controller": "Automovel",
+      "modulo": "Automóvel",
+      "metodo": "POST",
+      "rota": "/api/automoveis",
+      "acao": "Cadastrar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Automovel",
+      "modulo": "Automóvel",
+      "metodo": "PUT",
+      "rota": "/api/automoveis/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Automovel",
+      "modulo": "Automóvel",
+      "metodo": "DELETE",
+      "rota": "/api/automoveis/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Automovel",
+      "modulo": "Automóvel",
+      "metodo": "GET",
+      "rota": "/api/automoveis",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Automovel",
+      "modulo": "Automóvel",
+      "metodo": "GET",
+      "rota": "/api/automoveis/disponiveis",
+      "acao": "SelecionarDisponiveis",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Automovel",
+      "modulo": "Automóvel",
+      "metodo": "GET",
+      "rota": "/api/automoveis/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Automovel",
+      "modulo": "Automóvel",
+      "metodo": "GET",
+      "rota": "/api/automoveis/grupo/{grupoId:guid}",
+      "acao": "SelecionarPorGrupo",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cliente",
+      "modulo": "Clientes",
+      "metodo": "POST",
+      "rota": "/api/clientes/pessoa-fisica",
+      "acao": "CadastrarPessoaFisica",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cliente",
+      "modulo": "Clientes",
+      "metodo": "POST",
+      "rota": "/api/clientes/pessoa-juridica",
+      "acao": "CadastrarPessoaJuridica",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cliente",
+      "modulo": "Clientes",
+      "metodo": "PUT",
+      "rota": "/api/clientes/pessoa-fisica/{id:guid}",
+      "acao": "EditarPessoaFisica",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cliente",
+      "modulo": "Clientes",
+      "metodo": "PUT",
+      "rota": "/api/clientes/pessoa-juridica/{id:guid}",
+      "acao": "EditarPessoaJuridica",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cliente",
+      "modulo": "Clientes",
+      "metodo": "DELETE",
+      "rota": "/api/clientes/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cliente",
+      "modulo": "Clientes",
+      "metodo": "GET",
+      "rota": "/api/clientes",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cliente",
+      "modulo": "Clientes",
+      "metodo": "GET",
+      "rota": "/api/clientes/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cliente",
+      "modulo": "Clientes",
+      "metodo": "GET",
+      "rota": "/api/clientes/pessoas-fisicas",
+      "acao": "SelecionarPessoasFisicas",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cliente",
+      "modulo": "Clientes",
+      "metodo": "GET",
+      "rota": "/api/clientes/pessoas-juridicas",
+      "acao": "SelecionarPessoasJuridicas",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Condutor",
+      "modulo": "Condutor",
+      "metodo": "POST",
+      "rota": "/api/condutores",
+      "acao": "Cadastrar",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Condutor",
+      "modulo": "Condutor",
+      "metodo": "PUT",
+      "rota": "/api/condutores/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Condutor",
+      "modulo": "Condutor",
+      "metodo": "DELETE",
+      "rota": "/api/condutores/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Condutor",
+      "modulo": "Condutor",
+      "metodo": "GET",
+      "rota": "/api/condutores",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Condutor",
+      "modulo": "Condutor",
+      "metodo": "GET",
+      "rota": "/api/condutores/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Condutor",
+      "modulo": "Condutor",
+      "metodo": "GET",
+      "rota": "/api/condutores/cliente/{clienteId:guid}",
+      "acao": "SelecionarPorCliente",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Configuracao",
+      "modulo": "Configuração",
+      "metodo": "PUT",
+      "rota": "/api/configuracoes/preco-combustivel",
+      "acao": "ConfigurarPrecoCombustivel",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Configuracao",
+      "modulo": "Configuração",
+      "metodo": "PUT",
+      "rota": "/api/configuracoes/valor-garantia",
+      "acao": "ConfigurarValorGarantia",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Configuracao",
+      "modulo": "Configuração",
+      "metodo": "GET",
+      "rota": "/api/configuracoes",
+      "acao": "ObterConfiguracao",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Cupom",
+      "modulo": "Cupom",
+      "metodo": "POST",
+      "rota": "/api/cupons",
+      "acao": "Cadastrar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Cupom",
+      "modulo": "Cupom",
+      "metodo": "PUT",
+      "rota": "/api/cupons/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Cupom",
+      "modulo": "Cupom",
+      "metodo": "DELETE",
+      "rota": "/api/cupons/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Cupom",
+      "modulo": "Cupom",
+      "metodo": "GET",
+      "rota": "/api/cupons",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cupom",
+      "modulo": "Cupom",
+      "metodo": "GET",
+      "rota": "/api/cupons/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Cupom",
+      "modulo": "Cupom",
+      "metodo": "POST",
+      "rota": "/api/cupons/validar",
+      "acao": "Validar",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Dashboard",
+      "modulo": "Dashboard",
+      "metodo": "GET",
+      "rota": "/api/dashboard/resumo",
+      "acao": "ObterResumo",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "DesafioCupom",
+      "modulo": "Desafio de cupom",
+      "metodo": "POST",
+      "rota": "/api/desafios-cupom",
+      "acao": "Cadastrar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "DesafioCupom",
+      "modulo": "Desafio de cupom",
+      "metodo": "PUT",
+      "rota": "/api/desafios-cupom/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "DesafioCupom",
+      "modulo": "Desafio de cupom",
+      "metodo": "DELETE",
+      "rota": "/api/desafios-cupom/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "DesafioCupom",
+      "modulo": "Desafio de cupom",
+      "metodo": "GET",
+      "rota": "/api/desafios-cupom",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "DesafioCupom",
+      "modulo": "Desafio de cupom",
+      "metodo": "GET",
+      "rota": "/api/desafios-cupom/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "DesafioCupom",
+      "modulo": "Desafio de cupom",
+      "metodo": "GET",
+      "rota": "/api/desafios-cupom/cliente/{clienteId:guid}/progresso",
+      "acao": "VerificarProgressoCliente",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Devolucao",
+      "modulo": "Devolução",
+      "metodo": "POST",
+      "rota": "/api/devolucoes",
+      "acao": "Registrar",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Devolucao",
+      "modulo": "Devolução",
+      "metodo": "DELETE",
+      "rota": "/api/devolucoes/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Devolucao",
+      "modulo": "Devolução",
+      "metodo": "GET",
+      "rota": "/api/devolucoes",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Devolucao",
+      "modulo": "Devolução",
+      "metodo": "GET",
+      "rota": "/api/devolucoes/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Devolucao",
+      "modulo": "Devolução",
+      "metodo": "GET",
+      "rota": "/api/devolucoes/aluguel/{aluguelId:guid}",
+      "acao": "SelecionarPorAluguelId",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "Funcionario",
+      "modulo": "Funcionário",
+      "metodo": "POST",
+      "rota": "/api/funcionarios",
+      "acao": "Cadastrar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Funcionario",
+      "modulo": "Funcionário",
+      "metodo": "PUT",
+      "rota": "/api/funcionarios/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Funcionario",
+      "modulo": "Funcionário",
+      "metodo": "DELETE",
+      "rota": "/api/funcionarios/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Funcionario",
+      "modulo": "Funcionário",
+      "metodo": "GET",
+      "rota": "/api/funcionarios",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Funcionario",
+      "modulo": "Funcionário",
+      "metodo": "GET",
+      "rota": "/api/funcionarios/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "GrupoAutomovel",
+      "modulo": "Grupo de automóvel",
+      "metodo": "POST",
+      "rota": "/api/grupos-automovel",
+      "acao": "Cadastrar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "GrupoAutomovel",
+      "modulo": "Grupo de automóvel",
+      "metodo": "PUT",
+      "rota": "/api/grupos-automovel/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "GrupoAutomovel",
+      "modulo": "Grupo de automóvel",
+      "metodo": "DELETE",
+      "rota": "/api/grupos-automovel/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "GrupoAutomovel",
+      "modulo": "Grupo de automóvel",
+      "metodo": "GET",
+      "rota": "/api/grupos-automovel",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "GrupoAutomovel",
+      "modulo": "Grupo de automóvel",
+      "metodo": "GET",
+      "rota": "/api/grupos-automovel/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Parceiro",
+      "modulo": "Parceiro",
+      "metodo": "POST",
+      "rota": "/api/parceiros",
+      "acao": "Cadastrar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Parceiro",
+      "modulo": "Parceiro",
+      "metodo": "PUT",
+      "rota": "/api/parceiros/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Parceiro",
+      "modulo": "Parceiro",
+      "metodo": "DELETE",
+      "rota": "/api/parceiros/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Parceiro",
+      "modulo": "Parceiro",
+      "metodo": "GET",
+      "rota": "/api/parceiros",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "Parceiro",
+      "modulo": "Parceiro",
+      "metodo": "GET",
+      "rota": "/api/parceiros/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "PlanoCobranca",
+      "modulo": "Plano de cobrança",
+      "metodo": "POST",
+      "rota": "/api/planos-cobranca",
+      "acao": "Cadastrar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "PlanoCobranca",
+      "modulo": "Plano de cobrança",
+      "metodo": "PUT",
+      "rota": "/api/planos-cobranca/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "PlanoCobranca",
+      "modulo": "Plano de cobrança",
+      "metodo": "DELETE",
+      "rota": "/api/planos-cobranca/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "PlanoCobranca",
+      "modulo": "Plano de cobrança",
+      "metodo": "GET",
+      "rota": "/api/planos-cobranca",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "PlanoCobranca",
+      "modulo": "Plano de cobrança",
+      "metodo": "GET",
+      "rota": "/api/planos-cobranca/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "TaxaServico",
+      "modulo": "Taxa de serviço",
+      "metodo": "POST",
+      "rota": "/api/taxas-servicos",
+      "acao": "Cadastrar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "TaxaServico",
+      "modulo": "Taxa de serviço",
+      "metodo": "PUT",
+      "rota": "/api/taxas-servicos/{id:guid}",
+      "acao": "Editar",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "TaxaServico",
+      "modulo": "Taxa de serviço",
+      "metodo": "DELETE",
+      "rota": "/api/taxas-servicos/{id:guid}",
+      "acao": "Excluir",
+      "papel": "Empresa",
+      "limite": ""
+    },
+    {
+      "controller": "TaxaServico",
+      "modulo": "Taxa de serviço",
+      "metodo": "GET",
+      "rota": "/api/taxas-servicos",
+      "acao": "SelecionarTodos",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "TaxaServico",
+      "modulo": "Taxa de serviço",
+      "metodo": "GET",
+      "rota": "/api/taxas-servicos/{id:guid}",
+      "acao": "SelecionarPorId",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    },
+    {
+      "controller": "TaxaServico",
+      "modulo": "Taxa de serviço",
+      "metodo": "GET",
+      "rota": "/api/taxas-servicos/tipo/{tipoCalculo}",
+      "acao": "SelecionarPorTipo",
+      "papel": "Empresa e Funcionário",
+      "limite": ""
+    }
+  ],
+  "ml": [
+    {
+      "grupo": "Câmeras e placas",
+      "metodo": "GET",
+      "rota": "/cameras",
+      "acesso": "JWT + dono das câmeras",
+      "limite": ""
+    },
+    {
+      "grupo": "Câmeras e placas",
+      "metodo": "POST",
+      "rota": "/start",
+      "acesso": "JWT + dono das câmeras",
+      "limite": ""
+    },
+    {
+      "grupo": "Câmeras e placas",
+      "metodo": "POST",
+      "rota": "/stop/{camera_id}",
+      "acesso": "JWT + dono das câmeras",
+      "limite": ""
+    },
+    {
+      "grupo": "Câmeras e placas",
+      "metodo": "GET",
+      "rota": "/last",
+      "acesso": "JWT + dono das câmeras",
+      "limite": ""
+    },
+    {
+      "grupo": "Câmeras e placas",
+      "metodo": "GET",
+      "rota": "/test/{camera_id}",
+      "acesso": "JWT + dono das câmeras",
+      "limite": ""
+    },
+    {
+      "grupo": "Câmeras e placas",
+      "metodo": "POST",
+      "rota": "/stream-ticket",
+      "acesso": "JWT + dono das câmeras",
+      "limite": ""
+    },
+    {
+      "grupo": "Câmeras e placas",
+      "metodo": "GET",
+      "rota": "/stream/{camera_id}",
+      "acesso": "Ticket de uso único",
+      "limite": "20/60s"
+    },
+    {
+      "grupo": "Reconhecimento facial",
+      "metodo": "POST",
+      "rota": "/face/landmarks",
+      "acesso": "Token interno (somente a Web API)",
+      "limite": ""
+    },
+    {
+      "grupo": "Reconhecimento facial",
+      "metodo": "POST",
+      "rota": "/face/compare",
+      "acesso": "Token interno (somente a Web API)",
+      "limite": ""
+    },
+    {
+      "grupo": "Assistente",
+      "metodo": "POST",
+      "rota": "/chat",
+      "acesso": "JWT (via Web API)",
+      "limite": ""
+    },
+    {
+      "grupo": "Saúde",
+      "metodo": "GET",
+      "rota": "/",
+      "acesso": "Público",
+      "limite": ""
+    },
+    {
+      "grupo": "Saúde",
+      "metodo": "GET",
+      "rota": "/health",
+      "acesso": "Público (resumido fora de dev)",
+      "limite": ""
+    }
+  ]
+}

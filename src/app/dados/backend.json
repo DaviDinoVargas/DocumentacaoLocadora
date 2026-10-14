@@ -1,0 +1,769 @@
+{
+  "camadas": {
+    "dominio": 1187,
+    "aplicacao": 8349,
+    "infraestrutura": 2163,
+    "webapi": 3409,
+    "testesUnidade": 1520,
+    "testesIntegracao": 3427,
+    "testesWebApi": 1099,
+    "migrations": 2180
+  },
+  "arquivosPorCamada": {
+    "dominio": 44,
+    "aplicacao": 174,
+    "infraestrutura": 44,
+    "webapi": 53,
+    "testesUnidade": 23,
+    "testesIntegracao": 26,
+    "testesWebApi": 12,
+    "migrations": 15
+  },
+  "modulos": [
+    {
+      "chave": "ModuloAutenticacao",
+      "nome": "Autenticação",
+      "dominio": 173,
+      "aplicacao": 1738,
+      "infraestrutura": 265,
+      "webapi": 254,
+      "testes": 133,
+      "arquivos": 59,
+      "comandos": 15,
+      "consultas": 2,
+      "validadores": 1,
+      "endpoints": 19,
+      "total": 2430
+    },
+    {
+      "chave": "ModuloAluguel",
+      "nome": "Aluguel",
+      "dominio": 118,
+      "aplicacao": 994,
+      "infraestrutura": 197,
+      "webapi": 337,
+      "testes": 15,
+      "arquivos": 23,
+      "comandos": 5,
+      "consultas": 5,
+      "validadores": 5,
+      "endpoints": 10,
+      "total": 1646
+    },
+    {
+      "chave": "ModuloClientes",
+      "nome": "Clientes",
+      "dominio": 123,
+      "aplicacao": 846,
+      "infraestrutura": 160,
+      "webapi": 315,
+      "testes": 0,
+      "arquivos": 22,
+      "comandos": 5,
+      "consultas": 4,
+      "validadores": 4,
+      "endpoints": 9,
+      "total": 1444
+    },
+    {
+      "chave": "ModuloAutomovel",
+      "nome": "Automóvel",
+      "dominio": 83,
+      "aplicacao": 590,
+      "infraestrutura": 101,
+      "webapi": 287,
+      "testes": 13,
+      "arquivos": 18,
+      "comandos": 3,
+      "consultas": 4,
+      "validadores": 3,
+      "endpoints": 7,
+      "total": 1061
+    },
+    {
+      "chave": "ModuloCondutor",
+      "nome": "Condutor",
+      "dominio": 59,
+      "aplicacao": 474,
+      "infraestrutura": 108,
+      "webapi": 218,
+      "testes": 0,
+      "arquivos": 15,
+      "comandos": 3,
+      "consultas": 3,
+      "validadores": 2,
+      "endpoints": 6,
+      "total": 859
+    },
+    {
+      "chave": "ModuloDevolucao",
+      "nome": "Devolução",
+      "dominio": 116,
+      "aplicacao": 390,
+      "infraestrutura": 86,
+      "webapi": 191,
+      "testes": 5,
+      "arquivos": 13,
+      "comandos": 2,
+      "consultas": 3,
+      "validadores": 1,
+      "endpoints": 5,
+      "total": 783
+    },
+    {
+      "chave": "ModuloFuncionario",
+      "nome": "Funcionário",
+      "dominio": 52,
+      "aplicacao": 465,
+      "infraestrutura": 71,
+      "webapi": 142,
+      "testes": 0,
+      "arquivos": 22,
+      "comandos": 3,
+      "consultas": 2,
+      "validadores": 2,
+      "endpoints": 5,
+      "total": 730
+    },
+    {
+      "chave": "ModuloCupom",
+      "nome": "Cupom",
+      "dominio": 90,
+      "aplicacao": 400,
+      "infraestrutura": 86,
+      "webapi": 136,
+      "testes": 11,
+      "arquivos": 14,
+      "comandos": 3,
+      "consultas": 3,
+      "validadores": 2,
+      "endpoints": 6,
+      "total": 712
+    },
+    {
+      "chave": "ModuloTaxaServico",
+      "nome": "Taxa de serviço",
+      "dominio": 50,
+      "aplicacao": 384,
+      "infraestrutura": 86,
+      "webapi": 176,
+      "testes": 0,
+      "arquivos": 15,
+      "comandos": 3,
+      "consultas": 3,
+      "validadores": 2,
+      "endpoints": 6,
+      "total": 696
+    },
+    {
+      "chave": "ModuloDesafioCupom",
+      "nome": "Desafio de cupom",
+      "dominio": 57,
+      "aplicacao": 376,
+      "infraestrutura": 60,
+      "webapi": 117,
+      "testes": 3,
+      "arquivos": 14,
+      "comandos": 3,
+      "consultas": 3,
+      "validadores": 2,
+      "endpoints": 6,
+      "total": 610
+    },
+    {
+      "chave": "ModuloGrupoAutomovel",
+      "nome": "Grupo de automóvel",
+      "dominio": 44,
+      "aplicacao": 335,
+      "infraestrutura": 72,
+      "webapi": 134,
+      "testes": 4,
+      "arquivos": 14,
+      "comandos": 3,
+      "consultas": 2,
+      "validadores": 2,
+      "endpoints": 5,
+      "total": 585
+    },
+    {
+      "chave": "ModuloPlanoCobranca",
+      "nome": "Plano de cobrança",
+      "dominio": 43,
+      "aplicacao": 281,
+      "infraestrutura": 65,
+      "webapi": 117,
+      "testes": 1,
+      "arquivos": 15,
+      "comandos": 3,
+      "consultas": 2,
+      "validadores": 2,
+      "endpoints": 5,
+      "total": 506
+    },
+    {
+      "chave": "ModuloParceiro",
+      "nome": "Parceiro",
+      "dominio": 48,
+      "aplicacao": 298,
+      "infraestrutura": 60,
+      "webapi": 92,
+      "testes": 5,
+      "arquivos": 13,
+      "comandos": 3,
+      "consultas": 2,
+      "validadores": 2,
+      "endpoints": 5,
+      "total": 498
+    },
+    {
+      "chave": "ModuloConfiguracao",
+      "nome": "Configuração",
+      "dominio": 32,
+      "aplicacao": 260,
+      "infraestrutura": 43,
+      "webapi": 92,
+      "testes": 6,
+      "arquivos": 12,
+      "comandos": 2,
+      "consultas": 1,
+      "validadores": 2,
+      "endpoints": 3,
+      "total": 427
+    },
+    {
+      "chave": "ModuloDashboard",
+      "nome": "Dashboard",
+      "dominio": 0,
+      "aplicacao": 128,
+      "infraestrutura": 0,
+      "webapi": 47,
+      "testes": 7,
+      "arquivos": 4,
+      "comandos": 0,
+      "consultas": 1,
+      "validadores": 0,
+      "endpoints": 1,
+      "total": 175
+    },
+    {
+      "chave": "ModuloAuditoria",
+      "nome": "Auditoria",
+      "dominio": 31,
+      "aplicacao": 45,
+      "infraestrutura": 38,
+      "webapi": 20,
+      "testes": 6,
+      "arquivos": 6,
+      "comandos": 0,
+      "consultas": 1,
+      "validadores": 0,
+      "endpoints": 1,
+      "total": 134
+    }
+  ],
+  "entidades": [
+    {
+      "nome": "Aluguel",
+      "modulo": "Aluguel",
+      "tipo": "entidade",
+      "propriedades": 16,
+      "metodos": 5,
+      "loc": 100
+    },
+    {
+      "nome": "RegistroDeAuditoria",
+      "modulo": "Auditoria",
+      "tipo": "entidade",
+      "propriedades": 9,
+      "metodos": 0,
+      "loc": 22
+    },
+    {
+      "nome": "AccessToken",
+      "modulo": "Autenticação",
+      "tipo": "entidade",
+      "propriedades": 0,
+      "metodos": 0,
+      "loc": 11
+    },
+    {
+      "nome": "AmostraFacial",
+      "modulo": "Autenticação",
+      "tipo": "entidade",
+      "propriedades": 5,
+      "metodos": 0,
+      "loc": 20
+    },
+    {
+      "nome": "Cargo",
+      "modulo": "Autenticação",
+      "tipo": "entidade",
+      "propriedades": 0,
+      "metodos": 0,
+      "loc": 12
+    },
+    {
+      "nome": "CargoUsuario",
+      "modulo": "Autenticação",
+      "tipo": "enum",
+      "propriedades": 0,
+      "metodos": 0,
+      "loc": 12
+    },
+    {
+      "nome": "ConsentimentoFacial",
+      "modulo": "Autenticação",
+      "tipo": "entidade",
+      "propriedades": 4,
+      "metodos": 0,
+      "loc": 15
+    },
+    {
+      "nome": "RefreshToken",
+      "modulo": "Autenticação",
+      "tipo": "entidade",
+      "propriedades": 10,
+      "metodos": 0,
+      "loc": 19
+    },
+    {
+      "nome": "Usuario",
+      "modulo": "Autenticação",
+      "tipo": "entidade",
+      "propriedades": 2,
+      "metodos": 0,
+      "loc": 23
+    },
+    {
+      "nome": "Automovel",
+      "modulo": "Automóvel",
+      "tipo": "entidade",
+      "propriedades": 10,
+      "metodos": 1,
+      "loc": 53
+    },
+    {
+      "nome": "TipoCombustivel",
+      "modulo": "Automóvel",
+      "tipo": "enum",
+      "propriedades": 6,
+      "metodos": 0,
+      "loc": 17
+    },
+    {
+      "nome": "Cliente",
+      "modulo": "Clientes",
+      "tipo": "entidade",
+      "propriedades": 13,
+      "metodos": 2,
+      "loc": 106
+    },
+    {
+      "nome": "Condutor",
+      "modulo": "Condutor",
+      "tipo": "entidade",
+      "propriedades": 8,
+      "metodos": 1,
+      "loc": 45
+    },
+    {
+      "nome": "Configuracao",
+      "modulo": "Configuração",
+      "tipo": "entidade",
+      "propriedades": 2,
+      "metodos": 1,
+      "loc": 23
+    },
+    {
+      "nome": "Cupom",
+      "modulo": "Cupom",
+      "tipo": "entidade",
+      "propriedades": 10,
+      "metodos": 4,
+      "loc": 78
+    },
+    {
+      "nome": "DesafioCupom",
+      "modulo": "Desafio de cupom",
+      "tipo": "entidade",
+      "propriedades": 7,
+      "metodos": 1,
+      "loc": 43
+    },
+    {
+      "nome": "Devolucao",
+      "modulo": "Devolução",
+      "tipo": "entidade",
+      "propriedades": 9,
+      "metodos": 2,
+      "loc": 105
+    },
+    {
+      "nome": "Funcionario",
+      "modulo": "Funcionário",
+      "tipo": "entidade",
+      "propriedades": 7,
+      "metodos": 1,
+      "loc": 44
+    },
+    {
+      "nome": "GrupoAutomovel",
+      "modulo": "Grupo de automóvel",
+      "tipo": "entidade",
+      "propriedades": 2,
+      "metodos": 3,
+      "loc": 30
+    },
+    {
+      "nome": "Parceiro",
+      "modulo": "Parceiro",
+      "tipo": "entidade",
+      "propriedades": 4,
+      "metodos": 3,
+      "loc": 37
+    },
+    {
+      "nome": "PlanoCobranca",
+      "modulo": "Plano de cobrança",
+      "tipo": "entidade",
+      "propriedades": 5,
+      "metodos": 1,
+      "loc": 32
+    },
+    {
+      "nome": "TaxaServico",
+      "modulo": "Taxa de serviço",
+      "tipo": "entidade",
+      "propriedades": 3,
+      "metodos": 2,
+      "loc": 36
+    }
+  ],
+  "migrations": [
+    {
+      "data": "2025-12-07",
+      "nome": "FuncionariosEGrupoVeiculoMigracao"
+    },
+    {
+      "data": "2025-12-07",
+      "nome": "PlanoDeCobranca"
+    },
+    {
+      "data": "2025-12-08",
+      "nome": "ModuloVeiculo"
+    },
+    {
+      "data": "2025-12-09",
+      "nome": "ModuloCliente"
+    },
+    {
+      "data": "2025-12-09",
+      "nome": "ModuloCondutor"
+    },
+    {
+      "data": "2025-12-09",
+      "nome": "ModuloTaxaServicos"
+    },
+    {
+      "data": "2025-12-09",
+      "nome": "ModuloTaxaServico"
+    },
+    {
+      "data": "2025-12-09",
+      "nome": "ModuloAluguel"
+    },
+    {
+      "data": "2025-12-09",
+      "nome": "ModuloDevolucao"
+    },
+    {
+      "data": "2025-12-09",
+      "nome": "ModuloConfiguracao"
+    },
+    {
+      "data": "2026-09-27",
+      "nome": "ModuloCupomParceiroDesafio"
+    },
+    {
+      "data": "2026-10-13",
+      "nome": "AmostrasFaciais"
+    },
+    {
+      "data": "2026-10-13",
+      "nome": "Auditoria"
+    },
+    {
+      "data": "2026-10-13",
+      "nome": "ConsentimentoERetencaoFacial"
+    }
+  ],
+  "testes": {
+    "unidade": 121,
+    "integracao": 149,
+    "webapi": 50,
+    "casosParametrizados": 91
+  },
+  "testesPorArea": [
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "CalculoAluguelServiceTests",
+      "testes": 6
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "ChaveJwtTests",
+      "testes": 3
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "EntradaHostilTests",
+      "testes": 5
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "FacialAuthClientTests",
+      "testes": 19
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "LimitadorDeLoginPorContaTests",
+      "testes": 9
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "LogsSemDadosSensiveisTests",
+      "testes": 4
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "SegredoInternoDoMlTests",
+      "testes": 4
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "CupomTests",
+      "testes": 8
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "DevolucaoTests",
+      "testes": 4
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "NivelCombustivelTests",
+      "testes": 1
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "BiometriaForaDoGitTests",
+      "testes": 2
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "SerializacaoPorEmpresaTests",
+      "testes": 7
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "AluguelValidatorsTests",
+      "testes": 4
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "AutomovelValidatorsTests",
+      "testes": 7
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "ClientePessoaFisicaValidatorsTests",
+      "testes": 7
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "ConfigurarValorGarantiaValidatorTests",
+      "testes": 4
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "CupomValidatorsTests",
+      "testes": 7
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "DesafioCupomValidatorsTests",
+      "testes": 4
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "DevolucaoEConfiguracaoValidatorsTests",
+      "testes": 5
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "ParceiroValidatorsTests",
+      "testes": 4
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "ValidacaoDeDocumentosTests",
+      "testes": 4
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "ValidacaoDeFotoTests",
+      "testes": 3
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "CadastrarAluguelComCupomTests",
+      "testes": 2
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "SimularAluguelTests",
+      "testes": 7
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "AuditoriaTests",
+      "testes": 6
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "ArmazenamentoFacialTests",
+      "testes": 16
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "AutenticarComRostoCommandHandlerTests",
+      "testes": 8
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "CadastrarRostoCommandHandlerTests",
+      "testes": 7
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "ConsentimentoERetencaoTests",
+      "testes": 9
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "GerenciarRostoHandlersTests",
+      "testes": 12
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "RepositorioAutenticacaoOrmTests",
+      "testes": 1
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "RotacionarTokenCommandHandlerTests",
+      "testes": 5
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "SegundoFatorERecuperacaoTests",
+      "testes": 20
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "SegurancaDaSessaoTests",
+      "testes": 11
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "AutomoveisDisponiveisTests",
+      "testes": 13
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "CaucaoConfiguravelTests",
+      "testes": 6
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "RepositorioCupomOrmTests",
+      "testes": 3
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "ResumoDashboardTests",
+      "testes": 7
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "RepositorioDesafioCupomOrmTests",
+      "testes": 3
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "RepositorioGrupoAutomovelOrmTests",
+      "testes": 4
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "RepositorioParceiroOrmTests",
+      "testes": 5
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "ListaDePlanosComGrupoTests",
+      "testes": 1
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "arquivo": "IsolamentoMultiTenantTests",
+      "testes": 3
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "AuditoriaDeAutenticacaoTests",
+      "testes": 6
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "AuditoriaDeSessaoTests",
+      "testes": 3
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "AutenticacaoHttpTests",
+      "testes": 11
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "AutorizacaoTests",
+      "testes": 7
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "BloqueioPorContaEIpTests",
+      "testes": 5
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "RecuperacaoDeSenhaPorSmtpTests",
+      "testes": 1
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "SegundoFatorEmailHttpTests",
+      "testes": 6
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "SegurancaHttpTests",
+      "testes": 8
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "TratamentoDeErrosTests",
+      "testes": 3
+    }
+  ],
+  "tamanhoTotal": 15108
+}
