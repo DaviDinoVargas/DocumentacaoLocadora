@@ -96,7 +96,7 @@ const lfw = seguranca.lfw!;
           {{ percentual(lfw.provaDeVida.recusadasLimiar05) }} foram recusadas no limiar 0,5.
         </app-nota>
         <app-nota tom="aviso" titulo="Ainda não medido">
-          A detecção de foto impressa e de tela com a webcam (o LFW só tem rostos reais) e o SFace com a câmera real. Os números acima são de fotos de internet de 250 px.
+          A validação com a câmera real em condições de uso (o LFW só tem rostos reais). Os números acima são de fotos de internet de 250 px.
         </app-nota>
       </div>
     </app-secao>

@@ -189,7 +189,7 @@ export class TestesPage {
   protected readonly lacunas = [
     { titulo: 'Sem E2E, sem axe e sem Lighthouse', texto: 'Nenhum teste ponta a ponta nem medição automática de acessibilidade ou de Web Vitals existe no repositório; estão planejados (Playwright, axe-core nos specs, Lighthouse CI).' },
     { titulo: 'Notificações falsas nos specs', texto: 'Os specs usam um serviço de notificação falso; por isso nunca detectaram o defeito em que nenhum toast aparecia (o sonner errado era importado). Falta um teste que renderize o HlmToaster.' },
-    { titulo: 'Hardware real', texto: 'Webcam (monitoramento, verificação e login facial), prova de vida contra foto e tela e o desempenho do YOLO ao vivo nunca foram medidos.' },
+    { titulo: 'Hardware real', texto: 'Webcam (monitoramento, verificação e login facial), prova de vida em campo e o desempenho do YOLO ao vivo nunca foram medidos.' },
     { titulo: 'Fluxos de escrita no navegador', texto: 'Os fluxos de escrita ponta a ponta no navegador, a imagem do ML em contêiner e o CI nunca foram exercitados (Docker e CI fora de escopo).' }
   ];
 

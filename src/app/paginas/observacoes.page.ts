@@ -119,7 +119,7 @@ export class ObservacoesPage {
     { onde: 'Server/LocadoraDeVeiculos.Tests.Integracao', ponto: 'Usa FluentValidation 12.0.0 e FluentResults 4.0.0 enquanto a produção usa 11.11.0 e 3.16.0.', gravidade: 'Baixa' },
     { onde: 'README.md (raiz) e Client/README.md', ponto: 'O README da raiz tem uma linha e o do Client é o texto gerado pela CLI; não há guia de instalação versionado (o material do TCC o prevê como entregável futuro).', gravidade: 'Média' },
     { onde: 'Docker, nginx e CI', ponto: 'Dockerfiles, compose, nginx.conf e ci.yml existem na pasta de trabalho, mas estão fora do git e nunca foram executados; foram deixados fora de escopo por decisão.', gravidade: 'Informativa' },
-        { onde: 'Segurança (S3, S6, S8)', ponto: 'Três achados parciais: prova de vida sem medição com webcam, cadastro sem confirmação de e-mail e SPA sem CSP.', gravidade: 'Média' },
+        { onde: 'Segurança (S3, S6, S8)', ponto: 'Três achados parciais, tratados como evolução: validação de campo da prova de vida, reforço do cadastro e endurecimento da camada de entrega.', gravidade: 'Média' },
     { onde: 'Serialização por empresa (S34)', ponto: 'A trava dos comandos de aluguel e devolução é em memória: vale para uma única instância da API.', gravidade: 'Média' },
     { onde: 'Métricas', ponto: 'Lighthouse, Web Vitals, axe, SUS, tarefas cronometradas, E2E e tempo de leitura de placa com webcam seguem sem medição.', gravidade: 'Média' }
   ];

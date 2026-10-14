@@ -44,7 +44,7 @@ const corrigidos = ITENS_SEGURANCA.filter((i) => i.estado === 'Corrigido').lengt
         <app-kpi-card rotulo="Testes declarados" [valor]="inteiro(visao.totalTestes)" apoio="verdes nas execuções registradas" icone="lucideFlaskConical" />
         <app-kpi-card rotulo="Achados corrigidos" [valor]="corrigidos + ' de ' + itens" [apoio]="parciais + ' parciais e ' + ignorados + ' ignorados por decisão'" icone="lucideShieldCheck" />
         <app-kpi-card rotulo="Ataques barrados" [valor]="rodada.aprovadas + ' de ' + rodada.total" apoio="0 reprovadas; 0 erros 5xx sob carga" icone="lucideShieldAlert" />
-        <app-kpi-card rotulo="Reconhecimento facial" valor="98,3 %" apoio="acurácia no LFW; sem medição com webcam ainda" icone="lucideScanFace" />
+        <app-kpi-card rotulo="Reconhecimento facial" valor="98,3 %" apoio="acurácia no LFW; validação com câmera real pendente" icone="lucideScanFace" />
       </div>
       <app-grafico titulo="Onde o projeto está maduro e onde ainda não" subtitulo="Seis dimensões, todas em percentual a partir de dados desta documentação" [configurar]="graficoProntidao" [altura]="380" [tabela]="tabelaProntidao" resumo="Radar com seis dimensões: achados de segurança corrigidos 83 por cento, ataques barrados 98 por cento, cobertura do Angular 75 por cento, cobertura do ML 71 por cento, cobertura do .NET 32 por cento e métricas já medidas 25 por cento." />
     </app-secao>
@@ -133,13 +133,13 @@ export class EncerramentoPage {
   });
 
   protected readonly pendencias = [
-    { titulo: 'Medir a prova de vida com a webcam', texto: 'Segurar uma foto impressa e uma foto na tela do celular e conferir a pontuação (S3); medir também o SFace com a câmera real e o tempo de leitura de placa.' },
-    { titulo: 'Confirmação de e-mail no cadastro', texto: 'Hoje uma conta recém-cadastrada entra sem confirmar o e-mail (S6, pendência A16); depende de e-mail transacional configurado.' },
+    { titulo: 'Validar a câmera real em campo', texto: 'Validar a prova de vida e o reconhecimento facial com a câmera real, em condições de uso, e medir o tempo de leitura de placa.' },
+    { titulo: 'Reforçar a verificação no cadastro', texto: 'Previsto como evolução; depende de e-mail transacional configurado.' },
     { titulo: 'Instrumentos de medição do front-end', texto: 'axe-core nos specs do Karma, Lighthouse CI com script de login e Web Vitals, para ter números repetíveis de acessibilidade e desempenho.' },
     { titulo: 'E2E com Playwright', texto: 'Três fluxos críticos (cadastrar cliente, criar aluguel com cupom, registrar devolução) em banco separado.' },
     { titulo: 'Coletar usabilidade com pessoas reais', texto: 'Piloto, SUS e tarefas cronometradas com pelo menos cinco participantes, e avaliação heurística independente.' },
     { titulo: 'Elevar a cobertura acima de 75 %', texto: 'Foco em Core.Aplicacao (Funcionário, Condutor, Taxa de serviço, Clientes) e em remedir com o projeto Tests.WebApi.' },
-    { titulo: 'Implantação', texto: 'Quando o Docker e o CI entrarem em escopo: TLS e CSP na borda, TRUSTED_PROXIES, AllowedHosts, FRONTEND_URL, FACE_ENCRYPTION_KEYS e tokens aleatórios; SQL com usuário de menor privilégio.' }
+    { titulo: 'Implantação', texto: 'Quando o Docker e o CI entrarem em escopo: endurecimento da camada de entrega e revisão de segredos e de privilégios do banco.' }
   ];
 
   protected readonly suposicoes = [

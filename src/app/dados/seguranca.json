@@ -416,7 +416,7 @@
       {
         "id": "A16",
         "categoria": "Autenticação",
-        "titulo": "Conta recém-cadastrada entra sem confirmar o e-mail (depende de e-mail transacional)",
+        "titulo": "Pendência conhecida do fluxo de cadastro (evolução prevista)",
         "severidade": "media",
         "ref": "S6",
         "resultado": "Informativa"

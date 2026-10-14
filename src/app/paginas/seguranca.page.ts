@@ -29,9 +29,8 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
     </div>
 
     <app-nota tom="sucesso" titulo="Nenhum item crítico nem 'muito urgente' em aberto">
-      Na rodada de ataques de referência: 154 verificações aprovadas, 0 reprovadas, 1 pendência conhecida (A16, confirmação de e-mail) e nenhum erro 5xx sob carga.
-      Antes de usar com pessoas reais resta decidir a confirmação de e-mail (S6) e configurar o envio por SMTP; antes de publicar, a prova de vida com a webcam (S3), o CSP do SPA (S8) e o
-      endurecimento de implantação.
+      Na rodada de ataques de referência: 154 verificações aprovadas, 0 reprovadas, 1 pendência conhecida e nenhum erro 5xx sob carga.
+      Antes de uso com pessoas reais ou de publicação restam os três achados parciais e o endurecimento de implantação, tratados como evolução.
     </app-nota>
 
     <app-secao titulo="Panorama dos achados" descricao="Prioridade com que cada achado nasceu e o que aconteceu com ele." id="panorama">
@@ -117,7 +116,7 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
           <h3 class="text-title-m text-foreground">O que não foi feito</h3>
           <ul class="text-body-m text-muted-foreground list-disc pl-5">
             <li>Pen-test e DAST externos (por exemplo OWASP ZAP) e teste contra ambiente publicado</li>
-            <li>Comportamento com a webcam real: prova de vida contra foto impressa e de tela</li>
+            <li>Validação com a webcam real, em condições de uso</li>
             <li>Revisão de banco, backup e logs de um ambiente de produção (inexistente)</li>
             <li>Execução de Docker e CI (fora de escopo por decisão)</li>
           </ul>
