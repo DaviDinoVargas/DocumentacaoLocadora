@@ -48,11 +48,8 @@ import type { CenaCubo } from './cena-cubo';
       >
         <ng-icon name="lucideArrowLeft" aria-hidden="true" />
       </button>
-      <div class="min-w-[92px] px-1 text-center">
+      <div class="min-w-[84px] px-1 text-center">
         <span class="text-label-l tabular block">{{ pad(nav.indice()) }} / {{ pad(total) }}</span>
-        <span class="text-label-s text-muted-foreground tabular block">
-          @if (resolvido()) { cubo resolvido } @else { {{ montadas() }} de {{ pecas }} peças }
-        </span>
       </div>
       <button
         hlmBtn
