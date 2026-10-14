@@ -100,7 +100,6 @@ export class ObservacoesPage {
     { tema: 'Limites de uso', material: 'Rate limit só em /api/auth (10 por minuto por IP).', codigo: 'Limite global por usuário ou IP, política de registro (5 por hora), IPv6 por /64, limites nas rotas do ML e login por par conta + IP.', adotado: 'Código' },
     { tema: 'Migrations', material: 'Onze migrations (cap. 4).', codigo: `${backend.migrations.length} migrations: AmostrasFaciais, Auditoria e ConsentimentoERetencaoFacial vieram depois.`, adotado: 'Código' },
     { tema: 'Testes', material: '636 testes verdes: 75 + 78 + 99 + 384 (cap. 8).', codigo: `${visao.totalTestes} declarados: ${this.testesNet} em .NET (com projeto Tests.WebApi novo), ${frontend.total.testes} no Angular e ${ml.total.testes} no ML.`, adotado: 'Código' },
-    { tema: 'Branch de referência', material: 'dv-016-ajuste-fino (12/out/2026).', codigo: 'dv-017-seguranca, topo c828583 (13/out/2026), derivada da dv-016.', adotado: 'Código' },
     { tema: 'Versão do Angular', material: 'SKILL.md cita "Angular 20" em Client/ e o README do Client foi gerado pela CLI 20.3.2.', codigo: 'package.json do Client declara Angular 21.2.', adotado: 'Código' },
     { tema: 'Recuperação de senha e 2FA', material: 'Trabalho futuro (S18, "sem prioridade").', codigo: 'Implementados: TOTP com códigos de recuperação e "esqueci minha senha" por e-mail, com telas.', adotado: 'Código' },
     { tema: 'Trilha de auditoria', material: 'Trabalho futuro (S14).', codigo: 'Implementada por empresa, com tela "Auditoria" restrita à Empresa.', adotado: 'Código' },
