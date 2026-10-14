@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgIcon } from '@ng-icons/core';
-import backend from '../dados/backend.json';
-import { inteiro } from '../core/formato';
-import { GraficoComponent } from '../shared/charts/grafico.component';
-import { baseDoGrafico, eixoCategoria, eixoValor, type TemaGrafico } from '../shared/charts/tema-grafico';
 import { NotaComponent } from '../shared/layout/nota.component';
 import { PaginaCabecalhoComponent } from '../shared/layout/pagina-cabecalho.component';
 import { SecaoComponent } from '../shared/layout/secao.component';
@@ -11,7 +7,7 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
 
 @Component({
   selector: 'app-arquitetura',
-  imports: [NgIcon, GraficoComponent, NotaComponent, PaginaCabecalhoComponent, SecaoComponent, TabelaDadosComponent],
+  imports: [NgIcon, NotaComponent, PaginaCabecalhoComponent, SecaoComponent, TabelaDadosComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <app-pagina-cabecalho />
@@ -80,9 +76,9 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
     </app-secao>
 
     <app-secao titulo="Decisões de arquitetura" id="decisoes">
-      <ul class="grid gap-3 md:grid-cols-2">
+      <ul class="grid gap-6 md:grid-cols-2">
         @for (d of decisoes; track d.titulo) {
-          <li class="border-border bg-card flex gap-3 rounded-xl border p-4">
+          <li class="border-border bg-card flex gap-4 rounded-xl border p-6">
             <span class="bg-secondary text-secondary-foreground flex size-10 shrink-0 items-center justify-center rounded-full">
               <ng-icon [name]="d.icone" class="text-lg" aria-hidden="true" />
             </span>
@@ -96,9 +92,9 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
     </app-secao>
 
     <app-secao titulo="Caminho de uma requisição autenticada" id="requisicao">
-      <ol class="flex flex-col gap-3">
+      <ol class="flex flex-col gap-4">
         @for (p of passos; track p.titulo; let i = $index) {
-          <li class="border-border bg-card flex gap-4 rounded-xl border p-4">
+          <li class="border-border bg-card flex gap-4 rounded-xl border p-5">
             <span class="bg-primary text-primary-foreground text-title-s tabular flex size-9 shrink-0 items-center justify-center rounded-full">{{ i + 1 }}</span>
             <div>
               <p class="text-title-s text-foreground">{{ p.titulo }}</p>
@@ -107,13 +103,6 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
           </li>
         }
       </ol>
-    </app-secao>
-
-    <app-secao titulo="Onde está o código" descricao="Linhas e arquivos por camada da solução .NET, contados no repositório." id="camadas">
-      <div class="grid gap-4 lg:grid-cols-2">
-        <app-grafico titulo="Linhas por camada do back-end" subtitulo="Migrations geradas ficam em separado" [configurar]="graficoCamadas" [altura]="300" [tabela]="tabelaCamadas" resumo="Rosca com a participação de aplicação, Web API, infraestrutura, domínio e migrations no total de linhas do back-end." />
-        <app-grafico titulo="Linhas por arquivo em cada camada" subtitulo="Mostra onde a lógica se concentra" [configurar]="graficoDensidade" [altura]="300" [tabela]="tabelaDensidade" resumo="Barras com a média de linhas por arquivo em cada camada do back-end." />
-      </div>
     </app-secao>
   `
 })
@@ -131,7 +120,7 @@ export class ArquiteturaPage {
     { servico: 'Angular (ng serve)', porta: '4200', protocolo: 'HTTP', observacao: 'Proxy para a API e para o ML (proxy.conf.json)' },
     { servico: 'Web API .NET', porta: '5079 / 7064', protocolo: 'HTTP / HTTPS', observacao: 'Swagger e migrations automáticas só em Development' },
     { servico: 'Serviço de ML', porta: '8000', protocolo: 'HTTP', observacao: 'Escuta em 127.0.0.1 por padrão (variável HOST); ML_ENV ausente conta como produção' },
-    { servico: 'SQL Server', porta: '1433', protocolo: 'TDS', observacao: 'Contêiner em desenvolvimento; hoje publicado na LAN (achado S7, ignorado por decisão)' },
+    { servico: 'SQL Server', porta: '1433', protocolo: 'TDS', observacao: 'Contêiner em desenvolvimento; não deve ser exposto fora da máquina em produção' },
     { servico: 'API da bateria de ataques', porta: '5180 / 5181', protocolo: 'HTTP', observacao: 'Instância de teste (limites padrão) e instância de carga (limite global alto)' },
     { servico: 'ML da bateria de ataques', porta: '8001', protocolo: 'HTTP', observacao: 'Modo de produção, com CAMERA_EMPRESA_ID da empresa de teste' }
   ];
@@ -174,47 +163,4 @@ export class ArquiteturaPage {
     { titulo: 'O handler executa a regra', texto: 'Comandos de aluguel e devolução são serializados por empresa; o DbContext aplica o filtro de empresa automaticamente.' },
     { titulo: 'O erro volta padronizado', texto: 'Erros de negócio saem como lista de mensagens com 400, 404, 409, 422 ou 428; falhas inesperadas viram 500 genérico, sem pilha.' }
   ];
-
-  private readonly camadas = [
-    ['Aplicação', backend.camadas.aplicacao, backend.arquivosPorCamada.aplicacao],
-    ['Web API', backend.camadas.webapi, backend.arquivosPorCamada.webapi],
-    ['Infraestrutura', backend.camadas.infraestrutura, backend.arquivosPorCamada.infraestrutura],
-    ['Domínio', backend.camadas.dominio, backend.arquivosPorCamada.dominio],
-    ['Migrations', backend.camadas.migrations, backend.arquivosPorCamada.migrations]
-  ] as const;
-
-  protected readonly tabelaCamadas = { colunas: ['Camada', 'Linhas', 'Arquivos'], linhas: this.camadas.map(([n, l, a]) => [n, inteiro(l), a]) };
-  protected readonly tabelaDensidade = {
-    colunas: ['Camada', 'Linhas por arquivo'],
-    linhas: this.camadas.map(([n, l, a]) => [n, inteiro(Math.round(l / a))])
-  };
-
-  protected readonly graficoCamadas = (t: TemaGrafico) => ({
-    ...baseDoGrafico(t),
-    tooltip: { ...baseDoGrafico(t).tooltip, trigger: 'item', valueFormatter: (v: number) => inteiro(v) + ' linhas' },
-    legend: { ...baseDoGrafico(t).legend, bottom: 0 },
-    series: [
-      {
-        type: 'pie', radius: ['48%', '72%'], center: ['50%', '45%'], avoidLabelOverlap: true,
-        itemStyle: { borderColor: t.fundoDica, borderWidth: 2, borderRadius: 6 },
-        label: { color: t.texto, fontFamily: t.fonte, formatter: '{d}%' },
-        data: this.camadas.map(([name, value], i) => ({ name, value, itemStyle: { color: t.series[i % t.series.length] } }))
-      }
-    ]
-  });
-
-  protected readonly graficoDensidade = (t: TemaGrafico) => ({
-    ...baseDoGrafico(t),
-    grid: { left: 8, right: 16, top: 24, bottom: 8, containLabel: true },
-    tooltip: { ...baseDoGrafico(t).tooltip, trigger: 'axis', axisPointer: { type: 'shadow' }, valueFormatter: (v: number) => inteiro(v) + ' linhas/arquivo' },
-    xAxis: eixoCategoria(t, this.camadas.map(([n]) => n)),
-    yAxis: eixoValor(t),
-    series: [
-      {
-        type: 'bar', barWidth: 32,
-        data: this.camadas.map(([, l, a], i) => ({ value: Math.round(l / a), itemStyle: { color: t.series[i % t.series.length], borderRadius: [6, 6, 0, 0] } })),
-        label: { show: true, position: 'top', color: t.texto, fontFamily: t.fonte }
-      }
-    ]
-  });
 }

@@ -4,6 +4,7 @@ import { NgIcon } from '@ng-icons/core';
 import { ITENS_SEGURANCA, ORDEM_PRIORIDADE, type EstadoSeguranca } from '../dados/seguranca-itens';
 import { GraficoComponent } from '../shared/charts/grafico.component';
 import { baseDoGrafico, eixoCategoria, eixoValor, type TemaGrafico } from '../shared/charts/tema-grafico';
+import { ConceitosComponent, type Conceito } from '../shared/layout/conceitos.component';
 import { KpiCardComponent } from '../shared/layout/kpi-card.component';
 import { NotaComponent } from '../shared/layout/nota.component';
 import { PaginaCabecalhoComponent } from '../shared/layout/pagina-cabecalho.component';
@@ -15,26 +16,26 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
 
 @Component({
   selector: 'app-seguranca',
-  imports: [MatExpansionModule, NgIcon, GraficoComponent, KpiCardComponent, NotaComponent, PaginaCabecalhoComponent, SecaoComponent, TabelaDadosComponent],
+  imports: [MatExpansionModule, NgIcon, GraficoComponent, ConceitosComponent, KpiCardComponent, NotaComponent, PaginaCabecalhoComponent, SecaoComponent, TabelaDadosComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <app-pagina-cabecalho />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <app-kpi-card rotulo="Achados" [valor]="itens.length" apoio="S1–S35, revisões de 12 e 13/out/2026" icone="lucideShieldAlert" />
       <app-kpi-card rotulo="Corrigidos" [valor]="contagem['Corrigido']" apoio="cada um reverificado por ataque automatizado" icone="lucideCircleCheck" />
-      <app-kpi-card rotulo="Parciais" [valor]="contagem['Parcial']" apoio="S2, S3, S6 e S8" icone="lucideTriangleAlert" />
-      <app-kpi-card rotulo="Ignorados por decisão" [valor]="contagem['Ignorado']" apoio="S7 e S16: Docker e CI fora de escopo" icone="lucideCircleX" />
+      <app-kpi-card rotulo="Parciais" [valor]="contagem['Parcial']" [apoio]="idsParciais" icone="lucideTriangleAlert" />
+      <app-kpi-card rotulo="Ignorados por decisão" [valor]="contagem['Ignorado']" [apoio]="idsIgnorados + ': Docker e CI fora de escopo'" icone="lucideCircleX" />
     </div>
 
     <app-nota tom="sucesso" titulo="Nenhum item crítico nem 'muito urgente' em aberto">
       Na rodada de ataques de referência: 154 verificações aprovadas, 0 reprovadas, 1 pendência conhecida (A16, confirmação de e-mail) e nenhum erro 5xx sob carga.
-      Antes de usar com pessoas reais resta decidir a confirmação de e-mail (S6) e configurar o envio por SMTP; antes de publicar, a prova de vida com a webcam (S3), S2, S8 e o
+      Antes de usar com pessoas reais resta decidir a confirmação de e-mail (S6) e configurar o envio por SMTP; antes de publicar, a prova de vida com a webcam (S3), o CSP do SPA (S8) e o
       endurecimento de implantação.
     </app-nota>
 
     <app-secao titulo="Panorama dos achados" descricao="Prioridade com que cada achado nasceu e o que aconteceu com ele." id="panorama">
-      <div class="grid gap-4 lg:grid-cols-[1.5fr_1fr]">
+      <div class="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
         <app-grafico titulo="Achados por prioridade de origem" subtitulo="Empilhados pela situação atual" [configurar]="graficoPrioridade" [altura]="320" [tabela]="tabelaPrioridade" resumo="Barras empilhadas com a quantidade de achados em cada prioridade de origem, divididos entre corrigidos, parciais e ignorados." />
         <app-grafico titulo="Achados por área" subtitulo="Onde o risco se concentrava" [configurar]="graficoAreas" [altura]="320" [tabela]="tabelaAreas" resumo="Rosca com a quantidade de achados por área: sessão e senha, biometria, borda e rede, serviço de ML, dados e logs, regras de negócio e cadeia de suprimentos." />
       </div>
@@ -62,14 +63,33 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
       </mat-accordion>
     </app-secao>
 
+    <app-secao titulo="Quem poderia atacar" descricao="O modelo de ameaça considera cinco atores. Ele não inclui o administrador do servidor." id="atores">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        @for (a of atores; track a.ator) {
+          <article class="border-border bg-card flex h-full flex-col gap-3 rounded-xl border p-6">
+            <span class="bg-secondary text-secondary-foreground flex size-11 items-center justify-center rounded-full">
+              <ng-icon [name]="a.icone" class="text-xl" aria-hidden="true" />
+            </span>
+            <h3 class="text-title-m text-foreground">{{ a.ator }}</h3>
+            <p class="text-body-m text-muted-foreground"><span class="text-foreground font-medium">Tentaria:</span> {{ a.tentaria }}</p>
+            <p class="text-body-m text-muted-foreground border-border mt-auto border-t pt-3"><span class="text-foreground font-medium">O que impede:</span> {{ a.impede }}</p>
+          </article>
+        }
+      </div>
+    </app-secao>
+
+    <app-secao titulo="Conceitos por trás dos controles" descricao="O vocabulário mínimo para ler os achados e a bateria de ataques." id="conceitos">
+      <app-conceitos [itens]="conceitos" />
+    </app-secao>
+
     <app-secao titulo="Mapeamento com o OWASP Top 10 (2021)" descricao="Correspondência aproximada entre as categorias e os controles e achados do sistema." id="owasp">
       <app-tabela-dados [colunas]="colunasOwasp" [linhas]="owasp" legenda="correspondência com o OWASP Top 10" arquivo="owasp" [tamanhoInicial]="10" />
     </app-secao>
 
     <app-secao titulo="Dados faciais e LGPD" descricao="O rosto é dado pessoal sensível (Lei 13.709/2018, art. 5º, II, e art. 11)." id="lgpd">
-      <div class="grid gap-3 md:grid-cols-2">
+      <div class="grid gap-6 md:grid-cols-2">
         @for (l of lgpd; track l.titulo) {
-          <article class="border-border bg-card flex gap-3 rounded-xl border p-4">
+          <article class="border-border bg-card flex gap-3 rounded-xl border p-6">
             <span class="bg-primary-container text-on-primary-container flex size-10 shrink-0 items-center justify-center rounded-full">
               <ng-icon [name]="l.icone" class="text-lg" aria-hidden="true" />
             </span>
@@ -83,8 +103,8 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
     </app-secao>
 
     <app-secao titulo="Método e limites da revisão" id="metodo">
-      <div class="grid gap-4 md:grid-cols-2">
-        <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-6">
           <h3 class="text-title-m text-foreground">O que foi feito</h3>
           <ul class="text-body-m text-muted-foreground list-disc pl-5">
             <li>Revisão estática da Web API, do Angular, do serviço de ML, da configuração e do histórico do git (busca por segredos)</li>
@@ -93,7 +113,7 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
             <li>Bateria automatizada de ataques e carga (próxima página), reexecutada a cada correção</li>
           </ul>
         </article>
-        <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+        <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-6">
           <h3 class="text-title-m text-foreground">O que não foi feito</h3>
           <ul class="text-body-m text-muted-foreground list-disc pl-5">
             <li>Pen-test e DAST externos (por exemplo OWASP ZAP) e teste contra ambiente publicado</li>
@@ -113,6 +133,9 @@ export class SegurancaPage {
     Parcial: ITENS_SEGURANCA.filter((i) => i.estado === 'Parcial').length,
     Ignorado: ITENS_SEGURANCA.filter((i) => i.estado === 'Ignorado').length
   };
+
+  protected readonly idsParciais = ITENS_SEGURANCA.filter((i) => i.estado === 'Parcial').map((i) => i.id).join(', ');
+  protected readonly idsIgnorados = ITENS_SEGURANCA.filter((i) => i.estado === 'Ignorado').map((i) => i.id).join(' e ');
 
   protected readonly linhasItens: Linha[] = ITENS_SEGURANCA.map((i) => ({
     id: i.id, titulo: i.titulo, estado: i.estado, prioridade: i.prioridade, area: i.area, ataques: i.ataques, resumo: i.resumo
@@ -170,6 +193,25 @@ export class SegurancaPage {
       data: this.porArea.map((a, i) => ({ ...a, itemStyle: { color: t.series[i % t.series.length] } }))
     }]
   });
+
+  protected readonly atores = [
+    { icone: 'lucideUsers', ator: 'Visitante anônimo', tentaria: 'forjar um JWT, adivinhar senhas, descobrir quais e-mails têm conta, abusar do cadastro.', impede: 'assinatura e versão do token conferidas, bloqueio por conta + IP, limites de uso e respostas idênticas para e-mail com e sem conta.' },
+    { icone: 'lucideUserX', ator: 'Funcionário mal-intencionado ou conta comprometida', tentaria: 'subir para Empresa, mudar o preço das taxas ou continuar entrando depois de desligado.', impede: 'papéis conferidos no servidor, taxas só da Empresa e acesso encerrado na hora ao desligar (token, conta e rosto).' },
+    { icone: 'lucideBuilding2', ator: 'Administrador de outra empresa', tentaria: 'ler ou alterar clientes, aluguéis e câmeras de uma empresa vizinha trocando um identificador.', impede: 'filtro global por empresa no DbContext, ids de outra empresa respondendo 404 e câmeras do ML só da empresa dona.' },
+    { icone: 'lucideNetwork', ator: 'Pessoa na mesma rede', tentaria: 'chamar o ML ou o banco direto, sem passar pela Web API.', impede: 'ML escutando só em 127.0.0.1, /face/* com token interno e falha fechada sem ML_ENV.' },
+    { icone: 'lucideFileSearch', ator: 'Quem lê logs e backups', tentaria: 'achar senhas, tokens, e-mails ou rostos em texto puro.', impede: 'logs sem senha nem comando inteiro, e-mail mascarado, refresh token só com hash e amostras faciais cifradas.' }
+  ];
+
+  protected readonly conceitos: Conceito[] = [
+    { termo: 'Access token e refresh token', definicao: 'O access token é uma credencial de vida curta enviada em cada chamada; o refresh token, de vida longa, serve só para pedir um novo par. Separar os dois limita o estrago de um roubo.', noSistema: 'JWT de 15 minutos na memória do navegador e refresh token em cookie HttpOnly, rotativo, com só o hash no banco.' },
+    { termo: 'Rotação e detecção de reuso', definicao: 'Cada refresh token vale uma vez. Se um token antigo reaparece, alguém o copiou; a resposta segura é encerrar toda a sessão.', noSistema: 'Reuso derruba a sessão inteira; seis rotações simultâneas do mesmo token resultam em no máximo uma bem-sucedida.' },
+    { termo: 'Isolamento multiempresa e IDOR', definicao: 'IDOR (referência direta insegura a objeto) é acessar o registro de outro trocando o identificador na URL. A defesa não é esconder ids: é filtrar sempre pelo dono.', noSistema: 'EmpresaId vem do token e entra em todo filtro do DbContext; o campo empresaId enviado no corpo é ignorado.' },
+    { termo: 'Rate limit e bloqueio de conta', definicao: 'Limitar tentativas por unidade de tempo barra força bruta e abuso. Bloquear a conta inteira, porém, vira arma contra o dono; por isso o limite também considera o IP.', noSistema: '5 erros travam o par conta + IP e 10 travam a conta; IPv6 vale pelo prefixo /64.' },
+    { termo: 'CSRF', definicao: 'Um site de terceiros faz o navegador do usuário enviar um pedido com os cookies dele. A defesa é exigir algo que o outro site não consegue enviar.', noSistema: 'Rotacionar e sair exigem o cabeçalho X-Locadora-Client, além do cookie SameSite=Lax.' },
+    { termo: 'Enumeração de usuários', definicao: 'Descobrir quais contas existem pela diferença de mensagem, de status ou de tempo de resposta e usar isso para ataques dirigidos.', noSistema: 'Mesma mensagem e mesmo custo de hash para e-mail existente, inexistente e bloqueado; cadastro e recuperação de senha neutros.' },
+    { termo: 'Falha fechada', definicao: 'Quando algo essencial falta (variável, modelo, token), o sistema nega em vez de liberar. É mais barato errar para o lado seguro.', noSistema: 'ML_ENV ausente conta como produção; sem pesos da prova de vida o ML responde 503; sem CAMERA_EMPRESA_ID ninguém acessa as câmeras.' },
+    { termo: 'Defesa em profundidade', definicao: 'Várias camadas independentes, de modo que a falha de uma não basta para o ataque.', noSistema: 'Papel no front, papel na API, filtro por empresa no banco, token interno no ML e auditoria por empresa.' }
+  ];
 
   protected readonly controles = [
     {

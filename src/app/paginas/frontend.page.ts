@@ -37,17 +37,17 @@ const DESCRICAO_BLOCOS: Record<string, string> = {
   template: `
     <app-pagina-cabecalho />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <app-kpi-card rotulo="Linhas de produção" [valor]="inteiro(frontend.total.loc)" [apoio]="frontend.total.arquivos + ' arquivos em src/app (sem os helm do Spartan)'" icone="lucideCode" />
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <app-kpi-card rotulo="Rotas protegidas" [valor]="protegidas" apoio="com papel exigido em data.roles (Empresa ou Funcionário)" icone="lucideLock" />
       <app-kpi-card rotulo="Componentes standalone" [valor]="frontend.total.componentes" apoio="todos OnPush, com signals e novo control flow" icone="lucideLayoutGrid" />
       <app-kpi-card rotulo="Rotas" [valor]="frontend.rotas.length" [apoio]="telas + ' telas · ' + formularios + ' formulários · ' + publicas + ' públicas'" icone="lucideRoute" />
       <app-kpi-card rotulo="Specs" [valor]="frontend.total.specs" [apoio]="frontend.total.testes + ' testes (it) em ' + inteiro(frontend.total.locSpecs) + ' linhas'" icone="lucideFlaskConical" />
     </div>
 
     <app-secao titulo="Stack" descricao="Angular standalone com Spartan UI (equivalente Angular do shadcn/ui) e tokens Material 3; Bootstrap, bootstrap-icons e Angular Material foram removidos do software." id="stack">
-      <ul class="grid gap-3 md:grid-cols-2">
+      <ul class="grid gap-6 md:grid-cols-2">
         @for (s of stack; track s.titulo) {
-          <li class="border-border bg-card flex gap-3 rounded-xl border p-4">
+          <li class="border-border bg-card flex gap-4 rounded-xl border p-6">
             <span class="bg-secondary text-secondary-foreground flex size-10 shrink-0 items-center justify-center rounded-full">
               <ng-icon [name]="s.icone" class="text-lg" aria-hidden="true" />
             </span>
@@ -60,12 +60,8 @@ const DESCRICAO_BLOCOS: Record<string, string> = {
       </ul>
     </app-secao>
 
-    <app-secao titulo="Onde está o código" descricao="Linhas de produção por pasta de src/app. As telas de negócio ficam em Components/; o que é reutilizado fica em shared/ e core/." id="codigo">
-      <app-grafico titulo="Linhas por área" subtitulo="As 15 maiores pastas" [configurar]="graficoAreas" [altura]="460" [tabela]="tabelaAreas" resumo="Barras horizontais com as linhas de código de produção das 15 maiores áreas do front-end." />
-      <app-tabela-dados [colunas]="colunasAreas" [linhas]="areas" legenda="áreas do front-end" arquivo="areas-frontend" [tamanhoInicial]="10" />
-    </app-secao>
-
     <app-secao titulo="Rotas" descricao="Toda tela é carregada sob demanda (loadComponent). Uma rota protegida sem data.roles reprova no spec de rotas." id="rotas">
+      <app-grafico titulo="Rotas por tipo e por quem acessa" subtitulo="Telas, formulários e páginas públicas" [configurar]="graficoRotas" [altura]="300" [tabela]="tabelaRotas" resumo="Barras empilhadas com a quantidade de rotas por papel (Empresa, Empresa e Funcionário, Público), divididas em telas, formulários e páginas públicas." />
       <app-tabela-dados [colunas]="colunasRotas" [linhas]="rotas" legenda="rotas do front-end" arquivo="rotas-frontend" [tamanhoInicial]="25" />
     </app-secao>
 
@@ -79,9 +75,9 @@ const DESCRICAO_BLOCOS: Record<string, string> = {
     </app-secao>
 
     <app-secao titulo="Sessão no navegador" id="sessao">
-      <ol class="flex flex-col gap-3">
+      <ol class="flex flex-col gap-4">
         @for (p of sessao; track p.titulo; let i = $index) {
-          <li class="border-border bg-card flex gap-4 rounded-xl border p-4">
+          <li class="border-border bg-card flex gap-4 rounded-xl border p-5">
             <span class="bg-primary text-primary-foreground text-title-s tabular flex size-9 shrink-0 items-center justify-center rounded-full">{{ i + 1 }}</span>
             <div>
               <p class="text-title-s text-foreground">{{ p.titulo }}</p>
@@ -93,9 +89,9 @@ const DESCRICAO_BLOCOS: Record<string, string> = {
     </app-secao>
 
     <app-secao titulo="Pacote e acessibilidade" id="pacote">
-      <div class="grid gap-4 lg:grid-cols-2">
+      <div class="grid gap-6 lg:grid-cols-2">
         <app-tabela-dados [colunas]="colunasPacote" [linhas]="pacote" legenda="tamanho do pacote do front-end" arquivo="pacote-frontend" [tamanhoInicial]="10" />
-        <div class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+        <div class="border-border bg-card flex h-full flex-col gap-3 rounded-xl border p-6">
           <h3 class="text-title-m text-foreground">Acessibilidade já embutida</h3>
           <ul class="text-body-m text-muted-foreground list-disc pl-5">
             <li>lang="pt-BR", título por rota e link "Pular para o conteúdo"</li>
@@ -125,31 +121,32 @@ export class FrontendPage {
     { icone: 'lucideChartBar', titulo: 'ECharts e TanStack Table', texto: 'Gráficos com cores lidas dos tokens e a opção "Ver como tabela"; ngx-sonner para toasts e Lucide como único conjunto de ícones.' }
   ];
 
-  private readonly maiores = [...frontend.areas].sort((a, b) => b.loc - a.loc).slice(0, 15);
+  protected readonly protegidas = frontend.rotas.filter((r) => r.papeis !== 'Público').length;
 
-  protected readonly areas: Linha[] = frontend.areas.map((a) => ({ area: a.area, arquivos: a.arquivos, linhas: a.loc, componentes: a.componentes, specs: a.specs, testes: a.testes }));
-  protected readonly colunasAreas: ColunaTabela[] = [
-    { id: 'area', titulo: 'Pasta', tipo: 'codigo' },
-    { id: 'linhas', titulo: 'Linhas', tipo: 'numero' },
-    { id: 'arquivos', titulo: 'Arquivos', tipo: 'numero', secundaria: true },
-    { id: 'componentes', titulo: 'Componentes', tipo: 'numero', secundaria: true },
-    { id: 'specs', titulo: 'Specs', tipo: 'numero', secundaria: true },
-    { id: 'testes', titulo: 'Testes', tipo: 'numero' }
-  ];
-
-  protected readonly tabelaAreas = { colunas: ['Pasta', 'Linhas'], linhas: this.maiores.map((a) => [a.area, inteiro(a.loc)]) };
-  protected readonly graficoAreas = (t: TemaGrafico) => ({
-    ...baseDoGrafico(t),
-    grid: { left: 8, right: 56, top: 8, bottom: 8, containLabel: true },
-    tooltip: { ...baseDoGrafico(t).tooltip, trigger: 'axis', axisPointer: { type: 'shadow' }, valueFormatter: (v: number) => inteiro(v) + ' linhas' },
-    xAxis: eixoValor(t, { splitNumber: 4 }),
-    yAxis: eixoCategoria(t, this.maiores.map((a) => a.area), { inverse: true, axisLabel: { color: t.textoSecundario, fontFamily: t.fonte, fontSize: 11 } }),
-    series: [{
-      type: 'bar', barWidth: 16,
-      data: this.maiores.map((a) => ({ value: a.loc, itemStyle: { color: a.area.startsWith('shared') ? t.series[2] : a.area.startsWith('Components') ? t.series[0] : t.series[1], borderRadius: [0, 6, 6, 0] } })),
-      label: { show: true, position: 'right', color: t.texto, fontFamily: t.fonte, formatter: (p: { value: number }) => inteiro(p.value) }
-    }]
-  });
+  private readonly papeisRota = ['Empresa', 'Empresa e Funcionário', 'Público'];
+  private readonly tiposRota = ['Tela', 'Formulário', 'Pública'];
+  private contar(papel: string, tipo: string): number {
+    return frontend.rotas.filter((r) => r.papeis === papel && r.tipo === tipo).length;
+  }
+  protected readonly tabelaRotas = {
+    colunas: ['Quem acessa', ...this.tiposRota],
+    linhas: this.papeisRota.map((p) => [p, ...this.tiposRota.map((t) => this.contar(p, t))])
+  };
+  protected readonly graficoRotas = (t: TemaGrafico) => {
+    const base = baseDoGrafico(t);
+    return {
+      ...base,
+      grid: { left: 8, right: 16, top: 40, bottom: 8, containLabel: true },
+      tooltip: { ...base.tooltip, trigger: 'axis', axisPointer: { type: 'shadow' } },
+      legend: { ...base.legend, top: 0 },
+      xAxis: eixoCategoria(t, this.papeisRota),
+      yAxis: eixoValor(t, { minInterval: 1 }),
+      series: this.tiposRota.map((tipo, i) => ({
+        name: tipo, type: 'bar', stack: 'rotas', emphasis: { focus: 'series' }, itemStyle: { color: t.series[i] },
+        data: this.papeisRota.map((p) => this.contar(p, tipo))
+      }))
+    };
+  };
 
   protected readonly rotas: Linha[] = frontend.rotas.map((r) => ({ caminho: r.caminho, titulo: r.titulo, tipo: r.tipo, papeis: r.papeis }));
   protected readonly colunasRotas: ColunaTabela[] = [

@@ -18,7 +18,7 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
   template: `
     <app-pagina-cabecalho />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <app-kpi-card rotulo="Projetos da solução" [valor]="projetos.length" apoio="4 de produção + 3 de teste" icone="lucideBox" />
       <app-kpi-card rotulo="Linhas de produção" [valor]="inteiro(backend.tamanhoTotal)" apoio="domínio + aplicação + infra + Web API" icone="lucideCode" />
       <app-kpi-card rotulo="Controllers" [valor]="16" apoio="todos com [Authorize]; anônimos só de entrada" icone="lucideRoute" />
@@ -26,25 +26,25 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
     </div>
 
     <app-secao titulo="Camadas" descricao="A infraestrutura implementa as interfaces do domínio; o domínio não depende de nenhuma outra camada." id="camadas">
-      <div class="flex flex-col gap-2" role="list" aria-label="Camadas da solução, de cima para baixo">
+      <div class="flex flex-col gap-3" role="list" aria-label="Camadas da solução, de cima para baixo">
         @for (c of pilha; track c.nome) {
-          <div role="listitem" class="border-border flex flex-wrap items-center gap-3 rounded-xl border p-4" [class]="c.classe">
+          <div role="listitem" class="border-border flex flex-wrap items-center gap-3 rounded-xl border p-5" [class]="c.classe">
             <span class="text-title-s min-w-40 font-semibold">{{ c.nome }}</span>
             <span class="text-body-m flex-1">{{ c.texto }}</span>
             <span class="text-label-m tabular opacity-80">{{ inteiro(c.linhas) }} linhas · {{ c.arquivos }} arquivos</span>
           </div>
         }
       </div>
-      <div class="grid gap-4 lg:grid-cols-2">
+      <div class="grid gap-6 lg:grid-cols-2">
         <app-grafico titulo="Linhas por projeto" subtitulo="Produção e testes na mesma escala" [configurar]="graficoProjetos" [altura]="320" [tabela]="tabelaProjetos" resumo="Barras horizontais com as linhas de código de cada projeto da solução .NET, incluindo os três projetos de teste." />
         <app-grafico titulo="Pacotes NuGet por projeto" subtitulo="Dependências diretas declaradas nos .csproj" [configurar]="graficoPacotes" [altura]="320" [tabela]="tabelaPacotes" resumo="Barras com a quantidade de pacotes NuGet diretos de cada projeto." />
       </div>
     </app-secao>
 
     <app-secao titulo="Padrões em uso" id="padroes">
-      <ul class="grid gap-3 md:grid-cols-2">
+      <ul class="grid gap-6 md:grid-cols-2">
         @for (p of padroes; track p.titulo) {
-          <li class="border-border bg-card flex gap-3 rounded-xl border p-4">
+          <li class="border-border bg-card flex gap-4 rounded-xl border p-6">
             <span class="bg-secondary text-secondary-foreground flex size-10 shrink-0 items-center justify-center rounded-full">
               <ng-icon [name]="p.icone" class="text-lg" aria-hidden="true" />
             </span>
@@ -62,9 +62,9 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
     </app-secao>
 
     <app-secao titulo="Pipeline HTTP" descricao="Ordem dos middlewares em Program.cs; o erro nunca devolve pilha de execução." id="pipeline">
-      <ol class="grid gap-2 md:grid-cols-2">
+      <ol class="grid gap-4 md:grid-cols-2">
         @for (m of pipeline; track m.nome; let i = $index) {
-          <li class="border-border bg-card flex items-start gap-3 rounded-xl border p-3">
+          <li class="border-border bg-card flex items-start gap-4 rounded-xl border p-5">
             <span class="bg-primary-container text-on-primary-container text-label-m tabular flex size-7 shrink-0 items-center justify-center rounded-full">{{ i + 1 }}</span>
             <div>
               <p class="text-title-s text-foreground code-inline w-fit">{{ m.nome }}</p>
@@ -87,17 +87,17 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
       <app-tabela-dados [colunas]="colunasLimites" [linhas]="limites" legenda="limites de uso da API" arquivo="limites" [tamanhoInicial]="10" />
     </app-secao>
 
-    <app-secao titulo="Persistência" id="persistencia">
-      <ul class="text-body-m text-foreground prose-doc flex list-disc flex-col gap-2 pl-5">
-        <li>EF Core com SQL Server; <strong>não há SQL cru</strong> (FromSqlRaw/ExecuteSqlRaw), o que elimina injeção por concatenação.</li>
-        <li>{{ backend.migrations.length }} migrations; exclusões são lógicas (<span class="code-inline">Excluido</span> + <span class="code-inline">ExcluidoEmUtc</span>).</li>
-        <li>
-          <span class="code-inline">LocadoraDeVeiculosDbContext</span> descobre por reflexão as entidades que herdam de EntidadeBase&lt;T&gt; e aplica
-          <span class="code-inline">HasQueryFilter</span>. O provedor de empresa é um objeto nunca nulo (<em>null object</em>): o EF avalia o acesso ao membro antes do
-          curto-circuito do C#, então um teste de nulidade dentro do filtro causaria erro.
-        </li>
-        <li>Retenção de dados pessoais por <span class="code-inline">LimpezaPeriodicaService</span>: rosto sem uso há 12 meses, IP antigo da auditoria e refresh tokens vencidos.</li>
-        <li>Recuperação de senha em segundo plano (<span class="code-inline">ProcessadorDeRecuperacaoDeSenha</span>): a resposta é igual para qualquer e-mail.</li>
+    <app-secao titulo="Persistência" descricao="EF Core com SQL Server: o acesso a dados é sempre pelo ORM, e o filtro por empresa mora no DbContext." id="persistencia">
+      <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        @for (p of persistencia; track p.titulo) {
+          <li class="border-border bg-card flex h-full flex-col gap-3 rounded-xl border p-6">
+            <span class="bg-primary-container text-on-primary-container flex size-11 items-center justify-center rounded-full">
+              <ng-icon [name]="p.icone" class="text-xl" aria-hidden="true" />
+            </span>
+            <p class="text-title-m text-foreground">{{ p.titulo }}</p>
+            <p class="text-body-m text-muted-foreground">{{ p.texto }}</p>
+          </li>
+        }
       </ul>
     </app-secao>
   `
@@ -153,6 +153,15 @@ export class BackendPage {
       label: { show: true, position: 'right', color: t.texto, fontFamily: t.fonte }
     }]
   });
+
+  protected readonly persistencia = [
+    { icone: 'lucideDatabase', titulo: 'Sem SQL cru', texto: 'Nenhum FromSqlRaw ou ExecuteSqlRaw: tudo passa pelo EF Core, o que elimina injeção por concatenação.' },
+    { icone: 'lucideLayers', titulo: 'Migrations versionadas', texto: `${backend.migrations.length} migrations, do primeiro esquema (funcionários e grupos) à auditoria e ao consentimento facial.` },
+    { icone: 'lucideEraser', titulo: 'Exclusão lógica', texto: 'Excluido e ExcluidoEmUtc na EntidadeBase; as consultas nunca devolvem o que foi excluído.' },
+    { icone: 'lucideShield', titulo: 'Filtro por empresa no DbContext', texto: 'O contexto descobre por reflexão as entidades que herdam de EntidadeBase<T> e aplica HasQueryFilter com EmpresaId e !Excluido. O provedor de empresa é um objeto nunca nulo (null object): o EF avalia o acesso ao membro antes do curto-circuito do C#.' },
+    { icone: 'lucideClock', titulo: 'Retenção automática', texto: 'LimpezaPeriodicaService apaga rosto sem uso há 12 meses, IP antigo da auditoria e refresh tokens vencidos.' },
+    { icone: 'lucideMail', titulo: 'Recuperação em segundo plano', texto: 'ProcessadorDeRecuperacaoDeSenha envia o e-mail fora da requisição: a resposta é igual para qualquer e-mail.' }
+  ];
 
   protected readonly padroes = [
     { icone: 'lucideWorkflow', titulo: 'CQRS e MediatR', texto: 'Um command ou query por caso de uso, com handler próprio; os controllers só montam o comando e traduzem o resultado. SerializarPorEmpresaBehavior envolve todos os pedidos.' },

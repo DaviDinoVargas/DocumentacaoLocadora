@@ -16,10 +16,10 @@ export interface BlocoCobertura {
 
 export const COBERTURA_BLOCOS: readonly BlocoCobertura[] = [
   { bloco: 'Angular', percentual: 74.8, detalhe: '2.086 de 2.790 linhas · branches 64,9 % · funções 53,0 %' },
-  { bloco: 'Serviço de ML (Python)', percentual: 71.3, detalhe: '849 de 1.191 statements (com branches: 69 %)' },
-  { bloco: '.NET (Dominio + Aplicacao + Orm)', percentual: 32.2, detalhe: '1.865 de 5.798 linhas: Domínio 60,9 %, Orm 66,8 %, Aplicação 19,7 %' },
-  { bloco: 'Total ponderado (só o medido)', percentual: 49, detalhe: '≈ 4.800 de 9.779 linhas/statements' },
-  { bloco: 'Total com a Web API como 0 %', percentual: 43, detalhe: 'estimativa de 41 a 45 %: a Web API (~2.000 linhas) não era referenciada por nenhum teste' }
+  { bloco: 'Serviço de ML', percentual: 71.3, detalhe: '849 de 1.191 statements (com branches: 69 %)' },
+  { bloco: '.NET', percentual: 32.2, detalhe: '1.865 de 5.798 linhas: Domínio 60,9 %, Orm 66,8 %, Aplicação 19,7 %' },
+  { bloco: 'Total medido', percentual: 49, detalhe: '≈ 4.800 de 9.779 linhas/statements' },
+  { bloco: 'Total (Web API = 0 %)', percentual: 43, detalhe: 'estimativa de 41 a 45 %: a Web API (~2.000 linhas) não era referenciada por nenhum teste' }
 ];
 
 export const COBERTURA_ANGULAR: readonly { nome: string; percentual: number }[] = [

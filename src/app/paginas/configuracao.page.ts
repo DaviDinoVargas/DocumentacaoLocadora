@@ -73,7 +73,7 @@ const DETALHES: Record<string, Detalhe> = {
   template: `
     <app-pagina-cabecalho />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <app-kpi-card rotulo="Variáveis de configuração" [valor]="variaveis.length" apoio="lidas pelo código da Web API e do ML" icone="lucideSettings" />
       <app-kpi-card rotulo="Segredos" [valor]="segredos" apoio="nunca no repositório: user-secrets ou ambiente" icone="lucideKeyRound" />
       <app-kpi-card rotulo="Web API" [valor]="daApi" apoio="appsettings + user-secrets + ambiente" icone="lucideServer" />
@@ -83,25 +83,25 @@ const DETALHES: Record<string, Detalhe> = {
     <app-secao titulo="Rodando em desenvolvimento" descricao="Um terminal por serviço; o script da raiz inicia o Angular e o ML juntos." id="rodar">
       <mat-tab-group animationDuration="0ms" mat-align-tabs="start">
         <mat-tab label="1 · Dependências">
-          <div class="flex flex-col gap-3 pt-4">
+          <div class="flex flex-col gap-4 pt-6">
             <p class="text-body-m text-muted-foreground prose-doc">Pré-requisitos: Node.js, SDK do .NET 8, Python 3.11, SQL Server (em contêiner ou LocalDB) e Tesseract instalado no sistema.</p>
             <app-codigo rotulo="Raiz do repositório" [texto]="cmdInstalar" />
           </div>
         </mat-tab>
         <mat-tab label="2 · Segredos da API">
-          <div class="flex flex-col gap-3 pt-4">
+          <div class="flex flex-col gap-4 pt-6">
             <p class="text-body-m text-muted-foreground prose-doc">Os segredos ficam no user-secrets da Web API; os valores abaixo são exemplos. Em desenvolvimento, MlApi:InternalToken e FACE_ENCRYPTION_KEYS são opcionais.</p>
             <app-codigo rotulo="Server/web-api" [texto]="cmdSegredos" />
           </div>
         </mat-tab>
         <mat-tab label="3 · Subir tudo">
-          <div class="flex flex-col gap-3 pt-4">
+          <div class="flex flex-col gap-4 pt-6">
             <app-codigo rotulo="Três terminais" [texto]="cmdSubir" />
             <app-nota tom="info">O proxy do Angular (proxy.conf.json) encaminha /api/** para https://localhost:7064 e as rotas de câmera, chat e stream para o ML na porta 8000.</app-nota>
           </div>
         </mat-tab>
         <mat-tab label="Scripts da raiz">
-          <div class="pt-4">
+          <div class="pt-6">
             <app-tabela-dados [colunas]="colunasScripts" [linhas]="scripts" legenda="scripts do package.json da raiz" arquivo="scripts" [tamanhoInicial]="10" />
           </div>
         </mat-tab>
@@ -113,7 +113,7 @@ const DETALHES: Record<string, Detalhe> = {
     </app-secao>
 
     <app-secao titulo="Variáveis de configuração" descricao="Extraídas do código (configuration[…], GetEnvironmentVariable e os.environ). Descrições e padrões vêm do próprio código e dos documentos do projeto." id="variaveis">
-      <div class="grid gap-4 lg:grid-cols-2">
+      <div class="grid gap-6 lg:grid-cols-2">
         <app-grafico titulo="Variáveis por tema" subtitulo="Onde a configuração se concentra" [configurar]="graficoTemas" [altura]="320" [tabela]="tabelaTemas" resumo="Barras horizontais com a quantidade de variáveis de configuração por tema: placas, e-mail, rede, biometria, câmera, integração com o ML, ambiente, sessão e banco." />
         <app-grafico titulo="Quem lê cada variável" subtitulo="Web API, serviço de ML ou ambos" [configurar]="graficoComponentes" [altura]="320" [tabela]="tabelaComponentes" resumo="Rosca com a quantidade de variáveis lidas pela Web API, pelo serviço de ML ou por ambos." />
       </div>

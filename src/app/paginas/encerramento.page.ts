@@ -38,11 +38,11 @@ const corrigidos = ITENS_SEGURANCA.filter((i) => i.estado === 'Corrigido').lengt
     </app-secao>
 
     <app-secao titulo="O estado do sistema em seis números" id="numeros">
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <app-kpi-card rotulo="Linhas de produção" [valor]="inteiro(codigo)" apoio="Web API, front-end e ML" icone="lucideCode" />
         <app-kpi-card rotulo="Endpoints" [valor]="endpoints.dotnet.length + endpoints.ml.length" [apoio]="backend.modulos.length + ' módulos · ' + frontend.rotas.length + ' rotas no front'" icone="lucideRoute" />
         <app-kpi-card rotulo="Testes declarados" [valor]="inteiro(visao.totalTestes)" apoio="verdes nas execuções registradas" icone="lucideFlaskConical" />
-        <app-kpi-card rotulo="Achados corrigidos" [valor]="corrigidos + ' de ' + itens" apoio="4 parciais e 2 ignorados por decisão" icone="lucideShieldCheck" />
+        <app-kpi-card rotulo="Achados corrigidos" [valor]="corrigidos + ' de ' + itens" [apoio]="parciais + ' parciais e ' + ignorados + ' ignorados por decisão'" icone="lucideShieldCheck" />
         <app-kpi-card rotulo="Ataques barrados" [valor]="rodada.aprovadas + ' de ' + rodada.total" apoio="0 reprovadas; 0 erros 5xx sob carga" icone="lucideShieldAlert" />
         <app-kpi-card rotulo="Reconhecimento facial" valor="98,3 %" apoio="acurácia no LFW; sem medição com webcam ainda" icone="lucideScanFace" />
       </div>
@@ -50,9 +50,9 @@ const corrigidos = ITENS_SEGURANCA.filter((i) => i.estado === 'Corrigido').lengt
     </app-secao>
 
     <app-secao titulo="O que fica para depois" descricao="Pendências reais, na ordem em que o material do TCC e os relatórios as colocam." id="pendencias">
-      <ol class="flex flex-col gap-3">
+      <ol class="flex flex-col gap-4">
         @for (p of pendencias; track p.titulo; let i = $index) {
-          <li class="border-border bg-card flex gap-4 rounded-xl border p-4">
+          <li class="border-border bg-card flex gap-4 rounded-xl border p-6">
             <span class="bg-primary text-primary-foreground text-title-s tabular flex size-9 shrink-0 items-center justify-center rounded-full">{{ i + 1 }}</span>
             <div>
               <p class="text-title-s text-foreground">{{ p.titulo }}</p>
@@ -89,6 +89,8 @@ export class EncerramentoPage {
   protected readonly visao = visao;
   protected readonly rodada = rodada;
   protected readonly corrigidos = corrigidos;
+  protected readonly parciais = ITENS_SEGURANCA.filter((i) => i.estado === 'Parcial').length;
+  protected readonly ignorados = ITENS_SEGURANCA.filter((i) => i.estado === 'Ignorado').length;
   protected readonly itens = ITENS_SEGURANCA.length;
   protected readonly inteiro = inteiro;
   protected readonly codigo = visao.tamanhos.backend + visao.tamanhos.frontend + visao.tamanhos.ml;
@@ -141,7 +143,6 @@ export class EncerramentoPage {
   ];
 
   protected readonly suposicoes = [
-    'O repositório do software foi lido na branch dv-017-seguranca (topo c828583, 13/out/2026); nada foi alterado nele.',
     'O código vence o texto do TCC; as divergências estão na página Observações.',
     'Docker, nginx e CI ficam fora de escopo, como decidido pelo autor do software.',
     'Os 35 achados de segurança foram curados à mão a partir do relatório; as demais contagens vêm do extrator.',

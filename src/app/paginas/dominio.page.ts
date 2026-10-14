@@ -26,11 +26,11 @@ const papeisDoModulo = (modulo: string): string => {
   template: `
     <app-pagina-cabecalho />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <app-kpi-card rotulo="Módulos" [valor]="backend.modulos.length" apoio="cada um com controller e handlers" icone="lucideBriefcase" />
       <app-kpi-card rotulo="Commands e queries" [valor]="totalComandos + totalConsultas" [apoio]="totalComandos + ' commands · ' + totalConsultas + ' queries'" icone="lucideWorkflow" />
       <app-kpi-card rotulo="Validadores" [valor]="totalValidadores" apoio="FluentValidation, um por entrada" icone="lucideCircleCheck" />
-      <app-kpi-card rotulo="Migrations" [valor]="backend.migrations.length" [apoio]="'de ' + backend.migrations[0].data + ' a ' + backend.migrations[backend.migrations.length - 1].data" icone="lucideDatabase" />
+      <app-kpi-card rotulo="Migrations" [valor]="backend.migrations.length" apoio="do primeiro esquema à auditoria e ao consentimento facial" icone="lucideDatabase" />
     </div>
 
     <app-secao titulo="Módulos de negócio" descricao="Quantidades extraídas de Core.Aplicacao e dos controllers. O papel vem do [Authorize] real de cada endpoint." id="modulos">
@@ -46,9 +46,9 @@ const papeisDoModulo = (modulo: string): string => {
     </app-secao>
 
     <app-secao titulo="Quem acessa o quê" descricao="A matriz oficial fica em core/permissoes.ts no front e é conferida por um spec de rotas; a autoridade é sempre a API." id="papeis">
-      <div class="grid gap-4 md:grid-cols-2">
+      <div class="grid gap-6 md:grid-cols-2">
         @for (p of papeis; track p.nome) {
-          <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+          <article class="border-border bg-card flex flex-col gap-3 rounded-xl border p-6">
             <h3 class="text-title-m text-foreground flex items-center gap-2">
               <ng-icon [name]="p.icone" class="text-lg" aria-hidden="true" /> {{ p.nome }}
             </h3>
@@ -86,10 +86,6 @@ const papeisDoModulo = (modulo: string): string => {
         }
       </mat-accordion>
     </app-secao>
-
-    <app-secao titulo="Histórico de migrations" descricao="Do primeiro esquema (funcionários e grupos) à auditoria e ao consentimento facial." id="migrations">
-      <app-tabela-dados [colunas]="colunasMigrations" [linhas]="migrations" legenda="migrations do EF Core" arquivo="migrations" [tamanhoInicial]="25" />
-    </app-secao>
   `
 })
 export class DominioPage {
@@ -99,7 +95,7 @@ export class DominioPage {
   protected readonly totalValidadores = backend.modulos.reduce((a, m) => a + m.validadores, 0);
 
   protected readonly modulos: Linha[] = backend.modulos.map((m) => ({
-    modulo: m.nome, papel: papeisDoModulo(m.nome), endpoints: m.endpoints, comandos: m.comandos, consultas: m.consultas, validadores: m.validadores, linhas: m.total
+    modulo: m.nome, papel: papeisDoModulo(m.nome), endpoints: m.endpoints, comandos: m.comandos, consultas: m.consultas, validadores: m.validadores
   }));
 
   protected readonly colunasModulos: ColunaTabela[] = [
@@ -108,8 +104,7 @@ export class DominioPage {
     { id: 'endpoints', titulo: 'Endpoints', tipo: 'numero' },
     { id: 'comandos', titulo: 'Commands', tipo: 'numero', secundaria: true },
     { id: 'consultas', titulo: 'Queries', tipo: 'numero', secundaria: true },
-    { id: 'validadores', titulo: 'Validadores', tipo: 'numero', secundaria: true },
-    { id: 'linhas', titulo: 'Linhas', tipo: 'numero' }
+    { id: 'validadores', titulo: 'Validadores', tipo: 'numero', secundaria: true }
   ];
 
   protected readonly papeis = [
@@ -149,14 +144,13 @@ export class DominioPage {
 
   private readonly listaEntidades = backend.entidades.filter((e) => e.tipo === 'entidade' && e.propriedades > 0).sort((a, b) => b.propriedades - a.propriedades);
 
-  protected readonly entidades: Linha[] = this.listaEntidades.map((e) => ({ entidade: e.nome, modulo: e.modulo, propriedades: e.propriedades, metodos: e.metodos, linhas: e.loc }));
+  protected readonly entidades: Linha[] = this.listaEntidades.map((e) => ({ entidade: e.nome, modulo: e.modulo, propriedades: e.propriedades, metodos: e.metodos }));
 
   protected readonly colunasEntidades: ColunaTabela[] = [
     { id: 'entidade', titulo: 'Entidade', tipo: 'codigo' },
     { id: 'modulo', titulo: 'Módulo', filtravel: true },
     { id: 'propriedades', titulo: 'Propriedades', tipo: 'numero' },
-    { id: 'metodos', titulo: 'Métodos de regra', tipo: 'numero', secundaria: true },
-    { id: 'linhas', titulo: 'Linhas', tipo: 'numero', secundaria: true }
+    { id: 'metodos', titulo: 'Métodos de regra', tipo: 'numero', secundaria: true }
   ];
 
   protected readonly tabelaEntidades = {
@@ -226,14 +220,6 @@ export class DominioPage {
         'A senha tem de 8 a 128 caracteres com número, maiúscula e minúscula, a mesma regra no front e no back; a foto do veículo só aceita https ou imagem pequena.'
       ]
     }
-  ];
-
-  protected readonly migrations: Linha[] = backend.migrations.map((m, i) => ({ ordem: i + 1, data: m.data, migration: m.nome }));
-
-  protected readonly colunasMigrations: ColunaTabela[] = [
-    { id: 'ordem', titulo: '#', tipo: 'numero' },
-    { id: 'data', titulo: 'Data', tipo: 'codigo' },
-    { id: 'migration', titulo: 'Migration', larguraMin: '16rem' }
   ];
 
   protected readonly inteiro = inteiro;
