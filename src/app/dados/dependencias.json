@@ -1,0 +1,465 @@
+{
+  "npm": {
+    "producao": [
+      {
+        "nome": "@angular/cdk",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@angular/common",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@angular/compiler",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@angular/core",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@angular/forms",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@angular/platform-browser",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@angular/router",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@fontsource-variable/inter",
+        "versao": "^5.2.0"
+      },
+      {
+        "nome": "@ng-icons/core",
+        "versao": "^34.0.0"
+      },
+      {
+        "nome": "@ng-icons/lucide",
+        "versao": "^34.0.0"
+      },
+      {
+        "nome": "@spartan-ng/brain",
+        "versao": "^1.6.3"
+      },
+      {
+        "nome": "@tailwindcss/postcss",
+        "versao": "^4.1.0"
+      },
+      {
+        "nome": "@tanstack/angular-table",
+        "versao": "^9.2.0"
+      },
+      {
+        "nome": "class-variance-authority",
+        "versao": "^0.7.1"
+      },
+      {
+        "nome": "clsx",
+        "versao": "^2.1.1"
+      },
+      {
+        "nome": "echarts",
+        "versao": "^6.0.0"
+      },
+      {
+        "nome": "jspdf",
+        "versao": "^4.2.1"
+      },
+      {
+        "nome": "jspdf-autotable",
+        "versao": "^5.0.8"
+      },
+      {
+        "nome": "luxon",
+        "versao": "^3.5.0"
+      },
+      {
+        "nome": "ngx-echarts",
+        "versao": "^21.0.0"
+      },
+      {
+        "nome": "ngx-sonner",
+        "versao": "^3.1.0"
+      },
+      {
+        "nome": "postcss",
+        "versao": "^8.5.0"
+      },
+      {
+        "nome": "rxjs",
+        "versao": "~7.8.0"
+      },
+      {
+        "nome": "tailwind-merge",
+        "versao": "^3.5.0"
+      },
+      {
+        "nome": "tailwindcss",
+        "versao": "^4.1.0"
+      },
+      {
+        "nome": "tslib",
+        "versao": "^2.3.0"
+      },
+      {
+        "nome": "tw-animate-css",
+        "versao": "^1.4.0"
+      },
+      {
+        "nome": "zone.js",
+        "versao": "^0.15.1"
+      }
+    ],
+    "desenvolvimento": [
+      {
+        "nome": "@angular/build",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@angular/cli",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@angular/compiler-cli",
+        "versao": "^21.2.0"
+      },
+      {
+        "nome": "@spartan-ng/cli",
+        "versao": "^1.6.3"
+      },
+      {
+        "nome": "@types/jasmine",
+        "versao": "~5.1.0"
+      },
+      {
+        "nome": "jasmine-core",
+        "versao": "~5.9.0"
+      },
+      {
+        "nome": "karma",
+        "versao": "~6.4.0"
+      },
+      {
+        "nome": "karma-chrome-launcher",
+        "versao": "~3.2.0"
+      },
+      {
+        "nome": "karma-coverage",
+        "versao": "~2.2.0"
+      },
+      {
+        "nome": "karma-jasmine",
+        "versao": "~5.1.0"
+      },
+      {
+        "nome": "karma-jasmine-html-reporter",
+        "versao": "~2.1.0"
+      },
+      {
+        "nome": "typescript",
+        "versao": "~5.9.2"
+      }
+    ]
+  },
+  "nuget": [
+    {
+      "projeto": "Core.Aplicacao",
+      "alvo": "net8.0",
+      "pacotes": [
+        {
+          "nome": "FluentResults",
+          "versao": "3.16.0"
+        },
+        {
+          "nome": "FluentValidation",
+          "versao": "11.11.0"
+        },
+        {
+          "nome": "FluentValidation.DependencyInjectionExtensions",
+          "versao": "11.11.0"
+        },
+        {
+          "nome": "MediatR",
+          "versao": "13.0.0"
+        },
+        {
+          "nome": "Microsoft.EntityFrameworkCore",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Microsoft.Extensions.Configuration.Abstractions",
+          "versao": "10.0.0"
+        },
+        {
+          "nome": "Microsoft.Extensions.Http",
+          "versao": "8.0.1"
+        },
+        {
+          "nome": "Microsoft.Extensions.Identity.Stores",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Serilog",
+          "versao": "4.1.0"
+        },
+        {
+          "nome": "System.IdentityModel.Tokens.Jwt",
+          "versao": "7.6.2"
+        }
+      ]
+    },
+    {
+      "projeto": "Core.Dominio",
+      "alvo": "net8.0",
+      "pacotes": [
+        {
+          "nome": "FluentValidation",
+          "versao": "11.11.0"
+        },
+        {
+          "nome": "Microsoft.Extensions.Identity.Stores",
+          "versao": "8.0.11"
+        }
+      ]
+    },
+    {
+      "projeto": "Infraestrutura.Orm",
+      "alvo": "net8.0",
+      "pacotes": [
+        {
+          "nome": "Microsoft.AspNetCore.Identity.EntityFrameworkCore",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Microsoft.EntityFrameworkCore",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Microsoft.EntityFrameworkCore.SqlServer",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Microsoft.Extensions.Identity.Core",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Microsoft.Extensions.Configuration",
+          "versao": "10.0.0"
+        },
+        {
+          "nome": "Microsoft.Extensions.Configuration.FileExtensions",
+          "versao": "10.0.0"
+        },
+        {
+          "nome": "Microsoft.Extensions.Configuration.Json",
+          "versao": "10.0.0"
+        },
+        {
+          "nome": "Microsoft.Extensions.Configuration.UserSecrets",
+          "versao": "10.0.0"
+        }
+      ]
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "alvo": "net8.0",
+      "pacotes": [
+        {
+          "nome": "FluentValidation",
+          "versao": "11.11.0"
+        },
+        {
+          "nome": "Microsoft.NET.Test.Sdk",
+          "versao": "17.12.0"
+        },
+        {
+          "nome": "MSTest",
+          "versao": "3.6.4"
+        },
+        {
+          "nome": "Moq",
+          "versao": "4.20.72"
+        }
+      ]
+    },
+    {
+      "projeto": "Tests.Integracao",
+      "alvo": "net8.0",
+      "pacotes": [
+        {
+          "nome": "FluentResults",
+          "versao": "4.0.0"
+        },
+        {
+          "nome": "FluentValidation",
+          "versao": "12.0.0"
+        },
+        {
+          "nome": "Microsoft.EntityFrameworkCore.InMemory",
+          "versao": "8.0.0"
+        },
+        {
+          "nome": "Microsoft.NET.Test.Sdk",
+          "versao": "17.12.0"
+        },
+        {
+          "nome": "MSTest",
+          "versao": "3.6.4"
+        },
+        {
+          "nome": "Moq",
+          "versao": "4.20.72"
+        },
+        {
+          "nome": "NBuilder",
+          "versao": "6.1.0"
+        },
+        {
+          "nome": "System.Net.Http",
+          "versao": "4.3.4"
+        },
+        {
+          "nome": "System.Text.RegularExpressions",
+          "versao": "4.3.1"
+        }
+      ]
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "alvo": "net8.0",
+      "pacotes": [
+        {
+          "nome": "Microsoft.AspNetCore.Mvc.Testing",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Microsoft.EntityFrameworkCore.InMemory",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Microsoft.NET.Test.Sdk",
+          "versao": "17.12.0"
+        },
+        {
+          "nome": "MSTest",
+          "versao": "3.6.4"
+        }
+      ]
+    },
+    {
+      "projeto": "WebApi",
+      "alvo": "net8.0",
+      "pacotes": [
+        {
+          "nome": "FluentResults",
+          "versao": "3.16.0"
+        },
+        {
+          "nome": "FluentValidation",
+          "versao": "11.11.0"
+        },
+        {
+          "nome": "FluentValidation.DependencyInjectionExtensions",
+          "versao": "11.11.0"
+        },
+        {
+          "nome": "MediatR",
+          "versao": "13.0.0"
+        },
+        {
+          "nome": "Microsoft.AspNetCore.Authentication.JwtBearer",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Microsoft.EntityFrameworkCore.Tools",
+          "versao": "8.0.11"
+        },
+        {
+          "nome": "Microsoft.IdentityModel.JsonWebTokens",
+          "versao": "8.0.1"
+        },
+        {
+          "nome": "Microsoft.IdentityModel.Protocols",
+          "versao": "7.6.2"
+        },
+        {
+          "nome": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
+          "versao": "7.6.2"
+        },
+        {
+          "nome": "Serilog",
+          "versao": "4.1.0"
+        },
+        {
+          "nome": "Serilog.Extensions.Logging",
+          "versao": "8.0.0"
+        },
+        {
+          "nome": "Serilog.Sinks.Console",
+          "versao": "6.0.0"
+        },
+        {
+          "nome": "Swashbuckle.AspNetCore",
+          "versao": "6.6.2"
+        }
+      ]
+    }
+  ],
+  "pip": [
+    {
+      "nome": "fastapi",
+      "versao": "0.115.6"
+    },
+    {
+      "nome": "uvicorn",
+      "versao": "0.32.1"
+    },
+    {
+      "nome": "pydantic",
+      "versao": "2.10.3"
+    },
+    {
+      "nome": "python-multipart",
+      "versao": "0.0.31"
+    },
+    {
+      "nome": "opencv-python",
+      "versao": "4.10.0.84"
+    },
+    {
+      "nome": "numpy",
+      "versao": "1.26.4"
+    },
+    {
+      "nome": "ultralytics",
+      "versao": "8.3.49"
+    },
+    {
+      "nome": "pytesseract",
+      "versao": "0.3.13"
+    },
+    {
+      "nome": "mediapipe",
+      "versao": "0.10.18"
+    },
+    {
+      "nome": "Pillow",
+      "versao": "12.3.0"
+    },
+    {
+      "nome": "httpx",
+      "versao": "0.28.1"
+    }
+  ],
+  "pipDev": [
+    {
+      "nome": "pytest",
+      "versao": "8.3.4"
+    }
+  ],
+  "pipTravados": 96
+}

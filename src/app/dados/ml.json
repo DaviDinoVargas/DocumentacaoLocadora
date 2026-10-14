@@ -1,0 +1,98 @@
+{
+  "total": {
+    "arquivos": 32,
+    "loc": 2434,
+    "testes": 136,
+    "locTestes": 1416
+  },
+  "areas": [
+    {
+      "area": "FaceAuth",
+      "arquivos": 10,
+      "loc": 782
+    },
+    {
+      "area": "yolo_tesseract",
+      "arquivos": 9,
+      "loc": 744
+    },
+    {
+      "area": "shared",
+      "arquivos": 6,
+      "loc": 415
+    },
+    {
+      "area": "ChatBot",
+      "arquivos": 4,
+      "loc": 198
+    },
+    {
+      "area": "tools",
+      "arquivos": 2,
+      "loc": 191
+    },
+    {
+      "area": "(raiz)",
+      "arquivos": 1,
+      "loc": 104
+    }
+  ],
+  "testes": [
+    {
+      "arquivo": "auth_endpoints",
+      "testes": 22
+    },
+    {
+      "arquivo": "prova_de_vida",
+      "testes": 17
+    },
+    {
+      "arquivo": "chatbot_service",
+      "testes": 16
+    },
+    {
+      "arquivo": "isolamento_cameras",
+      "testes": 14
+    },
+    {
+      "arquivo": "embedding_facial",
+      "testes": 13
+    },
+    {
+      "arquivo": "configuracao_seguranca",
+      "testes": 11
+    },
+    {
+      "arquivo": "camera_manager",
+      "testes": 9
+    },
+    {
+      "arquivo": "plate_localizer",
+      "testes": 9
+    },
+    {
+      "arquivo": "yolo_service_loop",
+      "testes": 9
+    },
+    {
+      "arquivo": "face_recognition",
+      "testes": 6
+    },
+    {
+      "arquivo": "plate_ocr",
+      "testes": 6
+    },
+    {
+      "arquivo": "dependencias_travadas",
+      "testes": 4
+    },
+    {
+      "arquivo": "cenas_placa",
+      "testes": 0
+    },
+    {
+      "arquivo": "conftest",
+      "testes": 0
+    }
+  ]
+}

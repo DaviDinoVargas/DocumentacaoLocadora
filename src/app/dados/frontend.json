@@ -1,0 +1,695 @@
+{
+  "total": {
+    "arquivos": 207,
+    "loc": 10829,
+    "specs": 52,
+    "locSpecs": 4235,
+    "testes": 386,
+    "componentes": 57
+  },
+  "areas": [
+    {
+      "area": "auth",
+      "arquivos": 17,
+      "loc": 1047,
+      "componentes": 5,
+      "specs": 5,
+      "testes": 57
+    },
+    {
+      "area": "shared/data-table",
+      "arquivos": 8,
+      "loc": 947,
+      "componentes": 1,
+      "specs": 3,
+      "testes": 27
+    },
+    {
+      "area": "Components/alugueis",
+      "arquivos": 8,
+      "loc": 928,
+      "componentes": 2,
+      "specs": 2,
+      "testes": 42
+    },
+    {
+      "area": "Components/monitoramento",
+      "arquivos": 8,
+      "loc": 805,
+      "componentes": 1,
+      "specs": 3,
+      "testes": 44
+    },
+    {
+      "area": "shared/layout",
+      "arquivos": 8,
+      "loc": 648,
+      "componentes": 8,
+      "specs": 0,
+      "testes": 0
+    },
+    {
+      "area": "Components/clientes",
+      "arquivos": 10,
+      "loc": 546,
+      "componentes": 3,
+      "specs": 2,
+      "testes": 11
+    },
+    {
+      "area": "Components/devolucoes",
+      "arquivos": 9,
+      "loc": 526,
+      "componentes": 3,
+      "specs": 1,
+      "testes": 11
+    },
+    {
+      "area": "Components/home",
+      "arquivos": 5,
+      "loc": 464,
+      "componentes": 1,
+      "specs": 1,
+      "testes": 10
+    },
+    {
+      "area": "core",
+      "arquivos": 22,
+      "loc": 412,
+      "componentes": 1,
+      "specs": 9,
+      "testes": 37
+    },
+    {
+      "area": "Components/conta",
+      "arquivos": 3,
+      "loc": 353,
+      "componentes": 1,
+      "specs": 1,
+      "testes": 11
+    },
+    {
+      "area": "Components/veiculos",
+      "arquivos": 8,
+      "loc": 344,
+      "componentes": 2,
+      "specs": 2,
+      "testes": 10
+    },
+    {
+      "area": "shared/form-fields",
+      "arquivos": 9,
+      "loc": 336,
+      "componentes": 6,
+      "specs": 2,
+      "testes": 11
+    },
+    {
+      "area": "Components/verificacao-facial",
+      "arquivos": 3,
+      "loc": 320,
+      "componentes": 1,
+      "specs": 1,
+      "testes": 9
+    },
+    {
+      "area": "Components/funcionarios",
+      "arquivos": 7,
+      "loc": 314,
+      "componentes": 2,
+      "specs": 1,
+      "testes": 6
+    },
+    {
+      "area": "Components/cupons",
+      "arquivos": 8,
+      "loc": 292,
+      "componentes": 2,
+      "specs": 2,
+      "testes": 9
+    },
+    {
+      "area": "Components/condutor",
+      "arquivos": 7,
+      "loc": 277,
+      "componentes": 2,
+      "specs": 1,
+      "testes": 7
+    },
+    {
+      "area": "Components/desafios-cupom",
+      "arquivos": 7,
+      "loc": 246,
+      "componentes": 2,
+      "specs": 1,
+      "testes": 6
+    },
+    {
+      "area": "Components/taxa-servico",
+      "arquivos": 8,
+      "loc": 231,
+      "componentes": 2,
+      "specs": 2,
+      "testes": 10
+    },
+    {
+      "area": "Components/parceiros",
+      "arquivos": 8,
+      "loc": 227,
+      "componentes": 2,
+      "specs": 2,
+      "testes": 7
+    },
+    {
+      "area": "Components/planocobranca",
+      "arquivos": 7,
+      "loc": 227,
+      "componentes": 2,
+      "specs": 1,
+      "testes": 6
+    },
+    {
+      "area": "Components/pdf",
+      "arquivos": 2,
+      "loc": 197,
+      "componentes": 0,
+      "specs": 1,
+      "testes": 6
+    },
+    {
+      "area": "Components/grupoveiculos",
+      "arquivos": 7,
+      "loc": 173,
+      "componentes": 2,
+      "specs": 1,
+      "testes": 5
+    },
+    {
+      "area": "(app)",
+      "arquivos": 5,
+      "loc": 163,
+      "componentes": 1,
+      "specs": 2,
+      "testes": 6
+    },
+    {
+      "area": "Components/configuracoes",
+      "arquivos": 5,
+      "loc": 156,
+      "componentes": 1,
+      "specs": 1,
+      "testes": 5
+    },
+    {
+      "area": "shared/charts",
+      "arquivos": 3,
+      "loc": 149,
+      "componentes": 2,
+      "specs": 0,
+      "testes": 0
+    },
+    {
+      "area": "Components/chatbot",
+      "arquivos": 3,
+      "loc": 141,
+      "componentes": 1,
+      "specs": 0,
+      "testes": 0
+    },
+    {
+      "area": "Components/auditoria",
+      "arquivos": 4,
+      "loc": 124,
+      "componentes": 1,
+      "specs": 1,
+      "testes": 4
+    },
+    {
+      "area": "shared/(raiz)",
+      "arquivos": 2,
+      "loc": 91,
+      "componentes": 0,
+      "specs": 1,
+      "testes": 5
+    },
+    {
+      "area": "shared/mascaras",
+      "arquivos": 2,
+      "loc": 73,
+      "componentes": 0,
+      "specs": 1,
+      "testes": 9
+    },
+    {
+      "area": "shared/validators",
+      "arquivos": 4,
+      "loc": 72,
+      "componentes": 0,
+      "specs": 2,
+      "testes": 15
+    }
+  ],
+  "rotas": [
+    {
+      "caminho": "/login",
+      "titulo": "Entrar",
+      "papeis": "Público",
+      "tipo": "Pública",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/registrar",
+      "titulo": "Criar conta",
+      "papeis": "Público",
+      "tipo": "Pública",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/esqueci-senha",
+      "titulo": "Esqueci minha senha",
+      "papeis": "Público",
+      "tipo": "Pública",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/redefinir-senha",
+      "titulo": "Nova senha",
+      "papeis": "Público",
+      "tipo": "Pública",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/home",
+      "titulo": "Início",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/conta",
+      "titulo": "Minha conta",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/auditoria",
+      "titulo": "Auditoria",
+      "papeis": "Empresa",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/funcionarios",
+      "titulo": "Funcionários",
+      "papeis": "Empresa",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/funcionarios/new",
+      "titulo": "Novo funcionário",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/funcionarios/:id/edit",
+      "titulo": "Editar funcionário",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/planos-cobranca",
+      "titulo": "Planos de cobrança",
+      "papeis": "Empresa",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/planos-cobranca/new",
+      "titulo": "Novo plano de cobrança",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/planos-cobranca/:id/edit",
+      "titulo": "Editar plano de cobrança",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/grupoveiculos",
+      "titulo": "Grupos de veículo",
+      "papeis": "Empresa",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/grupoveiculos/new",
+      "titulo": "Novo grupo de veículo",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/grupoveiculos/:id/edit",
+      "titulo": "Editar grupo de veículo",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/veiculos",
+      "titulo": "Veículos",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/veiculos/new",
+      "titulo": "Novo veículo",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/veiculos/:id/edit",
+      "titulo": "Editar veículo",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/clientes",
+      "titulo": "Clientes",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/clientes/pf",
+      "titulo": "Pessoas físicas",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/clientes/pj",
+      "titulo": "Pessoas jurídicas",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/clientes/new/pf",
+      "titulo": "Nova pessoa física",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/clientes/new/pj",
+      "titulo": "Nova pessoa jurídica",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/clientes/:id/edit/pessoa-fisica",
+      "titulo": "Editar pessoa física",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/clientes/:id/edit/pessoa-juridica",
+      "titulo": "Editar pessoa jurídica",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/alugueis",
+      "titulo": "Aluguéis",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/alugueis/new",
+      "titulo": "Novo aluguel",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/alugueis/:id/edit",
+      "titulo": "Editar aluguel",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/configuracoes/combustivel",
+      "titulo": "Configurações",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/condutores",
+      "titulo": "Condutores",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/condutores/new",
+      "titulo": "Novo condutor",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/condutores/:id/edit",
+      "titulo": "Editar condutor",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/devolucoes",
+      "titulo": "Devoluções",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/devolucoes/:id",
+      "titulo": "Devolução",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/alugueis/:id/devolver",
+      "titulo": "Registrar devolução",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/taxas-servicos",
+      "titulo": "Taxas e serviços",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/taxas-servicos/new",
+      "titulo": "Nova taxa ou serviço",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/taxas-servicos/:id/edit",
+      "titulo": "Editar taxa ou serviço",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/camera-monitor",
+      "titulo": "Monitoramento de câmeras",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/verificacao-facial",
+      "titulo": "Verificação facial",
+      "papeis": "Empresa e Funcionário",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/parceiros",
+      "titulo": "Parceiros",
+      "papeis": "Empresa",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/parceiros/new",
+      "titulo": "Novo parceiro",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/parceiros/:id/edit",
+      "titulo": "Editar parceiro",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/cupons",
+      "titulo": "Cupons",
+      "papeis": "Empresa",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/cupons/new",
+      "titulo": "Novo cupom",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/cupons/:id/edit",
+      "titulo": "Editar cupom",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": true
+    },
+    {
+      "caminho": "/desafios-cupom",
+      "titulo": "Desafios de cupom",
+      "papeis": "Empresa",
+      "tipo": "Tela",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/desafios-cupom/new",
+      "titulo": "Novo desafio de cupom",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": false
+    },
+    {
+      "caminho": "/desafios-cupom/:id/edit",
+      "titulo": "Editar desafio de cupom",
+      "papeis": "Empresa",
+      "tipo": "Formulário",
+      "parametrizada": true
+    }
+  ],
+  "compartilhados": [
+    {
+      "seletor": "app-chart-widget",
+      "arquivo": "shared/charts/chart-widget.component.ts",
+      "loc": 66
+    },
+    {
+      "seletor": "app-kpi-card",
+      "arquivo": "shared/charts/kpi-card.component.ts",
+      "loc": 58
+    },
+    {
+      "seletor": "app-data-table",
+      "arquivo": "shared/data-table/data-table.component.ts",
+      "loc": 399
+    },
+    {
+      "seletor": "app-form-actions",
+      "arquivo": "shared/form-fields/form-actions.component.ts",
+      "loc": 48
+    },
+    {
+      "seletor": "app-form-errors",
+      "arquivo": "shared/form-fields/form-errors.component.ts",
+      "loc": 30
+    },
+    {
+      "seletor": "app-form-field",
+      "arquivo": "shared/form-fields/form-field.component.ts",
+      "loc": 92
+    },
+    {
+      "seletor": "app-form-section",
+      "arquivo": "shared/form-fields/form-section.component.ts",
+      "loc": 29
+    },
+    {
+      "seletor": "app-form-skeleton",
+      "arquivo": "shared/form-fields/form-skeleton.component.ts",
+      "loc": 24
+    },
+    {
+      "seletor": "app-input-prefixo",
+      "arquivo": "shared/form-fields/input-prefixo.component.ts",
+      "loc": 14
+    },
+    {
+      "seletor": "app-shell",
+      "arquivo": "shared/layout/app-shell.component.ts",
+      "loc": 252
+    },
+    {
+      "seletor": "app-command-palette",
+      "arquivo": "shared/layout/command-palette.component.ts",
+      "loc": 101
+    },
+    {
+      "seletor": "app-empty-state",
+      "arquivo": "shared/layout/empty-state.component.ts",
+      "loc": 25
+    },
+    {
+      "seletor": "app-error-state",
+      "arquivo": "shared/layout/error-state.component.ts",
+      "loc": 33
+    },
+    {
+      "seletor": "app-page-header",
+      "arquivo": "shared/layout/page-header.component.ts",
+      "loc": 38
+    },
+    {
+      "seletor": "app-page",
+      "arquivo": "shared/layout/page.component.ts",
+      "loc": 20
+    },
+    {
+      "seletor": "app-sidebar-nav",
+      "arquivo": "shared/layout/sidebar-nav.component.ts",
+      "loc": 151
+    },
+    {
+      "seletor": "app-status-badge",
+      "arquivo": "shared/layout/status-badge.component.ts",
+      "loc": 28
+    }
+  ],
+  "uiGerada": {
+    "arquivos": 188,
+    "loc": 4858
+  }
+}
