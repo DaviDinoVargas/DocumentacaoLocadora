@@ -10,6 +10,7 @@ import metaJson from './dados/meta.json';
 import { NavegacaoService } from './core/navegacao.service';
 import { TOTAL_PAGINAS } from './core/paginas';
 import { TemaService } from './core/tema.service';
+import { CuboMagicoComponent } from './cubo/cubo-magico.component';
 import { SidebarNavComponent } from './shared/layout/sidebar-nav.component';
 
 /**
@@ -19,7 +20,7 @@ import { SidebarNavComponent } from './shared/layout/sidebar-nav.component';
  */
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIcon, SidebarNavComponent, HlmButtonImports, HlmSheetImports],
+  imports: [RouterOutlet, NgIcon, SidebarNavComponent, CuboMagicoComponent, HlmButtonImports, HlmSheetImports],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="bg-background flex h-dvh overflow-hidden">
@@ -93,7 +94,7 @@ import { SidebarNavComponent } from './shared/layout/sidebar-nav.component';
         <main
           id="conteudo"
           tabindex="-1"
-          class="min-h-0 flex-1 overflow-y-auto px-4 pt-6 pb-24 outline-none sm:px-6 md:pb-10 lg:px-8"
+          class="min-h-0 flex-1 overflow-y-auto px-4 pt-6 pb-24 outline-none sm:px-6 md:pb-10 lg:px-8 xl:pr-[300px] 2xl:pr-[372px]"
         >
           <div class="mx-auto flex w-full max-w-[1100px] flex-col gap-8"><router-outlet /></div>
         </main>
@@ -114,6 +115,7 @@ import { SidebarNavComponent } from './shared/layout/sidebar-nav.component';
         </hlm-sheet-content>
       </hlm-sheet>
 
+      <app-cubo-magico />
     </div>
   `
 })
