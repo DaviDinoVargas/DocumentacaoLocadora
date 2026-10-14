@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test --watch=false",
     "test:watch": "ng test",
-    "dados": "node tools/extrair-dados.mjs"
+    "dados": "node tools/extrair-dados.mjs",
+    "build:pages": "ng build --base-href /DocumentacaoLocadora/ && node tools/pos-build.mjs",
+    "serve:pages": "node tools/servir-pages.mjs dist/documentacao-locadora/browser /DocumentacaoLocadora/ 4400"
   },
   "private": true,
   "dependencies": {
