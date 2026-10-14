@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import backend from '../dados/backend.json';
-import { COBERTURA_ANGULAR, COBERTURA_BLOCOS, COBERTURA_DOTNET, COBERTURA_FONTE, COBERTURA_ML, EXECUCOES_REGISTRADAS, META_COBERTURA } from '../dados/cobertura';
+import { COBERTURA_ANGULAR, COBERTURA_BLOCOS, COBERTURA_DOTNET, COBERTURA_ML, EXECUCOES_REGISTRADAS, META_COBERTURA } from '../dados/cobertura';
 import frontend from '../dados/frontend.json';
 import ml from '../dados/ml.json';
 import { decimal, inteiro } from '../core/formato';
@@ -20,7 +20,7 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
   template: `
     <app-pagina-cabecalho />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <app-kpi-card rotulo="Testes declarados" [valor]="inteiro(total)" apoio="[TestMethod] + it() + def test_" icone="lucideFlaskConical" />
       <app-kpi-card rotulo="Testes .NET" [valor]="backend.testes.unidade + backend.testes.integracao + backend.testes.webapi" [apoio]="backend.testes.casosParametrizados + ' linhas [DataRow] a mais na execução'" icone="lucideServer" />
       <app-kpi-card rotulo="Specs Angular" [valor]="frontend.total.testes" [apoio]="frontend.total.specs + ' arquivos .spec.ts'" icone="lucideMonitor" />
@@ -28,10 +28,10 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
     </div>
 
     <app-secao titulo="Pirâmide de testes" descricao="Muitos testes rápidos na base, menos de integração no meio e poucos ponta a ponta no topo: cada camada responde a uma pergunta diferente." id="piramide">
-      <div class="grid gap-4 lg:grid-cols-2">
-        <ol class="flex flex-col gap-2" aria-label="Camadas de teste, do topo para a base">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <ol class="flex h-full flex-col justify-between gap-4" aria-label="Camadas de teste, do topo para a base">
           @for (c of camadas; track c.nome) {
-            <li class="border-border bg-card flex flex-wrap items-center gap-3 rounded-xl border p-4">
+            <li class="border-border bg-card flex flex-1 flex-wrap items-center gap-4 rounded-xl border p-5">
               <div class="min-w-0 flex-1">
                 <p class="text-title-s text-foreground">{{ c.nome }}</p>
                 <p class="text-body-s text-muted-foreground">{{ c.pergunta }}</p>
@@ -52,21 +52,17 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
       <app-tabela-dados [colunas]="colunasArquivos" [linhas]="arquivos" legenda="arquivos de teste do back-end" arquivo="testes-dotnet" [tamanhoInicial]="10" />
     </app-secao>
 
-    <app-secao titulo="Cobertura de código" [descricao]="'Meta do autor: passar de ' + meta + ' % no total. Fonte: ' + fonte + '.'" id="cobertura">
-      <div class="grid gap-4 lg:grid-cols-2">
-        <app-grafico titulo="Cobertura por bloco" subtitulo="Linhas ou statements cobertos; a linha tracejada marca a meta" [configurar]="graficoBlocos" [altura]="340" [tabela]="tabelaBlocos" resumo="Barras horizontais com a cobertura de Angular, serviço de ML, .NET e totais, com uma linha vertical na meta de 75 por cento." />
-        <app-grafico titulo="Cobertura do .NET por módulo" subtitulo="Domínio + Aplicação + Orm; Funcionário é o maior buraco" [configurar]="graficoDotnet" [altura]="340" [tabela]="tabelaDotnet" resumo="Barras horizontais com a cobertura de linhas de cada módulo do back-end, do Dashboard com 94,7 por cento ao Funcionário com 7,9 por cento." />
+    <app-secao titulo="Cobertura de código" descricao="Linhas ou statements executados pelos testes, por bloco e por pasta; a linha tracejada marca a meta de 75 %." id="cobertura">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <app-grafico titulo="Cobertura por bloco" subtitulo="Angular, ML, .NET e totais" [configurar]="graficoBlocos" [altura]="420" [tabela]="tabelaBlocos" resumo="Barras horizontais com a cobertura de Angular, serviço de ML, .NET e totais, com uma linha vertical na meta de 75 por cento." />
+        <app-grafico titulo="Cobertura do .NET por módulo" subtitulo="Domínio + Aplicação + Orm" [configurar]="graficoDotnet" [altura]="420" [tabela]="tabelaDotnet" resumo="Barras horizontais com a cobertura de linhas de cada módulo do back-end, do Dashboard com 94,7 por cento ao Funcionário com 7,9 por cento." />
+        <app-grafico titulo="Cobertura do Angular por pasta" subtitulo="Linhas" [configurar]="graficoAngular" [altura]="420" [tabela]="tabelaAngular" resumo="Barras horizontais com a cobertura de linhas de cada pasta do front-end." />
+        <app-grafico titulo="Cobertura do serviço de ML por pasta" subtitulo="O que falta depende de hardware ou modelo real" [configurar]="graficoMl" [altura]="420" [tabela]="tabelaMl" resumo="Barras horizontais com a cobertura de cada pasta do serviço de ML." />
       </div>
-      <div class="grid gap-4 lg:grid-cols-2">
-        <app-grafico titulo="Cobertura do Angular por pasta" subtitulo="Linhas" [configurar]="graficoAngular" [altura]="560" [tabela]="tabelaAngular" resumo="Barras horizontais com a cobertura de linhas de cada pasta do front-end." />
-        <div class="flex flex-col gap-4">
-          <app-grafico titulo="Cobertura do serviço de ML por pasta" subtitulo="O que falta depende de hardware ou modelo real" [configurar]="graficoMl" [altura]="220" [tabela]="tabelaMl" resumo="Barras horizontais com a cobertura de cada pasta do serviço de ML." />
-          <app-nota tom="aviso" titulo="Medição anterior à segurança">
-            Esta cobertura foi medida antes da branch de segurança, que acrescentou o projeto Tests.WebApi (a Web API era 0 % na prática) e dezenas de testes. Os números de .NET e
-            ML de hoje tendem a ser maiores; não foram remedidos.
-          </app-nota>
-        </div>
-      </div>
+      <app-nota tom="aviso" titulo="Medição anterior à branch de segurança">
+        Esta cobertura foi medida antes da branch de segurança, que acrescentou o projeto Tests.WebApi (a Web API era 0 % na prática) e dezenas de testes. Os números de .NET e
+        ML de hoje tendem a ser maiores; não foram remedidos.
+      </app-nota>
     </app-secao>
 
     <app-secao titulo="Execuções registradas" descricao="Contagem de testes executados (os [DataRow] expandem em vários casos) nos relatórios do projeto, em verde." id="execucoes">
@@ -74,9 +70,9 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
     </app-secao>
 
     <app-secao titulo="Lacunas conhecidas" id="lacunas">
-      <ul class="grid gap-3 md:grid-cols-2">
+      <ul class="grid gap-6 md:grid-cols-2">
         @for (l of lacunas; track l.titulo) {
-          <li class="border-border bg-card flex flex-col gap-1 rounded-xl border p-4">
+          <li class="border-border bg-card flex h-full flex-col gap-2 rounded-xl border p-6">
             <p class="text-title-s text-foreground">{{ l.titulo }}</p>
             <p class="text-body-m text-muted-foreground">{{ l.texto }}</p>
           </li>
@@ -88,7 +84,7 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
     </app-secao>
 
     <app-secao titulo="Como executar" id="executar">
-      <div class="grid gap-4 lg:grid-cols-3">
+      <div class="grid gap-6 lg:grid-cols-3">
         <app-codigo rotulo="Back-end (.NET)" [texto]="cmdDotnet" />
         <app-codigo rotulo="Serviço de ML" [texto]="cmdMl" />
         <app-codigo rotulo="Angular" [texto]="cmdAngular" />
@@ -105,8 +101,6 @@ export class TestesPage {
   protected readonly frontend = frontend;
   protected readonly ml = ml;
   protected readonly inteiro = inteiro;
-  protected readonly meta = META_COBERTURA;
-  protected readonly fonte = COBERTURA_FONTE;
 
   protected readonly total = backend.testes.unidade + backend.testes.integracao + backend.testes.webapi + frontend.total.testes + ml.total.testes;
 
@@ -162,9 +156,9 @@ export class TestesPage {
       grid: { left: 8, right: 48, top: 8, bottom: 8, containLabel: true },
       tooltip: { ...baseDoGrafico(t).tooltip, trigger: 'axis', axisPointer: { type: 'shadow' }, valueFormatter: (v: number) => decimal(v, 1) + ' %' },
       xAxis: eixoValor(t, { max: 100, splitNumber: 4, axisLabel: { color: t.textoSecundario, fontFamily: t.fonte, formatter: '{value}%' } }),
-      yAxis: eixoCategoria(t, nomes, { inverse: true, axisLabel: { color: t.textoSecundario, fontFamily: t.fonte, fontSize: 11, width: altura > 400 ? 150 : 140, overflow: 'truncate' } }),
+      yAxis: eixoCategoria(t, nomes, { inverse: true, axisLabel: { color: t.textoSecundario, fontFamily: t.fonte, fontSize: 11, width: 150, overflow: 'truncate' } }),
       series: [{
-        type: 'bar', barWidth: altura > 400 ? 12 : 18,
+        type: 'bar', barWidth: nomes.length > 12 ? 12 : 20,
         data: dados.map((d) => ({ value: d.percentual, itemStyle: { color: d.percentual >= META_COBERTURA ? t.sucesso : d.percentual >= 50 ? t.series[0] : d.percentual >= 30 ? t.aviso : t.erro, borderRadius: [0, 6, 6, 0] } })),
         label: { show: true, position: 'right', color: t.texto, fontFamily: t.fonte, fontSize: 11, formatter: (p: { value: number }) => decimal(p.value, 1).replace(',0', '') + ' %' },
         markLine: marca ? { symbol: 'none', silent: true, lineStyle: { color: t.textoSecundario, type: 'dashed' }, label: { color: t.textoSecundario, formatter: 'meta ' + META_COBERTURA + ' %', position: 'insideEndTop' }, data: [{ xAxis: META_COBERTURA }] } : undefined
@@ -195,7 +189,7 @@ export class TestesPage {
   protected readonly lacunas = [
     { titulo: 'Sem E2E, sem axe e sem Lighthouse', texto: 'Nenhum teste ponta a ponta nem medição automática de acessibilidade ou de Web Vitals existe no repositório; estão planejados (Playwright, axe-core nos specs, Lighthouse CI).' },
     { titulo: 'Notificações falsas nos specs', texto: 'Os specs usam um serviço de notificação falso; por isso nunca detectaram o defeito em que nenhum toast aparecia (o sonner errado era importado). Falta um teste que renderize o HlmToaster.' },
-    { titulo: 'Hardware real', texto: 'Webcam (monitoramento, verificação e login facial), prova de vida contra foto e tela e o desempenho do YOLO ao vivo nunca foram medidos.' },
+    { titulo: 'Hardware real', texto: 'Webcam (monitoramento, verificação e login facial), prova de vida em campo e o desempenho do YOLO ao vivo nunca foram medidos.' },
     { titulo: 'Fluxos de escrita no navegador', texto: 'Os fluxos de escrita ponta a ponta no navegador, a imagem do ML em contêiner e o CI nunca foram exercitados (Docker e CI fora de escopo).' }
   ];
 

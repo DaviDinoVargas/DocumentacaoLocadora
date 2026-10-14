@@ -1,7 +1,7 @@
 import {
-  AmbientLight, CircleGeometry, Color, DirectionalLight, Euler, Group, HemisphereLight, Material, Mesh,
-  MeshBasicMaterial, MeshStandardMaterial, PCFSoftShadowMap, PerspectiveCamera, PlaneGeometry, Quaternion,
-  RingGeometry, Scene, ShadowMaterial, Shape, ShapeGeometry, Vector3, WebGLRenderer, type BufferGeometry
+  AmbientLight, Color, DirectionalLight, Euler, Group, HemisphereLight, Material, Mesh,
+  MeshBasicMaterial, MeshStandardMaterial, PerspectiveCamera, Quaternion,
+  RingGeometry, Scene, Shape, ShapeGeometry, Vector3, WebGLRenderer, type BufferGeometry
 } from 'three';
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
 import { FISICA_PADRAO, lancarParaAlvo, novoCorpo, passo, type Corpo } from './fisica';
@@ -25,6 +25,8 @@ const ALTURA_DO_CUBO = 2.75;
 const DURACAO_VOLTA = 0.9;
 const GIRO_POR_CAMADA = 0.46;
 const GIRO_RAPIDO = 0.12;
+const ALTURA_FLUTUACAO = 0.34;
+const EIXO_Y = new Vector3(0, 1, 0);
 
 type EstadoPeca = 'cubo' | 'voltando' | 'caindo' | 'chao';
 
@@ -69,8 +71,6 @@ export class CenaCubo implements ExecutorCubo {
   private readonly materiais: Material[] = [];
   private readonly materialCorpo: MeshStandardMaterial;
   private readonly materiaisFace: MeshStandardMaterial[];
-  private readonly materialPlataforma: MeshBasicMaterial;
-  private readonly materialBorda: MeshBasicMaterial;
   private readonly materialOnda: MeshBasicMaterial;
   private readonly onda: Mesh;
   private readonly observador: ResizeObserver;
@@ -84,6 +84,7 @@ export class CenaCubo implements ExecutorCubo {
   private movimento: { eixo: Eixo; camada: -1 | 0 | 1; angulo: number } | null = null;
   private resolvidoAgora = false;
   private ondaT = -1;
+  private readonly giroFlutuacao = new Quaternion();
 
   private raf = 0;
   private ultimo = 0;
@@ -104,8 +105,6 @@ export class CenaCubo implements ExecutorCubo {
 
     this.renderer = new WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'low-power' });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = PCFSoftShadowMap;
     this.renderer.setClearColor(0x000000, 0);
 
     this.camera = new PerspectiveCamera(32, 1, 0.1, 80);
@@ -115,37 +114,7 @@ export class CenaCubo implements ExecutorCubo {
     this.cena.add(new AmbientLight(0xffffff, 0.35));
     const sol = new DirectionalLight(0xffffff, 1.9);
     sol.position.set(5, 11, 7);
-    sol.castShadow = true;
-    sol.shadow.mapSize.set(1024, 1024);
-    sol.shadow.camera.left = -8;
-    sol.shadow.camera.right = 8;
-    sol.shadow.camera.top = 8;
-    sol.shadow.camera.bottom = -8;
-    sol.shadow.camera.near = 1;
-    sol.shadow.camera.far = 30;
-    sol.shadow.radius = 4;
-    sol.shadow.bias = -0.0006;
     this.cena.add(sol);
-
-    // base: plataforma + sombra projetada
-    const disco = this.guardar(new CircleGeometry(4.9, 72));
-    this.materialPlataforma = this.guardar(new MeshBasicMaterial({ transparent: true, opacity: 0.55, depthWrite: false }));
-    const plataforma = new Mesh(disco, this.materialPlataforma);
-    plataforma.rotation.x = -Math.PI / 2;
-    plataforma.position.y = 0.002;
-    this.cena.add(plataforma);
-
-    const aro = this.guardar(new RingGeometry(4.84, 4.9, 96));
-    this.materialBorda = this.guardar(new MeshBasicMaterial({ transparent: true, opacity: 0.9, depthWrite: false }));
-    const borda = new Mesh(aro, this.materialBorda);
-    borda.rotation.x = -Math.PI / 2;
-    borda.position.y = 0.004;
-    this.cena.add(borda);
-
-    const chao = new Mesh(this.guardar(new PlaneGeometry(24, 24)), this.guardar(new ShadowMaterial({ opacity: 0.28 })));
-    chao.rotation.x = -Math.PI / 2;
-    chao.receiveShadow = true;
-    this.cena.add(chao);
 
     // onda de choque da explosão
     this.materialOnda = this.guardar(new MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false }));
@@ -165,7 +134,6 @@ export class CenaCubo implements ExecutorCubo {
     grade.forEach((pos, id) => {
       const obj = new Group();
       const corpo = new Mesh(geoCorpo, this.materialCorpo);
-      corpo.castShadow = true;
       obj.add(corpo);
       DIRECOES.forEach((dir, d) => {
         const indice = dir.eixo === 'x' ? 0 : dir.eixo === 'y' ? 1 : 2;
@@ -248,8 +216,6 @@ export class CenaCubo implements ExecutorCubo {
   atualizarCores(): void {
     TOKENS_FACES.forEach((token, i) => this.materiaisFace[i].color.copy(lerToken(token)));
     this.materialCorpo.color.copy(lerToken('--md-surface-container-highest')).multiplyScalar(0.9);
-    this.materialPlataforma.color.copy(lerToken('--md-surface-container-high'));
-    this.materialBorda.color.copy(lerToken('--md-outline-variant'));
     this.materialOnda.color.copy(lerToken('--md-primary'));
     this.solicitarQuadro(true);
   }
@@ -320,8 +286,9 @@ export class CenaCubo implements ExecutorCubo {
         iniciada = true;
         p.estado = 'voltando';
         p.assentar = null;
-        dePos.copy(p.pos);
-        deQuat.copy(p.quat);
+        // parte da posição realmente exibida (inclui a flutuação), sem salto
+        dePos.copy(p.obj.position);
+        deQuat.copy(p.obj.quaternion);
         altura = 1.2 + dePos.distanceTo(this.posCubo) * 0.12;
       }
       const f = limitar((t - atraso) / duracao, 0, 1);
@@ -560,6 +527,11 @@ export class CenaCubo implements ExecutorCubo {
       }
       p.obj.position.copy(p.pos);
       p.obj.quaternion.copy(p.quat);
+      if (p.estado === 'chao') {
+        // peças sem base: flutuam com leve vaivém e giro lento
+        p.obj.position.y += ALTURA_FLUTUACAO + (continuo ? Math.sin(this.tempo * 1.3 + p.id * 1.7) * 0.08 : 0);
+        if (continuo) p.obj.quaternion.premultiply(this.giroFlutuacao.setFromAxisAngle(EIXO_Y, this.tempo * 0.4 + p.id));
+      }
       p.obj.scale.setScalar(p.escala);
     }
   }

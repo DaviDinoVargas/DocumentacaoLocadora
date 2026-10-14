@@ -92,7 +92,7 @@ const PARES: [string, string, string][] = [
 
     <app-secao titulo="Forma, elevação e movimento" id="forma">
       <div class="grid gap-4 md:grid-cols-3">
-        <div class="border-border bg-card flex flex-col gap-3 rounded-xl border p-5">
+        <div class="border-border bg-card flex flex-col gap-3 rounded-xl border p-6">
           <h3 class="text-title-m text-foreground">Raio de borda</h3>
           <p class="text-body-s text-muted-foreground">Base --radius: {{ tokens.raio }} (12 px).</p>
           <div class="flex flex-wrap gap-2">
@@ -102,7 +102,7 @@ const PARES: [string, string, string][] = [
             <span class="bg-surface-high text-foreground text-label-m rounded-[28px] px-4 py-2">Diálogo · 28</span>
           </div>
         </div>
-        <div class="border-border bg-card flex flex-col gap-3 rounded-xl border p-5">
+        <div class="border-border bg-card flex flex-col gap-3 rounded-xl border p-6">
           <h3 class="text-title-m text-foreground">Elevação tonal</h3>
           <p class="text-body-s text-muted-foreground">O M3 muda a cor da superfície em vez de pesar a sombra.</p>
           <div class="flex flex-col gap-1.5">
@@ -111,7 +111,7 @@ const PARES: [string, string, string][] = [
             }
           </div>
         </div>
-        <div class="border-border bg-card flex flex-col gap-3 rounded-xl border p-5">
+        <div class="border-border bg-card flex flex-col gap-3 rounded-xl border p-6">
           <h3 class="text-title-m text-foreground">Movimento</h3>
           <p class="text-body-s text-muted-foreground">Só transform e opacity; prefers-reduced-motion desliga tudo.</p>
           <ul class="text-body-s text-foreground flex flex-col gap-1.5">
@@ -125,7 +125,7 @@ const PARES: [string, string, string][] = [
     </app-secao>
 
     <app-secao titulo="Vitrine de componentes" descricao="Os mesmos blocos que as páginas usam, no tema atual." id="vitrine">
-      <div class="border-border bg-card flex flex-col gap-5 rounded-xl border p-5">
+      <div class="border-border bg-card flex flex-col gap-5 rounded-xl border p-6">
         <div class="flex flex-wrap items-center gap-2">
           <button hlmBtn type="button">Preenchido</button>
           <button hlmBtn variant="secondary" type="button">Tonal</button>

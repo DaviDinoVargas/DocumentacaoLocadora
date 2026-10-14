@@ -88,7 +88,7 @@ const PAPEL: Record<string, string> = {
   template: `
     <app-pagina-cabecalho />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <app-kpi-card rotulo="Pacotes npm" [valor]="totalNpm" [apoio]="dependencias.npm.producao.length + ' de produção · ' + dependencias.npm.desenvolvimento.length + ' de desenvolvimento'" icone="lucidePackage" />
       <app-kpi-card rotulo="Pacotes NuGet distintos" [valor]="nugetDistintos" [apoio]="'em ' + dependencias.nuget.length + ' projetos .NET'" icone="lucideBox" />
       <app-kpi-card rotulo="Pacotes pip diretos" [valor]="dependencias.pip.length + dependencias.pipDev.length" [apoio]="dependencias.pipTravados + ' com hash no lock'" icone="lucideTerminal" />
@@ -96,7 +96,7 @@ const PAPEL: Record<string, string> = {
     </div>
 
     <app-secao titulo="Visão por ecossistema" id="visao">
-      <div class="grid gap-4 lg:grid-cols-2">
+      <div class="grid gap-6 lg:grid-cols-2">
         <app-grafico titulo="Pacotes diretos por ecossistema" subtitulo="Produção e desenvolvimento/teste" [configurar]="graficoEcossistemas" [altura]="300" [tabela]="tabelaEcossistemas" resumo="Barras empilhadas com os pacotes diretos de produção e de desenvolvimento ou teste em npm, NuGet e pip." />
         <app-grafico titulo="Pacotes NuGet por projeto" subtitulo="Dependências diretas declaradas em cada .csproj" [configurar]="graficoNuget" [altura]="300" [tabela]="tabelaNuget" resumo="Barras horizontais com a quantidade de pacotes NuGet diretos de cada projeto da solução." />
       </div>
@@ -107,9 +107,9 @@ const PAPEL: Record<string, string> = {
     </app-secao>
 
     <app-secao titulo="Cadeia de suprimentos" id="suprimentos">
-      <div class="grid gap-3 md:grid-cols-2">
+      <div class="grid gap-6 md:grid-cols-2">
         @for (c of cuidados; track c.titulo) {
-          <article class="border-border bg-card flex flex-col gap-1 rounded-xl border p-4">
+          <article class="border-border bg-card flex flex-col gap-1 rounded-xl border p-6">
             <p class="text-title-s text-foreground">{{ c.titulo }}</p>
             <p class="text-body-m text-muted-foreground">{{ c.texto }}</p>
           </article>

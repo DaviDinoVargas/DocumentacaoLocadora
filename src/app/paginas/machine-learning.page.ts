@@ -6,6 +6,7 @@ import seguranca from '../dados/seguranca.json';
 import { decimal, inteiro, percentual } from '../core/formato';
 import { GraficoComponent } from '../shared/charts/grafico.component';
 import { baseDoGrafico, eixoCategoria, eixoValor, type TemaGrafico } from '../shared/charts/tema-grafico';
+import { ConceitosComponent, type Conceito } from '../shared/layout/conceitos.component';
 import { KpiCardComponent } from '../shared/layout/kpi-card.component';
 import { NotaComponent } from '../shared/layout/nota.component';
 import { PaginaCabecalhoComponent } from '../shared/layout/pagina-cabecalho.component';
@@ -16,24 +17,24 @@ const lfw = seguranca.lfw!;
 
 @Component({
   selector: 'app-machine-learning',
-  imports: [NgIcon, GraficoComponent, KpiCardComponent, NotaComponent, PaginaCabecalhoComponent, SecaoComponent, TabelaDadosComponent],
+  imports: [NgIcon, GraficoComponent, ConceitosComponent, KpiCardComponent, NotaComponent, PaginaCabecalhoComponent, SecaoComponent, TabelaDadosComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <app-pagina-cabecalho />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <app-kpi-card rotulo="Linhas de Python" [valor]="inteiro(ml.total.loc)" [apoio]="ml.total.arquivos + ' arquivos de produção'" icone="lucideCode" />
-      <app-kpi-card rotulo="Testes (pytest)" [valor]="ml.total.testes" [apoio]="inteiro(ml.total.locTestes) + ' linhas de teste'" icone="lucideFlaskConical" />
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <app-kpi-card rotulo="Modelos pré-treinados" valor="5" apoio="YOLOv8n, SFace, MiniFASNet (2) e MediaPipe; nenhum treinamento" icone="lucideCpu" />
       <app-kpi-card rotulo="Endpoints" [valor]="endpoints.ml.length" apoio="câmeras, rosto, chat e saúde" icone="lucideRoute" />
+      <app-kpi-card rotulo="Testes (pytest)" [valor]="ml.total.testes" apoio="com câmera e captura falsas" icone="lucideFlaskConical" />
       <app-kpi-card rotulo="Acurácia facial" [valor]="percentual(lfw.acuracia)" [apoio]="'LFW, ' + inteiro(lfw.paresMedidos) + ' pares'" icone="lucideScanFace" />
     </div>
 
-    <app-secao titulo="Três módulos, só modelos pré-treinados" descricao="Aplicação FastAPI em Python 3.11 (diretório MachineLeaning, grafia original). Nenhum treinamento foi feito; cada modelo tem origem e hash conferidos." id="modulos">
-      <div class="grid gap-3 md:grid-cols-3">
+    <app-secao titulo="Três módulos, só modelos pré-treinados" descricao="Aplicação FastAPI em Python 3.11 (diretório MachineLeaning, grafia original). O serviço não guarda nada de negócio: lê imagens e devolve resultados; quem decide aluguel, devolução e identidade é a Web API." id="modulos">
+      <div class="grid gap-6 md:grid-cols-3">
         @for (m of modulos; track m.titulo) {
-          <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
-            <span class="bg-primary-container text-on-primary-container flex size-10 items-center justify-center rounded-full">
-              <ng-icon [name]="m.icone" class="text-lg" aria-hidden="true" />
+          <article class="border-border bg-card flex h-full flex-col gap-3 rounded-xl border p-6">
+            <span class="bg-primary-container text-on-primary-container flex size-11 items-center justify-center rounded-full">
+              <ng-icon [name]="m.icone" class="text-xl" aria-hidden="true" />
             </span>
             <h3 class="text-title-m text-foreground">{{ m.titulo }}</h3>
             <p class="text-body-m text-muted-foreground">{{ m.texto }}</p>
@@ -41,61 +42,83 @@ const lfw = seguranca.lfw!;
           </article>
         }
       </div>
-      <div class="grid gap-4 lg:grid-cols-2">
-        <app-grafico titulo="Linhas por área" subtitulo="Código de produção do serviço" [configurar]="graficoAreas" [altura]="280" [tabela]="tabelaAreas" resumo="Barras horizontais com as linhas de Python de cada pasta do serviço de ML." />
-        <app-grafico titulo="Testes por arquivo" subtitulo="def test_ em MachineLeaning/tests" [configurar]="graficoTestes" [altura]="280" [tabela]="tabelaTestes" resumo="Barras horizontais com a quantidade de testes pytest de cada arquivo." />
+      <div class="grid gap-6 lg:grid-cols-2">
+        <app-grafico titulo="Endpoints por grupo" subtitulo="Rotas HTTP do serviço" [configurar]="graficoGrupos" [altura]="300" [tabela]="tabelaGrupos" resumo="Rosca com os endpoints do serviço de ML por grupo: câmeras e placas, reconhecimento facial, assistente e saúde." />
+        <app-grafico titulo="Testes por arquivo" subtitulo="def test_ em MachineLeaning/tests" [configurar]="graficoTestes" [altura]="300" [tabela]="tabelaTestes" resumo="Barras horizontais com a quantidade de testes pytest de cada arquivo." />
       </div>
     </app-secao>
 
-    <app-secao titulo="Leitura de placas (YOLO + OCR)" descricao="A emissão só ocorre depois de duas leituras iguais em 3 segundos, o que reduz falsos positivos; leituras repetidas em 5 segundos são deduplicadas." id="placas">
-      <ol class="grid gap-2 md:grid-cols-5" aria-label="Etapas do pipeline de placas">
+    <app-secao titulo="Leitura de placas: como funciona" descricao="Uma cadeia de cinco etapas transforma quadros de webcam em uma placa confirmada. A emissão só ocorre depois de duas leituras iguais em 3 segundos, e leituras repetidas em 5 segundos são deduplicadas." id="placas">
+      <ol class="grid gap-6 md:grid-cols-5" aria-label="Etapas do pipeline de placas">
         @for (e of etapas; track e.titulo; let i = $index) {
-          <li class="border-border bg-card relative flex flex-col gap-1 rounded-xl border p-4">
-            <span class="bg-primary text-primary-foreground text-label-m tabular flex size-6 items-center justify-center rounded-full">{{ i + 1 }}</span>
+          <li class="border-border bg-card flex h-full flex-col gap-2 rounded-xl border p-5">
+            <span class="bg-primary text-primary-foreground text-label-m tabular flex size-7 items-center justify-center rounded-full">{{ i + 1 }}</span>
             <p class="text-title-s text-foreground">{{ e.titulo }}</p>
             <p class="text-body-s text-muted-foreground">{{ e.texto }}</p>
           </li>
         }
       </ol>
+      <app-conceitos [itens]="conceitosPlacas" />
       <app-nota tom="aviso" titulo="Limitação observada">
         Em teste manual, a placa real <span class="code-inline">BRA2E19</span> foi lida como <span class="code-inline">BKA2E19</span> (confusão R↔K). Mitigação no front:
         a função <span class="code-inline">casarPlaca</span> aceita a diferença de um caractere em pares conhecidos (R/K/B/P, B/8, O/0/Q/D, I/1/L, S/5, Z/2) quando há uma única placa
-        candidata em aluguel aberto, e mostra "Leitura aproximada: a placa cadastrada é X". Não foi medido o tempo de leitura com a webcam real.
+        candidata em aluguel aberto, e mostra "Leitura aproximada: a placa cadastrada é X". O tempo de leitura com a webcam real ainda não foi medido.
       </app-nota>
     </app-secao>
 
-    <app-secao titulo="Reconhecimento facial" descricao="O navegador não chama o módulo facial: usa /api/auth/rosto, /rosto/verificar e /entrar-facial na Web API, que fala com o ML de servidor para servidor." id="facial">
-      <div class="grid gap-4 lg:grid-cols-2">
-        <app-grafico titulo="Pessoa certa recusada × impostor aceito" subtitulo="FAR e FRR no LFW por limiar de cosseno (SFace)" [configurar]="graficoCurva" [altura]="320" [tabela]="tabelaCurva" resumo="Linhas que mostram a taxa de impostores aceitos (FAR) caindo e a de pessoas certas recusadas (FRR) subindo à medida que o limiar de cosseno aumenta; o limiar adotado é 0,363." />
-        <app-grafico titulo="Comparador antigo × SFace" subtitulo="Mesmo protocolo do LFW (6000 pares), limiar de uso de cada um" [configurar]="graficoComparacao" [altura]="320" [tabela]="tabelaComparacao" resumo="Barras agrupadas: a geometria de landmarks recusava a pessoa certa em 94 por cento dos pares e aceitava 1,8 por cento de impostores; o SFace recusa 3,1 por cento e aceita 0,067 por cento." />
+    <app-secao titulo="Reconhecimento facial: do clique à decisão" descricao="O navegador não chama o módulo facial: usa /api/auth/rosto, /rosto/verificar e /entrar-facial na Web API, que fala com o ML de servidor para servidor com X-Internal-Token." id="fluxo-facial">
+      <ol class="grid gap-6 md:grid-cols-2">
+        @for (p of fluxoFacial; track p.titulo; let i = $index) {
+          <li class="border-border bg-card flex h-full gap-4 rounded-xl border p-6">
+            <span class="bg-primary text-primary-foreground text-title-s tabular flex size-9 shrink-0 items-center justify-center rounded-full">{{ i + 1 }}</span>
+            <div>
+              <p class="text-title-s text-foreground">{{ p.titulo }}</p>
+              <p class="text-body-m text-muted-foreground">{{ p.texto }}</p>
+            </div>
+          </li>
+        }
+      </ol>
+    </app-secao>
+
+    <app-secao titulo="A teoria por trás do reconhecimento" descricao="Os conceitos que explicam por que o sistema usa um vetor de 128 números, um limiar de 0,363 e uma rede separada para a prova de vida." id="teoria-facial">
+      <app-conceitos [itens]="conceitosFacial" />
+    </app-secao>
+
+    <app-secao titulo="Medição no LFW" descricao="Protocolo oficial de 10 dobras, 6.000 pares de fotos (mesma pessoa e pessoas diferentes). Quanto maior o limiar de cosseno, menos impostores passam e mais pessoas certas são recusadas." id="medicao">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <app-grafico titulo="Pessoa certa recusada × impostor aceito" subtitulo="FAR e FRR por limiar de cosseno (SFace)" [configurar]="graficoCurva" [altura]="340" [tabela]="tabelaCurva" resumo="Linhas que mostram a taxa de impostores aceitos (FAR) caindo e a de pessoas certas recusadas (FRR) subindo à medida que o limiar de cosseno aumenta; o limiar adotado é 0,363." />
+        <app-grafico titulo="Comparador antigo × SFace" subtitulo="Mesmo protocolo, limiar de uso de cada um" [configurar]="graficoComparacao" [altura]="340" [tabela]="tabelaComparacao" resumo="Barras agrupadas: a geometria de landmarks recusava a pessoa certa em 94 por cento dos pares e aceitava 1,8 por cento de impostores; o SFace recusa 3,1 por cento e aceita 0,067 por cento." />
       </div>
       <app-tabela-dados [colunas]="colunasLimiares" [linhas]="limiares" legenda="limiares do SFace no LFW" arquivo="limiares-sface" [tamanhoInicial]="10" />
-      <ul class="text-body-m text-foreground prose-doc flex list-disc flex-col gap-2 pl-5">
-        <li>O alinhamento usa 5 pontos tirados dos landmarks do MediaPipe FaceMesh (nunca a foto é guardada); o SFace gera um vetor de 128 números e a decisão é o cosseno ≥ 0,363.</li>
-        <li>Cada amostra fica cifrada (AES-256-GCM) no banco; o ML não guarda nada. Quem tinha rosto no formato antigo precisa recadastrar.</li>
-        <li>A <strong>prova de vida passiva</strong> (MiniFASNet, duas redes de ~0,4 milhão de parâmetros) vem ligada por padrão e falha fechada: sem os pesos, as rotas respondem 503. Das {{ inteiro(lfw.provaDeVida.imagens) }} fotos reais do LFW, {{ percentual(lfw.provaDeVida.recusadasLimiar05) }} foram recusadas no limiar 0,5.</li>
-        <li><strong>Ainda não medido:</strong> a detecção de foto impressa ou de tela com a webcam (o LFW só tem rostos reais) e o SFace com a câmera real.</li>
-      </ul>
+      <div class="grid gap-6 md:grid-cols-2">
+        <app-nota tom="sucesso" titulo="Prova de vida">
+          Ligada por padrão, obrigatória na API fora de desenvolvimento e com falha fechada: sem os pesos, as rotas respondem 503. Das {{ inteiro(lfw.provaDeVida.imagens) }} fotos reais do LFW,
+          {{ percentual(lfw.provaDeVida.recusadasLimiar05) }} foram recusadas no limiar 0,5.
+        </app-nota>
+        <app-nota tom="aviso" titulo="Ainda não medido">
+          A validação com a câmera real em condições de uso (o LFW só tem rostos reais). Os números acima são de fotos de internet de 250 px.
+        </app-nota>
+      </div>
     </app-secao>
 
     <app-secao titulo="Modelos e como são verificados" id="modelos">
       <app-tabela-dados [colunas]="colunasModelos" [linhas]="modelos" legenda="modelos usados pelo serviço de ML" arquivo="modelos-ml" [tamanhoInicial]="10" />
     </app-secao>
 
-    <app-secao titulo="Controle de acesso e limites" id="acesso">
+    <app-secao titulo="Controle de acesso e limites" descricao="Cada rota exige uma credencial diferente, e quase todas têm limite de uso por usuário." id="acesso">
       <app-tabela-dados [colunas]="colunasAcesso" [linhas]="acesso" legenda="controle de acesso do serviço de ML" arquivo="acesso-ml" [tamanhoInicial]="10" />
     </app-secao>
 
     <app-secao titulo="Assistente e câmera no Windows" id="assistente">
-      <div class="grid gap-4 md:grid-cols-2">
-        <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="border-border bg-card flex h-full flex-col gap-3 rounded-xl border p-6">
           <h3 class="text-title-m text-foreground">Assistente por regras</h3>
           <p class="text-body-m text-muted-foreground">
             O ChatBot é baseado em regras e palavras-chave (decisão deliberada: sem modelo de linguagem). Consulta a Web API em nome do usuário logado para responder
             sobre clientes, atrasos, devoluções do mês, faturamento e cupons. Exige login e aceita 30 mensagens por minuto, de até 2.000 caracteres.
           </p>
         </article>
-        <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+        <article class="border-border bg-card flex h-full flex-col gap-3 rounded-xl border p-6">
           <h3 class="text-title-m text-foreground">Webcam exclusiva</h3>
           <p class="text-body-m text-muted-foreground">
             Se o servidor está capturando (Monitoramento), o navegador não consegue usar a webcam no login ou na verificação facial. O processamento se solta sozinho
@@ -119,17 +142,21 @@ export class MachineLearningPage {
     { icone: 'lucideBot', titulo: 'Assistente', pasta: 'ChatBot/', texto: 'Respostas por regras e busca, consultando a Web API com o token do usuário; única rota de texto alcançável pelo navegador.' }
   ];
 
-  protected readonly tabelaAreas = { colunas: ['Área', 'Linhas', 'Arquivos'], linhas: ml.areas.map((a) => [a.area, inteiro(a.loc), a.arquivos]) };
-  protected readonly graficoAreas = (t: TemaGrafico) => ({
+  private readonly grupos = (() => {
+    const mapa = new Map<string, number>();
+    for (const e of endpoints.ml) mapa.set(e.grupo, (mapa.get(e.grupo) ?? 0) + 1);
+    return [...mapa.entries()].map(([name, value]) => ({ name, value }));
+  })();
+  protected readonly tabelaGrupos = { colunas: ['Grupo', 'Endpoints'], linhas: this.grupos.map((g) => [g.name, g.value]) };
+  protected readonly graficoGrupos = (t: TemaGrafico) => ({
     ...baseDoGrafico(t),
-    grid: { left: 8, right: 56, top: 8, bottom: 8, containLabel: true },
-    tooltip: { ...baseDoGrafico(t).tooltip, trigger: 'axis', axisPointer: { type: 'shadow' }, valueFormatter: (v: number) => inteiro(v) + ' linhas' },
-    xAxis: eixoValor(t, { splitNumber: 3 }),
-    yAxis: eixoCategoria(t, ml.areas.map((a) => a.area), { inverse: true }),
+    tooltip: { ...baseDoGrafico(t).tooltip, trigger: 'item' },
+    legend: { ...baseDoGrafico(t).legend, bottom: 0 },
     series: [{
-      type: 'bar', barWidth: 18,
-      data: ml.areas.map((a, i) => ({ value: a.loc, itemStyle: { color: t.series[i % t.series.length], borderRadius: [0, 6, 6, 0] } })),
-      label: { show: true, position: 'right', color: t.texto, fontFamily: t.fonte, formatter: (p: { value: number }) => inteiro(p.value) }
+      type: 'pie', radius: ['46%', '70%'], center: ['50%', '44%'],
+      itemStyle: { borderColor: t.fundoDica, borderWidth: 2, borderRadius: 6 },
+      label: { color: t.texto, fontFamily: t.fonte, formatter: '{c}' },
+      data: this.grupos.map((g, i) => ({ ...g, itemStyle: { color: t.series[i % t.series.length] } }))
     }]
   });
 
@@ -153,6 +180,31 @@ export class MachineLearningPage {
     { titulo: 'Localizador', texto: 'Procura o retângulo da placa (proporção ≈ 3:1) dentro do veículo ou da imagem.' },
     { titulo: 'Tesseract', texto: 'Remove borda e faixa azul, amplia e procura o formato brasileiro (antigo e Mercosul).' },
     { titulo: 'Confirmação', texto: 'Duas leituras iguais em 3 s; no máximo uma correção por posição.' }
+  ];
+
+  protected readonly conceitosPlacas: Conceito[] = [
+    { termo: 'Detecção de objetos (YOLO)', definicao: 'Uma rede neural convolucional que, em uma única passada pela imagem, devolve caixas delimitadoras e a classe de cada objeto. O yolov8n é o menor da família, treinado no conjunto COCO (carro, moto, ônibus, caminhão entre as 80 classes).', noSistema: 'Só localiza o veículo; ele não lê a placa. Sem veículo na imagem, o localizador procura a placa na imagem inteira.' },
+    { termo: 'OCR (Tesseract)', definicao: 'Reconhecimento óptico de caracteres: segmenta o recorte em linhas e símbolos e escolhe, para cada símbolo, o caractere mais provável. Erra mais com baixa resolução e com símbolos parecidos (R/K, 0/O, 1/I).', noSistema: 'O recorte é limpo e ampliado, algumas variantes são testadas e o texto é filtrado pelo formato AAA0000 ou AAA0A00; no máximo uma correção por posição.' },
+    { termo: 'Confirmação por repetição', definicao: 'Uma leitura isolada pode estar errada; exigir a mesma leitura mais de uma vez em uma janela curta troca velocidade por confiança e reduz falsos positivos.', noSistema: 'Duas leituras iguais em 3 s emitem a placa; a mesma placa não é emitida de novo por 5 s.' },
+    { termo: 'MJPEG com ticket de uso único', definicao: 'MJPEG é uma sequência de quadros JPEG sobre HTTP, que o navegador exibe em um elemento de imagem. Esse elemento não envia o cabeçalho Authorization, então o acesso é autorizado por um ticket na própria URL.', noSistema: 'POST /api/cameras/stream-ticket emite um ticket válido por 30 s, ligado ao usuário e consumido no primeiro uso.' }
+  ];
+
+  protected readonly fluxoFacial = [
+    { titulo: 'O navegador captura o rosto', texto: 'A tela de login ou de cadastro usa a webcam do usuário e envia a imagem à Web API (nunca direto ao ML).' },
+    { titulo: 'A Web API protege a porta de entrada', texto: 'Limite de 10 por minuto por IP, bloqueio de conta e limite por par conta + IP; no cadastro, o consentimento versionado precisa estar aceito.' },
+    { titulo: 'A Web API chama o ML', texto: 'De servidor para servidor, com X-Internal-Token (comparado em tempo constante) e limite de 120 por minuto.' },
+    { titulo: 'O ML analisa a imagem', texto: 'Detecta o rosto, avalia a prova de vida e calcula o vetor de 128 números. Imagens de foto ou de tela são recusadas.' },
+    { titulo: 'A Web API compara com as amostras', texto: 'Lê as amostras cifradas do banco, decifra e pede ao ML a comparação por cosseno; o ML não guarda nada.' },
+    { titulo: 'Decisão e sessão', texto: 'Se o cosseno passa do limiar (e o código do 2FA, quando ativo, confere), a API emite o par de tokens; caso contrário a falha conta no bloqueio de conta.' }
+  ];
+
+  protected readonly conceitosFacial: Conceito[] = [
+    { termo: 'Landmarks (MediaPipe FaceMesh)', definicao: 'Pontos de referência do rosto (468 no total): contorno, olhos, nariz e boca. Servem para localizar e alinhar o rosto antes de qualquer comparação.', noSistema: 'Só 5 pontos são usados (olhos, nariz e cantos da boca) para alinhar o recorte; a geometria dos 468 pontos já não decide a identidade.' },
+    { termo: 'Embedding (SFace)', definicao: 'Uma rede neural transforma o rosto alinhado em um vetor de números tal que fotos da mesma pessoa ficam próximas e pessoas diferentes ficam distantes.', noSistema: 'Vetor de 128 números por amostra, cifrado em AES-256-GCM no banco. Cada rosto leva cerca de 20 ms.' },
+    { termo: 'Similaridade de cosseno', definicao: 'O cosseno do ângulo entre dois vetores: 1 quando apontam para o mesmo lado, 0 quando não têm relação. Ignora o tamanho do vetor e olha só a direção.', noSistema: 'Cosseno médio medido no LFW: 0,67 para a mesma pessoa e 0,09 para pessoas diferentes. Aceita-se com cosseno ≥ 0,363.' },
+    { termo: 'FAR, FRR e EER', definicao: 'FAR é a fração de impostores aceitos; FRR, a de pessoas certas recusadas; o EER é o ponto em que as duas se igualam. Subir o limiar baixa o FAR e sobe o FRR.', noSistema: 'No limiar 0,363: FAR de 0,067 % (1 em ~1.500) e FRR de 3,1 %. EER de cerca de 2,6 %.' },
+    { termo: 'Prova de vida passiva (MiniFASNet)', definicao: 'Uma rede pequena olha uma única imagem, com o contexto ao redor do rosto, e estima a probabilidade de ser uma pessoa de verdade e não uma foto impressa ou uma tela.', noSistema: 'Duas redes (escalas 2,7× e 4×) somadas, limiar 0,5; ligada por padrão, com pesos de commit fixo e SHA-256 conferido.' },
+    { termo: 'Defesa em camadas no login facial', definicao: 'Nenhum controle sozinho basta: o reconhecimento tem FAR pequeno mas não zero, e a prova de vida pode errar. Por isso os controles se somam.', noSistema: 'Prova de vida + cosseno + bloqueio de conta (10 erros) + limite por conta e IP (5) + código do 2FA, quando ativo.' }
   ];
 
   private readonly curva = lfw.curva.filter((c) => c.limiar >= 0 && c.limiar <= 0.7);
@@ -204,7 +256,7 @@ export class MachineLearningPage {
   };
 
   protected readonly limiares: Linha[] = [
-    ...lfw.limiares.map((l) => ({ ponto: l.rotulo, limiar: decimal(l.limiar, 3), far: percentual(l.FAR ?? 0, 3), frr: percentual(l.FRR ?? 0, 2) })),
+    ...lfw.limiares.map((l) => ({ ponto: l.rotulo, limiar: decimal(l.limiar, 3), far: percentual(l.FAR, 3), frr: percentual(l.FRR, 2) })),
     { ponto: 'EER (ponto de equilíbrio)', limiar: decimal(lfw.eer.limiar, 3), far: percentual(lfw.eer.FAR, 3), frr: percentual(lfw.eer.FRR, 2) }
   ];
   protected readonly colunasLimiares: ColunaTabela[] = [

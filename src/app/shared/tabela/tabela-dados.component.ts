@@ -32,8 +32,9 @@ type Direcao = 'asc' | 'desc';
   selector: 'app-tabela-dados',
   imports: [NgIcon, HlmButtonImports, HlmInputImports, HlmTableImports, StatusBadgeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'block' },
   template: `
-    <div class="border-border bg-card flex flex-col gap-3 rounded-xl border p-3 sm:p-4">
+    <div class="border-border bg-card flex h-full flex-col gap-4 rounded-xl border p-4 sm:p-5">
       <div class="flex flex-wrap items-center gap-2">
         <div class="relative min-w-52 flex-1 sm:max-w-sm">
           <ng-icon name="lucideSearch" class="text-muted-foreground pointer-events-none absolute top-1/2 left-3 -translate-y-1/2" aria-hidden="true" />

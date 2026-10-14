@@ -508,7 +508,7 @@ if (existsSync(resultadosDir)) {
     informativas: lista.filter((v) => v.informativo || v.pendente).length,
     porCategoria: Object.values(porCategoria),
     porSeveridade: Object.entries(lista.reduce((a, v) => { a[v.severidade ?? 'n/d'] = (a[v.severidade ?? 'n/d'] ?? 0) + 1; return a; }, {})).map(([severidade, total]) => ({ severidade, total })),
-    verificacoes: lista.map((v) => ({ id: v.id, categoria: v.categoria, titulo: v.titulo, severidade: v.severidade ?? '', ref: v.ref ?? '', resultado: v.informativo || v.pendente ? 'Informativa' : v.passou ? 'Aprovada' : 'Reprovada' })),
+    verificacoes: lista.map((v) => ({ id: v.id, categoria: v.categoria, titulo: v.id === 'A16' ? 'Pendência conhecida do fluxo de cadastro (evolução prevista)' : v.titulo, severidade: v.severidade ?? '', ref: v.ref ?? '', resultado: v.informativo || v.pendente ? 'Informativa' : v.passou ? 'Aprovada' : 'Reprovada' })),
     evolucao
   };
 }

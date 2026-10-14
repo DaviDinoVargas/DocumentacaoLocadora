@@ -23,7 +23,7 @@ export interface TabelaAlternativa {
   providers: [provideEchartsCore({ echarts })],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <figure class="border-border bg-card flex flex-col gap-3 rounded-xl border p-4 sm:p-5">
+    <figure class="border-border bg-card flex h-full flex-col gap-4 rounded-xl border p-5 sm:p-6">
       <figcaption class="flex flex-wrap items-start justify-between gap-2">
         <div class="min-w-48 flex-1">
           <h3 class="text-title-m text-foreground">{{ titulo() }}</h3>
@@ -72,8 +72,8 @@ export interface TabelaAlternativa {
         <div
           echarts
           [options]="opcoes()"
-          [style.height.px]="altura()"
-          class="w-full"
+          [style.min-height.px]="altura()"
+          class="w-full flex-1"
           role="img"
           [attr.aria-label]="resumo() || titulo()"
         ></div>

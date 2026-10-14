@@ -8,7 +8,7 @@ import { HlmButtonImports } from '@spartan-ng/helm/button';
   imports: [NgIcon, HlmButtonImports],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <figure class="border-border bg-surface-container overflow-hidden rounded-xl border">
+    <figure class="border-border bg-surface-container flex h-full flex-col overflow-hidden rounded-xl border">
       <figcaption class="border-border text-label-m text-muted-foreground flex items-center justify-between border-b px-4 py-1.5">
         <span>{{ rotulo() }}</span>
         <button hlmBtn variant="ghost" size="sm" type="button" (click)="copiar()" [attr.aria-label]="'Copiar ' + rotulo()">
@@ -16,7 +16,7 @@ import { HlmButtonImports } from '@spartan-ng/helm/button';
           {{ copiado() ? 'Copiado' : 'Copiar' }}
         </button>
       </figcaption>
-      <pre class="text-body-m text-foreground overflow-x-auto p-4"><code class="font-mono text-[0.8125rem] leading-6">{{ texto() }}</code></pre>
+      <pre class="text-body-m text-foreground flex-1 overflow-x-auto p-5"><code class="font-mono text-[0.8125rem] leading-6">{{ texto() }}</code></pre>
     </figure>
   `
 })

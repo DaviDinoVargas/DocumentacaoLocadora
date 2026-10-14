@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ITENS_SEGURANCA } from '../dados/seguranca-itens';
 import seguranca from '../dados/seguranca.json';
 import { decimal, inteiro, percentual } from '../core/formato';
 import { GraficoComponent } from '../shared/charts/grafico.component';
@@ -31,26 +32,26 @@ const carga = seguranca.rodada!.carga;
     </app-secao>
 
     <app-secao titulo="Latência da API" descricao="Medição pontual de 12/out/2026: 60 requisições sequenciais por rota, autenticado como Empresa, só leitura, uma chamada de aquecimento descartada." id="latencia">
-      <div class="grid gap-4 sm:grid-cols-3">
+      <div class="grid gap-6 sm:grid-cols-3">
         <app-kpi-card rotulo="Meta de p95 (local)" valor="≤ 200 ms" apoio="proposta do trabalho" icone="lucideTimer" />
         <app-kpi-card rotulo="Pior p95 medido" [valor]="piorP95 + ' ms'" apoio="GET /api/alugueis" icone="lucideGauge" />
         <app-kpi-card rotulo="Melhor p50" [valor]="melhorP50 + ' ms'" apoio="GET /api/clientes" icone="lucideCircleCheck" />
       </div>
-      <div class="grid gap-4 lg:grid-cols-2">
+      <div class="grid gap-6 lg:grid-cols-2">
         <app-grafico titulo="p50 e p95 por rota" subtitulo="Milissegundos, n = 60 por rota; muito abaixo dos 200 ms da meta" [configurar]="graficoLatencia" [altura]="340" [tabela]="tabelaLatencia" resumo="Barras agrupadas com a mediana e o percentil 95 da latência de seis rotas de leitura da API, todas abaixo de 20 milissegundos." />
         <app-grafico titulo="p95 sob concorrência" subtitulo="Rodada de carga de 13/out/2026: 10, 50 e 100 usuários simultâneos" [configurar]="graficoConcorrencia" [altura]="340" [tabela]="tabelaConcorrencia" resumo="Linhas com o percentil 95 da latência de três rotas de leitura crescendo de 10 para 100 usuários simultâneos, todas abaixo de 110 milissegundos." />
       </div>
     </app-secao>
 
     <app-secao titulo="Pacote do front-end" id="pacote">
-      <div class="grid gap-4 lg:grid-cols-[1.2fr_1fr]">
+      <div class="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
         <app-grafico titulo="Tamanho do pacote inicial (bruto)" subtitulo="Antes e depois da migração de UI, com os orçamentos do angular.json" [configurar]="graficoPacote" [altura]="300" [tabela]="tabelaPacote" resumo="Barras com o pacote inicial de 1.700 kB antes da migração e 785 kB depois, comparados ao orçamento de aviso de 900 kB e ao de erro de 1.500 kB." />
         <app-tabela-dados [colunas]="colunasPacote" [linhas]="pacote" legenda="tamanho do pacote do front-end" arquivo="pacote-front" [tamanhoInicial]="10" />
       </div>
     </app-secao>
 
     <app-secao titulo="Reconhecimento facial (LFW)" descricao="Protocolo oficial de 10 dobras, 6.000 pares, SFace com alinhamento por 5 pontos do MediaPipe; detalhes na página do serviço de ML." id="facial">
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <app-kpi-card rotulo="Acurácia" [valor]="percentual(lfw.acuracia)" [apoio]="'± ' + percentual(lfw.desvio, 1) + ' entre as dobras'" icone="lucideScanFace" />
         <app-kpi-card rotulo="EER" [valor]="percentual((lfw.eer.FAR + lfw.eer.FRR) / 2)" [apoio]="'no limiar ' + decimal(lfw.eer.limiar, 3)" icone="lucideScale" />
         <app-kpi-card rotulo="FAR no limiar 0,363" [valor]="percentual(lfw.limiares[3].FAR, 3)" apoio="impostor aceito (1 em ~1.500)" icone="lucideShieldCheck" />
@@ -61,9 +62,9 @@ const carga = seguranca.rodada!.carga;
     <app-secao titulo="Plano de medição" descricao="O que ainda será medido, como e com qual meta. As metas são propostas deste trabalho e podem ser ajustadas pela banca." id="plano">
       <mat-tab-group animationDuration="0ms" mat-align-tabs="start">
         <mat-tab label="Leitura de placa">
-          <div class="flex flex-col gap-4 pt-4">
-            <div class="grid gap-4 md:grid-cols-2">
-              <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+          <div class="flex flex-col gap-6 pt-6">
+            <div class="grid gap-6 md:grid-cols-2">
+              <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-6">
                 <h3 class="text-title-m text-foreground">Definições</h3>
                 <ul class="text-body-m text-muted-foreground list-disc pl-5">
                   <li><strong>Tempo de leitura</strong> T = t_confirmada − t_visível: do primeiro quadro com a placa legível até a emissão (duas leituras iguais em 3 s).</li>
@@ -71,7 +72,7 @@ const carga = seguranca.rodada!.carga;
                   <li><strong>CER</strong> = (S + D + I) / N: distância de Levenshtein sobre os caracteres da placa. Exemplo real: BRA2E19 lida como BKA2E19 tem CER ≈ 14,3 %.</li>
                 </ul>
               </article>
-              <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+              <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-6">
                 <h3 class="text-title-m text-foreground">Protocolo proposto</h3>
                 <ol class="text-body-m text-muted-foreground list-decimal pl-5">
                   <li>10 placas (antigo e Mercosul), impressas em tamanho real, diante da webcam.</li>
@@ -85,16 +86,16 @@ const carga = seguranca.rodada!.carga;
           </div>
         </mat-tab>
         <mat-tab label="Usabilidade (SUS e tarefas)">
-          <div class="flex flex-col gap-4 pt-4">
-            <div class="grid gap-4 md:grid-cols-2">
-              <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+          <div class="flex flex-col gap-6 pt-6">
+            <div class="grid gap-6 md:grid-cols-2">
+              <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-6">
                 <h3 class="text-title-m text-foreground">Questionário SUS</h3>
                 <p class="text-body-m text-muted-foreground">
                   Dez afirmativas de 1 a 5, alternando tom positivo e negativo. Pontuação = 2,5 × [Σ(x<sub>ímpares</sub> − 1) + Σ(5 − x<sub>pares</sub>)], de 0 a 100 — não é um percentual.
                   A média de referência da literatura é cerca de 68; acima de 80 costuma ser excelente. Meta: média ≥ 68 (alvo ≥ 80) com n ≥ 5.
                 </p>
               </article>
-              <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-5">
+              <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-6">
                 <h3 class="text-title-m text-foreground">Tarefas cronometradas</h3>
                 <p class="text-body-m text-muted-foreground">
                   Sem ajuda, com n ≥ 5. Sucesso com intervalo de confiança (Wilson), tempo pela média geométrica ou mediana e erros por tentativa. Os tempos são hipóteses a calibrar após um piloto de 2 pessoas.
@@ -105,7 +106,7 @@ const carga = seguranca.rodada!.carga;
           </div>
         </mat-tab>
         <mat-tab label="Heurísticas de Nielsen">
-          <div class="flex flex-col gap-4 pt-4">
+          <div class="flex flex-col gap-6 pt-6">
             <app-grafico titulo="Problemas encontrados × número de avaliadores" subtitulo="Achados(n) = 1 − (1 − λ)ⁿ, com λ ≈ 0,31: cinco avaliadores encontram cerca de 84 %" [configurar]="graficoNielsen" [altura]="300" [tabela]="tabelaNielsen" resumo="Curva crescente com retorno decrescente: um avaliador encontra 31 por cento dos problemas, cinco encontram 84 por cento e dez encontram 98 por cento." />
             <app-tabela-dados [colunas]="colunasHeuristicas" [linhas]="heuristicas" legenda="autoavaliação pelas heurísticas de Nielsen" arquivo="heuristicas-nielsen" [tamanhoInicial]="10" />
             <app-nota tom="aviso">Autoavaliação preliminar do desenvolvedor: não substitui a avaliação independente com pelo menos três avaliadores.</app-nota>
@@ -134,7 +135,7 @@ export class MetricasPage {
     { metrica: 'Questionário SUS', instrumento: '10 perguntas, n ≥ 5', meta: 'Média ≥ 68; alvo ≥ 80', situacao: 'Planejado', valor: 'não aplicado' },
     { metrica: 'Tarefas cronometradas', instrumento: '3 tarefas, n ≥ 5', meta: 'Sucesso ≥ 90 %', situacao: 'Planejado', valor: 'não aplicado' },
     { metrica: 'Heurísticas de Nielsen', instrumento: 'Avaliação com ≥ 3 avaliadores', meta: 'Nenhum problema de severidade ≥ 3', situacao: 'Parcial', valor: 'autoavaliação preliminar' },
-    { metrica: 'Achados de segurança fechados', instrumento: 'Painel S1–S35 e bateria de ataques', meta: '0 abertos até a prioridade "urgente"', situacao: 'Parcial', valor: '29 corrigidos · 4 parciais · 2 ignorados' },
+    { metrica: 'Achados de segurança fechados', instrumento: 'Painel S1–S35 e bateria de ataques', meta: '0 abertos até a prioridade "urgente"', situacao: 'Parcial', valor: `${ITENS_SEGURANCA.filter((i) => i.estado === 'Corrigido').length} corrigidos · ${ITENS_SEGURANCA.filter((i) => i.estado === 'Parcial').length} parciais · ${ITENS_SEGURANCA.filter((i) => i.estado === 'Ignorado').length} ignorados` },
     { metrica: 'Testes automatizados', instrumento: 'MSTest, pytest, Karma', meta: '100 % verdes', situacao: 'Medido', valor: 'todos verdes nas execuções registradas' }
   ];
 

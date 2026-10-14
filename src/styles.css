@@ -251,3 +251,10 @@
   padding: 0.1em 0.4em;
   overflow-wrap: anywhere;
 }
+
+/* Cada página é um componente filho do router-outlet: empilha cabeçalho, seções e alertas com respiro de 48 px. */
+main router-outlet + * {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}

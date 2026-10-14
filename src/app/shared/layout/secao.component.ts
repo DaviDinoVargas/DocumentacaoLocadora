@@ -5,8 +5,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   selector: 'app-secao',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section [attr.id]="id() || null" class="flex flex-col gap-4 scroll-mt-6" [attr.aria-labelledby]="id() ? id() + '-titulo' : null">
-      <div class="flex flex-col gap-1">
+    <section [attr.id]="id() || null" class="flex flex-col gap-6 scroll-mt-6" [attr.aria-labelledby]="id() ? id() + '-titulo' : null">
+      <div class="flex flex-col gap-2">
         <h2 [attr.id]="id() ? id() + '-titulo' : null" class="text-title-l text-foreground">{{ titulo() }}</h2>
         @if (descricao()) {
           <p class="text-body-m text-muted-foreground prose-doc">{{ descricao() }}</p>

@@ -19,7 +19,7 @@ const VERBOS = ['GET', 'POST', 'PUT', 'DELETE'] as const;
   template: `
     <app-pagina-cabecalho />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <app-kpi-card rotulo="Endpoints da Web API" [valor]="dotnet.length" [apoio]="modulosDistintos + ' módulos, base /api'" icone="lucideRoute" />
       <app-kpi-card rotulo="Endpoints do ML" [valor]="ml.length" apoio="câmeras, rosto, chat e saúde" icone="lucideScanLine" />
       <app-kpi-card rotulo="Rotas públicas" [valor]="publicos" apoio="entrada, renovação e recuperação de senha" icone="lucideGlobe" />
@@ -27,21 +27,21 @@ const VERBOS = ['GET', 'POST', 'PUT', 'DELETE'] as const;
     </div>
 
     <app-secao titulo="Panorama" descricao="Endpoints por módulo e por verbo, e quem pode chamar cada um." id="panorama">
-      <div class="grid gap-4 lg:grid-cols-[1.6fr_1fr]">
-        <app-grafico titulo="Endpoints por módulo" subtitulo="Empilhados por verbo HTTP" [configurar]="graficoModulos" [altura]="360" [tabela]="tabelaModulos" resumo="Barras horizontais empilhadas com o número de endpoints de cada módulo, divididos por verbo GET, POST, PUT e DELETE." />
-        <app-grafico titulo="Quem pode chamar" subtitulo="Papel exigido pelo [Authorize] efetivo" [configurar]="graficoPapeis" [altura]="360" [tabela]="tabelaPapeis" resumo="Rosca com a distribuição dos endpoints por papel exigido: Empresa, Empresa e Funcionário, autenticado e público." />
+      <div class="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+        <app-grafico titulo="Endpoints por módulo" subtitulo="Empilhados por verbo HTTP" [configurar]="graficoModulos" [altura]="380" [tabela]="tabelaModulos" resumo="Barras horizontais empilhadas com o número de endpoints de cada módulo, divididos por verbo GET, POST, PUT e DELETE." />
+        <app-grafico titulo="Quem pode chamar" subtitulo="Papel exigido pelo [Authorize] efetivo" [configurar]="graficoPapeis" [altura]="380" [tabela]="tabelaPapeis" resumo="Rosca com a distribuição dos endpoints por papel exigido: Empresa, Empresa e Funcionário, autenticado e público." />
       </div>
     </app-secao>
 
     <app-secao titulo="Catálogo" descricao="Filtre por módulo, verbo ou papel. O papel é o efetivo: os [Authorize] da classe e do método se somam no ASP.NET, por isso uma rota de método aberto pode ficar restrita pela classe." id="catalogo">
       <mat-tab-group animationDuration="0ms" mat-stretch-tabs="false" mat-align-tabs="start">
         <mat-tab label="Web API .NET ({{ dotnet.length }})">
-          <div class="pt-4">
+          <div class="pt-6">
             <app-tabela-dados [colunas]="colunasDotnet" [linhas]="linhasDotnet" legenda="endpoints da Web API .NET" arquivo="endpoints-web-api" [tamanhoInicial]="25" />
           </div>
         </mat-tab>
         <mat-tab label="Serviço de ML ({{ ml.length }})">
-          <div class="flex flex-col gap-4 pt-4">
+          <div class="flex flex-col gap-6 pt-6">
             <app-tabela-dados [colunas]="colunasMl" [linhas]="linhasMl" legenda="endpoints do serviço de ML" arquivo="endpoints-ml" [tamanhoInicial]="25" />
             <app-nota tom="info" titulo="Como o navegador chega ao ML">
               O navegador só alcança <span class="code-inline">/chat</span>, as rotas de câmera e o stream (pelo proxy, com o JWT validado na Web API). O módulo facial
@@ -50,7 +50,7 @@ const VERBOS = ['GET', 'POST', 'PUT', 'DELETE'] as const;
           </div>
         </mat-tab>
         <mat-tab label="Convenções">
-          <div class="flex flex-col gap-4 pt-4">
+          <div class="flex flex-col gap-6 pt-6">
             <app-tabela-dados [colunas]="colunasConvencoes" [linhas]="convencoes" legenda="convenções da API" arquivo="convencoes-api" [tamanhoInicial]="10" />
           </div>
         </mat-tab>

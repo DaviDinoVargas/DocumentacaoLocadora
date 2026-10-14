@@ -109,7 +109,7 @@ public/            favicon e fontes
 
 Resumo, suposições e a lista de divergências entre o material do TCC e o código estão nas páginas **Encerramento** e **Observações**. Em poucas linhas:
 
-- Fonte do software: branch `dv-017-seguranca`, topo `c828583`, de 13/out/2026; nada foi alterado nele.
+- O software foi apenas lido (estado de 13/out/2026); nada foi alterado nele.
 - O código vence o texto do TCC; conflitos (segurança, reconhecimento facial, nginx, migrations, testes, validação de CPF/CNPJ…) estão registrados em *Observações*.
 - Docker, nginx e CI do software ficam fora de escopo, como decidido pelo autor.
 - Latência, pacote do front-end e cobertura vêm das medições registradas no material, não foram refeitas.
