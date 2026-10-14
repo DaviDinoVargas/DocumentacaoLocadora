@@ -1,0 +1,54 @@
+// Angular Material 3 (tema do sistema de design). Os componentes Material usados na documentação
+// (abas, acordeão, alternadores, dica) leem as variáveis --mat-sys-*; abaixo elas são ligadas
+// aos mesmos tokens --md-* do software documentado, então o tema claro/escuro é um só.
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: color-scheme,
+      primary: mat.$violet-palette,
+    ),
+    typography: (
+      plain-family: 'Inter Variable, system-ui, sans-serif',
+      brand-family: 'Inter Variable, system-ui, sans-serif',
+    ),
+    density: -1,
+  ));
+}
+
+:root {
+  --mat-sys-primary: var(--md-primary);
+  --mat-sys-on-primary: var(--md-on-primary);
+  --mat-sys-primary-container: var(--md-primary-container);
+  --mat-sys-on-primary-container: var(--md-on-primary-container);
+  --mat-sys-secondary: var(--md-secondary);
+  --mat-sys-on-secondary: var(--md-on-secondary);
+  --mat-sys-secondary-container: var(--md-secondary-container);
+  --mat-sys-on-secondary-container: var(--md-on-secondary-container);
+  --mat-sys-tertiary: var(--md-tertiary);
+  --mat-sys-on-tertiary: var(--md-on-tertiary);
+  --mat-sys-tertiary-container: var(--md-tertiary-container);
+  --mat-sys-on-tertiary-container: var(--md-on-tertiary-container);
+  --mat-sys-error: var(--md-error);
+  --mat-sys-on-error: var(--md-on-error);
+  --mat-sys-error-container: var(--md-error-container);
+  --mat-sys-on-error-container: var(--md-on-error-container);
+  --mat-sys-surface: var(--md-surface);
+  --mat-sys-background: var(--md-surface);
+  --mat-sys-on-surface: var(--md-on-surface);
+  --mat-sys-on-background: var(--md-on-surface);
+  --mat-sys-on-surface-variant: var(--md-on-surface-variant);
+  --mat-sys-surface-variant: var(--md-surface-container-highest);
+  --mat-sys-surface-container-lowest: var(--md-surface-container-lowest);
+  --mat-sys-surface-container-low: var(--md-surface-container-low);
+  --mat-sys-surface-container: var(--md-surface-container);
+  --mat-sys-surface-container-high: var(--md-surface-container-high);
+  --mat-sys-surface-container-highest: var(--md-surface-container-highest);
+  --mat-sys-outline: var(--md-outline);
+  --mat-sys-outline-variant: var(--md-outline-variant);
+  --mat-sys-inverse-surface: var(--md-inverse-surface);
+  --mat-sys-inverse-on-surface: var(--md-inverse-on-surface);
+  --mat-sys-inverse-primary: var(--md-primary-container);
+  --mat-sys-surface-tint: var(--md-primary);
+}
