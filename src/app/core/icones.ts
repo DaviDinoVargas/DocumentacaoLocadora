@@ -7,7 +7,7 @@ import {
   lucideDownload, lucideRotateCcw, lucideBookOpen, lucideCar, lucideUsers, lucideLock, lucideKeyRound, lucideCamera,
   lucideBot, lucideNetwork, lucideBug, lucideCircleAlert, lucideTable, lucideChartBar, lucideCopy, lucideExternalLink,
   lucideSparkles, lucideTerminal, lucideGitBranch, lucideBox, lucideRocket, lucideChevronsLeft, lucideChevronsRight,
-  lucidePanelLeftClose, lucidePanelLeftOpen, lucideRows3, lucideScanFace, lucideGlobe, lucideShield, lucideTimer, lucideBuilding2, lucideCalendarCheck, lucideCheck, lucideEye, lucideFingerprint, lucideRefreshCw, lucideWorkflow, lucideLayoutGrid, lucideMail, lucideScale, lucideCoins, lucideFuel, lucideReceipt, lucideTag, lucideTrophy, lucideHandshake
+  lucidePanelLeftClose, lucidePanelLeftOpen, lucideRows3, lucideScanFace, lucideGlobe, lucideShield, lucideTimer, lucideBuilding2, lucideCalendarCheck, lucideCheck, lucideEye, lucideFingerprint, lucideRefreshCw, lucideWorkflow, lucideLayoutGrid, lucideMail, lucideScale, lucideCoins, lucideFuel, lucideReceipt, lucideTag, lucideTrophy, lucideHandshake, lucideEraser, lucideKey, lucideAudioWaveform, lucideTarget, lucideSwords, lucideFileSearch, lucideBinary, lucideCrosshair, lucideHash, lucideUserCheck, lucideImage, lucideVideo, lucideUserX
 } from '@ng-icons/lucide';
 
 /** Único conjunto de ícones (Lucide), registrado em app.config via provideIcons. */
@@ -20,5 +20,5 @@ export const ICONES = {
   lucideDownload, lucideRotateCcw, lucideBookOpen, lucideCar, lucideUsers, lucideLock, lucideKeyRound, lucideCamera,
   lucideBot, lucideNetwork, lucideBug, lucideCircleAlert, lucideTable, lucideChartBar, lucideCopy, lucideExternalLink,
   lucideSparkles, lucideTerminal, lucideGitBranch, lucideBox, lucideRocket, lucideChevronsLeft, lucideChevronsRight,
-  lucidePanelLeftClose, lucidePanelLeftOpen, lucideRows3, lucideScanFace, lucideGlobe, lucideShield, lucideTimer, lucideBuilding2, lucideCalendarCheck, lucideCheck, lucideEye, lucideFingerprint, lucideRefreshCw, lucideWorkflow, lucideLayoutGrid, lucideMail, lucideScale, lucideCoins, lucideFuel, lucideReceipt, lucideTag, lucideTrophy, lucideHandshake
+  lucidePanelLeftClose, lucidePanelLeftOpen, lucideRows3, lucideScanFace, lucideGlobe, lucideShield, lucideTimer, lucideBuilding2, lucideCalendarCheck, lucideCheck, lucideEye, lucideFingerprint, lucideRefreshCw, lucideWorkflow, lucideLayoutGrid, lucideMail, lucideScale, lucideCoins, lucideFuel, lucideReceipt, lucideTag, lucideTrophy, lucideHandshake, lucideEraser, lucideKey, lucideAudioWaveform, lucideTarget, lucideSwords, lucideFileSearch, lucideBinary, lucideCrosshair, lucideHash, lucideUserCheck, lucideImage, lucideVideo, lucideUserX
 };

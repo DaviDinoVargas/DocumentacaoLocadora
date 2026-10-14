@@ -11,7 +11,7 @@ import { NgIcon } from '@ng-icons/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'block' },
   template: `
-    <div class="border-border bg-card flex h-full flex-col gap-1 rounded-xl border p-5">
+    <div class="border-border bg-card flex h-full flex-col gap-1.5 rounded-xl border p-6">
       <span class="text-label-l text-muted-foreground flex items-center gap-2">
         @if (icone()) {
           <ng-icon [name]="icone()" class="text-base" aria-hidden="true" />

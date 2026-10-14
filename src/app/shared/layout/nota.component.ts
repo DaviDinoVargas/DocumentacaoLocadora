@@ -16,7 +16,7 @@ const ESTILO: Record<TomNota, { caixa: string; icone: string }> = {
   imports: [NgIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <aside class="flex gap-3 rounded-xl p-4" [class]="estilo().caixa" role="note">
+    <aside class="flex gap-3 rounded-xl p-5" [class]="estilo().caixa" role="note">
       <ng-icon [name]="estilo().icone" class="mt-0.5 shrink-0 text-lg" aria-hidden="true" />
       <div class="text-body-m min-w-0 flex-1">
         @if (titulo()) {

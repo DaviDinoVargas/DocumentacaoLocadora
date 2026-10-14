@@ -1,14 +1,12 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { ChangeDetectionStrategy, Component, HostListener, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
 import { NgIcon } from '@ng-icons/core';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { HlmSheetImports } from '@spartan-ng/helm/sheet';
 import { map } from 'rxjs';
-import metaJson from './dados/meta.json';
 import { NavegacaoService } from './core/navegacao.service';
-import { TOTAL_PAGINAS } from './core/paginas';
 import { TemaService } from './core/tema.service';
 import { CuboMagicoComponent } from './cubo/cubo-magico.component';
 import { SidebarNavComponent } from './shared/layout/sidebar-nav.component';
@@ -51,12 +49,6 @@ import { SidebarNavComponent } from './shared/layout/sidebar-nav.component';
         <div class="min-h-0 flex-1 overflow-y-auto px-3 py-2">
           <app-sidebar-nav [recolhido]="!largo()" />
         </div>
-        @if (largo()) {
-          <div class="border-border text-body-s text-muted-foreground shrink-0 border-t p-4">
-            <p>Gerada do código em <span class="code-inline">{{ meta.commit }}</span></p>
-            <p>Branch <span class="code-inline">{{ meta.branch }}</span> · {{ meta.ultimoCommit }}</p>
-          </div>
-        }
       </aside>
 
       <div class="flex min-w-0 flex-1 flex-col">
@@ -65,8 +57,7 @@ import { SidebarNavComponent } from './shared/layout/sidebar-nav.component';
             <ng-icon name="lucideMenu" aria-hidden="true" />
           </button>
           <div class="min-w-0 flex-1">
-            <p class="text-label-s text-muted-foreground tabular">Página {{ pad(nav.indice()) }} de {{ pad(total) }} · {{ nav.pagina().grupo }}</p>
-            <p class="text-title-s text-foreground truncate">{{ nav.pagina().titulo }}</p>
+            <p class="text-title-m text-foreground truncate">{{ nav.pagina().titulo }}</p>
           </div>
           <a
             hlmBtn
@@ -96,7 +87,7 @@ import { SidebarNavComponent } from './shared/layout/sidebar-nav.component';
           tabindex="-1"
           class="min-h-0 flex-1 overflow-y-auto px-4 pt-6 pb-24 outline-none sm:px-6 md:pb-10 lg:px-8 xl:pr-[300px] 2xl:pr-[372px]"
         >
-          <div class="mx-auto flex w-full max-w-[1100px] flex-col gap-8"><router-outlet /></div>
+          <div class="mx-auto flex w-full max-w-[1100px] flex-col gap-12"><router-outlet /></div>
         </main>
       </div>
 
@@ -124,20 +115,12 @@ export class App {
   protected readonly tema = inject(TemaService);
   private readonly breakpoints = inject(BreakpointObserver);
 
-  protected readonly meta = metaJson;
-  protected readonly total = TOTAL_PAGINAS;
   protected readonly gaveta = signal(false);
 
   // >= 1024 px: barra completa; 768–1023 px: trilho de ícones; < 768 px: gaveta.
   protected readonly largo = toSignal(this.breakpoints.observe('(min-width: 1024px)').pipe(map((r) => r.matches)), {
     initialValue: true
   });
-
-  protected readonly rotuloPagina = computed(() => this.nav.pagina().titulo);
-
-  protected pad(n: number): string {
-    return String(n).padStart(2, '0');
-  }
 
   /** Alt + ← / → navegam entre páginas sem atrapalhar a rolagem horizontal de tabelas. */
   @HostListener('document:keydown', ['$event'])
