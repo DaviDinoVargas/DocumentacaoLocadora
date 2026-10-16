@@ -1,11 +1,11 @@
 {
   "rodada": {
-    "pasta": "2026-10-13_202959_bfa2156",
-    "commit": "bfa2156",
-    "total": 157,
+    "pasta": "2026-10-15_015101_8551471",
+    "commit": "8551471",
+    "total": 220,
     "info": {
-      "data": "2026-10-13T20:29:59",
-      "commit": "bfa2156",
+      "data": "2026-10-15T01:51:01",
+      "commit": "8551471",
       "modo": "tudo",
       "python": "3.11.9"
     },
@@ -13,151 +13,163 @@
       {
         "cenario": "GET /api/clientes",
         "concorrencia": 10,
-        "requisicoes": 15737,
-        "rps": 1573,
-        "p50": 6.1,
-        "p95": 8,
-        "p99": 12.9,
-        "max": 88.9,
+        "requisicoes": 13161,
+        "rps": 1315.3,
+        "p50": 6.9,
+        "p95": 11.7,
+        "p99": 18.8,
+        "max": 93.5,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "GET /api/clientes",
         "concorrencia": 50,
-        "requisicoes": 31343,
-        "rps": 3130.5,
-        "p50": 14.7,
-        "p95": 22.5,
-        "p99": 46.4,
-        "max": 351.5,
+        "requisicoes": 24926,
+        "rps": 2486.6,
+        "p50": 17.4,
+        "p95": 34.4,
+        "p99": 80.6,
+        "max": 335.1,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "GET /api/clientes",
         "concorrencia": 100,
-        "requisicoes": 31991,
-        "rps": 3190.8,
-        "p50": 28.6,
-        "p95": 48.5,
-        "p99": 92.1,
-        "max": 469.7,
+        "requisicoes": 28630,
+        "rps": 2850.2,
+        "p50": 31.4,
+        "p95": 52.1,
+        "p99": 104.8,
+        "max": 545,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "GET /api/dashboard/resumo",
         "concorrencia": 10,
-        "requisicoes": 8814,
-        "rps": 881,
-        "p50": 11,
-        "p95": 13.3,
-        "p99": 15.5,
-        "max": 114.1,
+        "requisicoes": 7964,
+        "rps": 795.6,
+        "p50": 12,
+        "p95": 15.7,
+        "p99": 20,
+        "max": 101.5,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "GET /api/dashboard/resumo",
         "concorrencia": 50,
-        "requisicoes": 10924,
-        "rps": 1089.6,
-        "p50": 45.4,
-        "p95": 51.8,
-        "p99": 55.1,
-        "max": 62.1,
+        "requisicoes": 9956,
+        "rps": 992.7,
+        "p50": 48.7,
+        "p95": 62.9,
+        "p99": 78,
+        "max": 117,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "GET /api/dashboard/resumo",
         "concorrencia": 100,
-        "requisicoes": 11230,
-        "rps": 1116.2,
-        "p50": 88.3,
-        "p95": 102.8,
-        "p99": 112.5,
-        "max": 127.2,
+        "requisicoes": 9898,
+        "rps": 983.8,
+        "p50": 98.8,
+        "p95": 124.2,
+        "p99": 142.5,
+        "max": 166.1,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "GET /api/automoveis",
         "concorrencia": 10,
-        "requisicoes": 32320,
-        "rps": 3231.3,
-        "p50": 3,
-        "p95": 4.1,
-        "p99": 5.4,
-        "max": 28.2,
+        "requisicoes": 25619,
+        "rps": 2561.2,
+        "p50": 3.6,
+        "p95": 6.2,
+        "p99": 8.4,
+        "max": 32.3,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "GET /api/automoveis",
         "concorrencia": 50,
-        "requisicoes": 37714,
-        "rps": 3767.1,
-        "p50": 12.5,
+        "requisicoes": 35488,
+        "rps": 3544,
+        "p50": 13.4,
         "p95": 22.9,
-        "p99": 29.4,
-        "max": 55.1,
+        "p99": 28.8,
+        "max": 51.8,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "GET /api/automoveis",
         "concorrencia": 100,
-        "requisicoes": 37237,
-        "rps": 3715.5,
-        "p50": 24.5,
-        "p95": 47.3,
-        "p99": 62.1,
-        "max": 106.2,
+        "requisicoes": 35284,
+        "rps": 3520.1,
+        "p50": 25.2,
+        "p95": 52.8,
+        "p99": 67.9,
+        "max": 147.2,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "POST /api/auth/autenticar",
         "concorrencia": 5,
-        "requisicoes": 245,
-        "rps": 24.2,
-        "p50": 167.2,
-        "p95": 400.7,
-        "p99": 717.8,
-        "max": 724,
+        "requisicoes": 271,
+        "rps": 26.8,
+        "p50": 169.1,
+        "p95": 322,
+        "p99": 486.8,
+        "max": 499.4,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "POST /api/auth/autenticar",
         "concorrencia": 20,
-        "requisicoes": 624,
-        "rps": 61,
-        "p50": 306.1,
-        "p95": 438.2,
-        "p99": 512,
-        "max": 527.8,
+        "requisicoes": 542,
+        "rps": 53,
+        "p50": 340.8,
+        "p95": 574.7,
+        "p99": 944.7,
+        "max": 1078.5,
         "erros5xx": 0,
         "falhasConexao": 0
       },
       {
         "cenario": "POST /api/auth/autenticar (senha errada)",
         "concorrencia": 20,
-        "requisicoes": 324,
-        "rps": 31.1,
-        "p50": 620.5,
-        "p95": 828.6,
-        "p99": 998.5,
-        "max": 1077.9,
+        "requisicoes": 310,
+        "rps": 29.6,
+        "p50": 637.9,
+        "p95": 839.8,
+        "p99": 1035.2,
+        "max": 1145.9,
+        "erros5xx": 0,
+        "falhasConexao": 0
+      },
+      {
+        "cenario": "misto leitura+escrita",
+        "concorrencia": 20,
+        "requisicoes": 6288,
+        "rps": 416.7,
+        "p50": 11.3,
+        "p95": 165.9,
+        "p99": 217.8,
+        "max": 397.1,
         "erros5xx": 0,
         "falhasConexao": 0
       }
     ],
-    "aprovadas": 154,
+    "aprovadas": 215,
     "reprovadas": 0,
-    "informativas": 3,
+    "informativas": 5,
     "porCategoria": [
       {
         "categoria": "Autenticação",
@@ -175,8 +187,8 @@
       },
       {
         "categoria": "Entradas",
-        "total": 14,
-        "aprovadas": 14,
+        "total": 16,
+        "aprovadas": 16,
         "reprovadas": 0,
         "informativas": 0
       },
@@ -216,9 +228,51 @@
         "informativas": 0
       },
       {
+        "categoria": "Corridas",
+        "total": 16,
+        "aprovadas": 16,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
+        "categoria": "ML (fuzz)",
+        "total": 13,
+        "aprovadas": 13,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
+        "categoria": "SSRF",
+        "total": 3,
+        "aprovadas": 2,
+        "reprovadas": 0,
+        "informativas": 1
+      },
+      {
+        "categoria": "Sessões e HTTPS",
+        "total": 15,
+        "aprovadas": 15,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
+        "categoria": "Duas instâncias",
+        "total": 8,
+        "aprovadas": 7,
+        "reprovadas": 0,
+        "informativas": 1
+      },
+      {
+        "categoria": "Isolamento",
+        "total": 2,
+        "aprovadas": 2,
+        "reprovadas": 0,
+        "informativas": 0
+      },
+      {
         "categoria": "Carga",
-        "total": 5,
-        "aprovadas": 4,
+        "total": 9,
+        "aprovadas": 8,
         "reprovadas": 0,
         "informativas": 1
       },
@@ -233,15 +287,15 @@
     "porSeveridade": [
       {
         "severidade": "alta",
-        "total": 74
+        "total": 101
       },
       {
         "severidade": "media",
-        "total": 67
+        "total": 100
       },
       {
         "severidade": "baixa",
-        "total": 16
+        "total": 19
       }
     ],
     "verificacoes": [
@@ -755,6 +809,22 @@
         "titulo": "Foto gigante (1,5 MB) é recusada",
         "severidade": "baixa",
         "ref": "S31",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C13",
+        "categoria": "Entradas",
+        "titulo": "Condições booleanas no campo texto (AND 1=1 / AND 1=2 / OR 1=1) viram apenas texto: os três registros nascem iguais e voltam letra por letra",
+        "severidade": "alta",
+        "ref": "S12",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "C14",
+        "categoria": "Entradas",
+        "titulo": "Sequências de travessia de caminho (../, ..\\, %2e%2e%2f) em campos de texto viram texto: nenhuma resposta traz arquivo do servidor nem 5xx",
+        "severidade": "alta",
+        "ref": "S12",
         "resultado": "Aprovada"
       },
       {
@@ -1446,6 +1516,494 @@
         "resultado": "Aprovada"
       },
       {
+        "id": "J01",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 cadastros de cliente com o MESMO CPF criam um só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J02",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 cadastros de empresa-cliente com o MESMO CNPJ criam uma só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J03",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 condutores com o MESMO CPF criam um só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J04",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 condutores com a MESMA CNH criam um só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J05",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 cadastros de automóvel com a MESMA placa criam um só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J06",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 grupos com o MESMO nome criam um só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J07",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 cupons com o MESMO código criam um só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J08",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 taxas com o MESMO nome criam uma só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J09",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 parceiros com o MESMO CNPJ criam um só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J10",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 funcionários com o MESMO CPF criam um só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J11",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 funcionários com o MESMO e-mail criam um só",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J12",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 10 cadastros de conta com o MESMO e-mail criam uma só (os demais recusados, sem 5xx)",
+        "severidade": "alta",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J12b",
+        "categoria": "Corridas",
+        "titulo": "A conta que sobrou entra com a senha cadastrada (os pedidos perdedores não corromperam nada)",
+        "severidade": "media",
+        "ref": "S35",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J13",
+        "categoria": "Corridas",
+        "titulo": "Corrida: 6 devoluções simultâneas do MESMO aluguel registram uma só (sem 5xx)",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J14",
+        "categoria": "Corridas",
+        "titulo": "Corrida: iniciar e cancelar o mesmo aluguel ao mesmo tempo termina em UM estado, sem 5xx",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "J15",
+        "categoria": "Corridas",
+        "titulo": "Corrida: excluir o cliente e criar um aluguel dele ao mesmo tempo não deixa aluguel órfão nem 5xx",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K01",
+        "categoria": "ML (fuzz)",
+        "titulo": "Imagens corrompidas ou que não são imagem em /face/landmarks recebem 400/422 (nunca 500 nem 200)",
+        "severidade": "alta",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K01b",
+        "categoria": "ML (fuzz)",
+        "titulo": "Depois dos arquivos corrompidos o ML continua de pé",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K02",
+        "categoria": "ML (fuzz)",
+        "titulo": "PNG de 136 KB que viraria 144 milhões de pixels é recusado antes de decodificar",
+        "severidade": "alta",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K02b",
+        "categoria": "ML (fuzz)",
+        "titulo": "Depois da bomba o ML continua de pé",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K03",
+        "categoria": "ML (fuzz)",
+        "titulo": "Corpos mal formados em /face recebem 400/422 (nunca 500)",
+        "severidade": "media",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K04",
+        "categoria": "ML (fuzz)",
+        "titulo": "Corpo de 30 MB em /face é recusado (4xx) sem inchar a memória do ML",
+        "severidade": "media",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K04b",
+        "categoria": "ML (fuzz)",
+        "titulo": "Depois do corpo gigante o ML continua de pé",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K05",
+        "categoria": "ML (fuzz)",
+        "titulo": "Textos adversários no /chat (regex em loop, unicode, HTML, SQL, nulo) não geram 500 nem demoram mais de 3 s",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K05b",
+        "categoria": "ML (fuzz)",
+        "titulo": "O /chat nunca devolve o HTML recebido (a resposta é texto fixo montado pelo servidor)",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K06",
+        "categoria": "ML (fuzz)",
+        "titulo": "/chat com JSON de tipo errado ou mal formado recebe 400/422, e com Content-Type que não é JSON também (nunca 500)",
+        "severidade": "media",
+        "ref": "S9",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K07",
+        "categoria": "ML (fuzz)",
+        "titulo": "/start com índice de câmera ou fps fora do esperado é recusado (4xx), nunca 500 e nunca \"ok\"",
+        "severidade": "alta",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K08",
+        "categoria": "ML (fuzz)",
+        "titulo": "Ids de câmera inválidos nas rotas /stop, /test e /stream dão 4xx (nunca 500)",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "K09",
+        "categoria": "ML (fuzz)",
+        "titulo": "Ao fim de todo o fuzz o ML continua de pé e o /chat legítimo continua respondendo",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L00",
+        "categoria": "SSRF",
+        "titulo": "Controle: o canário registra uma conexão feita pelo próprio teste",
+        "severidade": "baixa",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L02",
+        "categoria": "SSRF",
+        "titulo": "Como a API respondeu aos cadastros com URL (a foto https legítima é aceita; os outros esquemas, recusados)",
+        "severidade": "baixa",
+        "ref": "S31",
+        "resultado": "Informativa"
+      },
+      {
+        "id": "L01",
+        "categoria": "SSRF",
+        "titulo": "Nenhuma URL plantada em campos de texto (foto, descrições, nomes, endereços) faz o servidor abrir conexão",
+        "severidade": "alta",
+        "ref": "S31",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M01",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "12 logins simultâneos da mesma conta dão 12 sessões independentes (cookies diferentes, sem 5xx)",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M02",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Sair encerra todas as sessões da conta: nenhum dispositivo fica com refresh token ou access token vivo",
+        "severidade": "alta",
+        "ref": "S26",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M03",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Reuso de refresh token antigo derruba todas as sessões da conta (o dono refaz o login; o ladrão não fica com nada)",
+        "severidade": "alta",
+        "ref": "S26",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M04",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Trocar a senha encerra todas as sessões abertas (refresh tokens e access tokens de todos os dispositivos)",
+        "severidade": "alta",
+        "ref": "S27",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M05",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "14 renovações de sessão seguidas do mesmo IP (14 recargas de página em um minuto) não são bloqueadas por 429",
+        "severidade": "media",
+        "ref": "S10",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M10",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Cadastro e login funcionam por HTTPS na API em modo produção",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M11",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "O cookie de sessão sai com Secure, HttpOnly e SameSite",
+        "severidade": "alta",
+        "ref": "S26",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M12",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "O cookie de sessão só é enviado às rotas de autenticação (Path=/api/auth), não a toda a API",
+        "severidade": "media",
+        "ref": "S26",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M13",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Por HTTPS a renovação funciona uma vez e o cookie antigo é recusado (rotação)",
+        "severidade": "alta",
+        "ref": "S26",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M14",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Pedido em HTTP puro é redirecionado para HTTPS (307/308) e não devolve dados",
+        "severidade": "alta",
+        "ref": "S8",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M15",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Em produção as respostas HTTPS trazem Strict-Transport-Security com max-age de pelo menos 30 dias",
+        "severidade": "media",
+        "ref": "S8",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M16",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Os cabeçalhos de segurança acompanham as respostas em produção",
+        "severidade": "media",
+        "ref": "S12",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M17",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Em produção o Swagger não é publicado",
+        "severidade": "media",
+        "ref": "S12",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M18",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "Erros em produção (JSON quebrado, rota inexistente) não mostram stack trace nem nomes internos",
+        "severidade": "media",
+        "ref": "S12",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "M19",
+        "categoria": "Sessões e HTTPS",
+        "titulo": "O TLS negociado é 1.2 ou 1.3 e TLS 1.0/1.1 são recusados",
+        "severidade": "media",
+        "ref": "S8",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "N00",
+        "categoria": "Duas instâncias",
+        "titulo": "O mesmo token vale nas duas instâncias (mesma chave e mesmo banco)",
+        "severidade": "baixa",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "N01",
+        "categoria": "Duas instâncias",
+        "titulo": "12 rodadas de 12 reservas do MESMO carro e período, metade em cada instância: nunca mais de uma criada",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "N02",
+        "categoria": "Duas instâncias",
+        "titulo": "Cupom de 1 uso, pedido 8 vezes (metade em cada instância), vale para no máximo um aluguel",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "N03",
+        "categoria": "Duas instâncias",
+        "titulo": "6 devoluções do mesmo aluguel, metade em cada instância, registram uma só",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "N04",
+        "categoria": "Duas instâncias",
+        "titulo": "10 funcionários com o MESMO CPF, metade em cada instância, criam um só",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "N05",
+        "categoria": "Duas instâncias",
+        "titulo": "Iniciar e cancelar o mesmo aluguel nas duas instâncias termina num estado final válido, sem 5xx",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "N06a",
+        "categoria": "Duas instâncias",
+        "titulo": "Na MESMA instância o mesmo código do autenticador só vale uma vez",
+        "severidade": "alta",
+        "ref": "S18",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "N06b",
+        "categoria": "Duas instâncias",
+        "titulo": "Entre instâncias o código do autenticador já usado ainda vale uma vez em cada instância (anti-replay em memória por processo); fechar exige registrar o código usado no banco. Aceito enquanto a API rodar em uma instância só",
+        "severidade": "media",
+        "ref": "S18",
+        "resultado": "Informativa"
+      },
+      {
+        "id": "O01",
+        "categoria": "Isolamento",
+        "titulo": "O mesmo CPF, CNPJ, CNH, placa, nome ou código cadastrado por DUAS empresas é aceito nas duas (a unicidade é por empresa)",
+        "severidade": "alta",
+        "ref": "S45",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "O02",
+        "categoria": "Isolamento",
+        "titulo": "A segunda empresa nunca recebe 409 por um dado que só a primeira cadastrou (sem oráculo de cadastros de outras empresas)",
+        "severidade": "alta",
+        "ref": "S45",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L06",
+        "categoria": "Carga",
+        "titulo": "Carga mista: nenhum 5xx e nenhuma conexão derrubada com leitura e escrita ao mesmo tempo",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L07",
+        "categoria": "Carga",
+        "titulo": "Carga mista: todo cliente que o servidor confirmou (201) existe no banco, sem duplicar nem perder",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L08",
+        "categoria": "Carga",
+        "titulo": "Carga mista: nenhum carro termina com dois aluguéis ativos sobrepostos",
+        "severidade": "alta",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
+        "id": "L09",
+        "categoria": "Carga",
+        "titulo": "Carga mista: p95 das ESCRITAS abaixo de 3 s mesmo com a fila por empresa",
+        "severidade": "media",
+        "ref": "",
+        "resultado": "Aprovada"
+      },
+      {
         "id": "L01",
         "categoria": "Carga",
         "titulo": "Nenhum erro 5xx sob carga em nenhum cenário",
@@ -1502,6 +2060,68 @@
         "resultado": "Aprovada"
       }
     ],
+    "memoriaApiMb": 511.9,
+    "destaques": {
+      "Corridas|J01": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J02": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J03": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J04": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J05": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J06": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J07": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J08": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J09": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J10": "1 aceitos; status [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J11": "1 aceitos; status [201, 400, 400, 400, 400, 400, 400, 400, 400, 400]; 1 no banco",
+      "Corridas|J12": "1 aceitos; [200, 400, 400, 400, 400, 400, 400, 409, 409, 409]",
+      "Corridas|J13": "1 aceitas; status [201, 409, 409, 409, 409, 409]; 1 no banco",
+      "Corridas|J14": "estado EmAndamento; sucessos ['iniciar']; status [200, 409, 409, 409, 409, 409, 409, 409]",
+      "Corridas|J15": "nenhum",
+      "ML (fuzz)|K01": "400/422",
+      "ML (fuzz)|K02": "status 413 em 0.0s; memória 619.8 -> pico 620.2 MB (+0.4)",
+      "ML (fuzz)|K03": "400/422",
+      "ML (fuzz)|K04": "status 422; +59.9 MB (erro de rede: None)",
+      "ML (fuzz)|K05": "ok",
+      "ML (fuzz)|K06": "400/422",
+      "ML (fuzz)|K07": "4xx",
+      "ML (fuzz)|K08": "ok",
+      "ML (fuzz)|K09": "health ok; chat 200",
+      "SSRF|L00": "1 conexões",
+      "SSRF|L02": "{'automóvel com foto https': 201, 'foto http': 400, 'foto ftp': 400, 'foto gopher': 400, 'foto file': 400}",
+      "SSRF|L01": "0 conexões: []",
+      "Sessões e HTTPS|M01": "12 ok; 12 cookies distintos; status [200]",
+      "Sessões e HTTPS|M02": "sair 204; refresh vivos []; access vivos []",
+      "Sessões e HTTPS|M03": "reuso 401; refresh vivos []; access vivos []",
+      "Sessões e HTTPS|M04": "troca 204; refresh vivos []; access vivos []",
+      "Sessões e HTTPS|M05": "14 ok; 429 em 0",
+      "Sessões e HTTPS|M10": "200",
+      "Sessões e HTTPS|M11": "['expires=thu, 22 oct 2026 04:53:27 gmt', 'httponly', 'path=/api/auth', 'samesite=lax', 'secure']",
+      "Sessões e HTTPS|M12": "path=/api/auth",
+      "Sessões e HTTPS|M13": "200/401",
+      "Sessões e HTTPS|M14": "307 -> https://127.0.0.1:5183/api/auth/sessao",
+      "Sessões e HTTPS|M15": "max-age=2592000",
+      "Sessões e HTTPS|M16": "todos",
+      "Sessões e HTTPS|M17": "[404, 404, 404]",
+      "Sessões e HTTPS|M18": "limpas",
+      "Sessões e HTTPS|M19": "TLSv1.3; TLS 1.0/1.1 recusado",
+      "Duas instâncias|N00": "200",
+      "Duas instâncias|N01": "12 rodadas sem reserva dupla",
+      "Duas instâncias|N02": "1 aceitos; [201, 400, 400, 400, 400, 400, 400, 400]",
+      "Duas instâncias|N03": "1 aceitas; [201, 409, 409, 409, 409, 409]",
+      "Duas instâncias|N04": "1 aceitos; [201, 409, 409, 409, 409, 409, 409, 409, 409, 409]",
+      "Duas instâncias|N05": "EmAndamento; [200, 409, 409, 409, 409, 409, 409, 409]",
+      "Isolamento|O01": "todos aceitos",
+      "Isolamento|O02": "nenhum",
+      "Carga|L06": "5xx=0 conexões=0",
+      "Carga|L07": "637 confirmados; 0 perdidos; 0 repetidos",
+      "Carga|L08": "0 em 304 aluguéis lidos (304 criados)",
+      "Carga|L09": "189.5 ms em 2541 escritas",
+      "Carga|L01": "0",
+      "Carga|L02": "0",
+      "Carga|L03": "ok",
+      "Carga|L04": "ok",
+      "Carga|L05": "511.9"
+    },
     "evolucao": [
       {
         "rodada": "2026-10-13_150018_5f54812",
@@ -1663,6 +2283,265 @@
         "aprovadas": 154,
         "reprovadas": 0,
         "total": 157
+      },
+      {
+        "rodada": "2026-10-14_211607_71a8cfb",
+        "commit": "71a8cfb",
+        "aprovadas": 6,
+        "reprovadas": 0,
+        "total": 7
+      },
+      {
+        "rodada": "2026-10-14_230231_a05b653",
+        "commit": "a05b653",
+        "aprovadas": 150,
+        "reprovadas": 0,
+        "total": 152
+      },
+      {
+        "rodada": "2026-10-14_230533_a05b653",
+        "commit": "a05b653",
+        "aprovadas": 4,
+        "reprovadas": 14,
+        "total": 18
+      },
+      {
+        "rodada": "2026-10-14_230710_a05b653",
+        "commit": "a05b653",
+        "aprovadas": 15,
+        "reprovadas": 3,
+        "total": 18
+      },
+      {
+        "rodada": "2026-10-14_230806_a05b653",
+        "commit": "a05b653",
+        "aprovadas": 2,
+        "reprovadas": 0,
+        "total": 2
+      },
+      {
+        "rodada": "2026-10-14_230820_a05b653",
+        "commit": "a05b653",
+        "aprovadas": 2,
+        "reprovadas": 0,
+        "total": 2
+      },
+      {
+        "rodada": "2026-10-14_230838_a05b653",
+        "commit": "a05b653",
+        "aprovadas": 2,
+        "reprovadas": 0,
+        "total": 2
+      },
+      {
+        "rodada": "2026-10-14_230859_a05b653",
+        "commit": "a05b653",
+        "aprovadas": 2,
+        "reprovadas": 0,
+        "total": 2
+      },
+      {
+        "rodada": "2026-10-14_231022_a05b653",
+        "commit": "a05b653",
+        "aprovadas": 18,
+        "reprovadas": 0,
+        "total": 18
+      },
+      {
+        "rodada": "2026-10-14_231412_f2da3e2",
+        "commit": "f2da3e2",
+        "aprovadas": 12,
+        "reprovadas": 3,
+        "total": 15
+      },
+      {
+        "rodada": "2026-10-14_231659_f2da3e2",
+        "commit": "f2da3e2",
+        "aprovadas": 15,
+        "reprovadas": 0,
+        "total": 15
+      },
+      {
+        "rodada": "2026-10-14_231947_bc61270",
+        "commit": "bc61270",
+        "aprovadas": 3,
+        "reprovadas": 4,
+        "total": 8
+      },
+      {
+        "rodada": "2026-10-14_232202_bc61270",
+        "commit": "bc61270",
+        "aprovadas": 7,
+        "reprovadas": 0,
+        "total": 8
+      },
+      {
+        "rodada": "2026-10-14_232230_bc61270",
+        "commit": "bc61270",
+        "aprovadas": 16,
+        "reprovadas": 1,
+        "total": 17
+      },
+      {
+        "rodada": "2026-10-14_232310_bc61270",
+        "commit": "bc61270",
+        "aprovadas": 17,
+        "reprovadas": 0,
+        "total": 17
+      },
+      {
+        "rodada": "2026-10-14_232416_fe63e21",
+        "commit": "fe63e21",
+        "aprovadas": 4,
+        "reprovadas": 0,
+        "total": 5
+      },
+      {
+        "rodada": "2026-10-14_232520_caa477f",
+        "commit": "caa477f",
+        "aprovadas": 10,
+        "reprovadas": 0,
+        "total": 11
+      },
+      {
+        "rodada": "2026-10-14_233147_747e287",
+        "commit": "747e287",
+        "aprovadas": 7,
+        "reprovadas": 1,
+        "total": 8
+      },
+      {
+        "rodada": "2026-10-14_233232_747e287",
+        "commit": "747e287",
+        "aprovadas": 5,
+        "reprovadas": 3,
+        "total": 8
+      },
+      {
+        "rodada": "2026-10-14_233530_747e287",
+        "commit": "747e287",
+        "aprovadas": 8,
+        "reprovadas": 0,
+        "total": 8
+      },
+      {
+        "rodada": "2026-10-15_000222_zap_86bc1a9",
+        "commit": "zap",
+        "aprovadas": 3,
+        "reprovadas": 2,
+        "total": 6
+      },
+      {
+        "rodada": "2026-10-15_000759_zap_86bc1a9",
+        "commit": "zap",
+        "aprovadas": 21,
+        "reprovadas": 0,
+        "total": 22
+      },
+      {
+        "rodada": "2026-10-15_001216_a8d1577",
+        "commit": "a8d1577",
+        "aprovadas": 211,
+        "reprovadas": 1,
+        "total": 216
+      },
+      {
+        "rodada": "2026-10-15_001803_a8d1577",
+        "commit": "a8d1577",
+        "aprovadas": 33,
+        "reprovadas": 0,
+        "total": 33
+      },
+      {
+        "rodada": "2026-10-15_002001_a8d1577",
+        "commit": "a8d1577",
+        "aprovadas": 9,
+        "reprovadas": 0,
+        "total": 10
+      },
+      {
+        "rodada": "2026-10-15_002222_f5bea75",
+        "commit": "f5bea75",
+        "aprovadas": 213,
+        "reprovadas": 0,
+        "total": 218
+      },
+      {
+        "rodada": "2026-10-15_002909_zap_f5bea75",
+        "commit": "zap",
+        "aprovadas": 20,
+        "reprovadas": 1,
+        "total": 22
+      },
+      {
+        "rodada": "2026-10-15_004221_zap_f5bea75",
+        "commit": "zap",
+        "aprovadas": 21,
+        "reprovadas": 0,
+        "total": 22
+      },
+      {
+        "rodada": "2026-10-15_005634_6f3c6cd",
+        "commit": "6f3c6cd",
+        "aprovadas": 213,
+        "reprovadas": 0,
+        "total": 218
+      },
+      {
+        "rodada": "2026-10-15_010211_6f3c6cd",
+        "commit": "6f3c6cd",
+        "aprovadas": 18,
+        "reprovadas": 4,
+        "total": 23
+      },
+      {
+        "rodada": "2026-10-15_010314_6f3c6cd",
+        "commit": "6f3c6cd",
+        "aprovadas": 7,
+        "reprovadas": 2,
+        "total": 10
+      },
+      {
+        "rodada": "2026-10-15_010519_509f905",
+        "commit": "509f905",
+        "aprovadas": 213,
+        "reprovadas": 0,
+        "total": 218
+      },
+      {
+        "rodada": "2026-10-15_011105_zap_509f905",
+        "commit": "zap",
+        "aprovadas": 21,
+        "reprovadas": 0,
+        "total": 22
+      },
+      {
+        "rodada": "2026-10-15_014904_509f905",
+        "commit": "509f905",
+        "aprovadas": 2,
+        "reprovadas": 0,
+        "total": 2
+      },
+      {
+        "rodada": "2026-10-15_015025_509f905",
+        "commit": "509f905",
+        "aprovadas": 2,
+        "reprovadas": 2,
+        "total": 4
+      },
+      {
+        "rodada": "2026-10-15_015032_509f905",
+        "commit": "509f905",
+        "aprovadas": 4,
+        "reprovadas": 0,
+        "total": 4
+      },
+      {
+        "rodada": "2026-10-15_015101_8551471",
+        "commit": "8551471",
+        "aprovadas": 215,
+        "reprovadas": 0,
+        "total": 220
       }
     ]
   },
@@ -2016,5 +2895,62 @@
       "recusadasLimiar05": 0.0684,
       "mediaPontuacao": 0.8985
     }
+  },
+  "zap": {
+    "commit": "509f905",
+    "versao": "2.17.0",
+    "aprovadas": 21,
+    "reprovadas": 0,
+    "urls": 78,
+    "requisicoes": 108107,
+    "endpoints2xx": 65,
+    "risco": [
+      {
+        "risco": "High",
+        "distintos": 2,
+        "ocorrencias": 2
+      },
+      {
+        "risco": "Medium",
+        "distintos": 0,
+        "ocorrencias": 0
+      },
+      {
+        "risco": "Low",
+        "distintos": 1,
+        "ocorrencias": 1
+      },
+      {
+        "risco": "Informational",
+        "distintos": 1,
+        "ocorrencias": 205
+      }
+    ],
+    "alertas": [
+      {
+        "risco": "High",
+        "alerta": "Path Traversal",
+        "ocorrencias": 1,
+        "situacao": "falso positivo: confiança baixa e sem evidência: o ZAP trocou o nome do grupo por \"grupos-automovel\" e nada de arquivo voltou; a API nunca usa esse campo como caminho. Prova: C14 (travessia vira texto, sem arquivo do servidor)"
+      },
+      {
+        "risco": "High",
+        "alerta": "SQL Injection",
+        "ocorrencias": 1,
+        "situacao": "falso positivo: o ZAP compara respostas de \"John Doe AND 1=1 --\" e \"AND 1=2 --\" num POST de cadastro; as duas viram nomes de grupo diferentes e a diferença é só o estado (nome novo × repetido). Prova: C13 (os três registros nascem iguais e voltam literais)"
+      },
+      {
+        "risco": "Low",
+        "alerta": "Private IP Disclosure",
+        "ocorrencias": 1,
+        "situacao": "aceito: a trilha de auditoria mostra ao dono da empresa o IP de origem de cada evento (recurso, não vazamento); os 10.x.x.x são os IPs fictícios que os próprios ataques mandam em X-Forwarded-For"
+      },
+      {
+        "risco": "Informational",
+        "alerta": "User Agent Fuzzer",
+        "ocorrencias": 205,
+        "situacao": "aceito: informativo: a API responde igual a user-agents diferentes, sem conteúdo por navegador"
+      }
+    ]
   }
 }

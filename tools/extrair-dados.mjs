@@ -479,7 +479,10 @@ const resultadosDir = join(TCC, 'Seguranca-Resultados');
 let rodada = null;
 if (existsSync(resultadosDir)) {
   const pastas = readdirSync(resultadosDir).filter((n) => /^\d{4}-\d{2}-\d{2}_\d{6}_/.test(n)).sort();
-  const ultima = pastas[pastas.length - 1];
+  const modoDe = (p) => {
+    try { return JSON.parse(ler(join(resultadosDir, p, 'resultado.json'))).info?.modo; } catch { return null; }
+  };
+  const ultima = pastas.filter((p) => !p.includes('_zap_') && modoDe(p) === 'tudo').pop() ?? pastas[pastas.length - 1];
   const verif = JSON.parse(ler(join(resultadosDir, ultima, 'resultado.json')));
   const lista = verif.verificacoes ?? verif;
   const porCategoria = {};
@@ -509,6 +512,8 @@ if (existsSync(resultadosDir)) {
     porCategoria: Object.values(porCategoria),
     porSeveridade: Object.entries(lista.reduce((a, v) => { a[v.severidade ?? 'n/d'] = (a[v.severidade ?? 'n/d'] ?? 0) + 1; return a; }, {})).map(([severidade, total]) => ({ severidade, total })),
     verificacoes: lista.map((v) => ({ id: v.id, categoria: v.categoria, titulo: v.id === 'A16' ? 'Pendência conhecida do fluxo de cadastro (evolução prevista)' : v.titulo, severidade: v.severidade ?? '', ref: v.ref ?? '', resultado: v.informativo || v.pendente ? 'Informativa' : v.passou ? 'Aprovada' : 'Reprovada' })),
+    memoriaApiMb: verif.carga?.memoria_api_mb ?? null,
+    destaques: Object.fromEntries(lista.filter((v) => /^(J\d+|K\d+|L0[0-9]|M\d+|N\d+|O\d+)$/.test(v.id) || ['L06', 'L07', 'L08', 'L09'].includes(v.id)).map((v) => [`${v.categoria}|${v.id}`, String(v.obtido ?? '')])),
     evolucao
   };
 }
@@ -611,6 +616,142 @@ const tokens = {
 };
 
 // ---------------------------------------------------------------------------------------------
+// 12. Métricas de front-end, cobertura, mutação, reflexão e ZAP (pastas de resultados fora do repositório)
+// ---------------------------------------------------------------------------------------------
+const metricasDir = join(TCC, 'Metricas-Resultados');
+const subpastas = (dir) =>
+  existsSync(dir) ? readdirSync(dir).filter((n) => statSync(join(dir, n)).isDirectory()).sort() : [];
+const lerJsonl = (p) => (existsSync(p) ? ler(p).split(/\r?\n/).filter(Boolean).map((l) => JSON.parse(l)) : []);
+const ultimaCom = (dir, relativo) => subpastas(dir).filter((n) => existsSync(join(dir, n, relativo))).pop();
+
+const metricas = { lighthouse: null, e2e: null, pacote: null, placa: null, cobertura: null, mutacao: null, reflexao: null };
+
+{
+  const pasta = ultimaCom(metricasDir, 'lighthouse/lighthouse.json');
+  if (pasta) {
+    const j = JSON.parse(ler(join(metricasDir, pasta, 'lighthouse', 'lighthouse.json')));
+    metricas.lighthouse = {
+      commit: j.meta.commit,
+      versao: j.meta.lighthouse,
+      rodadas: j.resultados[0]?.rodadas ?? 0,
+      telas: j.resultados.map((r) => ({ tela: r.tela, formato: r.formato, ...r.mediana }))
+    };
+  }
+}
+{
+  const pasta = ultimaCom(metricasDir, 'e2e/playwright.json');
+  if (pasta) {
+    const pw = JSON.parse(ler(join(metricasDir, pasta, 'e2e', 'playwright.json')));
+    metricas.e2e = {
+      commit: pasta.split('_')[2],
+      aprovados: pw.stats.expected,
+      reprovados: pw.stats.unexpected,
+      duracaoS: Math.round(pw.stats.duration / 1000),
+      tarefas: lerJsonl(join(metricasDir, pasta, 'e2e', 'tarefas.jsonl')).map((t) => ({
+        tarefa: t.tarefa, tempoS: Number((t.tempo_ms / 1000).toFixed(1)), cliques: t.cliques, preenchimentos: t.preenchimentos, erro: t.erro
+      })),
+      acessibilidade: lerJsonl(join(metricasDir, pasta, 'e2e', 'acessibilidade.jsonl')).map((a) => ({ pagina: a.pagina, violacoes: a.violacoes }))
+    };
+  }
+}
+{
+  const pasta = ultimaCom(metricasDir, 'pacote.md');
+  if (pasta) {
+    const t = ler(join(metricasDir, pasta, 'pacote.md'));
+    const linhas = [...t.matchAll(/\|\s*(Inicial[^|]*|Sob demanda[^|]*|Total)\s*\|\s*(\d+)\s*\|\s*([\d.]+)\s*\|\s*([\d.]+)\s*\|/g)];
+    metricas.pacote = linhas.map((m) => ({ parte: m[1].trim(), arquivos: Number(m[2]), brutoKb: Number(m[3]), gzipKb: Number(m[4]) }));
+  }
+}
+{
+  const pasta = ultimaCom(metricasDir, 'ml/leitura_placa.json');
+  if (pasta) {
+    const j = JSON.parse(ler(join(metricasDir, pasta, 'ml', 'leitura_placa.json')));
+    metricas.placa = { quantidade: j.quantidade, tesseract: j.tesseract, p50: j.p50_ms, p95: j.p95_ms, max: j.max_ms };
+  }
+}
+{
+  const pastaCob = subpastas(metricasDir).filter((n) => n.startsWith('cobertura-')).pop();
+  if (pastaCob) {
+    const base = join(metricasDir, pastaCob);
+    const dotnet = subpastas(base).filter((n) => n.startsWith('dotnet') && existsSync(join(base, n, 'relatorio.md'))).pop();
+    const cobertura = { medidoEm: pastaCob.replace('cobertura-', ''), dotnet: null, angular: null };
+    if (dotnet) {
+      const t = ler(join(base, dotnet, 'relatorio.md'));
+      const tot = t.match(/Total:\s*([\d.]+)\s*%\*\*\s*\((\d+) de (\d+)/);
+      const assemblies = [...t.matchAll(/\|\s*LocadoraDeVeiculos\.([\w.]+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([\d.]+)\s*\|/g)]
+        .map((m) => ({ nome: m[1], linhas: Number(m[2]), cobertas: Number(m[3]), pct: Number(m[4]) }));
+      if (tot) cobertura.dotnet = { pct: Number(tot[1]), cobertas: Number(tot[2]), linhas: Number(tot[3]), assemblies };
+    }
+    const resumoAngular = join(base, 'angular', 'coverage-summary.json');
+    if (existsSync(resumoAngular)) {
+      const l = JSON.parse(ler(resumoAngular)).total.lines;
+      cobertura.angular = { pct: l.pct, cobertas: l.covered, linhas: l.total };
+    }
+    metricas.cobertura = cobertura;
+
+    const pastaMut = subpastas(base).filter((n) => n.startsWith('mutacao-negocio')).pop();
+    if (pastaMut) {
+      const m = JSON.parse(ler(join(base, pastaMut, 'reports', 'mutation-report.json')));
+      const contar = (mutantes) => {
+        const c = { mortos: 0, sobreviveram: 0, semCobertura: 0 };
+        for (const x of mutantes) {
+          if (x.status === 'Killed' || x.status === 'Timeout') c.mortos++;
+          else if (x.status === 'Survived') c.sobreviveram++;
+          else if (x.status === 'NoCoverage') c.semCobertura++;
+        }
+        return c;
+      };
+      const porArquivo = Object.entries(m.files).map(([arq, v]) => ({ arquivo: basename(arq.replace(/\\/g, '/')), ...contar(v.mutants) }))
+        .map((a) => ({ ...a, total: a.mortos + a.sobreviveram + a.semCobertura }))
+        .filter((a) => a.total > 0)
+        .map((a) => ({ ...a, pct: Math.round((a.mortos / a.total) * 100) }));
+      const geral = contar(Object.values(m.files).flatMap((v) => v.mutants));
+      const total = geral.mortos + geral.sobreviveram + geral.semCobertura;
+      metricas.mutacao = { ...geral, total, pct: Number(((geral.mortos / total) * 100).toFixed(1)), arquivos: porArquivo.sort((a, b) => a.pct - b.pct) };
+    }
+  }
+}
+{
+  const pasta = subpastas(metricasDir).filter((n) => n.startsWith('reflexao-') && existsSync(join(metricasDir, n, 'endpoints.json'))).pop();
+  if (pasta) {
+    const linhas = JSON.parse(ler(join(metricasDir, pasta, 'endpoints.json')));
+    metricas.reflexao = linhas.map((e) => ({
+      verbo: e.Verbo, rota: e.rota, acao: e.acao, acesso: e.acesso, limite: e.LimiteDeTaxa ?? '', cabecalho: Boolean(e.ExigeCabecalhoCliente)
+    }));
+  }
+}
+
+// OWASP ZAP: última varredura completa
+let zap = null;
+if (existsSync(resultadosDir)) {
+  const pasta = readdirSync(resultadosDir).filter((n) => n.includes('_zap_') && existsSync(join(resultadosDir, n, 'resumo-zap.md'))).sort().pop();
+  if (pasta) {
+    const resumo = ler(join(resultadosDir, pasta, 'resumo-zap.md'));
+    const r = JSON.parse(ler(join(resultadosDir, pasta, 'resultado.json')));
+    const risco = [...resumo.matchAll(/^\|\s*(High|Medium|Low|Informational)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|/gm)].map((m) => ({ risco: m[1], distintos: Number(m[2]), ocorrencias: Number(m[3]) }));
+    const alertas = [];
+    let atual = '';
+    for (const linha of resumo.split(/\r?\n/)) {
+      const h = linha.match(/^###\s+(High|Medium|Low|Informational)/);
+      if (h) { atual = h[1]; continue; }
+      const m = linha.match(/^\|\s*([^|]+?)\s*\|\s*(\d+)\s*\|\s*`([^`]+)`\s*\|\s*(.+?)\s*\|$/);
+      if (m && atual) alertas.push({ risco: atual, alerta: m[1], ocorrencias: Number(m[2]), situacao: m[4].replace(/`/g, '') });
+    }
+    zap = {
+      commit: pasta.split('_')[3],
+      versao: resumo.match(/ZAP ([\d.]+)/)?.[1] ?? '',
+      aprovadas: Number(resumo.match(/aprovadas:\s*(\d+)/)?.[1] ?? 0),
+      reprovadas: Number(resumo.match(/reprovadas:\s*(\d+)/)?.[1] ?? 0),
+      urls: r.cobertura.urls,
+      requisicoes: r.cobertura.mensagens,
+      endpoints2xx: r.cobertura.endpoints_2xx,
+      risco,
+      alertas
+    };
+  }
+}
+
+// ---------------------------------------------------------------------------------------------
 // Saída
 // ---------------------------------------------------------------------------------------------
 const modulosLista = [...modulos.values()].map((m) => ({ ...m, total: m.dominio + m.aplicacao + m.infraestrutura + m.webapi })).sort((a, b) => b.total - a.total);
@@ -629,7 +770,8 @@ gravar('frontend.json', {
 gravar('ml.json', { total: mlTotal, areas: [...mlAreas.values()].sort((a, b) => b.loc - a.loc), testes: mlTestes.sort((a, b) => b.testes - a.testes) });
 gravar('dependencias.json', { npm, nuget, pip, pipDev, pipTravados });
 gravar('configuracao.json', { variaveis: variaveisLista });
-gravar('seguranca.json', { rodada, lfw });
+gravar('seguranca.json', { rodada, lfw, zap });
+gravar('metricas.json', metricas);
 gravar('visaoGeral.json', { tamanhos, docs, capitulos, totalTestes: testesCs.unidade + testesCs.integracao + testesCs.webapi + frontTotal.testes + mlTotal.testes });
 
 console.log(JSON.stringify({

@@ -1,15 +1,19 @@
 {
   "tamanhos": {
-    "backend": 15108,
-    "frontend": 10829,
-    "ml": 2434,
-    "testes": 11697,
-    "ataques": 1761
+    "backend": 15289,
+    "frontend": 11230,
+    "ml": 2373,
+    "testes": 17079,
+    "ataques": 3116
   },
   "docs": [
     {
       "arquivo": "POLITICA_DE_PRIVACIDADE_BIOMETRIA.md",
       "linhas": 48
+    },
+    {
+      "arquivo": "PROTOCOLO_DE_USABILIDADE.md",
+      "linhas": 93
     },
     {
       "arquivo": "RECUPERACAO_DE_SENHA_POR_EMAIL.md",
@@ -32,122 +36,413 @@
         "Contexto e objetivo",
         "Escopo",
         "Convenções usadas",
-        "Mapa do documento"
+        "Mapa do documento",
+        "Cronologia resumida"
       ],
-      "linhas": 48
+      "linhas": 86
     },
     {
-      "arquivo": "cap02-arquitetura.tex",
+      "arquivo": "cap02-requisitos.tex",
+      "titulo": "Requisitos e contexto de negócio",
+      "secoes": [
+        "O problema",
+        "Atores",
+        "Casos de uso principais",
+        "Requisitos funcionais",
+        "Requisitos não funcionais",
+        "Matriz de papéis medida por reflexão",
+        "Premissas e restrições"
+      ],
+      "linhas": 127
+    },
+    {
+      "arquivo": "cap03-arquitetura.tex",
       "titulo": "Arquitetura geral",
       "secoes": [
-        "Componentes",
+        "Nível 1: contexto",
+        "Nível 2: contêineres",
+        "Nível 3: componentes da Web API",
         "Portas e ambientes",
         "Decisões de arquitetura",
-        "Fluxo de uma requisição autenticada"
+        "O que ficou fora do escopo"
       ],
-      "linhas": 84
+      "linhas": 87
     },
     {
-      "arquivo": "cap03-negocio.tex",
+      "arquivo": "cap04-padroes.tex",
+      "titulo": "Padrões de arquitetura e projeto",
+      "secoes": [
+        "Arquitetura em camadas e inversão de dependência",
+        "Entidades, invariantes e exclusão lógica",
+        "CQRS: separar quem muda de quem lê",
+        "Mediador (MediatR) e \\emph{pipeline behaviors",
+        "Repositório, \\texttt{DbContext",
+        "Resultados tipados em vez de exceções",
+        "Validação em camadas",
+        "Configuração e segredos",
+        "Por que um monólito modular e não microsserviços",
+        "Resumo dos padrões e onde aparecem"
+      ],
+      "linhas": 129
+    },
+    {
+      "arquivo": "cap05-dados.tex",
+      "titulo": "Persistência, multiempresa e concorrência",
+      "secoes": [
+        "ORM e EF Core em poucas linhas",
+        "Multiempresa (\\emph{multi-tenancy",
+        "Exclusão lógica e índices únicos filtrados",
+        "Concorrência: o que acontece quando duas pessoas clicam ao mesmo tempo",
+        "Segurança dos dados em repouso"
+      ],
+      "linhas": 103
+    },
+    {
+      "arquivo": "cap06-autenticacao.tex",
+      "titulo": "Autenticação, sessão e criptografia",
+      "secoes": [
+        "Três palavras que se confundem",
+        "Senhas: por que não basta um hash",
+        "JWT: o \\emph{token",
+        "\\emph{Refresh token",
+        "\\emph{Cookies",
+        "Bloqueio de conta e limite de taxa",
+        "Segundo fator: TOTP",
+        "Criptografia aplicada",
+        "Transporte: TLS e HSTS"
+      ],
+      "linhas": 130
+    },
+    {
+      "arquivo": "cap07-seguranca-teoria.tex",
+      "titulo": "Segurança de aplicações web: conceitos e OWASP",
+      "secoes": [
+        "Vocabulário mínimo",
+        "Modelagem de ameaças: STRIDE",
+        "O que é o OWASP",
+        "OWASP Top 10 (2021) e este projeto",
+        "OWASP API Security Top 10 (2023) e este projeto",
+        "Classes de vulnerabilidade, uma a uma",
+        "Priorização: como os achados foram classificados"
+      ],
+      "linhas": 126
+    },
+    {
+      "arquivo": "cap08-testes-seguranca-teoria.tex",
+      "titulo": "Testes de segurança: SAST, DAST, ZAP e técnicas dirigidas",
+      "secoes": [
+        "Um mapa das técnicas",
+        "Propriedade essencial: um teste de segurança precisa conseguir falhar",
+        "OWASP ZAP em profundidade",
+        "\\emph{Fuzzing",
+        "SSRF e o teste com canário",
+        "Teste de concorrência dirigido",
+        "O harness de ataques do projeto"
+      ],
+      "linhas": 119
+    },
+    {
+      "arquivo": "cap09-ml-teoria.tex",
+      "titulo": "Visão computacional, biometria e ML: fundamentos",
+      "secoes": [
+        "Imagens como dados",
+        "Tarefas de visão computacional",
+        "YOLO: detecção em uma passada",
+        "Localização da placa e OCR",
+        "Reconhecimento facial por embedding",
+        "Prova de vida (\\emph{liveness",
+        "Biometria, LGPD e minimização",
+        "Assistente por regras",
+        "Servir ML com segurança"
+      ],
+      "linhas": 112
+    },
+    {
+      "arquivo": "cap10-web-teoria.tex",
+      "titulo": "Front-end, acessibilidade, desempenho e usabilidade: fundamentos",
+      "secoes": [
+        "Angular moderno em cinco ideias",
+        "Design system: tokens, utilitários e componentes sem estilo",
+        "Acessibilidade",
+        "Desempenho web",
+        "Usabilidade",
+        "Medir desempenho de servidor"
+      ],
+      "linhas": 66
+    },
+    {
+      "arquivo": "cap11-qualidade-teoria.tex",
+      "titulo": "Qualidade de software: testes, cobertura, mutação e reflexão",
+      "secoes": [
+        "A pirâmide de testes",
+        "Propriedades de um bom teste",
+        "Cobertura de código",
+        "Teste de mutação",
+        "\\emph{System.Reflection"
+      ],
+      "linhas": 72
+    },
+    {
+      "arquivo": "cap12-negocio.tex",
       "titulo": "Módulos e regras de negócio",
       "secoes": [
         "Módulos",
-        "Regras que o servidor impõe",
-        "Matriz de papéis"
+        "Cálculo do aluguel",
+        "Cupom",
+        "Ciclo de vida do aluguel",
+        "Disponibilidade do veículo",
+        "Devolução, multa e combustível",
+        "Exclusão segura",
+        "Painel",
+        "Monitoramento e assistente",
+        "Matriz de papéis e regras de acesso"
       ],
-      "linhas": 57
+      "linhas": 97
     },
     {
-      "arquivo": "cap04-backend.tex",
+      "arquivo": "cap13-backend.tex",
       "titulo": "Back-end (.NET 8)",
       "secoes": [
-        "Camadas",
-        "Padrões em uso",
-        "Renovação de sessão",
-        "Persistência",
-        "Testes do back-end"
-      ],
-      "linhas": 50
-    },
-    {
-      "arquivo": "cap05-frontend.tex",
-      "titulo": "Front-end e design system",
-      "secoes": [
-        "Stack",
-        "Tokens de design",
-        "Princípios de experiência de uso",
-        "Blocos compartilhados",
-        "Desempenho do pacote",
-        "Acessibilidade já embutida",
-        "Observações de qualidade do código"
-      ],
-      "linhas": 76
-    },
-    {
-      "arquivo": "cap06-ml.tex",
-      "titulo": "Aprendizado de máquina",
-      "secoes": [
-        "Leitura de placas (YOLO + OCR)",
-        "Reconhecimento facial",
-        "Assistente",
-        "Controle de acesso do serviço",
-        "Câmera no Windows",
-        "Testes"
-      ],
-      "linhas": 69
-    },
-    {
-      "arquivo": "cap07-seguranca.tex",
-      "titulo": "Segurança",
-      "secoes": [
-        "Método e limites da revisão",
-        "Superfície de ataque e atores",
-        "Controles que já protegem",
-        "Achados priorizados",
-        "Dados faciais e LGPD",
-        "Mapeamento aproximado com o OWASP Top 10 (2021)",
-        "Plano de correção"
-      ],
-      "linhas": 215
-    },
-    {
-      "arquivo": "cap08-qualidade.tex",
-      "titulo": "Estratégia de testes",
-      "secoes": [
-        "Fundamentos",
-        "Situação atual",
-        "Lacunas conhecidas",
-        "Como executar"
+        "Projetos e pacotes principais",
+        "Ordem do \\emph{pipeline",
+        "Controllers e erros",
+        "Identidade, tokens e sessão",
+        "Fila e trava por empresa",
+        "Conversão de erros do banco",
+        "Tarefas em segundo plano",
+        "Auditoria",
+        "Logs",
+        "Relógio e testabilidade"
       ],
       "linhas": 81
     },
     {
-      "arquivo": "cap09-metricas.tex",
-      "titulo": "Plano de métricas e medição",
+      "arquivo": "cap14-modelo-dados.tex",
+      "titulo": "Modelo de dados",
       "secoes": [
-        "Quadro-resumo",
-        "Acessibilidade automática com axe-core",
-        "Lighthouse CI e Web Vitals",
-        "Latência da API",
-        "Tempo de leitura de placa (ML)",
-        "Testes ponta a ponta com Playwright",
-        "Usabilidade",
-        "Segurança como métrica"
+        "Modelo de negócio",
+        "Modelo de identidade e segurança",
+        "Índices e restrições que fazem parte da segurança",
+        "Migrações"
       ],
-      "linhas": 367
+      "linhas": 60
     },
     {
-      "arquivo": "cap10-roadmap.tex",
-      "titulo": "Plano de execução, riscos e trabalhos futuros",
+      "arquivo": "cap15-frontend.tex",
+      "titulo": "Front-end (Angular 21)",
       "secoes": [
-        "Ordem sugerida",
-        "Pendências de processo",
-        "Riscos",
-        "Limitações",
+        "Stack e organização",
+        "Telas",
+        "Tokens de design e tema",
+        "Princípios de experiência de uso aplicados",
+        "Blocos reutilizáveis",
+        "Segurança no navegador",
+        "Desempenho do pacote",
+        "Acessibilidade",
+        "Testes do front-end"
+      ],
+      "linhas": 85
+    },
+    {
+      "arquivo": "cap16-ml-impl.tex",
+      "titulo": "Serviço de aprendizado de máquina",
+      "secoes": [
+        "Leitura de placas",
+        "Reconhecimento facial",
+        "Assistente",
+        "Controle de acesso do serviço",
+        "Configuração e falha fechada",
+        "Câmera no Windows",
+        "Endurecimento contra entradas hostis (grupo de segurança restante)",
+        "Testes"
+      ],
+      "linhas": 73
+    },
+    {
+      "arquivo": "cap17-controles.tex",
+      "titulo": "Controles de segurança implementados",
+      "secoes": [
+        "Sessão e autenticação",
+        "Autorização e isolamento",
+        "Borda da API",
+        "Dados e criptografia",
+        "Biometria e privacidade",
+        "ML e cadeia de suprimentos",
+        "Concorrência e integridade de negócio"
+      ],
+      "linhas": 72
+    },
+    {
+      "arquivo": "cap18-achados.tex",
+      "titulo": "Achados de segurança (S1 a S45)",
+      "secoes": [
+        "Visão geral",
+        "Tabela completa",
+        "Os dez achados do grupo final, em detalhe"
+      ],
+      "linhas": 120
+    },
+    {
+      "arquivo": "cap19-ataques.tex",
+      "titulo": "A bateria de ataques automatizados",
+      "secoes": [
+        "O que é e como roda",
+        "Como cada módulo novo foi provado",
+        "Sabotagem controlada: a prova de que os ataques conseguem falhar",
+        "Verificar o \\emph{estado",
+        "Pendências conhecidas (listadas em toda rodada)",
+        "Carga e desempenho sob ataque"
+      ],
+      "linhas": 97
+    },
+    {
+      "arquivo": "cap20-zap.tex",
+      "titulo": "OWASP ZAP aplicado à Locadora",
+      "secoes": [
+        "Montagem da varredura",
+        "O que foi medido",
+        "Os alertas, um por um",
+        "As verificações Z01 a Z06",
+        "Problemas operacionais e como foram resolvidos",
+        "O que o ZAP \\emph{não",
+        "Como reproduzir"
+      ],
+      "linhas": 153
+    },
+    {
+      "arquivo": "cap21-reflexao.tex",
+      "titulo": "Reflexão (\\emph{System.Reflection",
+      "secoes": [
+        "Uma analogia para quem não é de programação",
+        "Por que importa para segurança",
+        "Os cenários",
+        "O que a reflexão achou",
+        "A prova de que os testes pegam erro",
+        "Cuidados com reflexão",
+        "Números"
+      ],
+      "linhas": 99
+    },
+    {
+      "arquivo": "cap22-lgpd.tex",
+      "titulo": "LGPD e dado biométrico na prática",
+      "secoes": [
+        "Por que o rosto exige cuidado especial",
+        "Princípios da LGPD e como foram atendidos",
+        "O ciclo de vida do rosto",
+        "Direitos do titular (art.~18)",
+        "O que foi verificado automaticamente",
+        "Limites honestos"
+      ],
+      "linhas": 100
+    },
+    {
+      "arquivo": "cap23-residuos.tex",
+      "titulo": "Decisões sobre os resíduos de segurança",
+      "secoes": [
+        "Os seis resíduos e a decisão",
+        "Aprofundando as decisões",
+        "Pendências de segurança que continuam"
+      ],
+      "linhas": 61
+    },
+    {
+      "arquivo": "cap24-testes.tex",
+      "titulo": "Testes automatizados: a pirâmide do projeto",
+      "secoes": [
+        "As suítes",
+        "Cobertura",
+        "Teste de mutação (Stryker.NET)",
+        "Testes que ajudam a segurança, além dos ataques",
+        "O teste que precisa falhar"
+      ],
+      "linhas": 90
+    },
+    {
+      "arquivo": "cap25-acessibilidade-desempenho.tex",
+      "titulo": "Acessibilidade e desempenho do front-end",
+      "secoes": [
+        "Acessibilidade",
+        "Desempenho (Lighthouse 13.5, mediana de 3 rodadas)",
+        "Tamanho do pacote",
+        "Fluxos de ponta a ponta (Playwright, Edge)",
+        "Leitura de placa (OCR)",
+        "Limites declarados"
+      ],
+      "linhas": 134
+    },
+    {
+      "arquivo": "cap26-carga-concorrencia.tex",
+      "titulo": "Carga e concorrência: o que acontece quando muita gente usa ao mesmo tempo",
+      "secoes": [
+        "Desempenho sob carga",
+        "Carga mista com invariantes",
+        "Corridas (\\emph{race conditions",
+        "O que foi provado e o que não foi"
+      ],
+      "linhas": 113
+    },
+    {
+      "arquivo": "cap27-usabilidade.tex",
+      "titulo": "Usabilidade: o que foi medido e o que falta medir com pessoas",
+      "secoes": [
+        "Por que máquina não substitui pessoa",
+        "As três técnicas do protocolo",
+        "Planejamento da coleta",
+        "Como se espera ler o resultado"
+      ],
+      "linhas": 77
+    },
+    {
+      "arquivo": "cap28-resumo-metricas.tex",
+      "titulo": "Quadro-resumo das métricas",
+      "secoes": [
+        "Qualidade do código",
+        "Segurança",
+        "Desempenho e acessibilidade",
+        "Tamanho do sistema",
+        "Antes e depois (o que as medições mudaram)"
+      ],
+      "linhas": 115
+    },
+    {
+      "arquivo": "cap29-execucao.tex",
+      "titulo": "Como executar e reproduzir",
+      "secoes": [
+        "Pré-requisitos",
+        "Configuração (sem segredos no código)",
+        "Subir o sistema",
+        "Rodar os testes",
+        "Regras de segurança da própria bateria",
+        "Onde ficam os resultados",
+        "Cuidados com disco e memória"
+      ],
+      "linhas": 108
+    },
+    {
+      "arquivo": "cap30-processo.tex",
+      "titulo": "Processo de trabalho",
+      "secoes": [
+        "Branches encadeadas",
+        "Convenções de \\emph{commit",
+        "O que nunca entra no repositório",
+        "Prova antes de afirmar",
+        "Registro contínuo",
+        "Ferramentas de apoio"
+      ],
+      "linhas": 66
+    },
+    {
+      "arquivo": "cap31-pendencias.tex",
+      "titulo": "Pendências, limitações e trabalhos futuros",
+      "secoes": [
+        "Pendências que dependem de pessoas ou hardware",
+        "Pendências de segurança",
+        "Limitações das medidas",
         "Trabalhos futuros"
       ],
-      "linhas": 55
+      "linhas": 64
     }
   ],
-  "totalTestes": 842
+  "totalTestes": 1188
 }

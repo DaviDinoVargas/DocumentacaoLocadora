@@ -1,0 +1,1915 @@
+{
+  "lighthouse": {
+    "commit": "37be1e9",
+    "versao": "13.5.0",
+    "rodadas": 3,
+    "telas": [
+      {
+        "tela": "login",
+        "formato": "desktop",
+        "desempenho": 99,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 775,
+        "lcp_ms": 835,
+        "cls": 0,
+        "tbt_ms": 0,
+        "si_ms": 805,
+        "transferencia_kb": 292
+      },
+      {
+        "tela": "login",
+        "formato": "mobile",
+        "desempenho": 82,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 3417,
+        "lcp_ms": 3717,
+        "cls": 0,
+        "tbt_ms": 27,
+        "si_ms": 3417,
+        "transferencia_kb": 292
+      },
+      {
+        "tela": "home",
+        "formato": "desktop",
+        "desempenho": 97,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 917,
+        "lcp_ms": 1020,
+        "cls": 0.003,
+        "tbt_ms": 0,
+        "si_ms": 917,
+        "transferencia_kb": 481
+      },
+      {
+        "tela": "home",
+        "formato": "mobile",
+        "desempenho": 68,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 4396,
+        "lcp_ms": 4874,
+        "cls": 0,
+        "tbt_ms": 197,
+        "si_ms": 4396,
+        "transferencia_kb": 481
+      },
+      {
+        "tela": "clientes",
+        "formato": "desktop",
+        "desempenho": 97,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 963,
+        "lcp_ms": 1087,
+        "cls": 0.016,
+        "tbt_ms": 17,
+        "si_ms": 963,
+        "transferencia_kb": 318
+      },
+      {
+        "tela": "clientes",
+        "formato": "mobile",
+        "desempenho": 68,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 4087,
+        "lcp_ms": 4705,
+        "cls": 0.023,
+        "tbt_ms": 248,
+        "si_ms": 4087,
+        "transferencia_kb": 318
+      },
+      {
+        "tela": "condutores",
+        "formato": "desktop",
+        "desempenho": 97,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 969,
+        "lcp_ms": 1093,
+        "cls": 0.017,
+        "tbt_ms": 21,
+        "si_ms": 969,
+        "transferencia_kb": 321
+      },
+      {
+        "tela": "condutores",
+        "formato": "mobile",
+        "desempenho": 67,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 4143,
+        "lcp_ms": 4746,
+        "cls": 0.006,
+        "tbt_ms": 274,
+        "si_ms": 4143,
+        "transferencia_kb": 321
+      },
+      {
+        "tela": "veiculos",
+        "formato": "desktop",
+        "desempenho": 97,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 952,
+        "lcp_ms": 1077,
+        "cls": 0.036,
+        "tbt_ms": 18,
+        "si_ms": 952,
+        "transferencia_kb": 321
+      },
+      {
+        "tela": "veiculos",
+        "formato": "mobile",
+        "desempenho": 66,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 4155,
+        "lcp_ms": 4771,
+        "cls": 0.028,
+        "tbt_ms": 310,
+        "si_ms": 4155,
+        "transferencia_kb": 321
+      },
+      {
+        "tela": "alugueis",
+        "formato": "desktop",
+        "desempenho": 97,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 938,
+        "lcp_ms": 1062,
+        "cls": 0.03,
+        "tbt_ms": 13,
+        "si_ms": 959,
+        "transferencia_kb": 324
+      },
+      {
+        "tela": "alugueis",
+        "formato": "mobile",
+        "desempenho": 67,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 4099,
+        "lcp_ms": 4732,
+        "cls": 0,
+        "tbt_ms": 293,
+        "si_ms": 4099,
+        "transferencia_kb": 324
+      },
+      {
+        "tela": "devolucoes",
+        "formato": "desktop",
+        "desempenho": 97,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 952,
+        "lcp_ms": 1024,
+        "cls": 0.004,
+        "tbt_ms": 8,
+        "si_ms": 952,
+        "transferencia_kb": 320
+      },
+      {
+        "tela": "devolucoes",
+        "formato": "mobile",
+        "desempenho": 71,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 4080,
+        "lcp_ms": 4564,
+        "cls": 0.02,
+        "tbt_ms": 182,
+        "si_ms": 4080,
+        "transferencia_kb": 320
+      },
+      {
+        "tela": "aluguel-form",
+        "formato": "desktop",
+        "desempenho": 98,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 887,
+        "lcp_ms": 1011,
+        "cls": 0,
+        "tbt_ms": 5,
+        "si_ms": 887,
+        "transferencia_kb": 317
+      },
+      {
+        "tela": "aluguel-form",
+        "formato": "mobile",
+        "desempenho": 75,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 3799,
+        "lcp_ms": 4329,
+        "cls": 0,
+        "tbt_ms": 136,
+        "si_ms": 3799,
+        "transferencia_kb": 317
+      },
+      {
+        "tela": "veiculo-form",
+        "formato": "desktop",
+        "desempenho": 98,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 866,
+        "lcp_ms": 969,
+        "cls": 0,
+        "tbt_ms": 6,
+        "si_ms": 866,
+        "transferencia_kb": 300
+      },
+      {
+        "tela": "veiculo-form",
+        "formato": "mobile",
+        "desempenho": 76,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 3742,
+        "lcp_ms": 4236,
+        "cls": 0,
+        "tbt_ms": 122,
+        "si_ms": 3742,
+        "transferencia_kb": 300
+      },
+      {
+        "tela": "cliente-form",
+        "formato": "desktop",
+        "desempenho": 98,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 851,
+        "lcp_ms": 954,
+        "cls": 0,
+        "tbt_ms": 6,
+        "si_ms": 851,
+        "transferencia_kb": 300
+      },
+      {
+        "tela": "cliente-form",
+        "formato": "mobile",
+        "desempenho": 76,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 3703,
+        "lcp_ms": 4174,
+        "cls": 0,
+        "tbt_ms": 131,
+        "si_ms": 3703,
+        "transferencia_kb": 300
+      },
+      {
+        "tela": "devolucao-form",
+        "formato": "desktop",
+        "desempenho": 98,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 855,
+        "lcp_ms": 938,
+        "cls": 0,
+        "tbt_ms": 0,
+        "si_ms": 855,
+        "transferencia_kb": 304
+      },
+      {
+        "tela": "devolucao-form",
+        "formato": "mobile",
+        "desempenho": 78,
+        "acessibilidade": 100,
+        "boasPraticas": 100,
+        "fcp_ms": 3661,
+        "lcp_ms": 4063,
+        "cls": 0,
+        "tbt_ms": 63,
+        "si_ms": 3661,
+        "transferencia_kb": 304
+      }
+    ]
+  },
+  "e2e": {
+    "commit": "37be1e9",
+    "aprovados": 5,
+    "reprovados": 0,
+    "duracaoS": 44,
+    "tarefas": [
+      {
+        "tarefa": "Cadastrar cliente (pessoa física)",
+        "tempoS": 0.9,
+        "cliques": 3,
+        "preenchimentos": 8,
+        "erro": null
+      },
+      {
+        "tarefa": "Criar aluguel",
+        "tempoS": 0.7,
+        "cliques": 5,
+        "preenchimentos": 2,
+        "erro": null
+      },
+      {
+        "tarefa": "Registrar devolução",
+        "tempoS": 0.5,
+        "cliques": 2,
+        "preenchimentos": 3,
+        "erro": null
+      }
+    ],
+    "acessibilidade": [
+      {
+        "pagina": "login (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "home (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "clientes (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "condutores (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "veículos (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "aluguéis (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "devoluções (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "novo aluguel (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "novo veículo (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "novo cliente (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "devolução (light)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "login (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "home (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "clientes (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "condutores (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "veículos (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "aluguéis (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "devoluções (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "novo aluguel (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "novo veículo (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "novo cliente (dark)",
+        "violacoes": 0
+      },
+      {
+        "pagina": "devolução (dark)",
+        "violacoes": 0
+      }
+    ]
+  },
+  "pacote": [
+    {
+      "parte": "Inicial (index.html)",
+      "arquivos": 18,
+      "brutoKb": 775.5,
+      "gzipKb": 210.5
+    },
+    {
+      "parte": "Sob demanda (rotas e bibliotecas)",
+      "arquivos": 79,
+      "brutoKb": 1746.2,
+      "gzipKb": 576.7
+    },
+    {
+      "parte": "Total",
+      "arquivos": 97,
+      "brutoKb": 2521.8,
+      "gzipKb": 787.2
+    }
+  ],
+  "placa": {
+    "quantidade": 40,
+    "tesseract": "5.4.0.20240606",
+    "p50": 214,
+    "p95": 536.2,
+    "max": 550.4
+  },
+  "cobertura": {
+    "medidoEm": "2026-10-14",
+    "dotnet": {
+      "pct": 93.1,
+      "cobertas": 8713,
+      "linhas": 9362,
+      "assemblies": [
+        {
+          "nome": "Core.Aplicacao",
+          "linhas": 4928,
+          "cobertas": 4547,
+          "pct": 92.3
+        },
+        {
+          "nome": "WebApi",
+          "linhas": 2494,
+          "cobertas": 2323,
+          "pct": 93.1
+        },
+        {
+          "nome": "Infraestrutura.Orm",
+          "linhas": 1404,
+          "cobertas": 1330,
+          "pct": 94.7
+        },
+        {
+          "nome": "Core.Dominio",
+          "linhas": 536,
+          "cobertas": 513,
+          "pct": 95.7
+        }
+      ]
+    },
+    "angular": {
+      "pct": 86.92,
+      "cobertas": 2879,
+      "linhas": 3312
+    }
+  },
+  "mutacao": {
+    "mortos": 553,
+    "sobreviveram": 41,
+    "semCobertura": 134,
+    "total": 728,
+    "pct": 76,
+    "arquivos": [
+      {
+        "arquivo": "SelecionarPlanosCobrancaQueryHandler.cs",
+        "mortos": 1,
+        "sobreviveram": 1,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 50
+      },
+      {
+        "arquivo": "ExcluirTaxaServicoCommandHandler.cs",
+        "mortos": 4,
+        "sobreviveram": 2,
+        "semCobertura": 2,
+        "total": 8,
+        "pct": 50
+      },
+      {
+        "arquivo": "SelecionarAlugueisPorStatusQueryHandler.cs",
+        "mortos": 5,
+        "sobreviveram": 1,
+        "semCobertura": 3,
+        "total": 9,
+        "pct": 56
+      },
+      {
+        "arquivo": "ExcluirDevolucaoCommandHandler.cs",
+        "mortos": 5,
+        "sobreviveram": 1,
+        "semCobertura": 3,
+        "total": 9,
+        "pct": 56
+      },
+      {
+        "arquivo": "SelecionarAlugueisEmAbertoQueryHandler.cs",
+        "mortos": 4,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 7,
+        "pct": 57
+      },
+      {
+        "arquivo": "SelecionarAlugueisQueryHandler.cs",
+        "mortos": 4,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 7,
+        "pct": 57
+      },
+      {
+        "arquivo": "SelecionarDevolucoesQueryHandler.cs",
+        "mortos": 4,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 7,
+        "pct": 57
+      },
+      {
+        "arquivo": "CadastrarFuncionariosCommandHandler.cs",
+        "mortos": 11,
+        "sobreviveram": 3,
+        "semCobertura": 5,
+        "total": 19,
+        "pct": 58
+      },
+      {
+        "arquivo": "IniciarAluguelCommandHandler.cs",
+        "mortos": 6,
+        "sobreviveram": 1,
+        "semCobertura": 3,
+        "total": 10,
+        "pct": 60
+      },
+      {
+        "arquivo": "CancelarAluguelCommandHandler.cs",
+        "mortos": 8,
+        "sobreviveram": 1,
+        "semCobertura": 4,
+        "total": 13,
+        "pct": 62
+      },
+      {
+        "arquivo": "SimularAluguelQueryHandler.cs",
+        "mortos": 8,
+        "sobreviveram": 2,
+        "semCobertura": 3,
+        "total": 13,
+        "pct": 62
+      },
+      {
+        "arquivo": "SelecionarAluguelPorIdQueryHandler.cs",
+        "mortos": 5,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 8,
+        "pct": 63
+      },
+      {
+        "arquivo": "ConfigurarPrecoCombustivelCommandHandler.cs",
+        "mortos": 5,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 8,
+        "pct": 63
+      },
+      {
+        "arquivo": "RegistrarDevolucaoCommandHandler.cs",
+        "mortos": 12,
+        "sobreviveram": 3,
+        "semCobertura": 4,
+        "total": 19,
+        "pct": 63
+      },
+      {
+        "arquivo": "SelecionarDevolucaoPorIdQueryHandler.cs",
+        "mortos": 5,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 8,
+        "pct": 63
+      },
+      {
+        "arquivo": "ExcluirFuncionarioCommandHandler.cs",
+        "mortos": 5,
+        "sobreviveram": 1,
+        "semCobertura": 2,
+        "total": 8,
+        "pct": 63
+      },
+      {
+        "arquivo": "EditarFuncionarioCommandHandler.cs",
+        "mortos": 15,
+        "sobreviveram": 4,
+        "semCobertura": 4,
+        "total": 23,
+        "pct": 65
+      },
+      {
+        "arquivo": "ExcluirAluguelCommandHandler.cs",
+        "mortos": 6,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 9,
+        "pct": 67
+      },
+      {
+        "arquivo": "SelecionarAutomoveisPorGrupoQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 1,
+        "total": 3,
+        "pct": 67
+      },
+      {
+        "arquivo": "SelecionarAutomoveisQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 1,
+        "total": 3,
+        "pct": 67
+      },
+      {
+        "arquivo": "ExcluirDesafioCupomCommandHandler.cs",
+        "mortos": 4,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 6,
+        "pct": 67
+      },
+      {
+        "arquivo": "SelecionarDesafiosCupomQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 1,
+        "total": 3,
+        "pct": 67
+      },
+      {
+        "arquivo": "EditarClientePessoaJuridicaCommandHandler.cs",
+        "mortos": 9,
+        "sobreviveram": 0,
+        "semCobertura": 4,
+        "total": 13,
+        "pct": 69
+      },
+      {
+        "arquivo": "ConfigurarValorGarantiaCommandHandler.cs",
+        "mortos": 7,
+        "sobreviveram": 1,
+        "semCobertura": 2,
+        "total": 10,
+        "pct": 70
+      },
+      {
+        "arquivo": "EditarGrupoAutomovelCommandHandler.cs",
+        "mortos": 7,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 10,
+        "pct": 70
+      },
+      {
+        "arquivo": "EditarParceiroCommandHandler.cs",
+        "mortos": 7,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 10,
+        "pct": 70
+      },
+      {
+        "arquivo": "EditarClientePessoaFisicaCommandHandler.cs",
+        "mortos": 12,
+        "sobreviveram": 2,
+        "semCobertura": 3,
+        "total": 17,
+        "pct": 71
+      },
+      {
+        "arquivo": "EditarCondutorCommandHandler.cs",
+        "mortos": 13,
+        "sobreviveram": 1,
+        "semCobertura": 4,
+        "total": 18,
+        "pct": 72
+      },
+      {
+        "arquivo": "EditarAluguelCommandHandler.cs",
+        "mortos": 37,
+        "sobreviveram": 7,
+        "semCobertura": 6,
+        "total": 50,
+        "pct": 74
+      },
+      {
+        "arquivo": "ExcluirAutomovelCommandHandler.cs",
+        "mortos": 6,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 8,
+        "pct": 75
+      },
+      {
+        "arquivo": "SelecionarAutomovelPorIdQueryHandler.cs",
+        "mortos": 3,
+        "sobreviveram": 0,
+        "semCobertura": 1,
+        "total": 4,
+        "pct": 75
+      },
+      {
+        "arquivo": "ExcluirClienteCommandHandler.cs",
+        "mortos": 6,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 8,
+        "pct": 75
+      },
+      {
+        "arquivo": "SelecionarClientesQueryHandler.cs",
+        "mortos": 3,
+        "sobreviveram": 0,
+        "semCobertura": 1,
+        "total": 4,
+        "pct": 75
+      },
+      {
+        "arquivo": "ExcluirCondutorCommandHandler.cs",
+        "mortos": 6,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 8,
+        "pct": 75
+      },
+      {
+        "arquivo": "CadastrarDesafioCupomCommandHandler.cs",
+        "mortos": 6,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 8,
+        "pct": 75
+      },
+      {
+        "arquivo": "SelecionarDesafioCupomPorIdQueryHandler.cs",
+        "mortos": 3,
+        "sobreviveram": 0,
+        "semCobertura": 1,
+        "total": 4,
+        "pct": 75
+      },
+      {
+        "arquivo": "ExcluirParceiroCommandHandler.cs",
+        "mortos": 6,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 8,
+        "pct": 75
+      },
+      {
+        "arquivo": "EditarTaxaServicoCommandHandler.cs",
+        "mortos": 9,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 12,
+        "pct": 75
+      },
+      {
+        "arquivo": "EditarDesafioCupomCommandHandler.cs",
+        "mortos": 7,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 9,
+        "pct": 78
+      },
+      {
+        "arquivo": "CadastrarParceiroCommandHandler.cs",
+        "mortos": 7,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 9,
+        "pct": 78
+      },
+      {
+        "arquivo": "EditarAutomovelCommandHandler.cs",
+        "mortos": 11,
+        "sobreviveram": 0,
+        "semCobertura": 3,
+        "total": 14,
+        "pct": 79
+      },
+      {
+        "arquivo": "CadastrarClientePessoaJuridicaCommandHandler.cs",
+        "mortos": 8,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 10,
+        "pct": 80
+      },
+      {
+        "arquivo": "SelecionarClientePorIdQueryHandler.cs",
+        "mortos": 4,
+        "sobreviveram": 0,
+        "semCobertura": 1,
+        "total": 5,
+        "pct": 80
+      },
+      {
+        "arquivo": "ExcluirCupomCommandHandler.cs",
+        "mortos": 8,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 10,
+        "pct": 80
+      },
+      {
+        "arquivo": "CadastrarGrupoAutomovelCommandHandler.cs",
+        "mortos": 8,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 10,
+        "pct": 80
+      },
+      {
+        "arquivo": "ExcluirGrupoAutomovelCommandHandler.cs",
+        "mortos": 8,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 10,
+        "pct": 80
+      },
+      {
+        "arquivo": "CadastrarTaxaServicoCommandHandler.cs",
+        "mortos": 8,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 10,
+        "pct": 80
+      },
+      {
+        "arquivo": "CadastrarAutomovelCommandHandler.cs",
+        "mortos": 10,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 12,
+        "pct": 83
+      },
+      {
+        "arquivo": "SelecionarAutomoveisDisponiveisQueryHandler.cs",
+        "mortos": 5,
+        "sobreviveram": 0,
+        "semCobertura": 1,
+        "total": 6,
+        "pct": 83
+      },
+      {
+        "arquivo": "CadastrarCupomCommandHandler.cs",
+        "mortos": 10,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 12,
+        "pct": 83
+      },
+      {
+        "arquivo": "EditarCupomCommandHandler.cs",
+        "mortos": 10,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 12,
+        "pct": 83
+      },
+      {
+        "arquivo": "CadastrarAluguelCommandHandler.cs",
+        "mortos": 38,
+        "sobreviveram": 4,
+        "semCobertura": 3,
+        "total": 45,
+        "pct": 84
+      },
+      {
+        "arquivo": "CadastrarClientePessoaFisicaCommandHandler.cs",
+        "mortos": 12,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 14,
+        "pct": 86
+      },
+      {
+        "arquivo": "ObterResumoDashboardQueryHandler.cs",
+        "mortos": 45,
+        "sobreviveram": 5,
+        "semCobertura": 2,
+        "total": 52,
+        "pct": 87
+      },
+      {
+        "arquivo": "CadastrarCondutorCommandHandler.cs",
+        "mortos": 14,
+        "sobreviveram": 0,
+        "semCobertura": 2,
+        "total": 16,
+        "pct": 88
+      },
+      {
+        "arquivo": "ValidarCupomQueryHandler.cs",
+        "mortos": 17,
+        "sobreviveram": 1,
+        "semCobertura": 0,
+        "total": 18,
+        "pct": 94
+      },
+      {
+        "arquivo": "SelecionarPessoasFisicasQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarPessoasJuridicasQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarCondutoresPorClienteQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarCondutoresQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarCondutorPorIdQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "ObterConfiguracaoQueryHandler.cs",
+        "mortos": 3,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 3,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarCupomPorIdQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarCuponsQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "VerificarDesafiosClienteQueryHandler.cs",
+        "mortos": 6,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 6,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarDevolucaoPorAluguelIdQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarFuncionarioPorIdQueryHandler.cs",
+        "mortos": 1,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 1,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarFuncionariosQueryHandler.cs",
+        "mortos": 1,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 1,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarGrupoAutomovelPorIdQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarGruposAutomovelQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarParceiroPorIdQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarParceirosQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "CadastrarPlanoCobrancaCommandHandler.cs",
+        "mortos": 6,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 6,
+        "pct": 100
+      },
+      {
+        "arquivo": "EditarPlanoCobrancaCommandHandler.cs",
+        "mortos": 7,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 7,
+        "pct": 100
+      },
+      {
+        "arquivo": "ExcluirPlanoCobrancaCommandHandler.cs",
+        "mortos": 4,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 4,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarPlanoCobrancaPorIdQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarTaxaServicoPorIdQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarTaxasServicoPorTipoQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      },
+      {
+        "arquivo": "SelecionarTaxasServicoQueryHandler.cs",
+        "mortos": 2,
+        "sobreviveram": 0,
+        "semCobertura": 0,
+        "total": 2,
+        "pct": 100
+      }
+    ]
+  },
+  "reflexao": [
+    {
+      "verbo": "GET",
+      "rota": "/api/alugueis",
+      "acao": "AluguelController.SelecionarTodos",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/alugueis",
+      "acao": "AluguelController.Cadastrar",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/alugueis/em-aberto",
+      "acao": "AluguelController.SelecionarEmAberto",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/alugueis/simular",
+      "acao": "AluguelController.Simular",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/alugueis/status/{status}",
+      "acao": "AluguelController.SelecionarPorStatus",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/alugueis/{id}",
+      "acao": "AluguelController.Excluir",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/alugueis/{id}",
+      "acao": "AluguelController.SelecionarPorId",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/alugueis/{id}",
+      "acao": "AluguelController.Editar",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/alugueis/{id}/cancelar",
+      "acao": "AluguelController.Cancelar",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/alugueis/{id}/iniciar",
+      "acao": "AluguelController.Iniciar",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/auditoria",
+      "acao": "AuditoriaController.Listar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/auth/2fa",
+      "acao": "AutenticacaoController.StatusDoisFatores",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/2fa/ativar",
+      "acao": "AutenticacaoController.AtivarDoisFatores",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/2fa/desativar",
+      "acao": "AutenticacaoController.DesativarDoisFatores",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/2fa/iniciar",
+      "acao": "AutenticacaoController.IniciarDoisFatores",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/alterar-senha",
+      "acao": "AutenticacaoController.AlterarSenha",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/autenticar",
+      "acao": "AutenticacaoController.Autenticar",
+      "acesso": "Público (sem [Authorize])",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/encerrar-conta",
+      "acao": "AutenticacaoController.EncerrarConta",
+      "acesso": "Empresa",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/entrar-facial",
+      "acao": "AutenticacaoController.EntrarFacial",
+      "acesso": "Público (sem [Authorize])",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/esqueci-senha",
+      "acao": "AutenticacaoController.EsqueciSenha",
+      "acesso": "Público (sem [Authorize])",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/redefinir-senha",
+      "acao": "AutenticacaoController.RedefinirSenha",
+      "acesso": "Público (sem [Authorize])",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/registrar",
+      "acao": "AutenticacaoController.Registrar",
+      "acesso": "Público (sem [Authorize])",
+      "limite": "registro",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/auth/rosto",
+      "acao": "AutenticacaoController.RemoverRosto",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/auth/rosto",
+      "acao": "AutenticacaoController.ObterStatusRosto",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/rosto",
+      "acao": "AutenticacaoController.CadastrarRosto",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/auth/rosto/consentimento",
+      "acao": "AutenticacaoController.ObterTermoDeConsentimento",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/rosto/verificar",
+      "acao": "AutenticacaoController.VerificarRosto",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/rotacionar",
+      "acao": "AutenticacaoController.Rotacionar",
+      "acesso": "Público (sem [Authorize])",
+      "limite": "auth",
+      "cabecalho": true
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/auth/sair",
+      "acao": "AutenticacaoController.Sair",
+      "acesso": "Público (sem [Authorize])",
+      "limite": "auth",
+      "cabecalho": true
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/auth/sessao",
+      "acao": "AutenticacaoController.ObterSessao",
+      "acesso": "Qualquer usuário autenticado",
+      "limite": "auth",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/automoveis",
+      "acao": "AutomovelController.SelecionarTodos",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/automoveis",
+      "acao": "AutomovelController.Cadastrar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/automoveis/disponiveis",
+      "acao": "AutomovelController.SelecionarDisponiveis",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/automoveis/grupo/{grupoid}",
+      "acao": "AutomovelController.SelecionarPorGrupo",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/automoveis/{id}",
+      "acao": "AutomovelController.Excluir",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/automoveis/{id}",
+      "acao": "AutomovelController.SelecionarPorId",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/automoveis/{id}",
+      "acao": "AutomovelController.Editar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/clientes",
+      "acao": "ClienteController.SelecionarTodos",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/clientes/pessoa-fisica",
+      "acao": "ClienteController.CadastrarPessoaFisica",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/clientes/pessoa-fisica/{id}",
+      "acao": "ClienteController.EditarPessoaFisica",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/clientes/pessoa-juridica",
+      "acao": "ClienteController.CadastrarPessoaJuridica",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/clientes/pessoa-juridica/{id}",
+      "acao": "ClienteController.EditarPessoaJuridica",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/clientes/pessoas-fisicas",
+      "acao": "ClienteController.SelecionarPessoasFisicas",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/clientes/pessoas-juridicas",
+      "acao": "ClienteController.SelecionarPessoasJuridicas",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/clientes/{id}",
+      "acao": "ClienteController.Excluir",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/clientes/{id}",
+      "acao": "ClienteController.SelecionarPorId",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/condutores",
+      "acao": "CondutorController.SelecionarTodos",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/condutores",
+      "acao": "CondutorController.Cadastrar",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/condutores/cliente/{clienteid}",
+      "acao": "CondutorController.SelecionarPorCliente",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/condutores/{id}",
+      "acao": "CondutorController.Excluir",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/condutores/{id}",
+      "acao": "CondutorController.SelecionarPorId",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/condutores/{id}",
+      "acao": "CondutorController.Editar",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/configuracoes",
+      "acao": "ConfiguracaoController.ObterConfiguracao",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/configuracoes/preco-combustivel",
+      "acao": "ConfiguracaoController.ConfigurarPrecoCombustivel",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/configuracoes/valor-garantia",
+      "acao": "ConfiguracaoController.ConfigurarValorGarantia",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/cupons",
+      "acao": "CupomController.SelecionarTodos",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/cupons",
+      "acao": "CupomController.Cadastrar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/cupons/validar",
+      "acao": "CupomController.Validar",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/cupons/{id}",
+      "acao": "CupomController.Excluir",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/cupons/{id}",
+      "acao": "CupomController.SelecionarPorId",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/cupons/{id}",
+      "acao": "CupomController.Editar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/dashboard/resumo",
+      "acao": "DashboardController.ObterResumo",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/desafios-cupom",
+      "acao": "DesafioCupomController.SelecionarTodos",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/desafios-cupom",
+      "acao": "DesafioCupomController.Cadastrar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/desafios-cupom/cliente/{clienteid}/progresso",
+      "acao": "DesafioCupomController.VerificarProgressoCliente",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/desafios-cupom/{id}",
+      "acao": "DesafioCupomController.Excluir",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/desafios-cupom/{id}",
+      "acao": "DesafioCupomController.SelecionarPorId",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/desafios-cupom/{id}",
+      "acao": "DesafioCupomController.Editar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/devolucoes",
+      "acao": "DevolucaoController.SelecionarTodos",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/devolucoes",
+      "acao": "DevolucaoController.Registrar",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/devolucoes/aluguel/{aluguelid}",
+      "acao": "DevolucaoController.SelecionarPorAluguelId",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/devolucoes/{id}",
+      "acao": "DevolucaoController.Excluir",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/devolucoes/{id}",
+      "acao": "DevolucaoController.SelecionarPorId",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/funcionarios",
+      "acao": "FuncionarioController.SelecionarTodos",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/funcionarios",
+      "acao": "FuncionarioController.Cadastrar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/funcionarios/{id}",
+      "acao": "FuncionarioController.Excluir",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/funcionarios/{id}",
+      "acao": "FuncionarioController.SelecionarPorId",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/funcionarios/{id}",
+      "acao": "FuncionarioController.Editar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/grupos-automovel",
+      "acao": "GrupoAutomovelController.SelecionarTodos",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/grupos-automovel",
+      "acao": "GrupoAutomovelController.Cadastrar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/grupos-automovel/{id}",
+      "acao": "GrupoAutomovelController.Excluir",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/grupos-automovel/{id}",
+      "acao": "GrupoAutomovelController.SelecionarPorId",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/grupos-automovel/{id}",
+      "acao": "GrupoAutomovelController.Editar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/parceiros",
+      "acao": "ParceiroController.SelecionarTodos",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/parceiros",
+      "acao": "ParceiroController.Cadastrar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/parceiros/{id}",
+      "acao": "ParceiroController.Excluir",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/parceiros/{id}",
+      "acao": "ParceiroController.SelecionarPorId",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/parceiros/{id}",
+      "acao": "ParceiroController.Editar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/planos-cobranca",
+      "acao": "PlanoCobrancaController.SelecionarTodos",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/planos-cobranca",
+      "acao": "PlanoCobrancaController.Cadastrar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/planos-cobranca/{id}",
+      "acao": "PlanoCobrancaController.Excluir",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/planos-cobranca/{id}",
+      "acao": "PlanoCobrancaController.SelecionarPorId",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/planos-cobranca/{id}",
+      "acao": "PlanoCobrancaController.Editar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/taxas-servicos",
+      "acao": "TaxaServicoController.SelecionarTodos",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "POST",
+      "rota": "/api/taxas-servicos",
+      "acao": "TaxaServicoController.Cadastrar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/taxas-servicos/tipo/{tipocalculo}",
+      "acao": "TaxaServicoController.SelecionarPorTipo",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "DELETE",
+      "rota": "/api/taxas-servicos/{id}",
+      "acao": "TaxaServicoController.Excluir",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "GET",
+      "rota": "/api/taxas-servicos/{id}",
+      "acao": "TaxaServicoController.SelecionarPorId",
+      "acesso": "Empresa ou Funcionario",
+      "limite": "",
+      "cabecalho": false
+    },
+    {
+      "verbo": "PUT",
+      "rota": "/api/taxas-servicos/{id}",
+      "acao": "TaxaServicoController.Editar",
+      "acesso": "Empresa",
+      "limite": "",
+      "cabecalho": false
+    }
+  ]
+}
