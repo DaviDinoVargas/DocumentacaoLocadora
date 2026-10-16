@@ -1,45 +1,45 @@
 {
   "camadas": {
-    "dominio": 1187,
-    "aplicacao": 8349,
-    "infraestrutura": 2163,
-    "webapi": 3409,
-    "testesUnidade": 1520,
-    "testesIntegracao": 3427,
-    "testesWebApi": 1099,
-    "migrations": 2180
+    "dominio": 1177,
+    "aplicacao": 8456,
+    "infraestrutura": 2244,
+    "webapi": 3412,
+    "testesUnidade": 1715,
+    "testesIntegracao": 3534,
+    "testesWebApi": 4097,
+    "migrations": 2262
   },
   "arquivosPorCamada": {
-    "dominio": 44,
+    "dominio": 43,
     "aplicacao": 174,
-    "infraestrutura": 44,
-    "webapi": 53,
-    "testesUnidade": 23,
-    "testesIntegracao": 26,
-    "testesWebApi": 12,
-    "migrations": 15
+    "infraestrutura": 45,
+    "webapi": 52,
+    "testesUnidade": 25,
+    "testesIntegracao": 27,
+    "testesWebApi": 23,
+    "migrations": 17
   },
   "modulos": [
     {
       "chave": "ModuloAutenticacao",
       "nome": "Autenticação",
-      "dominio": 173,
-      "aplicacao": 1738,
-      "infraestrutura": 265,
-      "webapi": 254,
+      "dominio": 161,
+      "aplicacao": 1641,
+      "infraestrutura": 324,
+      "webapi": 256,
       "testes": 133,
-      "arquivos": 59,
+      "arquivos": 57,
       "comandos": 15,
       "consultas": 2,
       "validadores": 1,
       "endpoints": 19,
-      "total": 2430
+      "total": 2382
     },
     {
       "chave": "ModuloAluguel",
       "nome": "Aluguel",
       "dominio": 118,
-      "aplicacao": 994,
+      "aplicacao": 1002,
       "infraestrutura": 197,
       "webapi": 337,
       "testes": 15,
@@ -48,28 +48,28 @@
       "consultas": 5,
       "validadores": 5,
       "endpoints": 10,
-      "total": 1646
+      "total": 1654
     },
     {
       "chave": "ModuloClientes",
       "nome": "Clientes",
       "dominio": 123,
-      "aplicacao": 846,
+      "aplicacao": 859,
       "infraestrutura": 160,
-      "webapi": 315,
+      "webapi": 314,
       "testes": 0,
       "arquivos": 22,
       "comandos": 5,
       "consultas": 4,
       "validadores": 4,
       "endpoints": 9,
-      "total": 1444
+      "total": 1456
     },
     {
       "chave": "ModuloAutomovel",
       "nome": "Automóvel",
       "dominio": 83,
-      "aplicacao": 590,
+      "aplicacao": 601,
       "infraestrutura": 101,
       "webapi": 287,
       "testes": 13,
@@ -78,13 +78,13 @@
       "consultas": 4,
       "validadores": 3,
       "endpoints": 7,
-      "total": 1061
+      "total": 1072
     },
     {
       "chave": "ModuloCondutor",
       "nome": "Condutor",
       "dominio": 59,
-      "aplicacao": 474,
+      "aplicacao": 485,
       "infraestrutura": 108,
       "webapi": 218,
       "testes": 0,
@@ -93,29 +93,29 @@
       "consultas": 3,
       "validadores": 2,
       "endpoints": 6,
-      "total": 859
+      "total": 870
     },
     {
       "chave": "ModuloDevolucao",
       "nome": "Devolução",
       "dominio": 116,
       "aplicacao": 390,
-      "infraestrutura": 86,
+      "infraestrutura": 100,
       "webapi": 191,
-      "testes": 5,
+      "testes": 8,
       "arquivos": 13,
       "comandos": 2,
       "consultas": 3,
       "validadores": 1,
       "endpoints": 5,
-      "total": 783
+      "total": 797
     },
     {
       "chave": "ModuloFuncionario",
       "nome": "Funcionário",
       "dominio": 52,
-      "aplicacao": 465,
-      "infraestrutura": 71,
+      "aplicacao": 479,
+      "infraestrutura": 75,
       "webapi": 142,
       "testes": 0,
       "arquivos": 22,
@@ -123,14 +123,14 @@
       "consultas": 2,
       "validadores": 2,
       "endpoints": 5,
-      "total": 730
+      "total": 748
     },
     {
       "chave": "ModuloCupom",
       "nome": "Cupom",
-      "dominio": 90,
-      "aplicacao": 400,
-      "infraestrutura": 86,
+      "dominio": 92,
+      "aplicacao": 404,
+      "infraestrutura": 90,
       "webapi": 136,
       "testes": 11,
       "arquivos": 14,
@@ -138,13 +138,13 @@
       "consultas": 3,
       "validadores": 2,
       "endpoints": 6,
-      "total": 712
+      "total": 722
     },
     {
       "chave": "ModuloTaxaServico",
       "nome": "Taxa de serviço",
       "dominio": 50,
-      "aplicacao": 384,
+      "aplicacao": 385,
       "infraestrutura": 86,
       "webapi": 176,
       "testes": 0,
@@ -153,7 +153,7 @@
       "consultas": 3,
       "validadores": 2,
       "endpoints": 6,
-      "total": 696
+      "total": 697
     },
     {
       "chave": "ModuloDesafioCupom",
@@ -189,7 +189,7 @@
       "chave": "ModuloPlanoCobranca",
       "nome": "Plano de cobrança",
       "dominio": 43,
-      "aplicacao": 281,
+      "aplicacao": 289,
       "infraestrutura": 65,
       "webapi": 117,
       "testes": 1,
@@ -198,7 +198,7 @@
       "consultas": 2,
       "validadores": 2,
       "endpoints": 5,
-      "total": 506
+      "total": 514
     },
     {
       "chave": "ModuloParceiro",
@@ -495,13 +495,21 @@
     {
       "data": "2026-10-13",
       "nome": "ConsentimentoERetencaoFacial"
+    },
+    {
+      "data": "2026-10-15",
+      "nome": "IndiceUnicoDeCpfDeFuncionario"
+    },
+    {
+      "data": "2026-10-15",
+      "nome": "IndiceUnicoDeDocumentoDeClientePorEmpresa"
     }
   ],
   "testes": {
-    "unidade": 121,
-    "integracao": 149,
-    "webapi": 50,
-    "casosParametrizados": 91
+    "unidade": 134,
+    "integracao": 152,
+    "webapi": 213,
+    "casosParametrizados": 110
   },
   "testesPorArea": [
     {
@@ -561,8 +569,18 @@
     },
     {
       "projeto": "Testes.Unidade",
-      "arquivo": "SerializacaoPorEmpresaTests",
+      "arquivo": "ComandosSerializadosPorReflexaoTests",
       "testes": 7
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "SerializacaoPorEmpresaTests",
+      "testes": 8
+    },
+    {
+      "projeto": "Testes.Unidade",
+      "arquivo": "ViolacaoDeUnicidadeTests",
+      "testes": 5
     },
     {
       "projeto": "Testes.Unidade",
@@ -701,6 +719,11 @@
     },
     {
       "projeto": "Tests.Integracao",
+      "arquivo": "ListaDeDevolucoesTests",
+      "testes": 3
+    },
+    {
+      "projeto": "Tests.Integracao",
       "arquivo": "RepositorioGrupoAutomovelOrmTests",
       "testes": 4
     },
@@ -718,6 +741,11 @@
       "projeto": "Tests.Integracao",
       "arquivo": "IsolamentoMultiTenantTests",
       "testes": 3
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "AluguelEDevolucaoHttpTests",
+      "testes": 41
     },
     {
       "projeto": "Tests.WebApi",
@@ -746,8 +774,43 @@
     },
     {
       "projeto": "Tests.WebApi",
+      "arquivo": "CatalogoComercialHttpTests",
+      "testes": 31
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "ClientesECondutoresHttpTests",
+      "testes": 25
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "DashboardEFuncionariosHttpTests",
+      "testes": 12
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "FrotaHttpTests",
+      "testes": 26
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "PainelPorPeriodoHttpTests",
+      "testes": 5
+    },
+    {
+      "projeto": "Tests.WebApi",
       "arquivo": "RecuperacaoDeSenhaPorSmtpTests",
       "testes": 1
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "ReflexaoDeSegurancaTests",
+      "testes": 12
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "SegredosDoSegundoFatorHttpTests",
+      "testes": 5
     },
     {
       "projeto": "Tests.WebApi",
@@ -757,7 +820,12 @@
     {
       "projeto": "Tests.WebApi",
       "arquivo": "SegurancaHttpTests",
-      "testes": 8
+      "testes": 9
+    },
+    {
+      "projeto": "Tests.WebApi",
+      "arquivo": "SessaoHttpTests",
+      "testes": 5
     },
     {
       "projeto": "Tests.WebApi",
@@ -765,5 +833,5 @@
       "testes": 3
     }
   ],
-  "tamanhoTotal": 15108
+  "tamanhoTotal": 15289
 }

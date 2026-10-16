@@ -128,12 +128,12 @@
         "versao": "^21.2.0"
       },
       {
-        "nome": "@spartan-ng/cli",
-        "versao": "^1.6.3"
-      },
-      {
         "nome": "@types/jasmine",
         "versao": "~5.1.0"
+      },
+      {
+        "nome": "axe-core",
+        "versao": "^4.14.0"
       },
       {
         "nome": "jasmine-core",

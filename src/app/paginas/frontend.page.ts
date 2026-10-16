@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgIcon } from '@ng-icons/core';
 import frontend from '../dados/frontend.json';
-import { inteiro } from '../core/formato';
+import metricas from '../dados/metricas.json';
+import { decimal, inteiro } from '../core/formato';
 import { GraficoComponent } from '../shared/charts/grafico.component';
 import { baseDoGrafico, eixoCategoria, eixoValor, type TemaGrafico } from '../shared/charts/tema-grafico';
 import { KpiCardComponent } from '../shared/layout/kpi-card.component';
@@ -102,7 +103,7 @@ const DESCRICAO_BLOCOS: Record<string, string> = {
           </ul>
         </div>
       </div>
-      <app-nota tom="aviso">O tamanho do pacote vem da medição do material do TCC (12/out/2026); a documentação não reconstruiu o front-end para remedir.</app-nota>
+      <app-nota tom="info">Tamanhos do build de produção medidos em 14/out/2026. O pacote inicial cabe no orçamento de 900 kB; a análise por tela está na página Acessibilidade e desempenho.</app-nota>
     </app-secao>
   `
 })
@@ -117,7 +118,7 @@ export class FrontendPage {
   protected readonly stack = [
     { icone: 'lucideMonitor', titulo: 'Angular 21', texto: 'Componentes standalone, signals, @if/@for/@switch e ChangeDetectionStrategy.OnPush em todos os componentes.' },
     { icone: 'lucideLayoutGrid', titulo: 'Spartan UI + Tailwind v4', texto: 'Código "helm" copiado para o projeto e customizado (' + frontend.uiGerada.arquivos + ' arquivos, ' + inteiro(frontend.uiGerada.loc) + ' linhas geradas); estilo só com tokens.' },
-    { icone: 'lucidePalette', titulo: 'Tokens Material 3', texto: 'O M3 é a fonte das cores, da tipografia, da forma e dos estados — não uma biblioteca de componentes. Roxo-base #6750A4, claro e escuro.' },
+    { icone: 'lucidePalette', titulo: 'Tokens Material 3', texto: 'O M3 é a fonte das cores, da tipografia, da forma e dos estados, mais que uma biblioteca de componentes. Roxo-base #6750A4, claro e escuro.' },
     { icone: 'lucideChartBar', titulo: 'ECharts e TanStack Table', texto: 'Gráficos com cores lidas dos tokens e a opção "Ver como tabela"; ngx-sonner para toasts e Lucide como único conjunto de ícones.' }
   ];
 
@@ -174,14 +175,14 @@ export class FrontendPage {
   ];
 
   protected readonly pacote: Linha[] = [
-    { item: 'Pacote inicial (depois da migração de UI)', bruto: '≈ 785 kB', transferido: '≈ 188 kB' },
-    { item: 'Pacote inicial (antes: Bootstrap + Material)', bruto: '≈ 1,7 MB', transferido: '—' },
-    { item: 'Chunk do gráfico (ECharts, sob demanda)', bruto: '≈ 580 kB', transferido: '—' },
-    { item: 'Orçamento do angular.json (aviso / erro)', bruto: '900 kB / 1,5 MB', transferido: '—' }
+    ...metricas.pacote!.map((p) => ({ item: p.parte, arquivos: p.arquivos, bruto: decimal(p.brutoKb, 1) + ' KiB', transferido: decimal(p.gzipKb, 1) + ' KiB' })),
+    { item: 'Antes da migração de UI (Bootstrap e Material)', arquivos: '—', bruto: '≈ 1,7 MB', transferido: '—' },
+    { item: 'Orçamento do angular.json (aviso / erro)', arquivos: '—', bruto: '900 kB / 1,5 MB', transferido: '—' }
   ];
   protected readonly colunasPacote: ColunaTabela[] = [
     { id: 'item', titulo: 'Item', larguraMin: '14rem' },
+    { id: 'arquivos', titulo: 'Arquivos', tipo: 'numero', secundaria: true },
     { id: 'bruto', titulo: 'Bruto', tipo: 'numero' },
-    { id: 'transferido', titulo: 'Transferido', tipo: 'numero' }
+    { id: 'transferido', titulo: 'Gzip', tipo: 'numero' }
   ];
 }

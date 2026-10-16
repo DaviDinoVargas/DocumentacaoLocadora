@@ -1,20 +1,20 @@
 {
   "total": {
-    "arquivos": 32,
-    "loc": 2434,
-    "testes": 136,
-    "locTestes": 1416
+    "arquivos": 31,
+    "loc": 2373,
+    "testes": 171,
+    "locTestes": 1767
   },
   "areas": [
     {
-      "area": "FaceAuth",
-      "arquivos": 10,
-      "loc": 782
-    },
-    {
       "area": "yolo_tesseract",
       "arquivos": 9,
-      "loc": 744
+      "loc": 748
+    },
+    {
+      "area": "FaceAuth",
+      "arquivos": 9,
+      "loc": 709
     },
     {
       "area": "shared",
@@ -34,13 +34,17 @@
     {
       "area": "(raiz)",
       "arquivos": 1,
-      "loc": 104
+      "loc": 112
     }
   ],
   "testes": [
     {
       "arquivo": "auth_endpoints",
       "testes": 22
+    },
+    {
+      "arquivo": "rotas_de_camera",
+      "testes": 21
     },
     {
       "arquivo": "prova_de_vida",
@@ -51,12 +55,12 @@
       "testes": 16
     },
     {
-      "arquivo": "isolamento_cameras",
+      "arquivo": "embedding_facial",
       "testes": 14
     },
     {
-      "arquivo": "embedding_facial",
-      "testes": 13
+      "arquivo": "isolamento_cameras",
+      "testes": 14
     },
     {
       "arquivo": "configuracao_seguranca",
@@ -73,6 +77,14 @@
     {
       "arquivo": "yolo_service_loop",
       "testes": 9
+    },
+    {
+      "arquivo": "cliente_da_web_api",
+      "testes": 7
+    },
+    {
+      "arquivo": "decodificacao_de_imagem",
+      "testes": 6
     },
     {
       "arquivo": "face_recognition",

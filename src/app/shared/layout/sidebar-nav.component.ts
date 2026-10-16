@@ -12,7 +12,7 @@ interface Grupo {
 
 /**
  * Lista de navegação (barra lateral do desktop e gaveta do mobile): um grupo por assunto, item ativo
- * destacado com a mesma "pílula" secundária do software documentado.
+ * destacado com a mesma "pílula" secundária do sistema.
  */
 @Component({
   selector: 'app-sidebar-nav',

@@ -121,7 +121,7 @@ export class ArquiteturaPage {
     { servico: 'Web API .NET', porta: '5079 / 7064', protocolo: 'HTTP / HTTPS', observacao: 'Swagger e migrations automáticas só em Development' },
     { servico: 'Serviço de ML', porta: '8000', protocolo: 'HTTP', observacao: 'Escuta em 127.0.0.1 por padrão (variável HOST); ML_ENV ausente conta como produção' },
     { servico: 'SQL Server', porta: '1433', protocolo: 'TDS', observacao: 'Contêiner em desenvolvimento; não deve ser exposto fora da máquina em produção' },
-    { servico: 'API da bateria de ataques', porta: '5180 / 5181', protocolo: 'HTTP', observacao: 'Instância de teste (limites padrão) e instância de carga (limite global alto)' },
+    { servico: 'API da bateria de ataques', porta: '5180 / 5181', protocolo: 'HTTP', observacao: 'Instância de teste (limites padrão), instância de carga (limite global alto) e, nas provas de concorrência, uma segunda instância sobre o mesmo banco' },
     { servico: 'ML da bateria de ataques', porta: '8001', protocolo: 'HTTP', observacao: 'Modo de produção, com CAMERA_EMPRESA_ID da empresa de teste' }
   ];
 
@@ -160,7 +160,7 @@ export class ArquiteturaPage {
     { titulo: 'O navegador envia o access token', texto: 'Authorization: Bearer com o JWT de 15 minutos, que vive só em memória, para /api/… via nginx.' },
     { titulo: 'A Web API valida a sessão', texto: 'Confere assinatura, emissor, audiência e validade, e compara a versão do token (AccessTokenVersionId) com a do usuário: logout, troca de senha e desligamento revogam na hora.' },
     { titulo: 'A autorização confere o papel', texto: '[Authorize(Roles = …)] aceita Empresa ou Funcionário conforme o endpoint; rotas anônimas são só as de entrada e de renovação.' },
-    { titulo: 'O handler executa a regra', texto: 'Comandos de aluguel e devolução são serializados por empresa; o DbContext aplica o filtro de empresa automaticamente.' },
+    { titulo: 'O handler executa a regra', texto: 'Comandos de aluguel e devolução esperam a vez da empresa (semáforo e trava no banco); o DbContext aplica o filtro de empresa automaticamente.' },
     { titulo: 'O erro volta padronizado', texto: 'Erros de negócio saem como lista de mensagens com 400, 404, 409, 422 ou 428; falhas inesperadas viram 500 genérico, sem pilha.' }
   ];
 }

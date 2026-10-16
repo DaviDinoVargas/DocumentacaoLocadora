@@ -7,7 +7,7 @@ const CHAVE = 'tema';
 
 /**
  * Tema claro/escuro (classe `.dark` no <html>, como o Spartan/Tailwind esperam) — o mesmo mecanismo
- * e a mesma chave de armazenamento do software documentado. Na primeira visita segue o sistema; o
+ * e a mesma chave de armazenamento do sistema. Na primeira visita segue o sistema; o
  * script do index.html aplica a classe antes da primeira pintura.
  */
 @Injectable({ providedIn: 'root' })

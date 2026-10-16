@@ -259,7 +259,7 @@
       "rota": "/api/auth/rotacionar",
       "acao": "Rotacionar",
       "papel": "Público",
-      "limite": "auth (10/min/IP)"
+      "limite": "SegurancaHttpConfig.PoliticaSessao"
     },
     {
       "controller": "Auth",
@@ -268,7 +268,7 @@
       "rota": "/api/auth/sair",
       "acao": "Sair",
       "papel": "Público",
-      "limite": "auth (10/min/IP)"
+      "limite": "SegurancaHttpConfig.PoliticaSessao"
     },
     {
       "controller": "Automovel",
@@ -946,14 +946,14 @@
       "grupo": "Reconhecimento facial",
       "metodo": "POST",
       "rota": "/face/landmarks",
-      "acesso": "Token interno (somente a Web API)",
+      "acesso": "JWT (via Web API)",
       "limite": ""
     },
     {
       "grupo": "Reconhecimento facial",
       "metodo": "POST",
       "rota": "/face/compare",
-      "acesso": "Token interno (somente a Web API)",
+      "acesso": "JWT (via Web API)",
       "limite": ""
     },
     {

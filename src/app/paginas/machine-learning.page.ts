@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgIcon } from '@ng-icons/core';
+import { COBERTURA_ML } from '../dados/cobertura';
 import endpoints from '../dados/endpoints.json';
+import metricas from '../dados/metricas.json';
 import ml from '../dados/ml.json';
 import seguranca from '../dados/seguranca.json';
 import { decimal, inteiro, percentual } from '../core/formato';
@@ -14,6 +16,7 @@ import { SecaoComponent } from '../shared/layout/secao.component';
 import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/tabela/tabela-dados.component';
 
 const lfw = seguranca.lfw!;
+const placa = metricas.placa!;
 
 @Component({
   selector: 'app-machine-learning',
@@ -25,7 +28,7 @@ const lfw = seguranca.lfw!;
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <app-kpi-card rotulo="Modelos pré-treinados" valor="5" apoio="YOLOv8n, SFace, MiniFASNet (2) e MediaPipe; nenhum treinamento" icone="lucideCpu" />
       <app-kpi-card rotulo="Endpoints" [valor]="endpoints.ml.length" apoio="câmeras, rosto, chat e saúde" icone="lucideRoute" />
-      <app-kpi-card rotulo="Testes (pytest)" [valor]="ml.total.testes" apoio="com câmera e captura falsas" icone="lucideFlaskConical" />
+      <app-kpi-card rotulo="Testes (pytest)" [valor]="ml.total.testes" [apoio]="'cobertura de linhas de ' + percentual(cobertura / 100, 1) + ' (câmera e captura falsas)'" icone="lucideFlaskConical" />
       <app-kpi-card rotulo="Acurácia facial" [valor]="percentual(lfw.acuracia)" [apoio]="'LFW, ' + inteiro(lfw.paresMedidos) + ' pares'" icone="lucideScanFace" />
     </div>
 
@@ -62,7 +65,7 @@ const lfw = seguranca.lfw!;
       <app-nota tom="aviso" titulo="Limitação observada">
         Em teste manual, a placa real <span class="code-inline">BRA2E19</span> foi lida como <span class="code-inline">BKA2E19</span> (confusão R↔K). Mitigação no front:
         a função <span class="code-inline">casarPlaca</span> aceita a diferença de um caractere em pares conhecidos (R/K/B/P, B/8, O/0/Q/D, I/1/L, S/5, Z/2) quando há uma única placa
-        candidata em aluguel aberto, e mostra "Leitura aproximada: a placa cadastrada é X". O tempo de leitura com a webcam real ainda não foi medido.
+        candidata em aluguel aberto, e mostra "Leitura aproximada: a placa cadastrada é X". O custo do OCR foi medido em placas sintéticas (mediana de {{ decimal(placa.p50, 0) }} ms e p95 de {{ decimal(placa.p95, 0) }} ms), mas o tempo de leitura com a webcam real ainda não.
       </app-nota>
     </app-secao>
 
@@ -101,6 +104,20 @@ const lfw = seguranca.lfw!;
       </div>
     </app-secao>
 
+    <app-secao titulo="Robustez do serviço" descricao="O ML recebe imagens e textos de fora, então a bateria o trata como entrada hostil." id="robustez">
+      <div class="grid gap-6 md:grid-cols-3">
+        @for (r of robustez; track r.titulo) {
+          <article class="border-border bg-card flex h-full flex-col gap-3 rounded-xl border p-6">
+            <span class="bg-primary-container text-on-primary-container flex size-11 items-center justify-center rounded-full">
+              <ng-icon [name]="r.icone" class="text-xl" aria-hidden="true" />
+            </span>
+            <h3 class="text-title-m text-foreground">{{ r.titulo }}</h3>
+            <p class="text-body-m text-muted-foreground">{{ r.texto }}</p>
+          </article>
+        }
+      </div>
+    </app-secao>
+
     <app-secao titulo="Modelos e como são verificados" id="modelos">
       <app-tabela-dados [colunas]="colunasModelos" [linhas]="modelos" legenda="modelos usados pelo serviço de ML" arquivo="modelos-ml" [tamanhoInicial]="10" />
     </app-secao>
@@ -135,6 +152,15 @@ export class MachineLearningPage {
   protected readonly lfw = lfw;
   protected readonly inteiro = inteiro;
   protected readonly percentual = percentual;
+  protected readonly decimal = decimal;
+  protected readonly placa = placa;
+  protected readonly cobertura = COBERTURA_ML.pct;
+
+  protected readonly robustez = [
+    { icone: 'lucideImage', titulo: 'Imagens e corpos hostis', texto: 'Arquivo corrompido, PNG pequeno que viraria 144 milhões de pixels e corpo de 30 MB são recusados com 4xx, sem 500 e sem inchar a memória; o ML segue de pé depois de cada um.' },
+    { icone: 'lucideKey', titulo: 'Texto adversário no chat', texto: 'Regex em loop, unicode, HTML, SQL e nulos não geram erro nem demoram mais de 3 s, e a resposta é sempre um texto fixo montado pelo servidor, nunca o HTML recebido.' },
+    { icone: 'lucideVideo', titulo: 'Câmeras e rede', texto: 'Índice de câmera e fps fora do esperado e ids inválidos dão 4xx; uma URL plantada em campo de texto do sistema não faz o servidor abrir conexão.' }
+  ] as const;
 
   protected readonly modulos = [
     { icone: 'lucideCamera', titulo: 'Câmeras e placas', pasta: 'yolo_tesseract/', texto: 'Webcam local do servidor (OpenCV), detecção de veículo com YOLOv8n, localizador de placa e OCR com Tesseract; vídeo entregue como MJPEG por ticket de uso único.' },

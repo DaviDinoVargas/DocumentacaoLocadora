@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import backend from '../dados/backend.json';
-import { COBERTURA_ANGULAR, COBERTURA_BLOCOS, COBERTURA_DOTNET, COBERTURA_ML, EXECUCOES_REGISTRADAS, META_COBERTURA } from '../dados/cobertura';
+import { COBERTURA_ML, EXECUCOES_REGISTRADAS, META_COBERTURA } from '../dados/cobertura';
 import frontend from '../dados/frontend.json';
+import metricas from '../dados/metricas.json';
 import ml from '../dados/ml.json';
 import { decimal, inteiro } from '../core/formato';
 import { GraficoComponent } from '../shared/charts/grafico.component';
@@ -13,6 +14,14 @@ import { PaginaCabecalhoComponent } from '../shared/layout/pagina-cabecalho.comp
 import { SecaoComponent } from '../shared/layout/secao.component';
 import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/tabela/tabela-dados.component';
 
+const cob = metricas.cobertura!;
+const mut = metricas.mutacao!;
+const e2e = metricas.e2e!;
+
+const totalCobertas = cob.dotnet!.cobertas + cob.angular!.cobertas + COBERTURA_ML.cobertas;
+const totalLinhas = cob.dotnet!.linhas + cob.angular!.linhas + COBERTURA_ML.linhas;
+const totalPct = (totalCobertas / totalLinhas) * 100;
+
 @Component({
   selector: 'app-testes',
   imports: [GraficoComponent, CodigoComponent, KpiCardComponent, NotaComponent, PaginaCabecalhoComponent, SecaoComponent, TabelaDadosComponent],
@@ -21,10 +30,10 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
     <app-pagina-cabecalho />
 
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <app-kpi-card rotulo="Testes declarados" [valor]="inteiro(total)" apoio="[TestMethod] + it() + def test_" icone="lucideFlaskConical" />
-      <app-kpi-card rotulo="Testes .NET" [valor]="backend.testes.unidade + backend.testes.integracao + backend.testes.webapi" [apoio]="backend.testes.casosParametrizados + ' linhas [DataRow] a mais na execução'" icone="lucideServer" />
+      <app-kpi-card rotulo="Testes declarados" [valor]="inteiro(total)" apoio="[TestMethod], it() e def test_" icone="lucideFlaskConical" />
+      <app-kpi-card rotulo="Cobertura de linhas" [valor]="decimal(totalPct) + ' %'" [apoio]="inteiro(totalCobertas) + ' de ' + inteiro(totalLinhas) + ' (.NET, Angular e ML)'" icone="lucideTarget" />
+      <app-kpi-card rotulo="Pontuação de mutação" [valor]="decimal(mut.pct) + ' %'" [apoio]="mut.mortos + ' de ' + mut.total + ' mutantes mortos nos handlers de negócio'" icone="lucideSwords" />
       <app-kpi-card rotulo="Specs Angular" [valor]="frontend.total.testes" [apoio]="frontend.total.specs + ' arquivos .spec.ts'" icone="lucideMonitor" />
-      <app-kpi-card rotulo="Testes do ML" [valor]="ml.total.testes" apoio="pytest, com câmera e captura falsas" icone="lucideScanLine" />
     </div>
 
     <app-secao titulo="Pirâmide de testes" descricao="Muitos testes rápidos na base, menos de integração no meio e poucos ponta a ponta no topo: cada camada responde a uma pergunta diferente." id="piramide">
@@ -36,14 +45,11 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
                 <p class="text-title-s text-foreground">{{ c.nome }}</p>
                 <p class="text-body-s text-muted-foreground">{{ c.pergunta }}</p>
               </div>
-              <span class="text-headline-s tabular" [class.text-muted-foreground]="c.qtd === 0">{{ inteiro(c.qtd) }}</span>
-              <span class="text-label-m rounded-full px-2.5 py-1" [class]="c.existe ? 'bg-success-container text-on-success-container' : 'bg-muted text-muted-foreground'">
-                {{ c.existe ? 'Existe' : 'Planejado' }}
-              </span>
+              <span class="text-headline-s tabular">{{ inteiro(c.qtd) }}</span>
             </li>
           }
         </ol>
-        <app-grafico titulo="Testes por camada" subtitulo="Quantidade declarada no código" [configurar]="graficoCamadas" [altura]="420" [tabela]="tabelaCamadas" resumo="Barras horizontais com os testes por camada: Angular, integração, unidade e Web API em .NET, serviço de ML, e zero em E2E e acessibilidade." />
+        <app-grafico titulo="Testes por camada" subtitulo="Quantidade declarada no código" [configurar]="graficoCamadas" [altura]="420" [tabela]="tabelaCamadas" resumo="Barras horizontais com os testes por camada: Angular, integração, unidade e Web API em .NET, serviço de ML, ponta a ponta e acessibilidade." />
       </div>
     </app-secao>
 
@@ -52,24 +58,31 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
       <app-tabela-dados [colunas]="colunasArquivos" [linhas]="arquivos" legenda="arquivos de teste do back-end" arquivo="testes-dotnet" [tamanhoInicial]="10" />
     </app-secao>
 
-    <app-secao titulo="Cobertura de código" descricao="Linhas ou statements executados pelos testes, por bloco e por pasta; a linha tracejada marca a meta de 75 %." id="cobertura">
+    <app-secao titulo="Cobertura de código" descricao="Linhas ou instruções executadas pelos testes, medidas em {{ cob.medidoEm.split('-').reverse().join('/') }}; a linha tracejada marca a meta de 80 %." id="cobertura">
       <div class="grid gap-6 lg:grid-cols-2">
-        <app-grafico titulo="Cobertura por bloco" subtitulo="Angular, ML, .NET e totais" [configurar]="graficoBlocos" [altura]="420" [tabela]="tabelaBlocos" resumo="Barras horizontais com a cobertura de Angular, serviço de ML, .NET e totais, com uma linha vertical na meta de 75 por cento." />
-        <app-grafico titulo="Cobertura do .NET por módulo" subtitulo="Domínio + Aplicação + Orm" [configurar]="graficoDotnet" [altura]="420" [tabela]="tabelaDotnet" resumo="Barras horizontais com a cobertura de linhas de cada módulo do back-end, do Dashboard com 94,7 por cento ao Funcionário com 7,9 por cento." />
-        <app-grafico titulo="Cobertura do Angular por pasta" subtitulo="Linhas" [configurar]="graficoAngular" [altura]="420" [tabela]="tabelaAngular" resumo="Barras horizontais com a cobertura de linhas de cada pasta do front-end." />
-        <app-grafico titulo="Cobertura do serviço de ML por pasta" subtitulo="O que falta depende de hardware ou modelo real" [configurar]="graficoMl" [altura]="420" [tabela]="tabelaMl" resumo="Barras horizontais com a cobertura de cada pasta do serviço de ML." />
+        <app-grafico titulo="Cobertura por bloco" subtitulo="Angular, ML, .NET e o total ponderado" [configurar]="graficoBlocos" [altura]="380" [tabela]="tabelaBlocos" resumo="Barras horizontais com a cobertura de Angular, serviço de ML, .NET e do total, todas acima da linha da meta de 80 por cento." />
+        <app-grafico titulo="Cobertura do .NET por projeto" subtitulo="Linhas de produção, sem migrations" [configurar]="graficoDotnet" [altura]="380" [tabela]="tabelaDotnet" resumo="Barras horizontais com a cobertura de linhas de cada projeto do back-end: Domínio, Infraestrutura, Web API e Aplicação, todas acima de 90 por cento." />
       </div>
-      <app-nota tom="aviso" titulo="Medição anterior à branch de segurança">
-        Esta cobertura foi medida antes da branch de segurança, que acrescentou o projeto Tests.WebApi (a Web API era 0 % na prática) e dezenas de testes. Os números de .NET e
-        ML de hoje tendem a ser maiores; não foram remedidos.
+      <app-nota tom="info" titulo="Como se mede">
+        .NET: coletor de cobertura do SDK nos três projetos de teste, mesclado por linha (o máximo de acertos de cada linha) e sem migrations. Angular: Karma com cobertura no Edge. ML: coverage.py com ramos. Os três números somam linhas e instruções, que não são a mesma unidade; o total é uma conta ponderada, não um número oficial de ferramenta.
       </app-nota>
     </app-secao>
 
-    <app-secao titulo="Execuções registradas" descricao="Contagem de testes executados (os [DataRow] expandem em vários casos) nos relatórios do projeto, em verde." id="execucoes">
+    <app-secao titulo="Mutação: os testes pegam erro?" descricao="O Stryker.NET altera o código dos handlers de negócio (troca um operador, apaga uma linha) e verifica se algum teste falha. Cobertura diz que a linha rodou; mutação diz que o teste notaria um defeito nela." id="mutacao">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <app-grafico titulo="Destino dos mutantes" subtitulo="Handlers de Core.Aplicacao, exceto autenticação e auditoria" [configurar]="graficoMutantes" [altura]="380" [tabela]="tabelaMutantes" resumo="Rosca com os mutantes mortos pelos testes, os que sobreviveram e os que não são alcançados por nenhum teste." />
+        <app-grafico titulo="Arquivos com menor pontuação" subtitulo="Mutantes mortos em cada arquivo, em %" [configurar]="graficoArquivosMutacao" [altura]="380" [tabela]="tabelaArquivosMutacao" resumo="Barras horizontais com a pontuação de mutação dos quinze arquivos com menor resultado." />
+      </div>
+      <app-nota tom="info" titulo="O que sobrou de propósito">
+        Linhas de log e de catch, edição sob rastreamento do EF (mutante equivalente), a fronteira de "agora" no painel e da validade do cupom (dependem do milissegundo) e a revogação do refresh token ao trocar a senha, que a sessão já derruba pelo carimbo de segurança.
+      </app-nota>
+    </app-secao>
+
+    <app-secao titulo="Execuções registradas" descricao="Contagem de testes executados, todos em verde, em marcos do projeto." id="execucoes">
       <app-tabela-dados [colunas]="colunasExecucoes" [linhas]="execucoes" legenda="execuções registradas dos testes" arquivo="execucoes-de-testes" [tamanhoInicial]="10" />
     </app-secao>
 
-    <app-secao titulo="Lacunas conhecidas" id="lacunas">
+    <app-secao titulo="O que ainda não está coberto" id="lacunas">
       <ul class="grid gap-6 md:grid-cols-2">
         @for (l of lacunas; track l.titulo) {
           <li class="border-border bg-card flex h-full flex-col gap-2 rounded-xl border p-6">
@@ -78,9 +91,6 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
           </li>
         }
       </ul>
-      <app-nota tom="info" titulo="Pastas de componentes sem nenhum spec">
-        Dos {{ frontend.total.componentes }} componentes, {{ semSpec.componentes }} estão em pastas sem nenhum arquivo de teste: {{ semSpec.pastas }}.
-      </app-nota>
     </app-secao>
 
     <app-secao titulo="Como executar" id="executar">
@@ -90,8 +100,7 @@ import { TabelaDadosComponent, type ColunaTabela, type Linha } from '../shared/t
         <app-codigo rotulo="Angular" [texto]="cmdAngular" />
       </div>
       <app-nota tom="aviso" titulo="Atenção ao disco">
-        No ambiente do autor o Karma roda com o Edge (não há Chrome) e cada execução deixa de 200 a 400 MB de perfil em %TEMP%: use outro disco e apague depois. Detalhes no
-        HANDOFF_PROMPT.md do software.
+        Cada execução do Karma deixa de 200 a 400 MB de perfil do navegador em %TEMP%: use outro disco e apague depois.
       </app-nota>
     </app-secao>
   `
@@ -100,17 +109,23 @@ export class TestesPage {
   protected readonly backend = backend;
   protected readonly frontend = frontend;
   protected readonly ml = ml;
+  protected readonly cob = cob;
+  protected readonly mut = mut;
   protected readonly inteiro = inteiro;
+  protected readonly decimal = decimal;
+  protected readonly totalCobertas = totalCobertas;
+  protected readonly totalLinhas = totalLinhas;
+  protected readonly totalPct = totalPct;
 
   protected readonly total = backend.testes.unidade + backend.testes.integracao + backend.testes.webapi + frontend.total.testes + ml.total.testes;
 
   protected readonly camadas = [
-    { nome: 'E2E (Playwright)', pergunta: 'O fluxo completo funciona no navegador real, com a pilha real?', qtd: 0, existe: false },
-    { nome: 'Acessibilidade e desempenho (axe, Lighthouse)', pergunta: 'A tela atende a requisitos não funcionais medidos?', qtd: 0, existe: false },
-    { nome: 'Web API por HTTP (.NET)', pergunta: 'As rotas, os papéis e os erros se comportam como o contrato?', qtd: backend.testes.webapi, existe: true },
-    { nome: 'Componente (Angular)', pergunta: 'A tela reage certo às entradas e às respostas simuladas da API?', qtd: frontend.total.testes, existe: true },
-    { nome: 'Integração (.NET)', pergunta: 'As peças funcionam juntas, inclusive com o banco e o filtro por empresa?', qtd: backend.testes.integracao, existe: true },
-    { nome: 'Unidade (.NET) e ML (pytest)', pergunta: 'A regra isolada está correta?', qtd: backend.testes.unidade + ml.total.testes, existe: true }
+    { nome: 'Ponta a ponta (Playwright)', pergunta: 'O fluxo completo funciona no navegador real, com a pilha real?', qtd: e2e.aprovados },
+    { nome: 'Acessibilidade e desempenho', pergunta: 'A tela atende ao axe-core e ao Lighthouse? (auditorias de página inteira e medições)', qtd: e2e.acessibilidade.length + (metricas.lighthouse?.telas.length ?? 0) },
+    { nome: 'Web API por HTTP (.NET)', pergunta: 'As rotas, os papéis e os erros se comportam como o contrato?', qtd: backend.testes.webapi },
+    { nome: 'Componente (Angular)', pergunta: 'A tela reage certo às entradas e às respostas simuladas da API?', qtd: frontend.total.testes },
+    { nome: 'Integração (.NET)', pergunta: 'As peças funcionam juntas, inclusive com o banco e o filtro por empresa?', qtd: backend.testes.integracao },
+    { nome: 'Unidade (.NET) e ML (pytest)', pergunta: 'A regra isolada está correta?', qtd: backend.testes.unidade + ml.total.testes }
   ];
 
   protected readonly tabelaCamadas = { colunas: ['Camada', 'Testes'], linhas: this.camadas.map((c) => [c.nome, c.qtd]) };
@@ -149,31 +164,56 @@ export class TestesPage {
     { id: 'testes', titulo: 'Testes', tipo: 'numero' }
   ];
 
-  private barras(dados: readonly { nome?: string; bloco?: string; percentual: number }[], t: TemaGrafico, altura: number, marca = true) {
-    const nomes = dados.map((d) => d.nome ?? d.bloco ?? '');
+  private readonly blocos = [
+    { nome: 'Angular', pct: cob.angular!.pct, detalhe: `${inteiro(cob.angular!.cobertas)} de ${inteiro(cob.angular!.linhas)} linhas` },
+    { nome: 'Serviço de ML', pct: COBERTURA_ML.pct, detalhe: `${inteiro(COBERTURA_ML.cobertas)} de ${inteiro(COBERTURA_ML.linhas)} instruções (${COBERTURA_ML.comRamos} % com ramos)` },
+    { nome: '.NET', pct: cob.dotnet!.pct, detalhe: `${inteiro(cob.dotnet!.cobertas)} de ${inteiro(cob.dotnet!.linhas)} linhas` },
+    { nome: 'Total ponderado', pct: Number(totalPct.toFixed(1)), detalhe: `${inteiro(totalCobertas)} de ${inteiro(totalLinhas)}` }
+  ];
+  protected readonly tabelaBlocos = { colunas: ['Bloco', 'Cobertura', 'Detalhe'], linhas: this.blocos.map((b) => [b.nome, decimal(b.pct) + ' %', b.detalhe]) };
+
+  private barras(nomes: string[], valores: number[], t: TemaGrafico, comMeta: boolean) {
     return {
       ...baseDoGrafico(t),
-      grid: { left: 8, right: 48, top: 8, bottom: 8, containLabel: true },
-      tooltip: { ...baseDoGrafico(t).tooltip, trigger: 'axis', axisPointer: { type: 'shadow' }, valueFormatter: (v: number) => decimal(v, 1) + ' %' },
+      grid: { left: 8, right: 56, top: 8, bottom: 8, containLabel: true },
+      tooltip: { ...baseDoGrafico(t).tooltip, trigger: 'axis', axisPointer: { type: 'shadow' }, valueFormatter: (v: number) => decimal(v) + ' %' },
       xAxis: eixoValor(t, { max: 100, splitNumber: 4, axisLabel: { color: t.textoSecundario, fontFamily: t.fonte, formatter: '{value}%' } }),
       yAxis: eixoCategoria(t, nomes, { inverse: true, axisLabel: { color: t.textoSecundario, fontFamily: t.fonte, fontSize: 11, width: 150, overflow: 'truncate' } }),
       series: [{
-        type: 'bar', barWidth: nomes.length > 12 ? 12 : 20,
-        data: dados.map((d) => ({ value: d.percentual, itemStyle: { color: d.percentual >= META_COBERTURA ? t.sucesso : d.percentual >= 50 ? t.series[0] : d.percentual >= 30 ? t.aviso : t.erro, borderRadius: [0, 6, 6, 0] } })),
-        label: { show: true, position: 'right', color: t.texto, fontFamily: t.fonte, fontSize: 11, formatter: (p: { value: number }) => decimal(p.value, 1).replace(',0', '') + ' %' },
-        markLine: marca ? { symbol: 'none', silent: true, lineStyle: { color: t.textoSecundario, type: 'dashed' }, label: { color: t.textoSecundario, formatter: 'meta ' + META_COBERTURA + ' %', position: 'insideEndTop' }, data: [{ xAxis: META_COBERTURA }] } : undefined
+        type: 'bar', barWidth: nomes.length > 8 ? 12 : 22,
+        data: valores.map((v) => ({ value: v, itemStyle: { color: v >= META_COBERTURA ? t.sucesso : v >= 50 ? t.series[0] : v >= 30 ? t.aviso : t.erro, borderRadius: [0, 6, 6, 0] } })),
+        label: { show: true, position: 'right', color: t.texto, fontFamily: t.fonte, fontSize: 11, formatter: (p: { value: number }) => decimal(p.value) + ' %' },
+        markLine: comMeta ? { symbol: 'none', silent: true, lineStyle: { color: t.textoSecundario, type: 'dashed' }, label: { color: t.textoSecundario, formatter: 'meta ' + META_COBERTURA + ' %', position: 'insideEndTop' }, data: [{ xAxis: META_COBERTURA }] } : undefined
       }]
     };
   }
 
-  protected readonly tabelaBlocos = { colunas: ['Bloco', 'Cobertura', 'Detalhe'], linhas: COBERTURA_BLOCOS.map((b) => [b.bloco, decimal(b.percentual, 1) + ' %', b.detalhe]) };
-  protected readonly graficoBlocos = (t: TemaGrafico) => this.barras(COBERTURA_BLOCOS, t, 340);
-  protected readonly tabelaDotnet = { colunas: ['Módulo', 'Cobertura'], linhas: COBERTURA_DOTNET.map((b) => [b.nome, decimal(b.percentual, 1) + ' %']) };
-  protected readonly graficoDotnet = (t: TemaGrafico) => this.barras(COBERTURA_DOTNET, t, 340);
-  protected readonly tabelaAngular = { colunas: ['Pasta', 'Cobertura'], linhas: COBERTURA_ANGULAR.map((b) => [b.nome, decimal(b.percentual, 0) + ' %']) };
-  protected readonly graficoAngular = (t: TemaGrafico) => this.barras(COBERTURA_ANGULAR, t, 560);
-  protected readonly tabelaMl = { colunas: ['Pasta', 'Cobertura'], linhas: COBERTURA_ML.map((b) => [b.nome, decimal(b.percentual, 1) + ' %']) };
-  protected readonly graficoMl = (t: TemaGrafico) => this.barras(COBERTURA_ML, t, 220);
+  protected readonly graficoBlocos = (t: TemaGrafico) => this.barras(this.blocos.map((b) => b.nome), this.blocos.map((b) => b.pct), t, true);
+
+  protected readonly tabelaDotnet = { colunas: ['Projeto', 'Linhas', 'Cobertas', 'Cobertura'], linhas: cob.dotnet!.assemblies.map((a) => [a.nome, inteiro(a.linhas), inteiro(a.cobertas), decimal(a.pct) + ' %']) };
+  protected readonly graficoDotnet = (t: TemaGrafico) => this.barras(cob.dotnet!.assemblies.map((a) => a.nome), cob.dotnet!.assemblies.map((a) => a.pct), t, true);
+
+  private readonly mutantes = [
+    { name: 'Mortos pelos testes', value: mut.mortos },
+    { name: 'Sobreviveram', value: mut.sobreviveram },
+    { name: 'Sem teste que os alcance', value: mut.semCobertura }
+  ];
+  protected readonly tabelaMutantes = { colunas: ['Destino', 'Mutantes'], linhas: this.mutantes.map((m) => [m.name, m.value]) };
+  protected readonly graficoMutantes = (t: TemaGrafico) => ({
+    ...baseDoGrafico(t),
+    tooltip: { ...baseDoGrafico(t).tooltip, trigger: 'item' },
+    legend: { ...baseDoGrafico(t).legend, bottom: 0 },
+    series: [{
+      type: 'pie', radius: ['46%', '70%'], center: ['50%', '42%'],
+      itemStyle: { borderColor: t.fundoDica, borderWidth: 2, borderRadius: 6 },
+      label: { color: t.texto, fontFamily: t.fonte, formatter: '{c}' },
+      data: this.mutantes.map((m, i) => ({ ...m, itemStyle: { color: [t.sucesso, t.erro, t.aviso][i] } }))
+    }]
+  });
+
+  private readonly piores = mut.arquivos.slice(0, 15);
+  protected readonly tabelaArquivosMutacao = { colunas: ['Arquivo', 'Mortos', 'Total', 'Pontuação'], linhas: this.piores.map((a) => [a.arquivo, a.mortos, a.total, a.pct + ' %']) };
+  protected readonly graficoArquivosMutacao = (t: TemaGrafico) => this.barras(this.piores.map((a) => a.arquivo.replace('CommandHandler', '').replace('QueryHandler', '').replace('.cs', '')), this.piores.map((a) => a.pct), t, false);
 
   protected readonly execucoes: Linha[] = EXECUCOES_REGISTRADAS.map((e) => ({ quando: e.quando, unidade: e.unidade, integracao: e.integracao, webapi: e.webapi, angular: e.angular, ml: e.ml, total: e.unidade + e.integracao + e.webapi + e.angular + e.ml }));
   protected readonly colunasExecucoes: ColunaTabela[] = [
@@ -187,16 +227,11 @@ export class TestesPage {
   ];
 
   protected readonly lacunas = [
-    { titulo: 'Sem E2E, sem axe e sem Lighthouse', texto: 'Nenhum teste ponta a ponta nem medição automática de acessibilidade ou de Web Vitals existe no repositório; estão planejados (Playwright, axe-core nos specs, Lighthouse CI).' },
-    { titulo: 'Notificações falsas nos specs', texto: 'Os specs usam um serviço de notificação falso; por isso nunca detectaram o defeito em que nenhum toast aparecia (o sonner errado era importado). Falta um teste que renderize o HlmToaster.' },
-    { titulo: 'Hardware real', texto: 'Webcam (monitoramento, verificação e login facial), prova de vida em campo e o desempenho do YOLO ao vivo nunca foram medidos.' },
-    { titulo: 'Fluxos de escrita no navegador', texto: 'Os fluxos de escrita ponta a ponta no navegador, a imagem do ML em contêiner e o CI nunca foram exercitados (Docker e CI fora de escopo).' }
+    { titulo: 'Hardware real', texto: 'Webcam em uso (monitoramento, verificação e login facial), prova de vida em campo e o desempenho do YOLO ao vivo ainda não foram medidos.' },
+    { titulo: 'Usabilidade com pessoas', texto: 'O protocolo (SUS, tarefas cronometradas e heurísticas de Nielsen) está pronto, mas a coleta com participantes não aconteceu; os tempos de tarefa são o piso automatizado.' },
+    { titulo: 'Poucos fluxos ponta a ponta', texto: 'O Playwright cobre três fluxos críticos e duas auditorias. Os demais fluxos de escrita são cobertos por testes de API e de componente, não pelo navegador.' },
+    { titulo: 'Mutantes que sobraram', texto: `${mut.sobreviveram} mutantes sobreviveram e ${mut.semCobertura} não têm teste que os alcance; os aceitos de propósito estão descritos na seção de mutação.` }
   ];
-
-  protected readonly semSpec = (() => {
-    const pastas = frontend.areas.filter((a) => a.componentes > 0 && a.specs === 0);
-    return { componentes: pastas.reduce((a, p) => a + p.componentes, 0), pastas: pastas.map((p) => p.area).join(', ') };
-  })();
 
   protected readonly cmdDotnet = 'cd Server\ndotnet test';
   protected readonly cmdMl = 'cd MachineLeaning\npy -m pytest -q';

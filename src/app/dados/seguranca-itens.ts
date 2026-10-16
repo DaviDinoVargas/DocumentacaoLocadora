@@ -1,6 +1,6 @@
 /**
- * Os 35 achados do relatório de segurança (S1–S35), com a situação em 13/out/2026 (branch dv-017-seguranca).
- * Curados à mão a partir de RELATORIO_SEGURANCA.md e do painel de status do HANDOFF; as contagens que
+ * Os 35 achados do relatório de segurança (S1–S35), com a situação em 14/out/2026.
+ * Classificados à mão a partir dos relatórios de segurança do projeto; as contagens que
  * as páginas exibem (corrigidos, parciais, ignorados) são derivadas desta lista, não digitadas.
  *
  * `ataques` lista as verificações da bateria Testes-Seguranca/ que reverificam o item a cada rodada.
@@ -54,7 +54,7 @@ export const ITENS_SEGURANCA: readonly ItemSeguranca[] = [
   { id: 'S31', titulo: 'Foto do veículo com esquema perigoso', estado: 'Corrigido', prioridade: 'Não urgente', area: 'Regras de negócio', ataques: 'C11–C12', resumo: 'Só https ou imagem pequena (≤ 300 KB); javascript:, file:, http: e data:text/html são recusados.' },
   { id: 'S32', titulo: 'Funcionário alterava taxas de serviço', estado: 'Corrigido', prioridade: 'Não urgente', area: 'Regras de negócio', ataques: 'B04a–B04c', resumo: 'Só a Empresa cria, edita e exclui taxas; o Funcionário continua lendo para montar o aluguel.' },
   { id: 'S33', titulo: 'Comparador de identidade facial fraco', estado: 'Corrigido', prioridade: 'Novo', area: 'Biometria', ataques: 'D18', resumo: 'A geometria de landmarks recusava a pessoa certa em 94 % dos pares do LFW; trocada pelo SFace: acurácia 98,3 %, FAR 0,067 %, FRR 3,1 %.' },
-  { id: 'S34', titulo: 'Corridas e integridade de negócio', estado: 'Corrigido', prioridade: 'Novo', area: 'Regras de negócio', ataques: 'H01–H06', resumo: 'Reserva dupla, cupom de uso único e iniciar o aluguel várias vezes ao mesmo tempo; cliente de outra empresa, período de 50 anos e taxa inexistente. Serialização por empresa (vale para uma instância da API).' },
+  { id: 'S34', titulo: 'Corridas e integridade de negócio', estado: 'Corrigido', prioridade: 'Novo', area: 'Regras de negócio', ataques: 'H01–H06', resumo: 'Reserva dupla, cupom de uso único e iniciar o aluguel várias vezes ao mesmo tempo; cliente de outra empresa, período de 50 anos e taxa inexistente. Fila por empresa e trava no banco, que vale também com mais de uma instância da API, e índices únicos como última barreira.' },
   { id: 'S35', titulo: 'Entrada hostil', estado: 'Corrigido', prioridade: 'Novo', area: 'Dados e logs', ataques: 'G04, G06, G09, G11, G14', resumo: 'Senha de 180 mil caracteres (agora teto de 128), replay do código TOTP e e-mail com quebra de linha forjando entrada de log.' }
 ];
 

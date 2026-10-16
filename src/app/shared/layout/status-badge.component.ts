@@ -11,7 +11,7 @@ const ESTILO: Record<TomStatus, { classes: string; icone: string }> = {
   neutral: { classes: 'bg-muted text-muted-foreground', icone: 'lucideClock' }
 };
 
-/** Status SEMPRE com ícone + texto (nunca só cor) — o mesmo selo do software documentado. */
+/** Status SEMPRE com ícone + texto (nunca só cor) — o mesmo selo do sistema. */
 @Component({
   selector: 'app-status-badge',
   imports: [NgIcon],

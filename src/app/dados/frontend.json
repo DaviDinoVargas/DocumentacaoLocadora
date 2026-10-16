@@ -1,84 +1,100 @@
 {
   "total": {
-    "arquivos": 207,
-    "loc": 10829,
-    "specs": 52,
-    "locSpecs": 4235,
-    "testes": 386,
+    "arquivos": 225,
+    "loc": 11230,
+    "specs": 66,
+    "locSpecs": 5966,
+    "testes": 518,
     "componentes": 57
   },
   "areas": [
     {
       "area": "auth",
-      "arquivos": 17,
-      "loc": 1047,
+      "arquivos": 19,
+      "loc": 1048,
       "componentes": 5,
-      "specs": 5,
-      "testes": 57
+      "specs": 7,
+      "testes": 77
     },
     {
       "area": "shared/data-table",
-      "arquivos": 8,
-      "loc": 947,
+      "arquivos": 9,
+      "loc": 956,
       "componentes": 1,
-      "specs": 3,
-      "testes": 27
+      "specs": 4,
+      "testes": 46
     },
     {
       "area": "Components/alugueis",
       "arquivos": 8,
-      "loc": 928,
+      "loc": 930,
       "componentes": 2,
       "specs": 2,
-      "testes": 42
+      "testes": 44
     },
     {
       "area": "Components/monitoramento",
       "arquivos": 8,
-      "loc": 805,
+      "loc": 806,
       "componentes": 1,
       "specs": 3,
-      "testes": 44
+      "testes": 45
     },
     {
       "area": "shared/layout",
-      "arquivos": 8,
-      "loc": 648,
+      "arquivos": 10,
+      "loc": 682,
       "componentes": 8,
-      "specs": 0,
-      "testes": 0
+      "specs": 2,
+      "testes": 13
     },
     {
       "area": "Components/clientes",
-      "arquivos": 10,
+      "arquivos": 11,
       "loc": 546,
       "componentes": 3,
-      "specs": 2,
-      "testes": 11
+      "specs": 3,
+      "testes": 25
     },
     {
       "area": "Components/devolucoes",
       "arquivos": 9,
-      "loc": 526,
+      "loc": 529,
       "componentes": 3,
       "specs": 1,
-      "testes": 11
+      "testes": 12
+    },
+    {
+      "area": "core",
+      "arquivos": 25,
+      "loc": 473,
+      "componentes": 1,
+      "specs": 11,
+      "testes": 46
     },
     {
       "area": "Components/home",
       "arquivos": 5,
-      "loc": 464,
+      "loc": 472,
       "componentes": 1,
       "specs": 1,
-      "testes": 10
+      "testes": 12
     },
     {
-      "area": "core",
-      "arquivos": 22,
-      "loc": 412,
-      "componentes": 1,
-      "specs": 9,
-      "testes": 37
+      "area": "shared/form-fields",
+      "arquivos": 13,
+      "loc": 406,
+      "componentes": 6,
+      "specs": 5,
+      "testes": 24
+    },
+    {
+      "area": "Components/pdf",
+      "arquivos": 3,
+      "loc": 399,
+      "componentes": 0,
+      "specs": 1,
+      "testes": 14
     },
     {
       "area": "Components/conta",
@@ -86,23 +102,15 @@
       "loc": 353,
       "componentes": 1,
       "specs": 1,
-      "testes": 11
+      "testes": 12
     },
     {
       "area": "Components/veiculos",
       "arquivos": 8,
-      "loc": 344,
+      "loc": 340,
       "componentes": 2,
       "specs": 2,
-      "testes": 10
-    },
-    {
-      "area": "shared/form-fields",
-      "arquivos": 9,
-      "loc": 336,
-      "componentes": 6,
-      "specs": 2,
-      "testes": 11
+      "testes": 12
     },
     {
       "area": "Components/verificacao-facial",
@@ -110,7 +118,7 @@
       "loc": 320,
       "componentes": 1,
       "specs": 1,
-      "testes": 9
+      "testes": 10
     },
     {
       "area": "Components/funcionarios",
@@ -118,15 +126,15 @@
       "loc": 314,
       "componentes": 2,
       "specs": 1,
-      "testes": 6
+      "testes": 7
     },
     {
       "area": "Components/cupons",
       "arquivos": 8,
-      "loc": 292,
+      "loc": 297,
       "componentes": 2,
       "specs": 2,
-      "testes": 9
+      "testes": 10
     },
     {
       "area": "Components/condutor",
@@ -134,7 +142,7 @@
       "loc": 277,
       "componentes": 2,
       "specs": 1,
-      "testes": 7
+      "testes": 8
     },
     {
       "area": "Components/desafios-cupom",
@@ -142,7 +150,7 @@
       "loc": 246,
       "componentes": 2,
       "specs": 1,
-      "testes": 6
+      "testes": 7
     },
     {
       "area": "Components/taxa-servico",
@@ -150,7 +158,7 @@
       "loc": 231,
       "componentes": 2,
       "specs": 2,
-      "testes": 10
+      "testes": 12
     },
     {
       "area": "Components/parceiros",
@@ -158,7 +166,7 @@
       "loc": 227,
       "componentes": 2,
       "specs": 2,
-      "testes": 7
+      "testes": 8
     },
     {
       "area": "Components/planocobranca",
@@ -166,15 +174,7 @@
       "loc": 227,
       "componentes": 2,
       "specs": 1,
-      "testes": 6
-    },
-    {
-      "area": "Components/pdf",
-      "arquivos": 2,
-      "loc": 197,
-      "componentes": 0,
-      "specs": 1,
-      "testes": 6
+      "testes": 7
     },
     {
       "area": "Components/grupoveiculos",
@@ -182,15 +182,15 @@
       "loc": 173,
       "componentes": 2,
       "specs": 1,
-      "testes": 5
+      "testes": 6
     },
     {
       "area": "(app)",
-      "arquivos": 5,
+      "arquivos": 6,
       "loc": 163,
       "componentes": 1,
-      "specs": 2,
-      "testes": 6
+      "specs": 3,
+      "testes": 15
     },
     {
       "area": "Components/configuracoes",
@@ -198,15 +198,15 @@
       "loc": 156,
       "componentes": 1,
       "specs": 1,
-      "testes": 5
+      "testes": 6
     },
     {
       "area": "shared/charts",
-      "arquivos": 3,
+      "arquivos": 4,
       "loc": 149,
       "componentes": 2,
-      "specs": 0,
-      "testes": 0
+      "specs": 1,
+      "testes": 4
     },
     {
       "area": "Components/chatbot",
@@ -222,7 +222,7 @@
       "loc": 124,
       "componentes": 1,
       "specs": 1,
-      "testes": 4
+      "testes": 5
     },
     {
       "area": "shared/(raiz)",
@@ -234,11 +234,11 @@
     },
     {
       "area": "shared/mascaras",
-      "arquivos": 2,
-      "loc": 73,
+      "arquivos": 4,
+      "loc": 82,
       "componentes": 0,
-      "specs": 1,
-      "testes": 9
+      "specs": 2,
+      "testes": 11
     },
     {
       "area": "shared/validators",
@@ -615,7 +615,7 @@
     {
       "seletor": "app-data-table",
       "arquivo": "shared/data-table/data-table.component.ts",
-      "loc": 399
+      "loc": 407
     },
     {
       "seletor": "app-form-actions",
@@ -650,7 +650,7 @@
     {
       "seletor": "app-shell",
       "arquivo": "shared/layout/app-shell.component.ts",
-      "loc": 252
+      "loc": 253
     },
     {
       "seletor": "app-command-palette",
@@ -680,7 +680,7 @@
     {
       "seletor": "app-sidebar-nav",
       "arquivo": "shared/layout/sidebar-nav.component.ts",
-      "loc": 151
+      "loc": 184
     },
     {
       "seletor": "app-status-badge",
@@ -690,6 +690,6 @@
   ],
   "uiGerada": {
     "arquivos": 188,
-    "loc": 4858
+    "loc": 4863
   }
 }

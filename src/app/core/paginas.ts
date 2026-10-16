@@ -20,7 +20,7 @@ export interface PaginaDoc {
 export const PAGINAS: readonly PaginaDoc[] = [
   {
     caminho: '', titulo: 'Visão geral', rotulo: 'Visão geral', grupo: 'Começar', icone: 'lucideLayoutDashboard',
-    resumo: 'O que é o sistema, quanto ele tem de código, módulos, testes e segurança — em números reais.',
+    resumo: 'O que é o sistema, os fluxos principais e quanto ele tem de código, módulos, testes e segurança.',
     carregar: () => import('../paginas/visao-geral.page').then((m) => m.VisaoGeralPage)
   },
   {
@@ -37,6 +37,11 @@ export const PAGINAS: readonly PaginaDoc[] = [
     caminho: 'backend', titulo: 'Back-end .NET', rotulo: 'Back-end .NET', grupo: 'Sistema', icone: 'lucideServer',
     resumo: 'Camadas, CQRS com MediatR, isolamento por empresa, identidade e persistência.',
     carregar: () => import('../paginas/backend.page').then((m) => m.BackendPage)
+  },
+  {
+    caminho: 'concorrencia', titulo: 'Concorrência e integridade', rotulo: 'Concorrência', grupo: 'Sistema', icone: 'lucideWorkflow',
+    resumo: 'Fila por empresa, trava no banco, índices únicos e a prova com pedidos simultâneos e duas instâncias da API.',
+    carregar: () => import('../paginas/concorrencia.page').then((m) => m.ConcorrenciaPage)
   },
   {
     caminho: 'api', titulo: 'Referência da API', rotulo: 'Referência da API', grupo: 'Sistema', icone: 'lucideRoute',
@@ -65,17 +70,27 @@ export const PAGINAS: readonly PaginaDoc[] = [
   },
   {
     caminho: 'ataques', titulo: 'Bateria de ataques', rotulo: 'Bateria de ataques', grupo: 'Segurança', icone: 'lucideShieldAlert',
-    resumo: '157 verificações automatizadas por categoria, evolução entre rodadas e carga.',
+    resumo: 'Verificações automatizadas por categoria, o OWASP ZAP, a evolução entre rodadas e a carga.',
     carregar: () => import('../paginas/ataques.page').then((m) => m.AtaquesPage)
   },
   {
     caminho: 'testes', titulo: 'Testes e qualidade', rotulo: 'Testes e qualidade', grupo: 'Qualidade', icone: 'lucideFlaskConical',
-    resumo: 'Pirâmide de testes por camada, onde estão os testes e as lacunas conhecidas.',
+    resumo: 'Pirâmide de testes por camada, cobertura, mutação e as lacunas conhecidas.',
     carregar: () => import('../paginas/testes.page').then((m) => m.TestesPage)
   },
   {
+    caminho: 'reflexao', titulo: 'Reflexão em C#', rotulo: 'Reflexão em C#', grupo: 'Qualidade', icone: 'lucideSwords',
+    resumo: 'Testes com System.Reflection que varrem os 99 endpoints e os comandos de aluguel e devolução.',
+    carregar: () => import('../paginas/reflexao.page').then((m) => m.ReflexaoPage)
+  },
+  {
+    caminho: 'acessibilidade', titulo: 'Acessibilidade e desempenho', rotulo: 'Acessibilidade', grupo: 'Qualidade', icone: 'lucideEye',
+    resumo: 'Lighthouse, axe-core e Playwright por tela, tamanho do pacote e o que as medições fizeram corrigir.',
+    carregar: () => import('../paginas/acessibilidade.page').then((m) => m.AcessibilidadePage)
+  },
+  {
     caminho: 'metricas', titulo: 'Métricas e desempenho', rotulo: 'Métricas', grupo: 'Qualidade', icone: 'lucideGauge',
-    resumo: 'Latência da API, pacote do front-end, reconhecimento facial no LFW e plano de medição.',
+    resumo: 'Quadro-resumo medido, latência da API, reconhecimento facial no LFW e o que falta medir.',
     carregar: () => import('../paginas/metricas.page').then((m) => m.MetricasPage)
   },
   {
@@ -89,9 +104,9 @@ export const PAGINAS: readonly PaginaDoc[] = [
     carregar: () => import('../paginas/configuracao.page').then((m) => m.ConfiguracaoPage)
   },
   {
-    caminho: 'observacoes', titulo: 'Observações', rotulo: 'Observações', grupo: 'Fechamento', icone: 'lucideTriangleAlert',
-    resumo: 'Onde o material do TCC e o código divergem — e a decisão tomada em cada caso.',
-    carregar: () => import('../paginas/observacoes.page').then((m) => m.ObservacoesPage)
+    caminho: 'decisoes', titulo: 'Decisões e limites', rotulo: 'Decisões', grupo: 'Fechamento', icone: 'lucideScale',
+    resumo: 'As escolhas de projeto, o motivo de cada uma e os limites que elas deixam.',
+    carregar: () => import('../paginas/decisoes.page').then((m) => m.DecisoesPage)
   },
   {
     caminho: 'encerramento', titulo: 'Encerramento e resumo', rotulo: 'Encerramento', grupo: 'Fechamento', icone: 'lucideFlag',

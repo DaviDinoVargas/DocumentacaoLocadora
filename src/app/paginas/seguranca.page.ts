@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgIcon } from '@ng-icons/core';
 import { ITENS_SEGURANCA, ORDEM_PRIORIDADE, type EstadoSeguranca } from '../dados/seguranca-itens';
+import seguranca from '../dados/seguranca.json';
 import { GraficoComponent } from '../shared/charts/grafico.component';
 import { baseDoGrafico, eixoCategoria, eixoValor, type TemaGrafico } from '../shared/charts/tema-grafico';
 import { ConceitosComponent, type Conceito } from '../shared/layout/conceitos.component';
@@ -12,6 +13,8 @@ import { SecaoComponent } from '../shared/layout/secao.component';
 import type { TomStatus } from '../shared/layout/status-badge.component';
 import { TabelaDadosComponent, type Celula, type ColunaTabela, type Linha } from '../shared/tabela/tabela-dados.component';
 
+const rodada = seguranca.rodada!;
+const zap = seguranca.zap!;
 const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
 
 @Component({
@@ -22,15 +25,16 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
     <app-pagina-cabecalho />
 
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <app-kpi-card rotulo="Achados" [valor]="itens.length" apoio="S1–S35, revisões de 12 e 13/out/2026" icone="lucideShieldAlert" />
+      <app-kpi-card rotulo="Achados" [valor]="itens.length" apoio="S1 a S35, situação em 14/out/2026" icone="lucideShieldAlert" />
       <app-kpi-card rotulo="Corrigidos" [valor]="contagem['Corrigido']" apoio="cada um reverificado por ataque automatizado" icone="lucideCircleCheck" />
       <app-kpi-card rotulo="Parciais" [valor]="contagem['Parcial']" [apoio]="idsParciais" icone="lucideTriangleAlert" />
       <app-kpi-card rotulo="Ignorados por decisão" [valor]="contagem['Ignorado']" [apoio]="idsIgnorados + ': Docker e CI fora de escopo'" icone="lucideCircleX" />
     </div>
 
     <app-nota tom="sucesso" titulo="Nenhum item crítico nem 'muito urgente' em aberto">
-      Na rodada de ataques de referência: 154 verificações aprovadas, 0 reprovadas, 1 pendência conhecida e nenhum erro 5xx sob carga.
-      Antes de uso com pessoas reais ou de publicação restam os três achados parciais e o endurecimento de implantação, tratados como evolução.
+      Na rodada de ataques de referência: {{ rodada.aprovadas }} de {{ rodada.total }} verificações aprovadas, 0 reprovadas, {{ rodada.informativas }} informativas e nenhum erro 5xx sob carga.
+      O OWASP ZAP ativo passou {{ zap.aprovadas }} de {{ zap.aprovadas + zap.reprovadas }} verificações, e seus dois alertas altos foram provados falsos positivos.
+      Antes de uso com pessoas reais ou de publicação restam os achados parciais e o endurecimento de implantação, tratados como evolução.
     </app-nota>
 
     <app-secao titulo="Panorama dos achados" descricao="Prioridade com que cada achado nasceu e o que aconteceu com ele." id="panorama">
@@ -62,7 +66,7 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
       </mat-accordion>
     </app-secao>
 
-    <app-secao titulo="Quem poderia atacar" descricao="O modelo de ameaça considera cinco atores. Ele não inclui o administrador do servidor." id="atores">
+    <app-secao titulo="Quem poderia atacar" descricao="O modelo de ameaça considera seis atores. Ele não inclui o administrador do servidor." id="atores">
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         @for (a of atores; track a.ator) {
           <article class="border-border bg-card flex h-full flex-col gap-3 rounded-xl border p-6">
@@ -109,13 +113,14 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
             <li>Revisão estática da Web API, do Angular, do serviço de ML, da configuração e do histórico do git (busca por segredos)</li>
             <li>Verificação ao vivo local: cabeçalhos, CORS, anti-CSRF, limite de corpo, rate limit, tempo de login e acesso ao ML com credencial de outro papel</li>
             <li>dotnet list package --vulnerable, npm audit e pip-audit</li>
-            <li>Bateria automatizada de ataques e carga (próxima página), reexecutada a cada correção</li>
+            <li>Bateria automatizada de ataques e carga (próxima página), reexecutada a cada correção, com fuzz do ML, SSRF, sessões por HTTPS e disputas entre duas instâncias da API</li>
+            <li>Varredura ativa e autenticada do OWASP ZAP contra a API e o front-end</li>
           </ul>
         </article>
         <article class="border-border bg-card flex flex-col gap-2 rounded-xl border p-6">
           <h3 class="text-title-m text-foreground">O que não foi feito</h3>
           <ul class="text-body-m text-muted-foreground list-disc pl-5">
-            <li>Pen-test e DAST externos (por exemplo OWASP ZAP) e teste contra ambiente publicado</li>
+            <li>Pen-test externo e teste contra ambiente publicado</li>
             <li>Validação com a webcam real, em condições de uso</li>
             <li>Revisão de banco, backup e logs de um ambiente de produção (inexistente)</li>
             <li>Execução de Docker e CI (fora de escopo por decisão)</li>
@@ -126,6 +131,8 @@ const ESTADOS: EstadoSeguranca[] = ['Corrigido', 'Parcial', 'Ignorado'];
   `
 })
 export class SegurancaPage {
+  protected readonly rodada = rodada;
+  protected readonly zap = zap;
   protected readonly itens = ITENS_SEGURANCA;
   protected readonly contagem: Record<EstadoSeguranca, number> = {
     Corrigido: ITENS_SEGURANCA.filter((i) => i.estado === 'Corrigido').length,
@@ -198,6 +205,7 @@ export class SegurancaPage {
     { icone: 'lucideUserX', ator: 'Funcionário mal-intencionado ou conta comprometida', tentaria: 'subir para Empresa, mudar o preço das taxas ou continuar entrando depois de desligado.', impede: 'papéis conferidos no servidor, taxas só da Empresa e acesso encerrado na hora ao desligar (token, conta e rosto).' },
     { icone: 'lucideBuilding2', ator: 'Administrador de outra empresa', tentaria: 'ler ou alterar clientes, aluguéis e câmeras de uma empresa vizinha trocando um identificador.', impede: 'filtro global por empresa no DbContext, ids de outra empresa respondendo 404 e câmeras do ML só da empresa dona.' },
     { icone: 'lucideNetwork', ator: 'Pessoa na mesma rede', tentaria: 'chamar o ML ou o banco direto, sem passar pela Web API.', impede: 'ML escutando só em 127.0.0.1, /face/* com token interno e falha fechada sem ML_ENV.' },
+    { icone: 'lucideWorkflow', ator: 'Usuário com pedidos simultâneos', tentaria: 'reservar o mesmo carro em dez pedidos de uma vez, usar um cupom de uso único em vários aluguéis ou devolver duas vezes.', impede: 'fila por empresa, trava no banco entre instâncias e índices únicos como última barreira.' },
     { icone: 'lucideFileSearch', ator: 'Quem lê logs e backups', tentaria: 'achar senhas, tokens, e-mails ou rostos em texto puro.', impede: 'logs sem senha nem comando inteiro, e-mail mascarado, refresh token só com hash e amostras faciais cifradas.' }
   ];
 
@@ -231,14 +239,14 @@ export class SegurancaPage {
         'Filtro global por EmpresaId e !Excluido no DbContext; EmpresaId vem do token; IDOR entre duas empresas barrado (B10–B16)',
         'Campos extras no corpo (empresaId, cargo, roles, isAdmin) são ignorados (mass assignment)',
         'Funcionário não cria taxas nem recursos reservados à Empresa; desligar o funcionário revoga tudo na hora',
-        'Comandos de aluguel e devolução serializados por empresa (reserva dupla e cupom de uso único)'
+        'Comandos de aluguel e devolução em fila por empresa, com trava no banco entre instâncias; unicidade por empresa em índices, e a violação vira 409'
       ]
     },
     {
       icone: 'lucideGlobe', titulo: 'API e borda', aberto: false,
       itens: [
         'Cabeçalhos de segurança, sem X-Powered-By e sem versão no cabeçalho Server; HSTS e redirecionamento HTTPS fora de desenvolvimento',
-        'CORS só com a origem exata configurada; Swagger só em Development; erro sem pilha de execução',
+        'CORS só com a origem exata configurada; Swagger só em Development; erro sem pilha de execução; TLS 1.2 ou 1.3, com 1.0 e 1.1 recusados',
         'Corpo ≤ 2 MB (413), rate limit global, de autenticação e de registro, IPv6 por /64, TRACE recusado',
         'Só EF Core: sem SQL cru, e SQL injection (inclusive por tempo) e XSS recusados; JSON escapa < > &'
       ]
@@ -249,6 +257,7 @@ export class SegurancaPage {
         'Falha fechada: ML_ENV ausente conta como produção; escuta só em 127.0.0.1; /docs e /health mínimos fora de desenvolvimento',
         '/face/* exige X-Internal-Token (comparação em tempo constante) e recusa o token padrão público em produção',
         'Câmeras, placas e stream só da empresa dona (CAMERA_EMPRESA_ID); ticket de vídeo de uso único; limites por usuário',
+        'Entrada hostil recusada sem cair: imagem corrompida, bomba de pixels, corpo de 30 MB, JSON malformado e texto adversário no chat',
         'Modelos com SHA-256 e commit fixo; dependências travadas com hash e instaladas com --require-hashes; recortes de câmera apagados em 24 h'
       ]
     },
@@ -275,13 +284,13 @@ export class SegurancaPage {
     { categoria: 'A01 Quebra de controle de acesso', controles: 'Papéis em todos os controllers, filtro por empresa, IDOR barrado entre duas empresas, ML só da empresa dona, taxas só da Empresa', itens: 'S24, S26, S32, S34' },
     { categoria: 'A02 Falhas criptográficas', controles: 'JWT assinado, refresh token só com hash, amostras faciais em AES-256-GCM, PBKDF2 de 210.000 iterações, HSTS', itens: 'S1, S17, S21 · resta S8 (TLS no nginx)' },
     { categoria: 'A03 Injeção', controles: 'Somente EF Core; SQL injection e injeção por tempo recusadas; JSON escapado; sem innerHTML no front', itens: 'S13, S35' },
-    { categoria: 'A04 Design inseguro', controles: 'Serialização por empresa nas regras de aluguel; prova de vida; limites de cadastro', itens: 'S34 · restam S3 e S6' },
+    { categoria: 'A04 Design inseguro', controles: 'Fila por empresa e trava no banco nas regras de aluguel; índices únicos; prova de vida; limites de cadastro', itens: 'S34 · restam S3 e S6' },
     { categoria: 'A05 Configuração incorreta', controles: 'ML com falha fechada, Swagger só em dev, CORS fechado, /docs removido em produção', itens: 'S12, S25 · restam S2, S7 e S8' },
     { categoria: 'A06 Componentes vulneráveis', controles: 'dotnet, npm (--omit=dev) e pip-audit limpos; pacotes sem uso removidos; dependências do ML com hash', itens: 'S5, S23, S30' },
     { categoria: 'A07 Falhas de identificação e autenticação', controles: 'Bloqueio por conta + IP, mensagens genéricas, 2FA TOTP, refresh rotativo, recuperação de senha neutra', itens: 'S18, S20, S27, S28, S29 · resta S3' },
     { categoria: 'A08 Integridade de software e dados', controles: 'Pesos de modelos com SHA-256 e commit fixo; locks com hash', itens: 'S23, S33 · resta S16 (CI)' },
     { categoria: 'A09 Falhas de log e monitoramento', controles: 'Sem senha nem dados pessoais em log; trilha de auditoria por empresa com tela', itens: 'S11, S14, S22' },
-    { categoria: 'A10 SSRF', controles: 'Sem achado: a API só chama o ML configurado; o link de redefinição usa FRONTEND_URL, não o Host da requisição', itens: '—' }
+    { categoria: 'A10 SSRF', controles: 'Sem achado: a API só chama o ML configurado, o link de redefinição usa FRONTEND_URL, não o Host da requisição, e um canário confirma que nenhuma URL plantada abre conexão (L01)', itens: '—' }
   ];
 
   protected readonly colunasOwasp: ColunaTabela[] = [

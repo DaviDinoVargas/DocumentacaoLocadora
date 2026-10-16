@@ -273,7 +273,6 @@
         "Web API"
       ],
       "arquivos": [
-        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/JwtProvider.cs",
         "Server/LocadoraDeVeiculos.Infraestrutura.Orm/jwt/Services/AccessTokenProvider.cs",
         "Server/web-api/Config/Identify/IdentifyConfig.cs"
       ]
@@ -284,7 +283,6 @@
         "Web API"
       ],
       "arquivos": [
-        "Server/LocadoraDeVeiculos.Core.Aplicacao/ModuloAutenticacao/Services/JwtProvider.cs",
         "Server/LocadoraDeVeiculos.Infraestrutura.Orm/jwt/Services/AccessTokenProvider.cs",
         "Server/web-api/Config/Identify/IdentifyConfig.cs"
       ]
