@@ -77,7 +77,7 @@ const corrigidos = ITENS_SEGURANCA.filter((i) => i.estado === 'Corrigido').lengt
 
     <div class="flex flex-wrap items-center gap-3">
       <a hlmBtn routerLink="/" variant="default"><ng-icon name="lucideRotateCcw" aria-hidden="true" /> Voltar ao começo (o cubo explode)</a>
-      <a hlmBtn routerLink="/observacoes" variant="outline">Rever as decisões</a>
+      <a hlmBtn routerLink="/decisoes" variant="outline">Rever as decisões</a>
       <a hlmBtn variant="ghost" href="https://github.com/DaviDinoVargas/DocumentacaoLocadora" target="_blank" rel="noopener noreferrer">
         Repositório desta documentação <ng-icon name="lucideExternalLink" aria-hidden="true" />
       </a>
@@ -148,7 +148,7 @@ export class EncerramentoPage {
   ];
 
   protected readonly suposicoes = [
-    'Quando o texto de apoio e o código divergem, vale o código; as decisões e os limites conhecidos estão na página Observações.',
+    'Quando o texto de apoio e o código divergem, vale o código; as decisões e os limites conhecidos estão na página Decisões e limites.',
     'Os 35 achados de segurança foram classificados à mão a partir dos relatórios; as demais contagens são calculadas a partir do código e dos resultados de teste.',
     'Cobertura, mutação, carga, Lighthouse e a bateria de ataques vêm das execuções registradas em 14 de outubro de 2026; os números não foram medidos de novo.',
     '"Testes declarados" conta [TestMethod], it() e def test_; o número executado é maior porque os [DataRow] expandem em vários casos.',

@@ -70,7 +70,7 @@ export const PAGINAS: readonly PaginaDoc[] = [
   },
   {
     caminho: 'ataques', titulo: 'Bateria de ataques', rotulo: 'Bateria de ataques', grupo: 'Segurança', icone: 'lucideShieldAlert',
-    resumo: '157 verificações automatizadas por categoria, evolução entre rodadas e carga.',
+    resumo: 'Verificações automatizadas por categoria, o OWASP ZAP, a evolução entre rodadas e a carga.',
     carregar: () => import('../paginas/ataques.page').then((m) => m.AtaquesPage)
   },
   {
@@ -104,9 +104,9 @@ export const PAGINAS: readonly PaginaDoc[] = [
     carregar: () => import('../paginas/configuracao.page').then((m) => m.ConfiguracaoPage)
   },
   {
-    caminho: 'observacoes', titulo: 'Observações', rotulo: 'Observações', grupo: 'Fechamento', icone: 'lucideTriangleAlert',
-    resumo: 'Onde o material do TCC e o código divergem — e a decisão tomada em cada caso.',
-    carregar: () => import('../paginas/observacoes.page').then((m) => m.ObservacoesPage)
+    caminho: 'decisoes', titulo: 'Decisões e limites', rotulo: 'Decisões', grupo: 'Fechamento', icone: 'lucideScale',
+    resumo: 'As escolhas de projeto, o motivo de cada uma e os limites que elas deixam.',
+    carregar: () => import('../paginas/decisoes.page').then((m) => m.DecisoesPage)
   },
   {
     caminho: 'encerramento', titulo: 'Encerramento e resumo', rotulo: 'Encerramento', grupo: 'Fechamento', icone: 'lucideFlag',
