@@ -1911,5 +1911,9 @@
       "limite": "",
       "cabecalho": false
     }
-  ]
+  ],
+  "reflexaoTestes": {
+    "endpointsEPapeis": 12,
+    "comandosSerializados": 7
+  }
 }

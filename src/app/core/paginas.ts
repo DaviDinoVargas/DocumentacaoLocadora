@@ -39,6 +39,11 @@ export const PAGINAS: readonly PaginaDoc[] = [
     carregar: () => import('../paginas/backend.page').then((m) => m.BackendPage)
   },
   {
+    caminho: 'concorrencia', titulo: 'Concorrência e integridade', rotulo: 'Concorrência', grupo: 'Sistema', icone: 'lucideWorkflow',
+    resumo: 'Fila por empresa, trava no banco, índices únicos e a prova com pedidos simultâneos e duas instâncias da API.',
+    carregar: () => import('../paginas/concorrencia.page').then((m) => m.ConcorrenciaPage)
+  },
+  {
     caminho: 'api', titulo: 'Referência da API', rotulo: 'Referência da API', grupo: 'Sistema', icone: 'lucideRoute',
     resumo: 'Todos os endpoints da Web API e do serviço de ML, com papel exigido e limite de uso.',
     carregar: () => import('../paginas/api.page').then((m) => m.ApiPage)
@@ -72,6 +77,16 @@ export const PAGINAS: readonly PaginaDoc[] = [
     caminho: 'testes', titulo: 'Testes e qualidade', rotulo: 'Testes e qualidade', grupo: 'Qualidade', icone: 'lucideFlaskConical',
     resumo: 'Pirâmide de testes por camada, onde estão os testes e as lacunas conhecidas.',
     carregar: () => import('../paginas/testes.page').then((m) => m.TestesPage)
+  },
+  {
+    caminho: 'reflexao', titulo: 'Reflexão em C#', rotulo: 'Reflexão em C#', grupo: 'Qualidade', icone: 'lucideSwords',
+    resumo: 'Testes com System.Reflection que varrem os 99 endpoints e os comandos de aluguel e devolução.',
+    carregar: () => import('../paginas/reflexao.page').then((m) => m.ReflexaoPage)
+  },
+  {
+    caminho: 'acessibilidade', titulo: 'Acessibilidade e desempenho', rotulo: 'Acessibilidade', grupo: 'Qualidade', icone: 'lucideEye',
+    resumo: 'Lighthouse, axe-core e Playwright por tela, tamanho do pacote e o que as medições fizeram corrigir.',
+    carregar: () => import('../paginas/acessibilidade.page').then((m) => m.AcessibilidadePage)
   },
   {
     caminho: 'metricas', titulo: 'Métricas e desempenho', rotulo: 'Métricas', grupo: 'Qualidade', icone: 'lucideGauge',

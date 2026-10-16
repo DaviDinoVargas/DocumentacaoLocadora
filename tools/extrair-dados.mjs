@@ -721,6 +721,17 @@ const metricas = { lighthouse: null, e2e: null, pacote: null, placa: null, cober
   }
 }
 
+{
+  const contar = (rel) => {
+    const f = join(FONTE, rel);
+    return existsSync(f) ? (ler(f).match(/\[TestMethod/g) ?? []).length : 0;
+  };
+  metricas.reflexaoTestes = {
+    endpointsEPapeis: contar('Server/LocadoraDeVeiculos.Tests.WebApi/ReflexaoDeSegurancaTests.cs'),
+    comandosSerializados: contar('Server/LocadoraDeVeiculos.Testes.Unidade/Seguranca/ComandosSerializadosPorReflexaoTests.cs')
+  };
+}
+
 // OWASP ZAP: última varredura completa
 let zap = null;
 if (existsSync(resultadosDir)) {
