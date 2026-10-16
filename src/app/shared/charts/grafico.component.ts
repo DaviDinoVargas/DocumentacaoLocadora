@@ -14,7 +14,7 @@ export interface TabelaAlternativa {
 }
 
 /**
- * Gráfico ECharts (a biblioteca única de gráficos do software documentado, SKILL §19): cores lidas dos
+ * Gráfico ECharts (a biblioteca única de gráficos do sistema, SKILL §19): cores lidas dos
  * tokens, reação ao tema claro/escuro, resumo acessível e a opção "Ver como tabela" em todo gráfico.
  */
 @Component({

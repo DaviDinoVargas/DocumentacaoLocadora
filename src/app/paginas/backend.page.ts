@@ -156,7 +156,7 @@ export class BackendPage {
 
   protected readonly persistencia = [
     { icone: 'lucideDatabase', titulo: 'Sem SQL cru', texto: 'Nenhum FromSqlRaw ou ExecuteSqlRaw: tudo passa pelo EF Core, o que elimina injeção por concatenação.' },
-    { icone: 'lucideLayers', titulo: 'Migrations versionadas', texto: `${backend.migrations.length} migrations, do primeiro esquema (funcionários e grupos) à auditoria e ao consentimento facial.` },
+    { icone: 'lucideLayers', titulo: 'Migrations versionadas', texto: `${backend.migrations.length} migrations, do primeiro esquema (funcionários e grupos) aos índices únicos por empresa, passando pela auditoria e pelo consentimento facial.` },
     { icone: 'lucideEraser', titulo: 'Exclusão lógica', texto: 'Excluido e ExcluidoEmUtc na EntidadeBase; as consultas nunca devolvem o que foi excluído.' },
     { icone: 'lucideShield', titulo: 'Filtro por empresa no DbContext', texto: 'O contexto descobre por reflexão as entidades que herdam de EntidadeBase<T> e aplica HasQueryFilter com EmpresaId e !Excluido. O provedor de empresa é um objeto nunca nulo (null object): o EF avalia o acesso ao membro antes do curto-circuito do C#.' },
     { icone: 'lucideClock', titulo: 'Retenção automática', texto: 'LimpezaPeriodicaService apaga rosto sem uso há 12 meses, IP antigo da auditoria e refresh tokens vencidos.' },
@@ -164,7 +164,7 @@ export class BackendPage {
   ];
 
   protected readonly padroes = [
-    { icone: 'lucideWorkflow', titulo: 'CQRS e MediatR', texto: 'Um command ou query por caso de uso, com handler próprio; os controllers só montam o comando e traduzem o resultado. SerializarPorEmpresaBehavior envolve todos os pedidos.' },
+    { icone: 'lucideWorkflow', titulo: 'CQRS e MediatR', texto: 'Um command ou query por caso de uso, com handler próprio; os controllers só montam o comando e traduzem o resultado. SerializarPorEmpresaBehavior envolve os comandos de aluguel e devolução, com um semáforo por empresa e uma trava no banco (sp_getapplock) que vale entre instâncias.' },
     { icone: 'lucideShield', titulo: 'Isolamento por empresa', texto: 'Filtro global por EmpresaId e !Excluido no DbContext; EmpresaId vem do token e o campo enviado no corpo é ignorado (mass assignment barrado).' },
     { icone: 'lucideKeyRound', titulo: 'Identidade', texto: 'ASP.NET Identity com SignInManager e lockout. Papéis Empresa e Funcionário; o Funcionário herda a empresa que o cadastrou.' },
     { icone: 'lucideCircleCheck', titulo: 'Validação', texto: 'FluentValidation por command; documentos (CPF/CNPJ), senha, foto do veículo e período do aluguel conferidos no servidor.' },
@@ -176,7 +176,7 @@ export class BackendPage {
     { tipo: 'RequisicaoInvalida', http: '400', quando: 'Entrada inválida ou regra de negócio violada' },
     { tipo: 'NaoAutorizado', http: '401', quando: 'Sem sessão, token revogado ou credencial incorreta' },
     { tipo: 'RegistroNaoEncontrado', http: '404', quando: 'Id inexistente ou de outra empresa' },
-    { tipo: 'RegistroDuplicado', http: '409', quando: 'Valor único repetido' },
+    { tipo: 'RegistroDuplicado', http: '409', quando: 'Valor único repetido, inclusive quando o índice único barra dois pedidos simultâneos' },
     { tipo: 'EstadoInvalido', http: '409', quando: 'Transição não permitida (iniciar duas vezes, reserva dupla)' },
     { tipo: 'ExclusaoBloqueada', http: '422', quando: 'Exclusão com vínculo ativo' },
     { tipo: 'SegundoFatorObrigatorio', http: '428', quando: 'Falta o código do segundo fator no login' },

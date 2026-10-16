@@ -30,7 +30,7 @@ const papeisDoModulo = (modulo: string): string => {
       <app-kpi-card rotulo="Módulos" [valor]="backend.modulos.length" apoio="cada um com controller e handlers" icone="lucideBriefcase" />
       <app-kpi-card rotulo="Commands e queries" [valor]="totalComandos + totalConsultas" [apoio]="totalComandos + ' commands · ' + totalConsultas + ' queries'" icone="lucideWorkflow" />
       <app-kpi-card rotulo="Validadores" [valor]="totalValidadores" apoio="FluentValidation, um por entrada" icone="lucideCircleCheck" />
-      <app-kpi-card rotulo="Migrations" [valor]="backend.migrations.length" apoio="do primeiro esquema à auditoria e ao consentimento facial" icone="lucideDatabase" />
+      <app-kpi-card rotulo="Migrations" [valor]="backend.migrations.length" apoio="do primeiro esquema aos índices únicos por empresa" icone="lucideDatabase" />
     </div>
 
     <app-secao titulo="Módulos de negócio" descricao="Quantidades extraídas de Core.Aplicacao e dos controllers. O papel vem do [Authorize] real de cada endpoint." id="modulos">
@@ -186,7 +186,7 @@ export class DominioPage {
       icone: 'lucideRefreshCw', titulo: 'Ciclo de vida do aluguel', resumo: 'Reservado → Em andamento → Concluído ou Cancelado.',
       paragrafos: [
         'Só um aluguel Reservado pode ser iniciado; Concluído e Cancelado não podem mais ser editados; Concluído e Em andamento não podem ser excluídos (PodeSerEditado e PodeSerExcluido).',
-        'Comandos de aluguel e devolução passam por SerializarPorEmpresaBehavior: dois pedidos simultâneos da mesma empresa nunca correm em paralelo, o que impede reserva dupla e iniciar o mesmo aluguel várias vezes.',
+        'Comandos de aluguel e devolução passam por SerializarPorEmpresaBehavior: dois pedidos simultâneos da mesma empresa nunca correm em paralelo, mesmo em instâncias diferentes da API, o que impede reserva dupla e iniciar o mesmo aluguel várias vezes.',
         'Cliente, veículo e condutor precisam ser da empresa; o período máximo é de 365 dias; taxas inexistentes são recusadas em vez de ignoradas.'
       ]
     },
@@ -209,7 +209,7 @@ export class DominioPage {
       icone: 'lucideTag', titulo: 'Cupons e desafios', resumo: 'Validade, limite de uso e desconto nunca maior que o valor.',
       paragrafos: [
         'Cupom.EstaValido exige cupom ativo, dentro da validade e com usos restantes; CalcularDesconto aceita percentual ou valor fixo e nunca passa do valor-base.',
-        'O uso do cupom é registrado na contratação e, por causa da serialização por empresa, um cupom de uso único não vale duas vezes em pedidos simultâneos.',
+        'O uso do cupom é registrado na contratação e, por causa da fila por empresa, um cupom de uso único não vale duas vezes em pedidos simultâneos.',
         'Um desafio de cupom é uma meta (N aluguéis em um período) que libera um cupom de recompensa para o cliente.'
       ]
     },

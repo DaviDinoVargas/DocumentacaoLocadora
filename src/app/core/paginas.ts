@@ -20,7 +20,7 @@ export interface PaginaDoc {
 export const PAGINAS: readonly PaginaDoc[] = [
   {
     caminho: '', titulo: 'Visão geral', rotulo: 'Visão geral', grupo: 'Começar', icone: 'lucideLayoutDashboard',
-    resumo: 'O que é o sistema, quanto ele tem de código, módulos, testes e segurança — em números reais.',
+    resumo: 'O que é o sistema, os fluxos principais e quanto ele tem de código, módulos, testes e segurança.',
     carregar: () => import('../paginas/visao-geral.page').then((m) => m.VisaoGeralPage)
   },
   {
@@ -75,7 +75,7 @@ export const PAGINAS: readonly PaginaDoc[] = [
   },
   {
     caminho: 'testes', titulo: 'Testes e qualidade', rotulo: 'Testes e qualidade', grupo: 'Qualidade', icone: 'lucideFlaskConical',
-    resumo: 'Pirâmide de testes por camada, onde estão os testes e as lacunas conhecidas.',
+    resumo: 'Pirâmide de testes por camada, cobertura, mutação e as lacunas conhecidas.',
     carregar: () => import('../paginas/testes.page').then((m) => m.TestesPage)
   },
   {
@@ -90,7 +90,7 @@ export const PAGINAS: readonly PaginaDoc[] = [
   },
   {
     caminho: 'metricas', titulo: 'Métricas e desempenho', rotulo: 'Métricas', grupo: 'Qualidade', icone: 'lucideGauge',
-    resumo: 'Latência da API, pacote do front-end, reconhecimento facial no LFW e plano de medição.',
+    resumo: 'Quadro-resumo medido, latência da API, reconhecimento facial no LFW e o que falta medir.',
     carregar: () => import('../paginas/metricas.page').then((m) => m.MetricasPage)
   },
   {

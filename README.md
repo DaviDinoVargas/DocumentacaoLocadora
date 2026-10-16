@@ -1,10 +1,10 @@
 # DocumentacaoLocadora
 
-Documentação técnica do software do TCC **Locadora de Veículos** (Academia do Programador), publicada no GitHub Pages:
+Documentação técnica do sistema **Locadora de Veículos** (TCC da Academia do Programador), publicada no GitHub Pages:
 
 **https://davidinovargas.github.io/DocumentacaoLocadora/**
 
-São 16 páginas — arquitetura, domínio, back-end .NET, referência da API, front-end, design system, serviço de ML, segurança, bateria de ataques, testes, métricas, dependências, configuração, observações e encerramento —, cada uma com gráficos e tabelas feitos **só com números extraídos do código-fonte e do material do TCC**. Um cubo mágico em 3D, fixo no canto direito, monta uma peça a cada página lida e se resolve na última.
+São 19 páginas — visão geral, arquitetura, domínio, back-end .NET, concorrência e integridade, referência da API, front-end, design system, serviço de ML, segurança, bateria de ataques, testes, reflexão em C#, acessibilidade e desempenho, métricas, dependências, configuração, decisões e encerramento —, cada uma com gráficos e tabelas feitos **só com números extraídos do código-fonte e dos resultados de teste**. Um cubo mágico em 3D, fixo no canto direito, monta uma peça a cada página lida e se resolve na última.
 
 ## Stack
 
@@ -19,7 +19,7 @@ São 16 páginas — arquitetura, domínio, back-end .NET, referência da API, f
 | Ícones e fonte | Lucide (`@ng-icons/lucide`) e Inter variável servida de `public/fonts` |
 | Testes | Vitest (via `ng test`) |
 
-O visual — paleta, tipografia, espaçamentos, raios, elevação tonal, movimento, tema claro/escuro e padrões de componente (barra lateral, KPIs, selos de status, tabela com busca/filtros/ordenação/CSV, gráfico com "Ver como tabela") — reproduz o do software documentado, a partir do `SKILL.md` e do `styles.css` dele.
+O visual — paleta, tipografia, espaçamentos, raios, elevação tonal, movimento, tema claro/escuro e padrões de componente (barra lateral, KPIs, selos de status, tabela com busca/filtros/ordenação/CSV, gráfico com "Ver como tabela") — reproduz o do próprio sistema, a partir do `SKILL.md` e do `styles.css` dele.
 
 ## Como rodar
 
@@ -34,14 +34,14 @@ npm run build         # build de produção em dist/documentacao-locadora/browse
 
 ### Regenerar os dados
 
-Os números das páginas ficam em `src/app/dados/*.json`, gerados por `tools/extrair-dados.mjs` a partir do repositório do software e do material do TCC. Os JSON gerados **estão versionados**, então o build não depende dessas pastas; para atualizá-los:
+Os números das páginas ficam em `src/app/dados/*.json`, gerados por `tools/extrair-dados.mjs` a partir do repositório do sistema e das pastas de resultados. Os JSON gerados **estão versionados**, então o build não depende dessas pastas; para atualizá-los:
 
 ```bash
-# padrões: A:/TCC/LocadoraDeVeiculos (código) e A:/TCC (material complementar)
+# padrões: A:/TCC/LocadoraDeVeiculos (código) e A:/TCC (relatórios e resultados das rodadas)
 LOCADORA_FONTE=/caminho/LocadoraDeVeiculos LOCADORA_TCC=/caminho/TCC npm run dados
 ```
 
-O script conta linhas por camada e módulo, lê os endpoints dos controllers (.NET) e dos roteadores (FastAPI), as rotas do Angular, as entidades e migrations, as dependências (npm, NuGet, pip), as variáveis de ambiente, os tokens de design do `styles.css`, os resultados da última rodada de ataques e as medições do LFW. Os 35 achados de segurança (`src/app/dados/seguranca-itens.ts`) e a cobertura (`cobertura.ts`) são curados à mão a partir do relatório de segurança e do histórico do projeto, com a fonte indicada no próprio arquivo.
+O script conta linhas por camada e módulo, lê os endpoints dos controllers (.NET) e dos roteadores (FastAPI), as rotas do Angular, as entidades e migrations, as dependências (npm, NuGet, pip), as variáveis de ambiente, os tokens de design do `styles.css`, os resultados da última rodada de ataques (com a carga e o OWASP ZAP), as medições do LFW, do Lighthouse, do axe e do Playwright, o tamanho do pacote, a cobertura de código, a mutação e os testes de reflexão. Os 35 achados de segurança (`src/app/dados/seguranca-itens.ts`) e a cobertura do serviço de ML (`cobertura.ts`) são classificados à mão a partir dos relatórios do projeto, com a fonte indicada no próprio arquivo.
 
 ## Build e deploy no GitHub Pages
 
@@ -99,7 +99,7 @@ src/app/
   core/            registro de páginas, navegação, tema, ícones, formatação
   cubo/            máquina de estados, física, giros, cena Three.js e o componente do cubo
   dados/           JSON extraídos do código + achados de segurança e cobertura curados
-  paginas/         as 16 páginas (carregadas sob demanda)
+  paginas/         as 19 páginas (carregadas sob demanda)
   shared/          layout (barra lateral, KPIs, notas), gráfico, tabela de dados, helm do Spartan
 tools/             extrair-dados, pos-build (404.html) e servir-pages
 public/            favicon e fontes
@@ -107,12 +107,13 @@ public/            favicon e fontes
 
 ## O que foi documentado e suposições
 
-Resumo, suposições e a lista de divergências entre o material do TCC e o código estão nas páginas **Encerramento** e **Observações**. Em poucas linhas:
+Resumo e suposições estão na página **Encerramento**, e as escolhas de projeto com seus limites, na página **Decisões e limites**. Em poucas linhas:
 
-- O software foi apenas lido (estado de 13/out/2026); nada foi alterado nele.
-- O código vence o texto do TCC; conflitos (segurança, reconhecimento facial, nginx, migrations, testes, validação de CPF/CNPJ…) estão registrados em *Observações*.
-- Docker, nginx e CI do software ficam fora de escopo, como decidido pelo autor.
-- Latência, pacote do front-end e cobertura vêm das medições registradas no material, não foram refeitas.
+- O estado documentado é o de 14/out/2026; o código do sistema foi apenas lido, nada foi alterado nele.
+- Quando o texto de apoio e o código divergem, vale o código.
+- Docker, nginx e CI do sistema ficam fora de escopo por decisão do projeto.
+- Latência, cobertura, mutação, Lighthouse e a bateria de ataques vêm das execuções registradas nessa data; os números não foram medidos de novo.
+- Medidas locais servem como linha de base: máquina de desenvolvimento, sem rede real e com poucos dados.
 - As imagens de pré-visualização do PDF e dos slides não foram reaproveitadas; os diagramas foram redesenhados com os tokens do tema.
 
 ## Licença
